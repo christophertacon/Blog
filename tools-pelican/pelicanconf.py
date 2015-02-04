@@ -30,7 +30,7 @@ LINKS = (
 SOCIAL = (('NGCM Twitter', 'https://twitter.com/NGCM_Soton'),
           )
 
-DEFAULT_PAGINATION = True
+DEFAULT_PAGINATION = False
 
 DEFAULT_CATEGORY = 'Tools'
 
