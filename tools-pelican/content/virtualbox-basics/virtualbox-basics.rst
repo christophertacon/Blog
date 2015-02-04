@@ -7,64 +7,112 @@ Introduction to Virtualbox
    virtualbox-basics
 :authors: Ian Hawke
 
-This is a fake entry, to serve as a template. We demonstrate how to include a bitmap, show it, and make it downloadable, point to text files and a URL on a different site.
+What follows is the zero motivation and explanation instructions for getting the FEEG6003 base VirtualBox image (an LUbuntu 14.10 OS) up and running.
 
-
-.. figure:: {attach}virtualbox-logo.png
+.. figure:: {attach}virtualbox-images/virtualbox-logo.png
    :figwidth: 30%
    :width: 100%
    :alt: Virtualbox logo
    :align: left
 
-The bitmap is available `here <{attach}virtualbox-logo.png>`__.
+First `download and install VirtualBox for your operating system <https://www.virtualbox.org/wiki/Downloads>`__.
 
-We provide three configfiles:
- - `conf1.txt <{attach}configfiles/conf1.txt>`__.
- - `conf2.txt <{attach}configfiles/conf2.txt>`__.
- - `conf3.txt <{attach}configfiles/conf3.txt>`__.
+.. figure:: {attach}virtualbox-images/VBoxDownload.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Virtualbox download
+   :align: left
 
-Once we have used 'attach', we can also refer to the `relative directory <configfiles>`__.
+Second `download the feeg6003lubuntu image <www.google.co.uk>`__ (location TBD).
 
-We can refer to URLs in other places, such as
-`Downloads for Virtualbox <https://www.virtualbox.org/wiki/Downloads>`__.
+.. figure:: {attach}virtualbox-images/ImportAppliance1.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Importing the virtual machine
+   :align: left
 
-And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text.
-And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text. And here is a lot more
-text.
+Then import the virtual machine into VirtualBox.
 
-And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text.
+.. figure:: {attach}virtualbox-images/ImportAppliance2.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Importing the virtual machine
+   :align: left
 
-And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text.
+To start the machine just press **Start**.
 
-And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text. And here is And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  And here is a lot more text.  a lot more text. And here is a lot more text. And here is a lot more text. And here is a lot more text.
+.. figure:: {attach}virtualbox-images/StartVM.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Starting the virtual machine
+   :align: left
+
+The machine name, username and password are all the same: ``feeg6003``. Enter the password once the login screen appears.
+
+.. figure:: {attach}virtualbox-images/LUbuntu1.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Login screen
+   :align: left
+
+At this point you have a working virtual machine, but it will be awkward to work with. So we need to make it work better with your hardware by installing the Guest Additions. First we need to install a C compiler (it's a *really* basic VM!). Open a terminal (either from the menu, Accessories, or by pressing ``Ctrl+Alt+T``).
+
+.. figure:: {attach}virtualbox-images/terminal.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Open a terminal
+   :align: left
+
+Install gcc by typing::
+
+    sudo apt-get install gcc
+
+.. figure:: {attach}virtualbox-images/gcc.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Installing gcc
+   :align: left
+
+Next, go to the *external* menu (that is, the menu on your "real" machine), and choose Devices, then Insert Guest Additions, ...
+
+.. figure:: {attach}virtualbox-images/GuestAdditions1.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Getting Guest Additions going
+   :align: left
+
+Now we need to actually install the software. Back in the terminal, change directory to the "CD" by typing something like::
+
+    cd /media/feeg6003/VirtualBox...
+
+You can use the tab key to complete each entry: there should be no ambiguity here. Then install the software by typing::
+
+    sudo sh ./VBoxLinuxAdditions.sh
+
+This should rapidly say it's installed the software.
+
+.. figure:: {attach}virtualbox-images/GuestAdditions2.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Installing Guest Additions
+   :align: left
+
+Finally, close the terminal, "eject the CD", and reboot the virtual machine. To do this, select logout from the menu, then select reboot. Once the VM restarts, you should have much better screen resolution.
+
+From this base image you can install whatever software you want or need onto the VM. Using the package manager is the simplest way to install software. We did this using ``apt-get`` above, but other tools include the software centre
+
+.. figure:: {attach}virtualbox-images/software-centre.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: Software centre
+   :align: left
+
+or ``synaptic``.
+
+.. figure:: {attach}virtualbox-images/synaptic.png
+   :figwidth: 30%
+   :width: 100%
+   :alt: synaptic
+   :align: left
+
+This base image can now have all the necessary software installed on, for re-distribution ready to demonstrate the tool or area you're focusing on.
