@@ -35,42 +35,42 @@
 <p>tags: <a href="./tag/research.html">Research</a> <a href="./tag/infrastructure.html">Infrastructure</a> <a href="./tag/productivity.html">Productivity</a> <a href="./tag/reproducibility.html">Reproducibility</a> <a href="./tag/testing.html">Testing</a> </p>
 </footer><!-- /.post-info --><p>What follows is the zero motivation and explanation instructions for getting the FEEG6003 base VirtualBox image (an LUbuntu 14.10 OS) up and running.</p>
 <div class="figure align-left" style="width: 30%">
-<img alt="Virtualbox logo" src="{attach}virtualbox-images/virtualbox-logo.png" style="width: 100%;" />
+<img alt="Virtualbox logo" src="./virtualbox-basics/virtualbox-images/virtualbox-logo.png" style="width: 100%;" />
 </div>
 <p>First <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">download and install VirtualBox for your operating system</a>.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Virtualbox download" src="{attach}virtualbox-images/VBoxDownload.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Virtualbox download" src="./virtualbox-basics/virtualbox-images/VBoxDownload.png" style="width: 100%;" />
 </div>
 <p>Second <a class="reference external" href="www.google.co.uk">download the feeg6003lubuntu image</a> (location TBD).</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Importing the virtual machine" src="{attach}virtualbox-images/ImportAppliance1.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Importing the virtual machine" src="./virtualbox-basics/virtualbox-images/ImportAppliance1.png" style="width: 100%;" />
 </div>
 <p>Then import the virtual machine into VirtualBox.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Importing the virtual machine" src="{attach}virtualbox-images/ImportAppliance2.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Importing the virtual machine" src="./virtualbox-basics/virtualbox-images/ImportAppliance2.png" style="width: 100%;" />
 </div>
 <p>To start the machine just press <strong>Start</strong>.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Starting the virtual machine" src="{attach}virtualbox-images/StartVM.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Starting the virtual machine" src="./virtualbox-basics/virtualbox-images/StartVM.png" style="width: 100%;" />
 </div>
 <p>The machine name, username and password are all the same: <tt class="docutils literal">feeg6003</tt>. Enter the password once the login screen appears.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Login screen" src="{attach}virtualbox-images/LUbuntu1.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Login screen" src="./virtualbox-basics/virtualbox-images/LUbuntu1.png" style="width: 100%;" />
 </div>
 <p>At this point you have a working virtual machine, but it will be awkward to work with. So we need to make it work better with your hardware by installing the Guest Additions. First we need to install a C compiler (it's a <em>really</em> basic VM!). Open a terminal (either from the menu, Accessories, or by pressing <tt class="docutils literal">Ctrl+Alt+T</tt>).</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Open a terminal" src="{attach}virtualbox-images/terminal.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Open a terminal" src="./virtualbox-basics/virtualbox-images/terminal.png" style="width: 100%;" />
 </div>
 <p>Install gcc by typing:</p>
 <pre class="literal-block">
 sudo apt-get install gcc
 </pre>
-<div class="figure align-left" style="width: 30%">
-<img alt="Installing gcc" src="{attach}virtualbox-images/gcc.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Installing gcc" src="./virtualbox-basics/virtualbox-images/gcc.png" style="width: 100%;" />
 </div>
 <p>Next, go to the <em>external</em> menu (that is, the menu on your &quot;real&quot; machine), and choose Devices, then Insert Guest Additions, ...</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Getting Guest Additions going" src="{attach}virtualbox-images/GuestAdditions1.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Getting Guest Additions going" src="./virtualbox-basics/virtualbox-images/GuestAdditions1.png" style="width: 100%;" />
 </div>
 <p>Now we need to actually install the software. Back in the terminal, change directory to the &quot;CD&quot; by typing something like:</p>
 <pre class="literal-block">
@@ -81,17 +81,17 @@ cd /media/feeg6003/VirtualBox...
 sudo sh ./VBoxLinuxAdditions.sh
 </pre>
 <p>This should rapidly say it's installed the software.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Installing Guest Additions" src="{attach}virtualbox-images/GuestAdditions2.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Installing Guest Additions" src="./virtualbox-basics/virtualbox-images/GuestAdditions2.png" style="width: 100%;" />
 </div>
 <p>Finally, close the terminal, &quot;eject the CD&quot;, and reboot the virtual machine. To do this, select logout from the menu, then select reboot. Once the VM restarts, you should have much better screen resolution.</p>
 <p>From this base image you can install whatever software you want or need onto the VM. Using the package manager is the simplest way to install software. We did this using <tt class="docutils literal"><span class="pre">apt-get</span></tt> above, but other tools include the software centre</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="Software centre" src="{attach}virtualbox-images/software-centre.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="Software centre" src="./virtualbox-basics/virtualbox-images/software-centre.png" style="width: 100%;" />
 </div>
 <p>or <tt class="docutils literal">synaptic</tt>.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="synaptic" src="{attach}virtualbox-images/synaptic.png" style="width: 100%;" />
+<div class="figure align-left" style="width: 60%">
+<img alt="synaptic" src="./virtualbox-basics/virtualbox-images/synaptic.png" style="width: 100%;" />
 </div>
 <p>This base image can now have all the necessary software installed on, for re-distribution ready to demonstrate the tool or area you're focusing on.</p>
                 </article>
