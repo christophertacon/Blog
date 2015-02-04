@@ -13,3 +13,5 @@ The tools webpages are visible online (once pushed, or once a pull request has b
 
 http://computationalmodelling.bitbucket.org/tools
 
+To edit/update the webpages for 'tools', go into the ``tools-pelican`` subdirectory. The most important command is ``make html`` to create new output in the ``tools`` directory.
+
