@@ -5,6 +5,7 @@ Introduction to Pelican
 :tags: Infrastructure, Productivity, Outreach
 :slug: pelican-basics
 :authors: Denis Kramer
+:status: Draft
 
 
 This is a fake entry, to serve as a template.
