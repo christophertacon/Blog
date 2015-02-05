@@ -6,14 +6,17 @@ Introduction to Virtualbox
 :slug:
    virtualbox-basics
 :authors: Ian Hawke
-
-What follows is the zero motivation and explanation instructions for getting the FEEG6003 base VirtualBox image (an LUbuntu 14.10 OS) up and running.
+:category: Tools
 
 .. figure:: {filename}/virtualbox-basics/virtualbox-images/virtualbox-logo.png
-   :figwidth: 30%
+   :figwidth: 10%
    :width: 100%
    :alt: Virtualbox logo
    :align: left
+
+
+What follows is the zero motivation and explanation instructions for getting the FEEG6003 base VirtualBox image (an LUbuntu 14.10 OS) up and running.
+
 
 First `download and install VirtualBox for your operating system <https://www.virtualbox.org/wiki/Downloads>`__.
 
