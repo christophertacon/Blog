@@ -1,14 +1,25 @@
-title: Installing Pelican on lubuntu
+title: Installing Pelican and Mercurial on lubuntu
 date: 2015-02-12
 authors: Denis Kramer
 tags: Infrastructure, Productivity, Outreach
 slug: install-pelican
 
-## Obtain virtual machine
+This post provides a step-by-step guide to manually install Pelican on [the bare VirtualBox lubuntu image](http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova). You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have Python 2.x and the python package manager **pip** available. Then it should be as simple as running
+
+	pip install pelican markdown
+	
+as root or super-user. 
+
+We also use Mercurial as version control software. Please refer to the [Mercurial webpage](http://mercurial.selenic.com) for downloads and installation instructions for your machine. On most Linux systems, it is usually best to trust the package manager and use something like
+
+	sudo apt-get install mercurial
+	
+
+# Obtain virtual machine
 
 Install VirtualBox on your system (if you have not done so before), download the [lubuntu image](http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova), and add to VirtualBox. Refer to [the VirtualBox post]({filename}/virtualbox-basics/virtualbox-basics.rst) for further guidance on how to setup VirtualBox.
 
-### Install make gcc
+## Install make gcc
 
 Make is needed for the guest installations. We also use make with pelican for convenience (more on that later)
 
@@ -27,7 +38,7 @@ Install Guest additions by injecting the *Host Additions CD* and run the followi
 
 This should take a minute or two. Reboot the virtual machine after installation of the guest additions.
 
-## Installing Pelican
+# Installing Pelican
 
 **Hint:** Make sure that you are **not** using python 3.
 
@@ -49,7 +60,7 @@ Finally, once pip is available, pelican (with markdown extension) can be install
 	
 ![Install pip]({filename}/pelican-basics/images/install_pelican.png "Installing the python package manager")
 
-## Installing Mercurial
+# Installing Mercurial
 
 We use [Mercurial](http://mercurial.selenic.com) as version control software for the blocks post repository.
 

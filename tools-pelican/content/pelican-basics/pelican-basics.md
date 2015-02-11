@@ -5,6 +5,10 @@ tags: Infrastructure, Productivity, Outreach
 slug: pelican-basics
 
 
+![Pelican logo]({filename}/pelican-basics/images/pelican-logo.png)
+
+[Pelican](http://docs.getpelican.com) is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.
+
 # Prepare environment
 
 The tools that we will need are
@@ -26,7 +30,7 @@ You can use the lubuntu image that you have already seen last week with Pelican 
 
 ## Getting Pelican - The educational way
 
-You can also take the clean lubuntu image as a starting point and install the needed tools yourself. It is relatively easy to install Pelican on your machine as well. A separate blog post gives you [a step-by-step guide for installing Pelican and Mercurial]({filename}/pelican-basics/install-pelican.md). You might want to install the [Guest Additions]({filename}/virtualbox-basics/virtualbox-basics.rst) still. 
+You can also take the clean lubuntu image as a starting point and install the needed tools yourself. It is relatively easy to install Pelican on your machine as well. A separate blog post gives you [a step-by-step guide for installing Pelican and Mercurial]({filename}/pelican-basics/pelican-install.md). You might want to install the [Guest Additions]({filename}/virtualbox-basics/virtualbox-basics.rst) still. 
 
 # Obtaining the webpage repository
 
