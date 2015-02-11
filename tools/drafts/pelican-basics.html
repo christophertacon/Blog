@@ -38,36 +38,47 @@
         </address>
 <p>In <a href="../category-pelican-basics.html">pelican-basics</a>. </p>
 <p>tags: <a href="../tag/infrastructure.html">Infrastructure</a> <a href="../tag/productivity.html">Productivity</a> <a href="../tag/outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->      <p>This is a fake entry, to serve as a template.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="pelican name" src="../drafts/pelican-logo.png" style="width: 100%;" />
-</div>
-<p>The bitmap is available <a class="reference external" href="../drafts/pelican-logo.png">here</a>.</p>
-<p>We can refer to URLs in other places, such as
-<a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">Downloads for Virtualbox</a>.</p>
-<p>And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text.
-And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text. And here is a lot more
-text.</p>
-
+</footer><!-- /.post-info -->      <h1>Static webpages (blogs) with Pelican</h1>
+<h2>Prepare environment</h2>
+<p>We will use the lubuntu image that you have already seen as a starting point. But it is relatively easy to install Pelican on your machine as well. </p>
+<h3>Prepare virtual machine</h3>
+<p>Hint: Refer to <a href="{filename}/">the VirtualBox post</a> for guidance on how to setup VirtualBox. </p>
+<ul>
+<li>
+<p>Download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a> and add to VirtualBox</p>
+</li>
+<li>
+<p>Install make gcc</p>
+<p>sudo apt-get install make gcc</p>
+</li>
+<li>
+<p>Install Guest additions</p>
+<p>sudo ./VBoxLinuxAdditions.run</p>
+</li>
+</ul>
+<h3>Installing Pelican</h3>
+<ul>
+<li>
+<p>Install Python package manager pip</p>
+<p>wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py</p>
+</li>
+<li>
+<p>Install pelican and markdown</p>
+<p>sudo pip install pelican markdown</p>
+</li>
+</ul>
+<h2>Obtaining the webpage repository</h2>
+<ul>
+<li>
+<p>Install mercurial</p>
+<p>sudo apt-get install mercurial meld</p>
+</li>
+<li>
+<p>Clone the repository</p>
+<p>hg clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs</p>
+</li>
+</ul>
     </div><!-- /.entry-content -->
 
   </article>
