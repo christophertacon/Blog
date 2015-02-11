@@ -38,36 +38,168 @@
         </address>
 <p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
 <p>tags: <a href="./tag/infrastructure.html">Infrastructure</a> <a href="./tag/productivity.html">Productivity</a> <a href="./tag/outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->      <p>This is a fake entry, to serve as a template.</p>
-<div class="figure align-left" style="width: 30%">
-<img alt="pelican name" src="./pelican-logo.png" style="width: 100%;" />
-</div>
-<p>The bitmap is available <a class="reference external" href="./pelican-logo.png">here</a>.</p>
-<p>We can refer to URLs in other places, such as
-<a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">Downloads for Virtualbox</a>.</p>
-<p>And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text. And here is a
-lot more text. And here is a lot more text. And here is a lot more
-text. And here is a lot more text. And here is a lot more text. And
-here is a lot more text. And here is a lot more text.
-And here is a lot more text. And here is a lot more text. And here is
-a lot more text. And here is a lot more text. And here is a lot more
-text.</p>
+</footer><!-- /.post-info -->      <h1>Prepare environment</h1>
+<p>The tools that we will need are</p>
+<ul>
+<li>Pelican 3.5.0 (obviously)</li>
+<li>Make (for conveniently generating the HTML code and serving a local webserver)</li>
+<li>Python 2.x (Pelican works best with Python 2.x)</li>
+<li>Mercurial (The blog post repository uses Mercurial)</li>
+</ul>
+<p>Pelican understands a number of text dialects incl. reStructured Text, Markdown, and AsciiDoc. If you want to use Markdown, you also need to install a python library for it.</p>
+<h2>Obtain virtual machine</h2>
+<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="./virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
+<h2>Getting Pelican - The easy way</h2>
+<p>You can use the lubuntu image that you have already seen last week with Pelican and Mercurial preinstalled by downloading the image XXX. You might want to install the <a href="./virtualbox-basics.html">Guest Additions</a> still. </p>
+<h2>Getting Pelican - The educational way</h2>
+<p>You can also take the clean lubuntu image as a starting point and install the needed tools yourself. It is relatively easy to install Pelican on your machine as well. A separate blog post gives you <a href="./install-pelican.html">a step-by-step guide for installing Pelican and Mercurial</a>. You might want to install the <a href="./virtualbox-basics.html">Guest Additions</a> still. </p>
+<h1>Obtaining the webpage repository</h1>
+<ul>
+<li>Webpage: <a href="http://computationalmodelling.bitbucket.org">http://computationalmodelling.bitbucket.org</a></li>
+<li>Repository: <a href="http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org">http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org</a></li>
+</ul>
+<p>The tools blog is hosted on <a href="http://www.bitbucket.org">bitbucket.org</a>  You will clone this repository to implement your material locally. </p>
+<p><em>Hint</em>: If you have a bitbucket account, you can also forge the repository and send a pull request to have your changes merged back into the hosting repository. That might make it easier for you as a group to work on your material as you can use the benefits of distributed version control.</p>
+<p>For now, we will simply clone the repository to create a local copy to host our changes. This command will clone the repository into a "blogs" folder in the current directory.</p>
+<div class="highlight"><pre>hg clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs
+</pre></div>
 
+
+<h1>Structure of the repository</h1>
+<p>The blogs folder now contains the repository of the tools webpage. Have a look at the subdirectories</p>
+<div class="highlight"><pre>ls blogs
+</pre></div>
+
+
+<p><img alt="repo_directories" src="./pelican-basics/images/repo_structure.png" /></p>
+<p>There are two folders in the repository</p>
+<ul>
+<li>tools - holds the output from Pelican </li>
+<li>tools-pelican - is the folder that holds all the source data</li>
+</ul>
+<p>Change into the source folder</p>
+<div class="highlight"><pre><span class="nb">cd </span>blogs/tools-pelican
+</pre></div>
+
+
+<p>and have a look at the existing files</p>
+<div class="highlight"><pre>ls
+</pre></div>
+
+
+<p><img alt="repo_directories2" src="./pelican-basics/images/repo_structure2.png" /></p>
+<p>The most important folder is <strong>content</strong>, which will hold the fruits of your labour. In addition, there are</p>
+<ul>
+<li>two python scripts for configuration purposes</li>
+<li>a folder for themes, containing the default one that we use for the published site</li>
+<li>a start script for a local web server (which we will not use)</li>
+<li>and a Makefile that goes with <a href="http://www.gnu.org/software/make/">the make utility</a> and defines a number of program calls that we need frequently</li>
+</ul>
+<p>Feel free to have a look at the Makefile.</p>
+<h1>Conventions for the blogs repository</h1>
+<p>In order to work smoothly together, we have to follow a few rules. The most important one:</p>
+<ul>
+<li>All changes should be local to the <strong>content</strong> folder</li>
+<li>Leave the config files alone. We will not merge changes to the main repo anyway.</li>
+<li>Work within your own subdirectory under <strong>content</strong></li>
+</ul>
+<p>If you observe these rules, it should be a breeze to merge your content into the webpage.</p>
+<h1>Starting your own blog</h1>
+<p>Pelican understands the following 'dialects': <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> (.rst) and <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> (.md). While reStructuredText originates from the coding community for source code comments, it is also useful for simple webpages. Markdown was invented by John Gruber (the Apple blogger) to help him with writing and maintaining his blog, <a href="http://daringfireball.net">Daring Fireball</a>. The Markdown syntax is still evolving via a number of implementations that have their own oddities. </p>
+<p>Change into the content folder and look at its content</p>
+<div class="highlight"><pre>cd content
+ls
+</pre></div>
+
+
+<p><img alt="content_folder" src="./pelican-basics/images/content_folder.png" /></p>
+<p>We have pre-populated the blog repository with the source files for the <a href="./virtualbox-basics.html">virtualbox-basics</a> blog and the <a href="./pelican-basics.html">pelican-basics</a> blog. You also find a folder to hold other pages like the ubiquitous "About" page. Content in the pages folder is not seen as a blog post by Pelican and converted slightly differently into HTML.</p>
+<p>The pelican-basics blog is written using Markdown, while the virtualbox-basics blog uses reStructuredText. Have a look at both to get a feeling for the syntax of each.</p>
+<p><strong>Its an emotional moment: time to start your own blog!</strong></p>
+<p>Create a folder within "content" to hold your files. Give it a meaningful name.</p>
+<div class="highlight"><pre>mkdir &lt;my_name&gt;
+<span class="nb">cd</span> &lt;my_name&gt;
+</pre></div>
+
+
+<p>It is time to start your first blog post. You can, of course, use your most-trusted text editor for writing your blogs, but for now we should go with <strong>nano</strong>. The lubuntu distribution provides only very limited choices out of the box, basically <strong>vim</strong> and <strong>nano</strong>. It is, nonetheless, relatively easy to install an alternative using the usual package manager approach.</p>
+<p>Start writing a new file in Markdown with</p>
+<div class="highlight"><pre>nano &lt;my_blog_post_name&gt;.md
+</pre></div>
+
+
+<p>or </p>
+<div class="highlight"><pre>nano &lt;my_blog_post_name&gt;.rst
+</pre></div>
+
+
+<p>if you work in reStructuredText.</p>
+<h2>Metadata</h2>
+<p>Each blog post should come with some useful metadata. Pelican uses this data when generating the site. It should contain:</p>
+<ul>
+<li>the title of your post,</li>
+<li>the authors,</li>
+<li>the date and</li>
+<li>a number of tags to sort the post into categories.</li>
+</ul>
+<p>A metadata block could look like</p>
+<div class="highlight"><pre>title=My amazing first blog
+authors=You know who
+date=2015-02-12
+tags=demo, training
+slug=demo-post
+</pre></div>
+
+
+<p>in Markdown, or </p>
+<div class="highlight"><pre><span class="nc">:title:</span> <span class="nf">My amazing first blog</span>
+<span class="nc">:authors:</span> <span class="nf">You know who</span>
+<span class="nc">:date:</span> <span class="nf">2015-02-12</span>
+<span class="nc">:tags:</span> <span class="nf">Demo, Testing</span>
+<span class="nc">:slug:</span> <span class="nf">demo-post</span>
+</pre></div>
+
+
+<p>if you use reStructuredText. Note the <strong>slug</strong> attribute, which will be used by Pelican to build the URL. </p>
+<h2>Linking to internal files</h2>
+<p>You most likely want to link to other files in the repository. Pelican provides the <strong>{filename}</strong> variable for this purpose, which points to the content folder. You should always refer to the source file, not the generated file in the output folder. Pelican is smart enough to translate this for you. So if you want to reference this blog post for instance, you would write</p>
+<div class="highlight"><pre>I learned how to use Pelican for blogging [here]({filename/pelican-basics/pelican-basics.md})
+</pre></div>
+
+
+<p>or </p>
+<div class="highlight"><pre>I learned how to use Pelican for blogging <span class="s">`here &lt;{filename}/pelican-basics/pelican-basics.md`_</span>
+</pre></div>
+
+
+<h1>Building a viewing your page</h1>
+<p>Once you have started writing your blog post, you most-likely want to check how it looks from time to time. Save your changes (Ctrl+O in nano), leave the text editor (Ctrl+X in nano), and change back to the "tools-pelican" directory</p>
+<div class="highlight"><pre><span class="nb">cd</span> ../..
+</pre></div>
+
+
+<p>You can run Pelican and generate the static HTML page by calling</p>
+<div class="highlight"><pre>make html
+</pre></div>
+
+
+<p>That uses the make utility to call Pelican and make sure that the output goes into the <strong>tools</strong> folder. Once Pelican is done, you can test the page by starting a local web server </p>
+<div class="highlight"><pre>make serve
+</pre></div>
+
+
+<p>and pointing the web browser at </p>
+<div class="highlight"><pre>http://localhost:8000
+</pre></div>
+
+
+<p><img alt="final blog post" src="./pelican-basics/images/final_blog.png" /> </p>
+<h1>More help and resources</h1>
+<ul>
+<li><a href="http://docs.getpelican.com">The Pelican documentation</a> (also contains a good syntax section)</li>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">The Markdown syntax</a></li>
+<li><a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A primer on reStructuredTex</a></li>
+</ul>
     </div><!-- /.entry-content -->
 
   </article>

@@ -22,7 +22,102 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../virtualbox-basics.html">Introduction to Virtualbox</a></h1>
+                    <h1 class="entry-title"><a href="../install-pelican.html">Installing Pelican on lubuntu</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
+                Published: Thu 12 February 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author-denis-kramer.html">Denis Kramer</a>
+        </address>
+<p>In <a href="../category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="../tag/infrastructure.html">Infrastructure</a> <a href="../tag/productivity.html">Productivity</a> <a href="../tag/outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><h2>Obtain virtual machine</h2>
+<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="../virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
+<h3>Install make gcc</h3>
+<p>Make is needed for the guest installations. We also use make with pelican for convenience (more on that later)</p>
+<div class="highlight"><pre>sudo apt-get install make gcc
+</pre></div>
+
+
+<p><img alt="Installing gcc" src="../pelican-basics/images/install_gcc.png" title="Installing gcc and make" /></p>
+<p>Install Guest additions by injecting the <em>Host Additions CD</em> and run the following command in the cd subdirectory</p>
+<div class="highlight"><pre><span class="nb">cd</span> /media/feeg6003/&lt;NAME OF VBOXADDITIONS CD&gt;
+sudo ./VBoxLinuxAdditions.run
+</pre></div>
+
+
+<p><img alt="Installing guest additions" src="../pelican-basics/images/install_vbox.png" title="Installing guest additions" /></p>
+<p>This should take a minute or two. Reboot the virtual machine after installation of the guest additions.</p>
+<h2>Installing Pelican</h2>
+<p><strong>Hint:</strong> Make sure that you are <strong>not</strong> using python 3.</p>
+<p><img alt="Python version" src="../pelican-basics/images/python_version.png" title="Checking the python version" /></p>
+<p>We need to manually install the python package manager on lubuntu as this is not bundled with python prior to version 2.7.9. First obtain the installer script using wget</p>
+<div class="highlight"><pre>wget https://bootstrap.pypa.io/get-pip.py
+</pre></div>
+
+
+<p>and then install the package manager (pip) as super-user</p>
+<div class="highlight"><pre>sudo python get-pip.py
+</pre></div>
+
+
+<p><img alt="Install pip" src="../pelican-basics/images/install_pip.png" title="Installing the python package manager" /></p>
+<p>Finally, once pip is available, pelican (with markdown extension) can be installed</p>
+<div class="highlight"><pre>sudo pip install pelican markdown
+</pre></div>
+
+
+<p><img alt="Install pip" src="../pelican-basics/images/install_pelican.png" title="Installing the python package manager" /></p>
+<h2>Installing Mercurial</h2>
+<p>We use <a href="http://mercurial.selenic.com">Mercurial</a> as version control software for the blocks post repository.</p>
+<p>Use the linux package manager to install mercurial</p>
+<div class="highlight"><pre> sudo apt-get install mercurial meld
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../pelican-basics.html" rel="bookmark"
+                           title="Permalink to Introduction to Pelican">Introduction to Pelican</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
+                Published: Thu 12 February 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author-denis-kramer.html">Denis Kramer</a>
+        </address>
+<p>In <a href="../category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="../tag/infrastructure.html">Infrastructure</a> <a href="../tag/productivity.html">Productivity</a> <a href="../tag/outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->                <h1>Prepare environment</h1>
+<p>The tools that we will need are</p>
+<ul>
+<li>Pelican 3.5.0 (obviously)</li>
+<li>Make (for conveniently generating the HTML code and serving a local webserver)</li>
+<li>Python 2.x (Pelican works best with Python 2.x)</li>
+<li>Mercurial (The blog post repository uses Mercurial)</li>
+</ul>
+<p>Pelican understands a number of text dialects ...</p>
+                <a class="readmore" href="../pelican-basics.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../virtualbox-basics.html" rel="bookmark"
+                           title="Permalink to Introduction to Virtualbox">Introduction to Virtualbox</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-05T00:00:00+01:00">
                 Published: Thu 05 February 2015
@@ -33,7 +128,7 @@
         </address>
 <p>In <a href="../category-tools.html">Tools</a>. </p>
 <p>tags: <a href="../tag/research.html">Research</a> <a href="../tag/infrastructure.html">Infrastructure</a> <a href="../tag/productivity.html">Productivity</a> <a href="../tag/reproducibility.html">Reproducibility</a> <a href="../tag/testing.html">Testing</a> </p>
-</footer><!-- /.post-info --><div class="figure align-left" style="width: 10%">
+</footer><!-- /.post-info -->                <div class="figure align-left" style="width: 10%">
 <img alt="Virtualbox logo" src="../virtualbox-basics/virtualbox-images/virtualbox-logo.png" style="width: 100%;" />
 </div>
 <p>What follows is the zero motivation and explanation instructions for getting the FEEG6003 base VirtualBox image (an LUbuntu 14.10 OS) up and running.</p>
@@ -49,53 +144,12 @@
 <div class="figure align-left" style="width: 60%">
 <img alt="Importing the virtual machine" src="../virtualbox-basics/virtualbox-images/ImportAppliance2.png" style="width: 100%;" />
 </div>
-<p>To start the machine just press <strong>Start</strong>.</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Starting the virtual machine" src="../virtualbox-basics/virtualbox-images/StartVM.png" style="width: 100%;" />
-</div>
-<p>The machine name, username and password are all the same: <tt class="docutils literal">feeg6003</tt>. Enter the password once the login screen appears.</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Login screen" src="../virtualbox-basics/virtualbox-images/LUbuntu1.png" style="width: 100%;" />
-</div>
-<p>At this point you have a working virtual machine, but it will be awkward to work with. So we need to make it work better with your hardware by installing the Guest Additions. First we need to install a C compiler (it's a <em>really</em> basic VM!). Open a terminal (either from the menu, Accessories, or by pressing <tt class="docutils literal">Ctrl+Alt+T</tt>).</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Open a terminal" src="../virtualbox-basics/virtualbox-images/terminal.png" style="width: 100%;" />
-</div>
-<p>Install gcc by typing:</p>
-<pre class="literal-block">
-sudo apt-get install gcc
-</pre>
-<div class="figure align-left" style="width: 60%">
-<img alt="Installing gcc" src="../virtualbox-basics/virtualbox-images/gcc.png" style="width: 100%;" />
-</div>
-<p>Next, go to the <em>external</em> menu (that is, the menu on your &quot;real&quot; machine), and choose Devices, then Insert Guest Additions, ...</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Getting Guest Additions going" src="../virtualbox-basics/virtualbox-images/GuestAdditions1.png" style="width: 100%;" />
-</div>
-<p>Now we need to actually install the software. Back in the terminal, change directory to the &quot;CD&quot; by typing something like:</p>
-<pre class="literal-block">
-cd /media/feeg6003/VirtualBox...
-</pre>
-<p>You can use the tab key to complete each entry: there should be no ambiguity here. Then install the software by typing:</p>
-<pre class="literal-block">
-sudo sh ./VBoxLinuxAdditions.sh
-</pre>
-<p>This should rapidly say it's installed the software.</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Installing Guest Additions" src="../virtualbox-basics/virtualbox-images/GuestAdditions2.png" style="width: 100%;" />
-</div>
-<p>Finally, close the terminal, &quot;eject the CD&quot;, and reboot the virtual machine. To do this, select logout from the menu, then select reboot. Once the VM restarts, you should have much better screen resolution.</p>
-<p>From this base image you can install whatever software you want or need onto the VM. Using the package manager is the simplest way to install software. We did this using <tt class="docutils literal"><span class="pre">apt-get</span></tt> above, but other tools include the software centre</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Software centre" src="../virtualbox-basics/virtualbox-images/software-centre.png" style="width: 100%;" />
-</div>
-<p>or <tt class="docutils literal">synaptic</tt>.</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="synaptic" src="../virtualbox-basics/virtualbox-images/synaptic.png" style="width: 100%;" />
-</div>
-<p>This base image can now have all the necessary software installed on, for re-distribution ready to demonstrate the tool or area you're focusing on.</p>
-                </article>
-            </aside><!-- /#featured -->
+<p>To start the machine just ...</p>
+                <a class="readmore" href="../virtualbox-basics.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
