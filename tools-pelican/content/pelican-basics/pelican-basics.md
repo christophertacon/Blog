@@ -22,7 +22,7 @@ Pelican understands a number of text dialects incl. reStructured Text, Markdown,
 
 ## Obtain virtual machine
 
-Install VirtualBox on your system (if you have not done so before), download the [lubuntu image](http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova), and add to VirtualBox. Refer to [the VirtualBox post]({filename}/virtualbox-basics/virtualbox-basics.rst) for further guidance on how to setup VirtualBox.
+We will use a virtual machine for this tutorial. Install VirtualBox on your system (if you have not done so before). Refer to [the VirtualBox post]({filename}/virtualbox-basics/virtualbox-basics.rst) for further guidance on how to setup VirtualBox.
 
 ## Getting Pelican - The easy way
 
@@ -37,11 +37,11 @@ You can also take the clean lubuntu image as a starting point and install the ne
 * Webpage: [http://computationalmodelling.bitbucket.org](http://computationalmodelling.bitbucket.org)
 * Repository: [http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org](http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org)
 
-The tools blog is hosted on [bitbucket.org](http://www.bitbucket.org)  You will clone this repository to implement your material locally. 
+The tools blog is hosted on [bitbucket.org](http://www.bitbucket.org)  
 
 *Hint*: If you have a bitbucket account, you can also forge the repository and send a pull request to have your changes merged back into the hosting repository. That might make it easier for you as a group to work on your material as you can use the benefits of distributed version control.
 
-For now, we will simply clone the repository to create a local copy to host our changes. This command will clone the repository into a "blogs" folder in the current directory.
+For now, we will simply clone the repository to create a local copy to host your changes. This command will clone the repository into a "blogs" folder in the current directory.
 	
 	hg clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs
 
