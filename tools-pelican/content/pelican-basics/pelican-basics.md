@@ -18,7 +18,7 @@ The tools that we will need are
 * Python 2.x (Pelican works best with Python 2.x)
 * Mercurial (The blog post repository uses Mercurial)
 
-Pelican understands a number of text dialects incl. reStructured Text, Markdown, and AsciiDoc. If you want to use Markdown, you also need to install a python library for it.
+If you want to use Markdown, you also need to install a python library for it. It might be useful to also install a text editor that supports syntax highlighting for Markdown and/or reStructuredText.
 
 ## Obtain virtual machine
 
@@ -93,7 +93,7 @@ If you observe these rules, it should be a breeze to merge your content into the
 
 # Starting your own blog
 
-Pelican understands the following 'dialects': [reStructuredText](http://docutils.sourceforge.net/rst.html) (.rst) and [Markdown](http://daringfireball.net/projects/markdown/syntax) (.md). While reStructuredText originates from the coding community for source code comments, it is also useful for simple webpages. Markdown was invented by John Gruber (the Apple blogger) to help him with writing and maintaining his blog, [Daring Fireball](http://daringfireball.net). The Markdown syntax is still evolving via a number of implementations that have their own oddities. 
+Pelican understands the following 'dialects': [reStructuredText](http://docutils.sourceforge.net/rst.html) (.rst) and [Markdown](http://daringfireball.net/projects/markdown/syntax) (.md). While reStructuredText originates from the coding community for source code comments, it is also useful for simple webpages. Markdown was invented by John Gruber (the Apple blogger) to help him with writing and maintaining his blog [Daring Fireball](http://daringfireball.net). The Markdown syntax is still evolving via a number of implementations that each has their own oddities. 
 
 Change into the content folder and look at its content
 
@@ -169,7 +169,7 @@ or
 	:::rst
 	I learned how to use Pelican for blogging `here <{filename}/pelican-basics/pelican-basics.md`_
 	
-# Building a viewing your page
+# Building and viewing your page
 
 Once you have started writing your blog post, you most-likely want to check how it looks from time to time. Save your changes (Ctrl+O in nano), leave the text editor (Ctrl+X in nano), and change back to the "tools-pelican" directory
 
