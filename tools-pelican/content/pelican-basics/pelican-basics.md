@@ -140,11 +140,11 @@ Each blog post should come with some useful metadata. Pelican uses this data whe
 A metadata block could look like
 
 	:::md
-	title=My amazing first blog
-	authors=You know who
-	date=2015-02-12
-	tags=demo, training
-	slug=demo-post
+	title: My amazing first blog
+	authors: You know who
+	date: 2015-02-12
+	tags: demo, training
+	slug: demo-post
 	
 in Markdown, or 
 
