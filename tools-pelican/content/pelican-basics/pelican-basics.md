@@ -4,6 +4,7 @@ authors: Denis Kramer
 tags: Infrastructure, Productivity, Outreach
 slug: pelican-basics
 
+<iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=21f77ef2-8d99-4a69-91a7-3113505914d7&v=1" width="450" height="300" frameborder="0"></iframe>
 
 ![Pelican logo]({filename}/pelican-basics/images/pelican-logo.png)
 
