@@ -26,7 +26,7 @@ We will use a virtual machine for this tutorial. Install VirtualBox on your syst
 
 ## Getting Pelican - The easy way
 
-You can use the lubuntu image that you have already seen last week with Pelican and Mercurial preinstalled by downloading the image XXX. You might want to install the [Guest Additions]({filename}/virtualbox-basics/virtualbox-basics.rst) still. 
+You can use the lubuntu image that you have already seen last week with Pelican and Mercurial preinstalled by downloading this [lubuntu image](http://gamma.kk.soton.ac.uk/feeg6003/pelican-images/feeg6003lubuntu+pelican.ova). You might want to install the [Guest Additions]({filename}/virtualbox-basics/virtualbox-basics.rst) still. 
 
 ## Getting Pelican - The educational way
 
@@ -192,9 +192,8 @@ and pointing the web browser at
 
 ![final blog post]({filename}/pelican-basics/images/final_blog.png)	
 
-
 # More help and resources
-
+* [The tutorial slides]({filename}/pelican-basics/slides/slides-pelican-basics.pdf) ([TeX beamer sources]({filename}/pelican-basics/slides/slides-pelican-basics.tar.gz)) 
 * [The Pelican documentation](http://docs.getpelican.com) (also contains a good syntax section)
 * [The Markdown syntax](http://daringfireball.net/projects/markdown/syntax)
 * [A primer on reStructuredTex](http://docutils.sourceforge.net/docs/user/rst/quickstart.html)
