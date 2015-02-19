@@ -26,7 +26,7 @@ First `download and install VirtualBox for your operating system <https://www.vi
    :alt: Virtualbox download
    :align: left
 
-Second `download the feeg6003lubuntu image <http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova>`__.
+Second `download the feeg6003lubuntu image <http://www.soton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu.ova>`__.
 
 .. figure:: {filename}/virtualbox-basics/virtualbox-images/ImportAppliance1.png
    :figwidth: 60%
