@@ -368,12 +368,16 @@ First steps 7: Study the history
 
 
 
-Other ways of reading the history
----------------------------------
+Other ways of reading the history (and GUIs)
+--------------------------------------------
 
 * Graphical interface::
 
     $project1> hg view
+
+  .. image:: {attach}hgview.png
+    :alt: Snapshot of hg view.
+    :width: 80%
 
 * Using webserver::
 
@@ -381,7 +385,9 @@ Other ways of reading the history
 
   and point webbrowser to http://localhost:8000
 
-* Use service such as bitbucket or github
+  .. image:: {attach}hgserve.png
+    :alt: Snapshot of hg view.
+    :width: 80%
 
 * Use ``hg glog`` (for ``graphlog``)::
 
@@ -407,6 +413,18 @@ Other ways of reading the history
        user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
        date:        Thu May 15 23:24:31 2008 +0100
        summary:     Added my first file
+
+* Use graphical user interfaces (such as Sourcetree)
+
+  .. image:: {attach}sourcetree.png
+    :alt: Snapshot of Sourcetree.
+    :width: 80%
+
+* Use service such as bitbucket or github
+
+  .. image:: {attach}bitbucket.png
+    :alt: Snapshot of Sourcetree.
+    :width: 80%
 
 
 See which line was written when (and by whom!)
