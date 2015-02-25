@@ -10,6 +10,11 @@
 Introduction to version control (using Mercurial)
 =================================================
 
+ .. image:: {attach}mercurial-logo.jpeg
+    :alt: Mercurial logo
+    :width: 20%
+
+
 .. contents::
 
 -------------------------------------
