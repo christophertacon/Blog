@@ -12,6 +12,24 @@ Introduction to version control (using Mercurial)
 
 .. contents::
 
+-------------------------------------
+
+Prerequisits for this session
+-----------------------------
+
+* Have working mercurial installation.  You can check for an existing installation using the command
+  ``hg --version``, which should display some output starting with::
+
+    Mercurial Distributed SCM (version 3.1)
+    (see http://mercurial.selenic.com for more information)
+
+  If this is not working, you need to install Mercurial: see Installation_
+
+* If you want to explore the example repository used in this session, you can download it from
+  `project1.tar.gz <{attach}project1.tar.gz>`__. To unpack the archive, you can use ``tar xfvz project1.tar.gz``.
+
+  However, the recommended exercise is to follow the examples in the notes below and create your own repository as you work through the material.
+
 Why version control - Single user
 ---------------------------------
 
@@ -74,7 +92,7 @@ Installation
 
 Download *binary* from  http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages
 
-:Linux: usually standard package of distribution
+:Linux: usually standard package of distribution. On Ubuntu/Debian, you can use ``sudo apt-get install mercurial`` to install it.
 
 :MacOS: compile from source or download binary
 
