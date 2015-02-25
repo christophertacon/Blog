@@ -65,25 +65,22 @@
 <li><a class="reference internal" href="#user-defined-tag-examples" id="id25">User-defined tag examples</a></li>
 <li><a class="reference internal" href="#what-are-revision-specifiers" id="id26">What are revision specifiers</a></li>
 <li><a class="reference internal" href="#removing-files-from-the-repository" id="id27">Removing files from the repository</a></li>
-<li><a class="reference internal" href="#renaming-files-and-directories" id="id28">Renaming files and directories</a><ul>
-<li><a class="reference internal" href="#a-bad-way-of-renaming" id="id29">A bad way of renaming</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#where-is-all-the-history-stored" id="id30">Where is all the history stored?</a></li>
-<li><a class="reference internal" href="#reverting-changes" id="id31">Reverting changes</a></li>
-<li><a class="reference internal" href="#uncommitting-the-commit" id="id32">Uncommitting the commit</a></li>
-<li><a class="reference internal" href="#making-copies-backups-of-the-repository" id="id33">Making copies (backups?) of the repository</a></li>
-<li><a class="reference internal" href="#multiple-repositories" id="id34">Multiple repositories</a></li>
-<li><a class="reference internal" href="#multiple-repositories-one-master-repository" id="id35">Multiple repositories: one master repository</a></li>
-<li><a class="reference internal" href="#location-of-multiple-repositories" id="id36">Location of multiple repositories</a></li>
-<li><a class="reference internal" href="#scientific-truth-and-reproducibility" id="id37">Scientific truth and <em>reproducibility</em></a></li>
-<li><a class="reference internal" href="#summary-of-important-commands" id="id38">Summary of important commands</a></li>
-<li><a class="reference internal" href="#abbreviating-commands" id="id39">Abbreviating commands</a></li>
-<li><a class="reference internal" href="#odd-bits-of-information" id="id40">Odd bits of information</a></li>
-<li><a class="reference internal" href="#advanced-functionality" id="id41">Advanced functionality</a></li>
-<li><a class="reference internal" href="#useful-entries-in-user-hg-configuration-file" id="id42">Useful entries in user hg configuration file</a></li>
-<li><a class="reference internal" href="#what-about-git" id="id43">What about git?</a></li>
-<li><a class="reference internal" href="#summary" id="id44">Summary</a></li>
+<li><a class="reference internal" href="#renaming-files-and-directories" id="id28">Renaming files and directories</a></li>
+<li><a class="reference internal" href="#where-is-all-the-history-stored" id="id29">Where is all the history stored?</a></li>
+<li><a class="reference internal" href="#reverting-changes" id="id30">Reverting changes</a></li>
+<li><a class="reference internal" href="#uncommitting-the-commit" id="id31">Uncommitting the commit</a></li>
+<li><a class="reference internal" href="#making-copies-backups-of-the-repository" id="id32">Making copies (backups?) of the repository</a></li>
+<li><a class="reference internal" href="#multiple-repositories" id="id33">Multiple repositories</a></li>
+<li><a class="reference internal" href="#multiple-repositories-one-master-repository" id="id34">Multiple repositories: one master repository</a></li>
+<li><a class="reference internal" href="#location-of-multiple-repositories" id="id35">Location of multiple repositories</a></li>
+<li><a class="reference internal" href="#scientific-truth-and-reproducibility" id="id36">Scientific truth and <em>reproducibility</em></a></li>
+<li><a class="reference internal" href="#summary-of-important-commands" id="id37">Summary of important commands</a></li>
+<li><a class="reference internal" href="#abbreviating-commands" id="id38">Abbreviating commands</a></li>
+<li><a class="reference internal" href="#odd-bits-of-information" id="id39">Odd bits of information</a></li>
+<li><a class="reference internal" href="#advanced-functionality" id="id40">Advanced functionality</a></li>
+<li><a class="reference internal" href="#useful-entries-in-user-hg-configuration-file" id="id41">Useful entries in user hg configuration file</a></li>
+<li><a class="reference internal" href="#what-about-git" id="id42">What about git?</a></li>
+<li><a class="reference internal" href="#summary" id="id43">Summary</a></li>
 </ul>
 </li>
 </ul>
@@ -717,10 +714,8 @@ $project1&gt; hg rename README.txt readme.txt
 </pre>
 <p>This (i) renames the file in the working directory and (ii) include
 the change in the repository the next time we commit.</p>
-<div class="section" id="a-bad-way-of-renaming">
-<h4><a class="toc-backref" href="#id29">A bad way of renaming</a></h4>
 <dl class="docutils">
-<dt>You could rename a file as follows:</dt>
+<dt>You could rename a file as follows (but we shouldn't!):</dt>
 <dd><ul class="first last simple">
 <li>copy <tt class="docutils literal">README.txt</tt> to <tt class="docutils literal">readme.txt</tt> without <tt class="docutils literal">hg</tt></li>
 <li>tell <tt class="docutils literal">hg</tt> to remove <tt class="docutils literal">README.txt</tt> from the repository and</li>
@@ -732,9 +727,8 @@ the change in the repository the next time we commit.</p>
 same file and (ii) this will take much more disk space than using <tt class="docutils literal">hg
 rename</tt>.</p>
 </div>
-</div>
 <div class="section" id="where-is-all-the-history-stored">
-<h3><a class="toc-backref" href="#id30">Where is all the history stored?</a></h3>
+<h3><a class="toc-backref" href="#id29">Where is all the history stored?</a></h3>
 <ul>
 <li><p class="first">The whole repository lives in a hidden directory with name <tt class="docutils literal">.hg</tt>.
 (it is hidden due to the leading dot.</p>
@@ -747,7 +741,7 @@ $project1&gt; ls -a
 </ul>
 </div>
 <div class="section" id="reverting-changes">
-<h3><a class="toc-backref" href="#id31">Reverting changes</a></h3>
+<h3><a class="toc-backref" href="#id30">Reverting changes</a></h3>
 <ul>
 <li><p class="first">Suppose you are working on file <tt class="docutils literal">hello.py</tt>. You start with the most recent version from the repository:</p>
 <pre class="literal-block">
@@ -767,7 +761,7 @@ from the repository.</p>
 </ul>
 </div>
 <div class="section" id="uncommitting-the-commit">
-<h3><a class="toc-backref" href="#id32">Uncommitting the commit</a></h3>
+<h3><a class="toc-backref" href="#id31">Uncommitting the commit</a></h3>
 <p>If you have committed something that you didn't want to commit, you
 can <em>undo</em> the last commit (but only the last commit!) with:</p>
 <pre class="literal-block">
@@ -775,7 +769,7 @@ $project1&gt; hg rollback
 </pre>
 </div>
 <div class="section" id="making-copies-backups-of-the-repository">
-<h3><a class="toc-backref" href="#id33">Making copies (backups?) of the repository</a></h3>
+<h3><a class="toc-backref" href="#id32">Making copies (backups?) of the repository</a></h3>
 <p>You can either</p>
 <ul>
 <li><p class="first">just copy the whole <tt class="docutils literal">project1</tt> folder (which includes the hidden <tt class="docutils literal">.hg</tt> directory) to another place</p>
@@ -797,7 +791,7 @@ $my-backup-project1&gt; hg pull
 </ul>
 </div>
 <div class="section" id="multiple-repositories">
-<h3><a class="toc-backref" href="#id34">Multiple repositories</a></h3>
+<h3><a class="toc-backref" href="#id33">Multiple repositories</a></h3>
 <ul>
 <li><p class="first">When working with several people, one can have multiple repositories
 in different places:</p>
@@ -821,7 +815,7 @@ details.</p>
 </ul>
 </div>
 <div class="section" id="multiple-repositories-one-master-repository">
-<h3><a class="toc-backref" href="#id35">Multiple repositories: one master repository</a></h3>
+<h3><a class="toc-backref" href="#id34">Multiple repositories: one master repository</a></h3>
 <ol class="arabic">
 <li><p class="first">Create the master repository, say:</p>
 <pre class="literal-block">
@@ -881,7 +875,7 @@ $my-copy-A&gt; hg commit -m &quot;merge&quot;
 <p>Note that the extension <tt class="docutils literal">hg fetch</tt> automates the <tt class="docutils literal">pull, update, merge and commit if required</tt> sequence.</p>
 </div>
 <div class="section" id="location-of-multiple-repositories">
-<h3><a class="toc-backref" href="#id36">Location of multiple repositories</a></h3>
+<h3><a class="toc-backref" href="#id35">Location of multiple repositories</a></h3>
 <p>The <em>cloning</em>, <em>pull</em>ing and <em>push</em>ing between repositories can happen:</p>
 <ul class="simple">
 <li>on the same file system/computer, where multiple repositories are hosted in different subdirectories</li>
@@ -901,7 +895,7 @@ $my-copy-A&gt; hg commit -m &quot;merge&quot;
   numbers to uniquely identify a version. -->
 </div>
 <div class="section" id="scientific-truth-and-reproducibility">
-<h3><a class="toc-backref" href="#id37">Scientific truth and <em>reproducibility</em></a></h3>
+<h3><a class="toc-backref" href="#id36">Scientific truth and <em>reproducibility</em></a></h3>
 <ul class="simple">
 <li>we tend to believe the 'results' or 'findings' of a research group
 (or individual), if other individuals and groups can <em>reproduce</em>
@@ -922,7 +916,7 @@ future.</p>
 </div>
 </div>
 <div class="section" id="summary-of-important-commands">
-<h3><a class="toc-backref" href="#id38">Summary of important commands</a></h3>
+<h3><a class="toc-backref" href="#id37">Summary of important commands</a></h3>
 <p><tt class="docutils literal">hg add</tt> (add files)</p>
 <p><tt class="docutils literal">hg commit</tt>  (commit changes)</p>
 <p><tt class="docutils literal">hg status</tt> (show modified/missing/added/removed files)</p>
@@ -936,7 +930,7 @@ future.</p>
 <p><tt class="docutils literal">hg tags</tt> (list tags)</p>
 </div>
 <div class="section" id="abbreviating-commands">
-<h3><a class="toc-backref" href="#id39">Abbreviating commands</a></h3>
+<h3><a class="toc-backref" href="#id38">Abbreviating commands</a></h3>
 <p>Most commands can be abbreviated, such as:</p>
 <pre class="literal-block">
 status -&gt; st
@@ -951,13 +945,13 @@ rename -&gt; mv
 </pre>
 </div>
 <div class="section" id="odd-bits-of-information">
-<h3><a class="toc-backref" href="#id40">Odd bits of information</a></h3>
+<h3><a class="toc-backref" href="#id39">Odd bits of information</a></h3>
 <ul class="simple">
 <li>Mercurial (<tt class="docutils literal">hg</tt>) is written in Python</li>
 </ul>
 </div>
 <div class="section" id="advanced-functionality">
-<h3><a class="toc-backref" href="#id41">Advanced functionality</a></h3>
+<h3><a class="toc-backref" href="#id40">Advanced functionality</a></h3>
 <p>Read more about these topics in the (unofficial) manual at <a class="reference external" href="http://hgbook.red-bean.com">http://hgbook.red-bean.com</a></p>
 <ul class="simple">
 <li>keyword expansion</li>
@@ -966,7 +960,7 @@ rename -&gt; mv
 </ul>
 </div>
 <div class="section" id="useful-entries-in-user-hg-configuration-file">
-<h3><a class="toc-backref" href="#id42">Useful entries in user hg configuration file</a></h3>
+<h3><a class="toc-backref" href="#id41">Useful entries in user hg configuration file</a></h3>
 <p>On a Linux/Mac OS X user account, this is (an optional) file <tt class="docutils literal">.hgrc</tt>
 in the home directory:</p>
 <pre class="literal-block">
@@ -987,11 +981,11 @@ style=gitweb
 </pre>
 </div>
 <div class="section" id="what-about-git">
-<h3><a class="toc-backref" href="#id43">What about git?</a></h3>
+<h3><a class="toc-backref" href="#id42">What about git?</a></h3>
 <p>In a first approximation, git and mercurial provide very similar functionality.</p>
 </div>
 <div class="section" id="summary">
-<h3><a class="toc-backref" href="#id44">Summary</a></h3>
+<h3><a class="toc-backref" href="#id43">Summary</a></h3>
 <ul class="simple">
 <li>Nowadays, version control software (such as <tt class="docutils literal">hg</tt> and <tt class="docutils literal">git</tt>) is<ul>
 <li>easy to install</li>

@@ -631,10 +631,8 @@ You can easily rename a file with ``hg``. Suppose we need to rename
 This (i) renames the file in the working directory and (ii) include
 the change in the repository the next time we commit.
 
-A bad way of renaming
-#####################
 
-You could rename a file as follows:
+You could rename a file as follows (but we shouldn't!):
   - copy ``README.txt`` to ``readme.txt`` without ``hg``
   - tell ``hg`` to remove ``README.txt`` from the repository and
   - tell ``hg`` to add ``readme.txt``.
