@@ -1,15 +1,19 @@
-Introduction to Mercurial
-=========================
 
 :date: 2015-02-26
 :tags: Infrastructure, Productivity, Reproducibility, Testing
 :slug:
    mercurial
 :authors: Hans Fangohr
+:title: Mercurial
 
+=================================================
+Introduction to version control (using Mercurial)
+=================================================
 
-Why version control (Single users)
-==================================
+.. contents::
+
+Why version control - Single user
+---------------------------------
 
 * often we work on documents (or a set of files) for a long time
   (days, weeks, months)
@@ -32,8 +36,9 @@ Why version control (Single users)
 
 
 
-Why version control (in team work)
-==================================
+Why version control - in Team
+-----------------------------
+
 
 * multiple people working on code
 
@@ -50,8 +55,9 @@ Why version control (in team work)
 
 
 
-Mercurial
-=========
+This session on Version Control and Mercurial
+---------------------------------------------
+
 
 * will introduce *idea* of version control together with
 
@@ -60,6 +66,8 @@ Mercurial
   Homepage: http://www.selenic.com/mercurial
 
   Mercurial is abbreviated ``hg`` (from the chemical element)
+
+
 
 Installation
 ------------
@@ -70,11 +78,12 @@ Download *binary* from  http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPa
 
 :MacOS: compile from source or download binary
 
-:Windows: recommend TortoiseHg  at TortoiseHg http://www.selenic.com/mercurial/wiki/index.cgi/TortoiseHg
+:Windows: recommend TortoiseHg at TortoiseHg http://www.selenic.com/mercurial/wiki/index.cgi/TortoiseHg
+
 
 
 Terminology
-===========
+-----------
 
 
 :Repository:
@@ -95,9 +104,9 @@ Terminology
 
 
 
-
 Getting started with hg
-=======================
+-----------------------
+
 
 * Suppose we need to write a Python program in a directory ``project1``
 
@@ -106,6 +115,7 @@ Getting started with hg
     $> mkdir project1
     $> cd project1
     $project1>
+
 
 Initialise hg repository
 ------------------------
@@ -116,14 +126,14 @@ Initialise hg repository
 
 
 
-
 Checking the status of files
-============================
+----------------------------
+
 
 * Suppose our first file is ``hello.py`` in the project1 directory::
 
     def hello(msg):
-       print "Hello World: %s" % msg
+       print("Hello World: %s" % msg)
 
 * We can ask ``hg`` whether it knows about the file::
 
@@ -140,7 +150,7 @@ Checking the status of files
   ``?`` means: unknown.
 
 In-built help function
-======================
+----------------------
 
 * Mercurial has a fairly comprehensive help command::
 
@@ -164,7 +174,7 @@ In-built help function
 
 
 First steps 1: Adding files
-===========================
+---------------------------
 
 * Add this file to the repository (i.e. tell ``hg`` to track it)::
 
@@ -185,7 +195,7 @@ First steps 1: Adding files
     $project1>
 
 First steps 2: checking status
-==============================
+------------------------------
 
 * Check status::
 
@@ -205,12 +215,12 @@ First steps 2: checking status
       summary:     Added my first file
 
 First steps 3: modifying the file
-=================================
+---------------------------------
 
 * extend programm ``hello.py`` to read::
 
     def hello(msg):
-	print "Hello World: %s" % msg
+	       print("Hello World: %s" % msg)
 
     hello("from hello.py")
 
@@ -222,7 +232,7 @@ First steps 3: modifying the file
   Yes, ``M`` stands for ``M``\ odified.
 
 First steps 4: Review the change
-================================
+--------------------------------
 
 * What is the *diff*\ erence (in comparison to the last snapshot)::
 
@@ -232,7 +242,7 @@ First steps 4: Review the change
     +++ b/hello.py  Thu May 15 23:29:32 2008 +0100
     @@ -1,2 +1,4 @@
      def hello(msg):
-            print "Hello World: %s" % msg
+            print("Hello World: %s" % msg)
     +
     +hello("from hello.py")
 
@@ -243,7 +253,7 @@ First steps 4: Review the change
 
 
 First steps 5: The history (again)
-==================================
+----------------------------------
 
 * Check out the history of the project::
 
@@ -261,7 +271,7 @@ First steps 5: The history (again)
 
 
 First steps 6: Adding another file
-==================================
+----------------------------------
 
 We create a new file ``README.txt`` which contains this line::
 
@@ -280,46 +290,106 @@ Let's check the status, add, commit and check::
 
 
 First steps 7: Study the history
-================================
-::
+--------------------------------
 
-  $project1> hg log
-  changeset:   2:7a6262cf0acf
-  tag:         tip
-  user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
-  date:        Thu May 15 23:53:41 2008 +0100
-  summary:     Adding REAME file
+* Using the ``hg log`` command::
 
-  changeset:   1:7bcacdc541fb
-  user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
-  date:        Thu May 15 23:35:53 2008 +0100
-  summary:     Adding main program
+    $project1> hg log
+    changeset:   2:7a6262cf0acf
+    tag:         tip
+    user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    date:        Thu May 15 23:53:41 2008 +0100
+    summary:     Adding REAME file
 
-  changeset:   0:f8087bdd8fc8
-  user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
-  date:        Thu May 15 23:24:31 2008 +0100
-  summary:     Added my first file
+    changeset:   1:7bcacdc541fb
+    user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    date:        Thu May 15 23:35:53 2008 +0100
+    summary:     Adding main program
+
+    changeset:   0:f8087bdd8fc8
+    user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    date:        Thu May 15 23:24:31 2008 +0100
+    summary:     Added my first file
+
+* The ``-v`` flag shows files affected by each changeset::
+
+    $project1> hg log -v
+    changeset:   3:691317be5f4b
+    tag:         tip
+    user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    date:        Fri May 16 16:26:41 2008 +0100
+    files:       .hgtags
+    description:
+    Added tag release 1.0 for changeset 7a6262cf0acf
+
+
+    changeset:   2:7a6262cf0acf
+    tag:         release 1.0
+    user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    date:        Thu May 15 23:53:41 2008 +0100
+    files:       README.txt
+    description:
+    Adding REAME file
+
+
+    changeset:   1:7bcacdc541fb
+    user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    date:        Thu May 15 23:35:53 2008 +0100
+    files:       hello.py
+    description:
+    Adding main program
+
+
+    changeset:   0:f8087bdd8fc8
+    user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    date:        Thu May 15 23:24:31 2008 +0100
+    files:       hello.py
+    description:
+    Added my first file
+
 
 
 
 Other ways of reading the history
-=================================
+---------------------------------
 
-Graphical interface
--------------------
-
-::
+* Graphical interface::
 
     $project1> hg view
 
-Using webserver
----------------
-
-::
+* Using webserver::
 
     $project1> hg serve
 
-and point webbrowser to http://localhost:8000
+  and point webbrowser to http://localhost:8000
+
+* Use service such as bitbucket or github
+
+* Use ``hg glog`` (for ``graphlog``)::
+
+    $project1> hg glog
+    @  changeset:   3:691317be5f4b
+    |  tag:         tip
+    |  user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    |  date:        Fri May 16 16:26:41 2008 +0100
+    |  summary:     Added tag release 1.0 for changeset 7a6262cf0acf
+    |
+    o  changeset:   2:7a6262cf0acf
+    |  tag:         release 1.0
+    |  user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    |  date:        Thu May 15 23:53:41 2008 +0100
+    |  summary:     Adding REAME file
+    |
+    o  changeset:   1:7bcacdc541fb
+    |  user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+    |  date:        Thu May 15 23:35:53 2008 +0100
+    |  summary:     Adding main program
+    |
+    o  changeset:   0:f8087bdd8fc8
+       user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
+       date:        Thu May 15 23:24:31 2008 +0100
+       summary:     Added my first file
+
 
 See which line was written when (and by whom!)
 ----------------------------------------------
@@ -334,13 +404,14 @@ See which line was written when (and by whom!)
 
     $project1> hg blame -u hello.py
     fangohr: def hello(msg):
-    fangohr:        print "Hello World: %s" % msg
+    fangohr:        print("Hello World: %s" % msg)
     fangohr:
     fangohr: hello("from hello.py")
 
 
 Typical cycle
-=============
+-------------
+
 
 While programming (or writing a report, creating a web page, etc), we
 tend to follow this cycle:
@@ -356,13 +427,13 @@ Only occasionally, we need to do special things:
 
  - examine the history (partly shown)
 
- - go back to an older snap shot
+ - go back to an older snap shot (next topic)
 
-   -> this is next
 
 
 The update command
-==================
+------------------
+
 
 ``update`` refers to the files in the *working directory* (not the
 repository), and allows 'time travel'.
@@ -379,11 +450,6 @@ repository), and allows 'time travel'.
     $project1> ls
     hello.py
 
-
-
-The update command (part 2)
-===========================
-
 * What is the content?::
 
     $project1> cat hello.py
@@ -397,12 +463,6 @@ The update command (part 2)
     user:        Hans Fangohr [phi] <fangohr@soton.ac.uk>
     date:        Thu May 15 23:24:31 2008 +0100
     summary:     Added my first file
-
-
-
-The update command (part 3)
-===========================
-
 
 * To go to the most recent version in the repository (the *tip*) use::
 
@@ -427,9 +487,27 @@ The update command (part 3)
 
   Useful if you happen to know that at a certain date something worked.
 
+The cat command
+---------------
+
+The ``hg cat -r n FILE`` allows to send the FILE in revision ``n`` to the stdout::
+
+    $project1> hg cat -r 0 hello.py
+    def hello(msg):
+      print("Hello World: %s" % msg)
+    $project1> hg cat -r 1 hello.py
+    def hello(msg):
+      print("Hello World: %s" % msg)
+
+    hello("from hello.py")
+
+This is useful to see (or retrieve and redirect into a file) an older version of one file.
+The ``update`` command will update all the files in the working repository to version ``n`` and cannot operate on a single file.
+
+
 
 Adding user-defined tags
-========================
+------------------------
 
 * Version control is particularly important when maintaining software
   that is released to users.
@@ -439,18 +517,17 @@ Adding user-defined tags
 User-defined tag examples
 -------------------------
 
-Suppose we have released revision 2 as version 1.0 of the software::
+Suppose we have released revision 2 as version 1.0 of the software, and we want to
 
-  $project1> hg tag -r 2 "release 1.0"
-  $project1> hg tags
-  tip                                3:691317be5f4b
-  release 1.0                        2:7a6262cf0acf
+* Add a tag::
 
+    $project1> hg tag -r 2 "release 1.0"
 
-Adding user-defined tags (part 2)
-=================================
+* the *tags* command lists all defined tags::
 
-* the *tags* command lists all defined tags
+    $project1> hg tags
+    tip                                3:691317be5f4b
+    release 1.0                        2:7a6262cf0acf
 
 * can also see tags in log::
 
@@ -479,26 +556,22 @@ Adding user-defined tags (part 2)
     summary:     Added my first file
 
 
-
-
-Adding user-defined tags (part 3)
-=================================
-
 * Can now use the tag "release 1.0" instead of the revision number if,
   say, we need to go back to that version::
 
     $project1> hg update -r "release 1.0"
 
-* It can also make sense to tag particular versions of your work,
+* You may want to t ag particular versions of your work,
   i.e. use tags like:
 
   - ``interim_report``
   - ``final_as_submitted``
   - ``has bug``
+  - ``as-submitted-to-Nature``
 
 
 What are revision specifiers
-============================
+----------------------------
 
 * Revisions (=snap-shots) are identified by
 
@@ -515,7 +588,8 @@ What are revision specifiers
 
 
 Removing files from the repository
-==================================
+----------------------------------
+
 
 * To remove a file from the repository (say ``README.txt``), you can use::
 
@@ -529,7 +603,7 @@ Removing files from the repository
 
 
 Renaming files and directories
-==============================
+------------------------------
 
 You can easily rename a file with ``hg``. Suppose we need to rename
 ``README.txt`` to ``readme.txt``::
@@ -540,7 +614,7 @@ This (i) renames the file in the working directory and (ii) include
 the change in the repository the next time we commit.
 
 A bad way of renaming
----------------------
+#####################
 
 You could rename a file as follows:
   - copy ``README.txt`` to ``readme.txt`` without ``hg``
@@ -552,12 +626,8 @@ same file and (ii) this will take much more disk space than using ``hg
 rename``.
 
 
-
-
-
-
 Where is all the history stored?
-================================
+--------------------------------
 
 * The whole repository lives in a hidden directory with name ``.hg``.
   (it is hidden due to the leading dot.
@@ -571,7 +641,7 @@ Where is all the history stored?
 
 
 Reverting changes
-=================
+-----------------
 
 * Suppose you are working on file ``hello.py``. You start with the most recent version from the repository::
 
@@ -581,7 +651,7 @@ Reverting changes
   changes were not useful, and you want to go back the last version
   from the repository.
 
-  There are two options:
+  There are (at least) two options:
 
    1. You delete the file manually and run ``hg update``.
 
@@ -589,7 +659,7 @@ Reverting changes
 
 
 Uncommitting the commit
-=======================
+-----------------------
 
 If you have committed something that you didn't want to commit, you
 can *undo* the last commit (but only the last commit!) with::
@@ -599,7 +669,7 @@ can *undo* the last commit (but only the last commit!) with::
 
 
 Making copies (backups?) of the repository
-==========================================
+------------------------------------------
 
 You can either
 
@@ -615,27 +685,27 @@ You can either
 
   -> See also using `multiple repositories`_ (pull, push, merge)
 
-.. note::
-   To propagate changes from the original repository (``project1``) to the cloned copy (``my-backup-project``), do this::
+
+  Note: To propagate changes from the original repository (``project1``) to the cloned copy (``my-backup-project``), do this::
 
      $> cd my-backup-project1
      $my-backup-project1> hg pull
 
 
 Multiple repositories
-=====================
+---------------------
 
 * When working with several people, one can have multiple repositories
   in different places:
 
-  * Developer A may be working on the graphical userinterface while
+  * Developer A may be working on the graphical user interface while
     developer B is improving the numerical part of the code.
 
   * In a Group Design Project report student A might be working on the
     introduction, student B on results chapter 1 and student C on the
     appendix of a large (LaTeX) document.
 
-* Ocasionally (maybe quite frequently), the changes in these
+* Occasionally (maybe quite frequently), the changes in these
   repositories (or some of these) need to be combined (*merged*)
 
 * We will cover this advanced topic only superficially for one
@@ -646,7 +716,7 @@ Multiple repositories
   details.
 
 Multiple repositories: one master repository
-============================================
+--------------------------------------------
 
 1. Create the master repository, say::
 
@@ -656,7 +726,7 @@ Multiple repositories: one master repository
 
 2. Add any files that you have already, and commit.
 
-3. Now indivduals can clone from the master to carry out their work::
+3. Now individuals can clone from the master to carry out their work::
 
     $> hg clone master my-copy-A
     $> cd my-copy-A
@@ -668,10 +738,6 @@ Multiple repositories: one master repository
      your changes to the master (may need *pull* first)::
 
        $my-copy-A> hg push
-
-
-Multiple repositories: one master (2)
-=====================================
 
 4. To import changes from the master repository (others could have
    done some work in the mean time) into ``my-copy-A``, use the *pull*
@@ -696,21 +762,22 @@ Multiple repositories: one master (2)
 
        $my-copy-A> hg commit -m "merge"
 
+Note that the extension ``hg fetch`` automates the ``pull, update, merge and commit if required`` sequence.
 
+Location of multiple repositories
+---------------------------------
 
+The *cloning*, *pull*\ ing and *push*\ ing between repositories can happen:
 
-Multiple repositories: one master (3)
-=====================================
+* on the same file system/computer, where multiple repositories are hosted in different subdirectories
 
-The *cloning*, *pull*\ ing and *push*\ ing between repositories can happen
+* between computers using either
 
-  - on the same file system (computer)
+  * ssh or
 
-  - between computers using either
+  * the web server
 
-    - ssh or
-
-    - the web server
+* bitbucket and github offer webhosting of repositories.
 
 This is an advanced topic (see `Mercurial Tutorial`_).
 
@@ -724,7 +791,7 @@ This is an advanced topic (see `Mercurial Tutorial`_).
 
 
 Scientific truth and *reproducibility*
-======================================
+--------------------------------------
 
 * we tend to believe the 'results' or 'findings' of a research group
   (or individual), if other individuals and groups can *reproduce*
@@ -747,7 +814,7 @@ Scientific truth and *reproducibility*
 
 
 Summary of important commands
-=============================
+-----------------------------
 
 ``hg add`` (add files)
 
@@ -763,6 +830,8 @@ Summary of important commands
 
 ``hg update`` (updated working directory)
 
+``hg cat`` (send version of file to stdout)
+
 ``hg clone`` (copy repository)
 
 ``hg tag`` (add tag)
@@ -772,7 +841,7 @@ Summary of important commands
 
 
 Abbreviating commands
-=====================
+---------------------
 
 Most commands can be abbreviated, such as::
 
@@ -789,16 +858,16 @@ Most commands can be abbreviated, such as::
 
 
 Odd bits of information
-=======================
+-----------------------
 
 * Mercurial (``hg``) is written in Python
 
 
 
 Advanced functionality
-======================
+----------------------
 
-Read more about these topics in the (inofficial) manual at http://hgbook.red-bean.com
+Read more about these topics in the (unofficial) manual at http://hgbook.red-bean.com
 
 * keyword expansion
 
@@ -808,7 +877,7 @@ Read more about these topics in the (inofficial) manual at http://hgbook.red-bea
 
 
 Useful entries in user hg configuration file
-============================================
+--------------------------------------------
 
 On a Linux/Mac OS X user account, this is (an optional) file ``.hgrc``
 in the home directory::
@@ -820,6 +889,8 @@ in the home directory::
   [extensions]
   #this enables the 'hg view' command
   hgk=
+  hgext.graphlog=
+  hgext.fetch=
 
   [web]
   #this makes for a nicer layout of the web interface (which is started
@@ -827,42 +898,17 @@ in the home directory::
   style=gitweb
 
 
+What about git?
+---------------
 
-Use Mercurial without access to server
-======================================
-
-Suppose we have developer **A** and **B** that need to work on the same
-project, but cannot access any mercurial servers jointly (typically
-due to firewalls, restrictions imposed by employer, etc). Suppose **A** hold the repository THEREPO from which the work is meant to start. Somehow, **A** needs to give **B** a copy of the repository (mail, email, usbstick, ftp server, ...). Suppose the current tip of that repository is 4f45839f613c:
-
-* if **A** makes a change to the repository, he needs to create a *bundle*::
-
-  $> cd THEREPO
-  $THEREPO> hg bundle --base 4f45839f613c changes.bundle
-
-and email the bundle ``changes.bundle`` to **B**. This bundle contains all changes since the specified base version.
-
-* **B** can simply pull from that file (and update afterwards)::
-
-  $> cd THEREPO_at_B
-  $THEREPO_at_B> hg pull changes.bundle
-
-If the bundle contains changes that are already present in **B**\ 's
-version of ``THEREPO``, then these will be ignored when pulling.
-
-If **B** wants to communicate changes to **A**, he needs to follow the same instructions (to create a bundle and email it to **A**).
-
-
-
-
-------------------------
+In a first approximation, git and mercurial provide very similar functionality.
 
 
 Summary
-=======
+-------
 
 
-* Nowadays, some version control software (such as ``hg``) is
+* Nowadays, version control software (such as ``hg`` and ``git``) is
 
   - easy to install
 
@@ -874,28 +920,16 @@ Summary
 
 * An effective way to:
 
-  - keep track of the history of a project
+  - keep track of the history of a project,
 
-  - retrieve from errors (such as accidental deletion of files,
+  - reliably retrieve earlier versions if required
+
+  - recover from errors (such as accidental deletion of files,
     inability to retrieve working version)
 
   - always find the most recent version of a document and
 
-  - reliably retrieve earlier versions if required.
-
-
-
-.. container:: handout
-
-   (end of hand outs)
-
-.. |date| date::
-
-..
-   Local Variables:
-   mode: rst
-   mode: outline-minor
-
+  - have (versioned) backups
 
 
 
@@ -903,15 +937,4 @@ Summary
 
 
 .. _`Mercurial Home Page`: http://www.selenic.com/mercurial
-
-
-.. comment:
-
-  Secret slides start here
-  ========================
-
-  Comparison with subversion
-  ==========================
-
-  - main difference: hg is *distributed* version control system
 
