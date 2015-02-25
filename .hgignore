@@ -2,5 +2,6 @@ syntax:glob
 .DS_Store
 tools-pelican/*.pyc
 tools-pelican/cache
+*.orig
 *~
 
