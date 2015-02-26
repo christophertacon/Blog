@@ -49,7 +49,7 @@ Why version control - Single user
 
   - sometimes: how did the project look like some time ago (say two weeks)
 
-* Common approach::
+* Common approaches::
 
     file-1.doc
     file-2.doc
@@ -57,11 +57,22 @@ Why version control - Single user
     file-3.doc
     ...
 
+  or
 
+  .. image:: {attach}versioning-grant-proposals-fake.png
+    :alt: Invented names of different versions of one document.  Version control provides a better solution.
+    :width: 90%
+
+  or
+
+  .. image:: {attach}versioning-code-fake.png
+    :alt: Invented names for fortran code versions. Version control provides a better solution.
+    :width: 50%
+
+  We can do much better using *version control* tools.
 
 Why version control - in Team
 -----------------------------
-
 
 * multiple people working on code
 
