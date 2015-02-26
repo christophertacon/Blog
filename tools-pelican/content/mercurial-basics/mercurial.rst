@@ -461,6 +461,19 @@ See which line was written when (and by whom!)
     fangohr: hello("from hello.py")
 
 
+Commit messages
+---------------
+
+Commit messages should be used to explain what has been changed in this commit, or what this commit provides / fixes / etc. For example:
+
+- "starting implementation of new feature X"
+- "as used for figure 3 in Nature paper"
+- "have added iterative method to solver suite"
+- "implemented suggestion from examiner in transfer viva"
+
+The purpose of them is to (help) find a particular version of the code later. The messages are not limited to one line but can be very long if desired.
+
+
 Typical cycle
 -------------
 
