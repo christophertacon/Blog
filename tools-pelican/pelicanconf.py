@@ -57,5 +57,10 @@ LOAD_CONTENT_CACHE = False
 
 DISPLAY_CATEGORIES_ON_MENU = False
 
+# --------------- PLUGINS ---------------
+# Define a path to the plugins directory:
+PLUGIN_PATHS = ["plugins"]
 
-
+# List the plugins you want to use:
+PLUGINS = [	'keyboard.kb',
+			'html_rst_directive']
