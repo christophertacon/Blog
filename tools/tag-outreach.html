@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Outreach</title>
-        <link rel="stylesheet" href="../theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="../theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="../">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,20 +25,20 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../sublime.html">Sublime is... sublime</a></h1>
+                    <h1 class="entry-title"><a href="./sublime.html">Sublime is... sublime</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-02-12T16:00:00+01:00">
                 Published: Thu 12 February 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="../author-robert-entwistle.html">Robert Entwistle</a>
-                        <a class="url fn" href="../author-paul-chambers.html">Paul Chambers</a>
+                By                         <a class="url fn" href="./author-robert-entwistle.html">Robert Entwistle</a>
+                        <a class="url fn" href="./author-paul-chambers.html">Paul Chambers</a>
         </address>
-<p>In <a href="../category-text-editors.html">text-editors</a>. </p>
-<p>tags: <a href="../tag/productivity.html">Productivity</a> <a href="../tag/efficiency.html">Efficiency</a> <a href="../tag/outreach.html">Outreach</a> </p>
+<p>In <a href="./category-text-editors.html">text-editors</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info --><div class="figure align-center">
-<img alt="Sublime Text 2" src="../text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
+<img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
 </div>
 <p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs - for this example we will focus on writing a <tt class="docutils literal">.rst</tt> file for a <em>Pelican Blog</em> entry. This is a follow-on from a previous <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">FEEG6003 pelican tutorial</a> lead by Denis Kramer, however all the ideas presented here should be transferable to other projects. Exercises are split and labelled, and those following the module presentation should stop when each exercise is complete ready for the next part of the presentation. Let's begin.</p>
 <dl class="docutils">
@@ -71,7 +71,7 @@
 <h3>First look at Sublime Text 2</h3>
 <p>Once you have opened ST2 you will be presented with a window similar to that shown in Figure 1.</p>
 <div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="../text-editors-sublime/sublime-images/st2_first.png" style="width: 80%;" />
+<img alt="First view of Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_first.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 1:</b> First look at Sublime Text 2 </div><p>The red numbers on the image are described below:</p>
 <ol class="arabic simple">
@@ -86,7 +86,7 @@
 <h3>Built-in Goodies</h3>
 <p>&quot;Projects&quot; are one of the more useful features of ST2. This feature allows entire folders and their contents to be displayed in the side bar. This gives the user the ability to not only switch quickly between files in a number of directories, but also see what other files exist in the project at all times as in Figure 2. To do this, go to <em>File</em> &gt; <em>Open Folder</em> and select a folder (Advanced Computational Methods Part II students, open <tt class="docutils literal">~/comp_mod/blogs</tt>). Additional folders can be added to the workspace, and the project can then be saved for another session under the <em>Project</em> tab.</p>
 <div class="figure align-center">
-<img alt="Projects in Sublime Text 2" src="../text-editors-sublime/sublime-images/st2_projects.png" style="width: 80%;" />
+<img alt="Projects in Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_projects.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 2:</b> Projects in Sublime Text 2 </div><p>While using ST2, you will notice the smart autocomplete pop-up. This is another handy gadget which works out of the box, and will suggest possible completions for a word you are typing based on similar words in the file, keywords for the file syntax etc.</p>
 <p>In addition to these, &quot;Snippets&quot; and &quot;Build Systems&quot; are a powerful way to increase text-editing efficiency, and will be introduced once a few more packages are installed so that we can customise them for our blog entries.</p>
@@ -99,12 +99,12 @@
 </blockquote>
 <p>To get package control in ST2, firstly open ST2 and either push the keys <kbd class="light">ctrl</kbd> + <kbd class="light">'</kbd> (if you are working on a Virtual Machine, the Keyboard setup may not be the same as your host's - on a MacBook Air, the key <kbd class="light">'</kbd> was actually the <kbd class="light">§</kbd> key above tab). Alternatively go to <em>View</em> &gt; <em>Show Console</em> . By doing this a white box at the bottom of your Sublime window should open as shown in Figure 3.</p>
 <div class="figure align-center">
-<img alt="Screenshot of ST2 console." src="../text-editors-sublime/sublime-images/st2_console.png" style="width: 80%;" />
+<img alt="Screenshot of ST2 console." src="./text-editors-sublime/sublime-images/st2_console.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 3:</b> Screenshot of console mode open in ST2 </div><p>Now follow this <a class="reference external" href="https://packagecontrol.io/installation#st2">link</a> and copy the code provided. Return to the ST2 window and paste the code into the console (i.e. the white box) and then hit return. This will install package control. You may be required to restart ST2 a couple of times depending on what is already installed on your machine.</p>
 <p>An easy way to verify if package control is installed is to open the <em>Command Palette</em> with <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> or going to <em>Tools</em> &gt; <em>Command Palette...</em> . The Command Palette is a way to search ST2 for packages, syntax, snippets, ... in other words it is your best friend in ST2! It uses a search method called <em>fuzzy search</em> which allows the user to type keywords only partially and returns the closest matches, making it easy to find tools without needing to remember the exact name and wording. With the Command Palette open, start typing <tt class="docutils literal">Package Control</tt>. This should present you with all options available with regards to <em>Package Control</em> (this is how you will make use of <em>Package Control</em> later).</p>
 <div class="figure align-center">
-<img alt="Finding Package Control using the Command Palette" src="../text-editors-sublime/sublime-images/st2_package-control.png" style="width: 80%;" />
+<img alt="Finding Package Control using the Command Palette" src="./text-editors-sublime/sublime-images/st2_package-control.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 4:</b> Finding Package Control using the Command Palette </div><p>An alternative method to check if it is fully installed is to go to <em>Preferences</em> and you should see <em>Package Control</em> at the bottom of the list. By clicking on this it will open the <em>Command Palette</em> as described in the above paragraph. However, we thoroughly recommend learning the important key bindings such as <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> to open the <em>Command Palette</em> as removing the need of the mouse to navigate will make your use of ST2 much more efficient.</p>
 </div>
@@ -114,7 +114,7 @@
 <p>To install a package we need to open the <em>Command Palette</em> (with <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> ) and type in <tt class="docutils literal">Package Control: Install Package</tt> and select that entry (remember it is a <em>fuzzy search</em> so you don't need to type it all in). Now you are presented with a list of all the packages available to install via <em>Package Control</em>. Start typing <tt class="docutils literal">RestructuredText Improved</tt> and select the entry that has the description: &quot;Improved Syntax Highlighting for RestructuredText.&quot; This will download and install the package and should be functional immediately - this may seem strange and wonderful to users of other text editors whereby restarting the editor is the only method of invoking new tools.</p>
 <p>To check, click in the bottom right-hand corner where the file syntax is displayed and see if there is one for <tt class="docutils literal">reStructuredText Improved</tt>. If so you have successfully installed the package.</p>
 <div class="figure align-center">
-<img alt="RST improved syntax" src="../text-editors-sublime/sublime-images/st2_rst-improved.png" style="width: 80%;" />
+<img alt="RST improved syntax" src="./text-editors-sublime/sublime-images/st2_rst-improved.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 5:</b> Successful installation of the "RestructuredText Improved" package. </div><p>There are many other useful packages available through <em>Package Control</em> but we just wanted to demonstrate how easy it is to install one! If your ideal package/tool does not exist however, then we need to learn to tweak ST2. Below are two ways to personalise ST2 for your own use: snippets and build systems.</p>
 </div>
@@ -124,7 +124,7 @@
 <p>A snippet is best described as a smart template that will insert text for you and adapt it to its context. Snippets are very useful for short fragments of text that you use over and over again. A simple example is the &quot;lorem&quot; snippet that comes with ST2. In a new file type <tt class="docutils literal">lorem</tt> followed by hitting the <kbd class="light">tab</kbd> key. This snippet will replace the single word &quot;lorem&quot; with the <a class="reference external" href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> filler text.</p>
 <p>It is possible to see all the snippets available for that document format by either going to <em>Tools</em> &gt; <em>Snippets</em> or by using the <em>Command Palette</em>. In here start typing <em>snippet</em>. A list should appear as shown in Figure 6. Try changing the syntax (Figure 1, point 4) to your favourite language and explore the built-in snippets!</p>
 <div class="figure align-center">
-<img alt="Default snippet list for Plain Text syntax" src="../text-editors-sublime/sublime-images/st2_snippets.png" style="width: 60%;" />
+<img alt="Default snippet list for Plain Text syntax" src="./text-editors-sublime/sublime-images/st2_snippets.png" style="width: 60%;" />
 </div>
 <div align="left">         <b>Figure 6:</b> Default snippet list for Plain Text syntax </div><p>The first item in the list titled &quot;Lorem ipsum&quot; is the example we just used. Note that the short-cut to the snippet is displayed on the right as lorem,tab i.e. you can use the snippet as we did earlier: type <tt class="docutils literal">lorem</tt> and hit <kbd class="light">tab</kbd> . We are now going to make our own snippet.</p>
 <div class="section" id="new-snippet">
@@ -156,7 +156,7 @@
 </pre></div>
 <p>Next, cycle back to the <tt class="docutils literal">.rst</tt> file and push <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">alt</kbd> + <kbd class="light">p</kbd> to show the scope in the status bar at the bottom of the window, see Figure 7.</p>
 <div class="figure align-center">
-<img alt="Displaying the scope of a .rst file." src="../text-editors-sublime/sublime-images/st2_scope.png" style="width: 40%;" />
+<img alt="Displaying the scope of a .rst file." src="./text-editors-sublime/sublime-images/st2_scope.png" style="width: 40%;" />
 </div>
 <div align="left">         <b>Figure 7:</b> Display of the scope of a .rst file in the status bar. </div><p>Copy <tt class="docutils literal">text.restructuredtext</tt> into line 8 so that it reads:</p>
 <div class="highlight"><pre><span class="lineno">8 </span>    <span class="nt">&lt;scope&gt;</span>text.restructuredtext<span class="nt">&lt;/scope&gt;</span>
@@ -184,7 +184,7 @@
 <p>Now we just need to save it by selecting <em>File</em> &gt; <em>Save as</em> or by pressing <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> +<kbd class="light">s</kbd> . The snippet needs to be saved under <em>~</em> &gt; <em>.config</em> &gt; <em>sublime-text-2</em> &gt; <em>Packages</em> &gt; <em>User</em> (ST2 should open the &quot;Save&quot; window in this directory by default) and must have the extension <tt class="docutils literal"><span class="pre">.sublime-snippet</span></tt>. We suggest saving it as a sensible name such as <tt class="docutils literal"><span class="pre">rst-blog-title.sublime-snippet</span></tt> .</p>
 <p>Now that it is saved it should work straight away. Navigate back to your <tt class="docutils literal">.rst</tt> file and type in <tt class="docutils literal">title</tt> followed by hitting <kbd class="light">tab</kbd> . The snippet should paste all the metadata into your file and allow you to tab through each field and let you update them. Fill in all these fields and add some content such as the classic &quot;Hello World!&quot; Finally, save this file for use in the next section.</p>
 <div class="figure align-center">
-<img alt="The .rst file after using the snippet created above." src="../text-editors-sublime/sublime-images/st2_complete-snippet.png" style="width: 80%;" />
+<img alt="The .rst file after using the snippet created above." src="./text-editors-sublime/sublime-images/st2_complete-snippet.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 8:</b> The .rst file after completing the snippet exercise. </div></div>
 </div>
@@ -205,7 +205,7 @@
 </pre></div>
 <p>If we now save this in the user directory <tt class="docutils literal"><span class="pre">~/.config/Sublime</span> Text <span class="pre">2/Packages/User``as</span> <span class="pre">``pelican-blog.sublime-build</span></tt> (again the extension <tt class="docutils literal"><span class="pre">.sublime-build</span></tt> is required) and then return to editing to the <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt> file that was created above and we can use this build system. To use the build system either go to <em>Tools</em> &gt; <em>Build System</em>  and select the <em>pelican-blog</em> system, or alternatively, press <kbd class="light">ctrl</kbd> + <kbd class="light">b</kbd> . Upon doing this the bash output of the commands will be displayed at the bottom of the screen as shown in Figure 9.</p>
 <div class="figure align-center">
-<img alt="A successful pelican blog build." src="../text-editors-sublime/sublime-images/st2_build.png" style="width: 80%;" />
+<img alt="A successful pelican blog build." src="./text-editors-sublime/sublime-images/st2_build.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 9:</b> A successful pelican blog build system. </div><p>To add the option (or a variant) of viewing the output once you have built it you can update the build system as follows:</p>
 <div class="highlight"><pre><span class="p">{</span>
@@ -223,7 +223,7 @@
 </pre></div>
 <p>This variant is called &quot;Run&quot; and carries out the same commands as &quot;Build&quot; but also opens the local <tt class="docutils literal">index.html</tt> in a firefox browser. The name &quot;Run&quot; was chosen as it comes with the predefined key-binding <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">b</kbd> and an option in the <em>Tools</em> drop down menu. You can add multiple variants to perform other tasks, however, they wont be available in to drop down menu; instead you can find them in the <em>Command Palette</em> ( <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> ) and search for <tt class="docutils literal">Build: &lt;variant name&gt;</tt>, or add a personal key-binding under <tt class="docutils literal">Preferences &gt; Key Bindings - User</tt> (again in the JSON format: see <tt class="docutils literal">Key Bindings - Default</tt> for the format).</p>
 <div class="figure align-center">
-<img alt="A successful pelican blog run." src="../text-editors-sublime/sublime-images/st2_run.png" style="width: 80%;" />
+<img alt="A successful pelican blog run." src="./text-editors-sublime/sublime-images/st2_run.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 10:</b> A successful pelican blog run. </div></div>
                 </article>
@@ -235,7 +235,7 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="../install-pelican.html" rel="bookmark"
+                    <h1><a href="./install-pelican.html" rel="bookmark"
                            title="Permalink to Installing Pelican and Mercurial on lubuntu">Installing Pelican and Mercurial on lubuntu</a></h1>
                 </header>
 
@@ -246,18 +246,18 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="../author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="../category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="../tag/infrastructure.html">Infrastructure</a> <a href="../tag/productivity.html">Productivity</a> <a href="../tag/outreach.html">Outreach</a> </p>
+<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have ...</p>
-                <a class="readmore" href="../install-pelican.html">read more</a>
+                <a class="readmore" href="./install-pelican.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="../pelican-basics.html" rel="bookmark"
+                    <h1><a href="./pelican-basics.html" rel="bookmark"
                            title="Permalink to Introduction to Pelican">Introduction to Pelican</a></h1>
                 </header>
 
@@ -268,19 +268,19 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="../author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="../category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="../tag/infrastructure.html">Infrastructure</a> <a href="../tag/productivity.html">Productivity</a> <a href="../tag/outreach.html">Outreach</a> </p>
+<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=21f77ef2-8d99-4a69-91a7-3113505914d7&v=1" width="450" height="300" frameborder="0"></iframe>
 
-<p><img alt="Pelican logo" src="../pelican-basics/images/pelican-logo.png" /></p>
+<p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png" /></p>
 <p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
 <h1>Prepare environment</h1>
 <p>The tools that we will need are</p>
 <ul>
 <li>Pelican 3.5 ...</li></ul>
-                <a class="readmore" href="../pelican-basics.html">read more</a>
+                <a class="readmore" href="./pelican-basics.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

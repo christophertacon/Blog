@@ -2,6 +2,7 @@ syntax:glob
 .DS_Store
 tools-pelican/*.pyc
 tools-pelican/cache
+tools-pelican/plugins/html_rst_directive/*.pyc
+tools-pelican/plugins/keyboard/*.pyc
 *.orig
 *~
-

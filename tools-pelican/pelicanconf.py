@@ -50,6 +50,9 @@ STATIC_PATHS = ['.', 'images', 'notebooks', 'content']
 CATEGORY_URL = 'category-{slug}.html'
 CATEGORY_SAVE_AS = 'category-{slug}.html'
 
+TAG_URL = 'tag-{slug}.html'
+TAG_SAVE_AS = 'tag-{slug}.html'
+
 AUTHOR_URL = 'author-{slug}.html'
 AUTHOR_SAVE_AS = 'author-{slug}.html'
 
