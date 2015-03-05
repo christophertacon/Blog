@@ -295,6 +295,19 @@ $project1&gt; hg commit -m &quot;Added my first file&quot;
 $project1&gt;
 </pre>
 </li>
+<li><p class="first">If at this point mercurial complains that no username is defined:</p>
+<pre class="literal-block">
+abort: no username supplied
+(use &quot;hg config --edit&quot; to set your username)
+</pre>
+<p>then we need to follow the instructions, and use the <tt class="docutils literal">hg config
+<span class="pre">--edit</span></tt> command. This will open the mercurial user configuration
+file in an editor.  We need to provide a username (and email) on the
+line starting with <tt class="docutils literal">username =</tt> that is provided in the
+configuration template.</p>
+<p>[On Linux and Mac OS X, the user configuration file is in
+<tt class="docutils literal"><span class="pre">~/.hgrc</span></tt> and can also be edited directly.]</p>
+</li>
 </ul>
 </div>
 <div class="section" id="first-steps-2-checking-status">
