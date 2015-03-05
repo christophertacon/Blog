@@ -228,6 +228,21 @@ First steps 1: Adding files
     $project1> hg commit -m "Added my first file"
     $project1>
 
+* If at this point mercurial complains that no username is defined::
+
+    abort: no username supplied
+    (use "hg config --edit" to set your username)
+
+  then we need to follow the instructions, and use the ``hg config
+  --edit`` command. This will open the mercurial user configuration
+  file in an editor.  We need to provide a username (and email) on the
+  line starting with ``username =`` that is provided in the
+  configuration template.
+
+  [On Linux and Mac OS X, the user configuration file is in
+  ``~/.hgrc`` and can also be edited directly.]
+
+    
 First steps 2: checking status
 ------------------------------
 
