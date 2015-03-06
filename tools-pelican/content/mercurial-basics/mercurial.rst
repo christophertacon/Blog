@@ -35,6 +35,31 @@ Prerequisits for this session
 
   However, the recommended exercise is to follow the examples in the notes below and create your own repository as you work through the material.
 
+
+
+----------------------------------
+
+Video recordings
+----------------
+
+Video recording part one:
+
+.. raw:: html
+
+   <iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=2beff262-aebe-4568-973f-6cdf12b0e5a3&v=1" width="450" height="300" frameborder="0"></iframe>
+
+Video recording part two:
+
+.. raw:: html
+
+   <iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=8ee6033b-ea64-41b0-94ce-f8a751904eca&v=1" width="450" height="300" frameborder="0"></iframe>
+
+
+----------------------------------
+
+
+
+
 Why version control - Single user
 ---------------------------------
 
