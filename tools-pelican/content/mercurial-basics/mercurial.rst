@@ -267,7 +267,7 @@ First steps 1: Adding files
   [On Linux and Mac OS X, the user configuration file is in
   ``~/.hgrc`` and can also be edited directly.]
 
-    
+
 First steps 2: checking status
 ------------------------------
 
@@ -1033,6 +1033,16 @@ Summary
   - always find the most recent version of a document and
 
   - have (versioned) backups
+
+Download repository created in this archive
+-------------------------------------------
+
+The created archive from the exercises as in the videos is available here as `master.tar <{attach}master.tar>`__. Use ``tar xfv master.tar`` to untar it into a directory with name ``master``.
+
+
+
+
+
 
 
 
