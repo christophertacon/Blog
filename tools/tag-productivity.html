@@ -25,7 +25,221 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./mercurial.html">Mercurial</a></h1>
+                    <h1 class="entry-title"><a href="./sublime.html">Sublime is... sublime</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-03-12T16:00:00+01:00">
+                Published: Thu 12 March 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-robert-entwistle.html">Robert Entwistle</a>
+                        <a class="url fn" href="./author-paul-chambers.html">Paul Chambers</a>
+        </address>
+<p>In <a href="./category-text-editors.html">text-editors</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><div class="figure align-center">
+<img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
+</div>
+<p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs - for this example we will focus on writing a <tt class="docutils literal">.rst</tt> file for a <em>Pelican Blog</em> entry. This is a follow-on from a previous <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">FEEG6003 pelican tutorial</a> lead by Denis Kramer, however all the ideas presented here should be transferable to other projects. Exercises are split and labelled, and those following the module presentation should stop when each exercise is complete ready for the next part of the presentation. Let's begin.</p>
+<dl class="docutils">
+<dt><strong>Note</strong></dt>
+<dd>To be able to work through this tutorial efficiently we recommend you are running the virtual machine appliance (<tt class="docutils literal">feeg6003_TextEditors.ova</tt> file) supplied for this tutorial from <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">this repository</a>. Brief Reminder: In Virtual Box this involves clicking <em>File</em> &gt; <em>Import Appliance...</em> and select the <tt class="docutils literal">.ova</tt>, continue and check settings, then click <em>Import</em>. It is also useful to allow copy and paste between host and guest by installing guest additions through <em>Devices</em> &gt; <em>Insert Guest Additions</em>, then in a terminal window on the guest machine navigate to <tt class="docutils literal"><span class="pre">/media/feeg6003/VBOXADDITIONS...</span></tt> and enter</dd>
+</dl>
+<div class="highlight"><pre><span class="nv">$ </span>sudo sh ./VBoxLinuxAdditions.run
+</pre></div>
+<dl class="docutils">
+<dt></dt>
+<dd>and finally in Virtual Box Manager select this virtual appliance, go to <em>Settings</em> &gt; <em>General</em> &gt; <em>Advanced</em>  and change &quot;Shared Clipboard&quot; and &quot;Drag'n'drop&quot; settings to bidirectional.</dd>
+</dl>
+<div class="section" id="exercise-1-installing-sublime">
+<h2>Exercise 1: Installing Sublime</h2>
+<p>Sublime Text 2 offers a free and untimed trial version of the software which we will use for this tutorial - this provides full functionality, however a license should be purchased for continued use (users will be prompted with a reminder of this after a certain number of saves). To install the free version, firstly open up terminal on your machine and enter these commands (alternatively found <a class="reference external" href="http://www.ubuntuupdates.org/ppa/sublime_text_2">here</a>):</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="nv">$ </span>sudo add-apt-repository ppa:webupd8team/sublime-text-2
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install sublime-text
+</pre></div>
+<p>This will download the package and install it under <tt class="docutils literal">/opt/sublime_text_2</tt>. It will also create two <em>symbolic links</em>: <tt class="docutils literal">subl</tt> and <tt class="docutils literal"><span class="pre">sublime-text</span></tt> which can be called in terminal to open ST2. If you wish to make your own you can do the following (in this case the symbolic link is set to be <tt class="docutils literal">sublime</tt>):</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo ln -s /opt/sublime_text_2/sublime_text /bin/sublime
+</pre></div>
+<p>NOTE: if you try to run ST2 from the terminal a ST2 window will open and be fully functional, however this will clog up the current terminal window due to a bug within GLib (I haven't found a fix for this as of yet). To carry on using the terminal you will need to open a new terminal tab or window. The error presents itself as shown below and will keep producing errors until you hit <kbd class="light">ctrl</kbd> + <kbd class="light">c</kbd> . But, upon doing this the sublime session you opened will shut down.</p>
+<div class="highlight"><pre><span class="nv">$ </span>sublime-text
+
+<span class="o">(</span>sublime: 6476<span class="o">)</span>: GLib-CRITICAL **<span class="p">;</span> Source ID <span class="m">1982</span> was not found when attempting to remove it.
+</pre></div>
+<div class="section" id="first-look-at-sublime-text-2">
+<h3>First look at Sublime Text 2</h3>
+<p>Once you have opened ST2 you will be presented with a window similar to that shown in Figure 1.</p>
+<div class="figure align-center">
+<img alt="First view of Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_first.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 1:</b> First look at Sublime Text 2 </div><p>The red numbers on the image are described below:</p>
+<ol class="arabic simple">
+<li>The taskbar. Here you should be able to access all the options for ST2. It is worth noting that all the menus/options are also accessible via the <em>Command Palette</em> which will be introduced later.</li>
+<li>File tabs. Along this bar will be all the open files in that window/pane. You can either navigate through them by clicking on them or use the keys <kbd class="light">alt</kbd> + <kbd class="light">#</kbd> to move to the # file (where # is the number of the file from the left).</li>
+<li>Overview pane (minimap). As you populate your file this will give you a zoomed-out view which can be useful for navigating through large files.</li>
+<li>File syntax. This shows you what the syntax the file is being displayed in. ST2 will automatically select a syntax based on the file extension (e.g. if the file is .py then ST2 will choose Python). However if you want to change this then you can click on the writing and select your required syntax from the list. This is also achievable through the <em>Command Palette</em>.</li>
+</ol>
+<p>There are many useful tools within ST2 and the following sections aim to give you an insight into those we find most valuable.</p>
+</div>
+<div class="section" id="built-in-goodies">
+<h3>Built-in Goodies</h3>
+<p>&quot;Projects&quot; are one of the more useful features of ST2. This feature allows entire folders and their contents to be displayed in the side bar. This gives the user the ability to not only switch quickly between files in a number of directories, but also see what other files exist in the project at all times as in Figure 2. To do this, go to <em>File</em> &gt; <em>Open Folder</em> and select a folder (Advanced Computational Methods Part II students, open <tt class="docutils literal">~/comp_mod/blogs</tt>). Additional folders can be added to the workspace, and the project can then be saved for another session under the <em>Project</em> tab.</p>
+<div class="figure align-center">
+<img alt="Projects in Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_projects.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 2:</b> Projects in Sublime Text 2 </div><p>While using ST2, you will notice the smart autocomplete pop-up. This is another handy gadget which works out of the box, and will suggest possible completions for a word you are typing based on similar words in the file, keywords for the file syntax etc.</p>
+<p>In addition to these, &quot;Snippets&quot; and &quot;Build Systems&quot; are a powerful way to increase text-editing efficiency, and will be introduced once a few more packages are installed so that we can customise them for our blog entries.</p>
+</div>
+<div class="section" id="install-package-control">
+<h3>Install Package Control</h3>
+<blockquote>
+<p>Package control is the <strong>Sublime Text</strong> package manager that makes it exceedingly simple to find, install and keep packages up-to-date.</p>
+<p class="attribution">&mdash;<a class="reference external" href="https://packagecontrol.io">https://packagecontrol.io</a></p>
+</blockquote>
+<p>To get package control in ST2, firstly open ST2 and either push the keys <kbd class="light">ctrl</kbd> + <kbd class="light">'</kbd> (if you are working on a Virtual Machine, the Keyboard setup may not be the same as your host's - on a MacBook Air, the key <kbd class="light">'</kbd> was actually the <kbd class="light">§</kbd> key above tab). Alternatively go to <em>View</em> &gt; <em>Show Console</em> . By doing this a white box at the bottom of your Sublime window should open as shown in Figure 3.</p>
+<div class="figure align-center">
+<img alt="Screenshot of ST2 console." src="./text-editors-sublime/sublime-images/st2_console.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 3:</b> Screenshot of console mode open in ST2 </div><p>Now follow this <a class="reference external" href="https://packagecontrol.io/installation#st2">link</a> and copy the code provided. Return to the ST2 window and paste the code into the console (i.e. the white box) and then hit return. This will install package control. You may be required to restart ST2 a couple of times depending on what is already installed on your machine.</p>
+<p>An easy way to verify if package control is installed is to open the <em>Command Palette</em> with <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> or going to <em>Tools</em> &gt; <em>Command Palette...</em> . The Command Palette is a way to search ST2 for packages, syntax, snippets, ... in other words it is your best friend in ST2! It uses a search method called <em>fuzzy search</em> which allows the user to type keywords only partially and returns the closest matches, making it easy to find tools without needing to remember the exact name and wording. With the Command Palette open, start typing <tt class="docutils literal">Package Control</tt>. This should present you with all options available with regards to <em>Package Control</em> (this is how you will make use of <em>Package Control</em> later).</p>
+<div class="figure align-center">
+<img alt="Finding Package Control using the Command Palette" src="./text-editors-sublime/sublime-images/st2_package-control.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 4:</b> Finding Package Control using the Command Palette </div><p>An alternative method to check if it is fully installed is to go to <em>Preferences</em> and you should see <em>Package Control</em> at the bottom of the list. By clicking on this it will open the <em>Command Palette</em> as described in the above paragraph. However, we thoroughly recommend learning the important key bindings such as <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> to open the <em>Command Palette</em> as removing the need of the mouse to navigate will make your use of ST2 much more efficient.</p>
+</div>
+<div class="section" id="installing-a-package">
+<h3>Installing a Package</h3>
+<p>We are going to install a package that improves the syntax of reStructuredText in ST2.</p>
+<p>To install a package we need to open the <em>Command Palette</em> (with <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> ) and type in <tt class="docutils literal">Package Control: Install Package</tt> and select that entry (remember it is a <em>fuzzy search</em> so you don't need to type it all in). Now you are presented with a list of all the packages available to install via <em>Package Control</em>. Start typing <tt class="docutils literal">RestructuredText Improved</tt> and select the entry that has the description: &quot;Improved Syntax Highlighting for RestructuredText.&quot; This will download and install the package and should be functional immediately - this may seem strange and wonderful to users of other text editors whereby restarting the editor is the only method of invoking new tools.</p>
+<p>To check, click in the bottom right-hand corner where the file syntax is displayed and see if there is one for <tt class="docutils literal">reStructuredText Improved</tt>. If so you have successfully installed the package.</p>
+<div class="figure align-center">
+<img alt="RST improved syntax" src="./text-editors-sublime/sublime-images/st2_rst-improved.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 5:</b> Successful installation of the "RestructuredText Improved" package. </div><p>There are many other useful packages available through <em>Package Control</em> but we just wanted to demonstrate how easy it is to install one! If your ideal package/tool does not exist however, then we need to learn to tweak ST2. Below are two ways to personalise ST2 for your own use: snippets and build systems.</p>
+</div>
+</div>
+<div class="section" id="exercise-2-snippets">
+<h2>Exercise 2: Snippets</h2>
+<p>A snippet is best described as a smart template that will insert text for you and adapt it to its context. Snippets are very useful for short fragments of text that you use over and over again. A simple example is the &quot;lorem&quot; snippet that comes with ST2. In a new file type <tt class="docutils literal">lorem</tt> followed by hitting the <kbd class="light">tab</kbd> key. This snippet will replace the single word &quot;lorem&quot; with the <a class="reference external" href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> filler text.</p>
+<p>It is possible to see all the snippets available for that document format by either going to <em>Tools</em> &gt; <em>Snippets</em> or by using the <em>Command Palette</em>. In here start typing <em>snippet</em>. A list should appear as shown in Figure 6. Try changing the syntax (Figure 1, point 4) to your favourite language and explore the built-in snippets!</p>
+<div class="figure align-center">
+<img alt="Default snippet list for Plain Text syntax" src="./text-editors-sublime/sublime-images/st2_snippets.png" style="width: 60%;" />
+</div>
+<div align="left">         <b>Figure 6:</b> Default snippet list for Plain Text syntax </div><p>The first item in the list titled &quot;Lorem ipsum&quot; is the example we just used. Note that the short-cut to the snippet is displayed on the right as lorem,tab i.e. you can use the snippet as we did earlier: type <tt class="docutils literal">lorem</tt> and hit <kbd class="light">tab</kbd> . We are now going to make our own snippet.</p>
+<div class="section" id="new-snippet">
+<h3>New Snippet...</h3>
+<p>This example builds on what was taught in the &quot;<a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">Introduction to Pelican</a>&quot; session. During that session we learnt to write a blog entry in <tt class="docutils literal">.rst</tt> format. However, each time you start a new blog you have to firstly remember all the important metadata attributes and format them correctly. Therefore, to increase our efficiency we will build a snippet to do this for us.</p>
+<p>Firstly, it best to have a file with the extension that you want to build the snippet for open in ST2. This allows you to find the scope needed for the snippet and allows you to test it. On the virtual appliance we have supplied for the module, create a directory called <tt class="docutils literal"><span class="pre">my-blog</span></tt> under the path <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican/content/</span></tt> then open a new file and save as <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt> in the <tt class="docutils literal"><span class="pre">my-blog</span></tt> directory so we can use it throughout this workshop. <em>Note: This can be done quickly with <kbd class="light">ctrl</kbd> + <kbd class="light">n</kbd> , then <kbd class="light">ctrl</kbd> + <kbd class="light">s</kbd> and use the file-save GUI.</em></p>
+<p>To build a new snippet we need to go to <em>Tools</em> &gt; <em>New Snippet...</em> which will open a new file with the following code pre-entered:</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="nt">&lt;snippet&gt;</span>
+<span class="lineno">2 </span><span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="lineno">3 </span><span class="cp">Hello, ${1:this} is a ${2:snippet}.</span>
+<span class="lineno">4 </span><span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+<span class="lineno">5 </span>    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
+<span class="lineno">6 </span>    <span class="c">&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;</span>
+<span class="lineno">7 </span>    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
+<span class="lineno">8 </span>    <span class="c">&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span>
+<span class="lineno">9 </span><span class="nt">&lt;/snippet&gt;</span>
+</pre></div>
+<p>There are three main lines of interest here:</p>
+<dl class="docutils">
+<dt><strong>Line 3</strong></dt>
+<dd>This area (between the [ ] opened at the end of line 2 and closed on line 4) is the text that gets pasted into the file when you create the snippet. We will look at the format in a bit.</dd>
+<dt><strong>Line 6</strong></dt>
+<dd>The code <tt class="docutils literal"><span class="pre">&lt;tabTrigger&gt;hello&lt;/tabTrigger&gt;</span></tt> is where you define the tab-trigger to use the snippet.</dd>
+<dt><strong>Line 8</strong></dt>
+<dd>The code <tt class="docutils literal"><span class="pre">&lt;scope&gt;source.python&lt;/scope&gt;</span></tt> is where you define what file format you can apply the snippet.</dd>
+</dl>
+<p>We will firstly define the tab-trigger and the scope so that we can use it our file <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt>. As the snippet will be creating the title and metadata a sensible tab-trigger would be <tt class="docutils literal">title</tt> so replace line 6 with the following (<strong>note:</strong> to uncomment/comment lines push <kbd class="light">ctrl</kbd> + <kbd class="light">/</kbd> ):</p>
+<div class="highlight"><pre><span class="lineno">6 </span>    <span class="nt">&lt;tabTrigger&gt;</span>title<span class="nt">&lt;/tabTrigger&gt;</span>
+</pre></div>
+<p>Next, cycle back to the <tt class="docutils literal">.rst</tt> file and push <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">alt</kbd> + <kbd class="light">p</kbd> to show the scope in the status bar at the bottom of the window, see Figure 7.</p>
+<div class="figure align-center">
+<img alt="Displaying the scope of a .rst file." src="./text-editors-sublime/sublime-images/st2_scope.png" style="width: 40%;" />
+</div>
+<div align="left">         <b>Figure 7:</b> Display of the scope of a .rst file in the status bar. </div><p>Copy <tt class="docutils literal">text.restructuredtext</tt> into line 8 so that it reads:</p>
+<div class="highlight"><pre><span class="lineno">8 </span>    <span class="nt">&lt;scope&gt;</span>text.restructuredtext<span class="nt">&lt;/scope&gt;</span>
+</pre></div>
+<p>Now we can start looking at the body of the snippet. Currently we have: <tt class="docutils literal">Hello, ${1:this} is a ${2:snippet}.</tt>. This contains two tab key markers which allow you to cycle through the fields that you wish to enter each time you use the snippet. The tab key markers are denoted by the <tt class="docutils literal">$</tt> sign, and the number that follows it in the curly brace defines the cycle order (i.e. when you press <kbd class="light">tab</kbd> ). You can repeat the number if you want to fill in two fields with the same information. The word that follows the colon is the field text that you will replace when you start typing.</p>
+<p>For our &quot;blog title&quot; snippet we will input the following for the content:</p>
+<div class="highlight"><pre><span class="nt">&lt;snippet&gt;</span>
+    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">${1:Title}</span>
+<span class="cp">####${2:#}</span>
+
+<span class="cp">:authors: Your Name</span>
+<span class="cp">:date: ${3:2015-03-01}</span>
+<span class="cp">:tags: ${4:Tags}</span>
+<span class="cp">:slug: ${5:slug}</span>
+
+<span class="cp">${6:Starting typing content here...}</span>
+<span class="cp">    ]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
+    <span class="nt">&lt;tabTrigger&gt;</span>title<span class="nt">&lt;/tabTrigger&gt;</span>
+    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>text.restructuredtext<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span>
+</pre></div>
+<p>Now we just need to save it by selecting <em>File</em> &gt; <em>Save as</em> or by pressing <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> +<kbd class="light">s</kbd> . The snippet needs to be saved under <em>~</em> &gt; <em>.config</em> &gt; <em>sublime-text-2</em> &gt; <em>Packages</em> &gt; <em>User</em> (ST2 should open the &quot;Save&quot; window in this directory by default) and must have the extension <tt class="docutils literal"><span class="pre">.sublime-snippet</span></tt>. We suggest saving it as a sensible name such as <tt class="docutils literal"><span class="pre">rst-blog-title.sublime-snippet</span></tt> .</p>
+<p>Now that it is saved it should work straight away. Navigate back to your <tt class="docutils literal">.rst</tt> file and type in <tt class="docutils literal">title</tt> followed by hitting <kbd class="light">tab</kbd> . The snippet should paste all the metadata into your file and allow you to tab through each field and let you update them. Fill in all these fields and add some content such as the classic &quot;Hello World!&quot; Finally, save this file for use in the next section.</p>
+<div class="figure align-center">
+<img alt="The .rst file after using the snippet created above." src="./text-editors-sublime/sublime-images/st2_complete-snippet.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 8:</b> The .rst file after completing the snippet exercise. </div></div>
+</div>
+<div class="section" id="build-systems">
+<h2>Build Systems</h2>
+<p>ST2 gives you the option to &quot;build&quot; the file you are working on (e.g. if you were working on a <tt class="docutils literal">.c</tt> file you can run a C build system to compile the code and even run it). There are several build systems that come with ST2 such as C++ and python. However, we want to show you how you can make your own personal build system.</p>
+<p>Sticking with the blogging theme, we are going to create a build system that allows you to generate the <tt class="docutils literal">.html</tt> files and a &quot;Run&quot; option to locally view the <tt class="docutils literal">index.html</tt> files in a browser.</p>
+<p>Firstly, we need to create a new build system, so go to <em>Tools</em> &gt; <em>Build System</em> &gt; <em>New Build System...</em> which will open a new file. Like many other ST2 settings files, build systems are written in Java Script Object Notation (JSON) format, requiring key word and argument pairs. The default new build system should look like this:</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+<p>In here we will place our commands that we would normally type as a bash command. To start we need to give a coommand to navigate to where the <tt class="docutils literal">Makefile</tt> is and then use it. The most robust way to do this is to start from a known point i.e. your home. In the case of the virtual appliance we have supplied, the path will be <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican</span></tt>. Then we can add the command <tt class="docutils literal">make html</tt> as shown below. It is also good to add a <tt class="docutils literal">selector</tt> field that means this build system only works on specific file types and will be automatically selected by ST2 (in this case we want it to work on <tt class="docutils literal">text.restructuredtext</tt> files).</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.restructuredtext&quot;</span>
+<span class="p">}</span>
+</pre></div>
+<p>If we now save this in the user directory <tt class="docutils literal"><span class="pre">~/.config/Sublime</span> Text <span class="pre">2/Packages/User``as</span> <span class="pre">``pelican-blog.sublime-build</span></tt> (again the extension <tt class="docutils literal"><span class="pre">.sublime-build</span></tt> is required) and then return to editing to the <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt> file that was created above and we can use this build system. To use the build system either go to <em>Tools</em> &gt; <em>Build System</em>  and select the <em>pelican-blog</em> system, or alternatively, press <kbd class="light">ctrl</kbd> + <kbd class="light">b</kbd> . Upon doing this the bash output of the commands will be displayed at the bottom of the screen as shown in Figure 9.</p>
+<div class="figure align-center">
+<img alt="A successful pelican blog build." src="./text-editors-sublime/sublime-images/st2_build.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 9:</b> A successful pelican blog build system. </div><p>To add the option (or a variant) of viewing the output once you have built it you can update the build system as follows:</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.restructuredtext&quot;</span><span class="p">,</span>
+
+    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html &amp;&amp; cd ~/comp_mod/blogs/tools &amp;&amp; firefox index.html&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+<p>This variant is called &quot;Run&quot; and carries out the same commands as &quot;Build&quot; but also opens the local <tt class="docutils literal">index.html</tt> in a firefox browser. The name &quot;Run&quot; was chosen as it comes with the predefined key-binding <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">b</kbd> and an option in the <em>Tools</em> drop down menu. You can add multiple variants to perform other tasks, however, they won't be available in to drop down menu; instead you can find them in the <em>Command Palette</em> ( <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> ) and search for <tt class="docutils literal">Build: &lt;variant name&gt;</tt>, or add a personal key-binding under <tt class="docutils literal">Preferences &gt; Key Bindings - User</tt> (again in the JSON format: see <tt class="docutils literal">Key Bindings - Default</tt> for the format).</p>
+<div class="figure align-center">
+<img alt="A successful pelican blog run." src="./text-editors-sublime/sublime-images/st2_run.png" style="width: 80%;" />
+</div>
+<div align="left">         <b>Figure 10:</b> A successful pelican blog run. </div></div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./mercurial.html" rel="bookmark"
+                           title="Permalink to Mercurial">Mercurial</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-26T00:00:00+01:00">
                 Published: Thu 26 February 2015
@@ -36,7 +250,7 @@
         </address>
 <p>In <a href="./category-mercurial-basics.html">mercurial-basics</a>. </p>
 <p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-reproducibility.html">Reproducibility</a> <a href="./tag-testing.html">Testing</a> </p>
-</footer><!-- /.post-info --><div class="section" id="introduction-to-version-control-using-mercurial">
+</footer><!-- /.post-info -->                <div class="section" id="introduction-to-version-control-using-mercurial">
 <h2><a class="toc-backref" href="#id1">Introduction to version control (using Mercurial)</a></h2>
 <blockquote>
 <img alt="Mercurial logo" src="./mercurial-logo.jpeg" style="width: 20%;" />
@@ -54,1044 +268,8 @@
 <li><a class="reference internal" href="#terminology" id="id8">Terminology</a></li>
 <li><a class="reference internal" href="#getting-started-with-hg" id="id9">Getting started with hg</a></li>
 <li><a class="reference internal" href="#initialise-hg-repository" id="id10">Initialise hg repository</a></li>
-<li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files</a></li>
-<li><a class="reference internal" href="#in-built-help-function" id="id12">In-built help function</a></li>
-<li><a class="reference internal" href="#first-steps-1-adding-files" id="id13">First steps 1: Adding files</a></li>
-<li><a class="reference internal" href="#first-steps-2-checking-status" id="id14">First steps 2: checking status</a></li>
-<li><a class="reference internal" href="#first-steps-3-modifying-the-file" id="id15">First steps 3: modifying the file</a></li>
-<li><a class="reference internal" href="#first-steps-4-review-the-change" id="id16">First steps 4: Review the change</a></li>
-<li><a class="reference internal" href="#first-steps-5-the-history-again" id="id17">First steps 5: The history (again)</a></li>
-<li><a class="reference internal" href="#first-steps-6-adding-another-file" id="id18">First steps 6: Adding another file</a></li>
-<li><a class="reference internal" href="#first-steps-7-study-the-history" id="id19">First steps 7: Study the history</a></li>
-<li><a class="reference internal" href="#other-ways-of-reading-the-history-and-guis" id="id20">Other ways of reading the history (and GUIs)</a></li>
-<li><a class="reference internal" href="#see-which-line-was-written-when-and-by-whom" id="id21">See which line was written when (and by whom!)</a></li>
-<li><a class="reference internal" href="#commit-messages" id="id22">Commit messages</a></li>
-<li><a class="reference internal" href="#typical-cycle" id="id23">Typical cycle</a></li>
-<li><a class="reference internal" href="#the-update-command" id="id24">The update command</a></li>
-<li><a class="reference internal" href="#the-cat-command" id="id25">The cat command</a></li>
-<li><a class="reference internal" href="#adding-user-defined-tags" id="id26">Adding user-defined tags</a></li>
-<li><a class="reference internal" href="#user-defined-tag-examples" id="id27">User-defined tag examples</a></li>
-<li><a class="reference internal" href="#what-are-revision-specifiers" id="id28">What are revision specifiers</a></li>
-<li><a class="reference internal" href="#removing-files-from-the-repository" id="id29">Removing files from the repository</a></li>
-<li><a class="reference internal" href="#renaming-files-and-directories" id="id30">Renaming files and directories</a></li>
-<li><a class="reference internal" href="#where-is-all-the-history-stored" id="id31">Where is all the history stored?</a></li>
-<li><a class="reference internal" href="#reverting-changes" id="id32">Reverting changes</a></li>
-<li><a class="reference internal" href="#uncommitting-the-commit" id="id33">Uncommitting the commit</a></li>
-<li><a class="reference internal" href="#making-copies-backups-of-the-repository" id="id34">Making copies (backups?) of the repository</a></li>
-<li><a class="reference internal" href="#multiple-repositories" id="id35">Multiple repositories</a></li>
-<li><a class="reference internal" href="#multiple-repositories-one-master-repository" id="id36">Multiple repositories: one master repository</a></li>
-<li><a class="reference internal" href="#location-of-multiple-repositories" id="id37">Location of multiple repositories</a></li>
-<li><a class="reference internal" href="#scientific-truth-and-reproducibility" id="id38">Scientific truth and <em>reproducibility</em></a></li>
-<li><a class="reference internal" href="#summary-of-important-commands" id="id39">Summary of important commands</a></li>
-<li><a class="reference internal" href="#abbreviating-commands" id="id40">Abbreviating commands</a></li>
-<li><a class="reference internal" href="#odd-bits-of-information" id="id41">Odd bits of information</a></li>
-<li><a class="reference internal" href="#advanced-functionality" id="id42">Advanced functionality</a></li>
-<li><a class="reference internal" href="#useful-entries-in-user-hg-configuration-file" id="id43">Useful entries in user hg configuration file</a></li>
-<li><a class="reference internal" href="#what-about-git" id="id44">What about git?</a></li>
-<li><a class="reference internal" href="#summary" id="id45">Summary</a></li>
-<li><a class="reference internal" href="#download-repository-created-in-this-archive" id="id46">Download repository created in this archive</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="prerequisits-for-this-session">
-<h3><a class="toc-backref" href="#id2">Prerequisits for this session</a></h3>
-<ul>
-<li><p class="first">Have working mercurial installation.  You can check for an existing installation using the command
-<tt class="docutils literal">hg <span class="pre">--version</span></tt>, which should display some output starting with:</p>
-<pre class="literal-block">
-Mercurial Distributed SCM (version 3.1)
-(see http://mercurial.selenic.com for more information)
-</pre>
-<p>If this is not working, you need to install Mercurial: see <a class="reference internal" href="#installation">Installation</a></p>
-</li>
-<li><p class="first">If you want to explore the example repository used in this session, you can download it from
-<a class="reference external" href="./project1.tar.gz">project1.tar.gz</a>. To unpack the archive, you can use <tt class="docutils literal">tar xfvz project1.tar.gz</tt>.</p>
-<p>However, the recommended exercise is to follow the examples in the notes below and create your own repository as you work through the material.</p>
-</li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="video-recordings">
-<h3><a class="toc-backref" href="#id3">Video recordings</a></h3>
-<p>Video recording part one:</p>
-<iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=2beff262-aebe-4568-973f-6cdf12b0e5a3&v=1" width="450" height="300" frameborder="0"></iframe><p>Video recording part two:</p>
-<iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=8ee6033b-ea64-41b0-94ce-f8a751904eca&v=1" width="450" height="300" frameborder="0"></iframe></div>
-<hr class="docutils" />
-<div class="section" id="why-version-control-single-user">
-<h3><a class="toc-backref" href="#id4">Why version control - Single user</a></h3>
-<ul>
-<li><p class="first">often we work on documents (or a set of files) for a long time
-(days, weeks, months)</p>
-</li>
-<li><p class="first">we (should) have backup copies in other places</p>
-</li>
-<li><p class="first">need to know:</p>
-<ul class="simple">
-<li>regularly: what is the most recent version</li>
-<li>sometimes: how did the project look like some time ago (say two weeks)</li>
-</ul>
-</li>
-<li><p class="first">Common approaches:</p>
-<pre class="literal-block">
-file-1.doc
-file-2.doc
-file-2a.doc
-file-3.doc
-...
-</pre>
-<p>or</p>
-<img alt="Invented names of different versions of one document.  Version control provides a better solution." src="./versioning-grant-proposals-fake.png" style="width: 90%;" />
-<p>or</p>
-<img alt="Invented names for fortran code versions. Version control provides a better solution." src="./versioning-code-fake.png" style="width: 50%;" />
-<p>We can do much better using <em>version control</em> tools.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="why-version-control-in-team">
-<h3><a class="toc-backref" href="#id5">Why version control - in Team</a></h3>
-<ul class="simple">
-<li>multiple people working on code</li>
-<li>may work on one file simultaneously</li>
-<li>need<ul>
-<li>tracking of versions</li>
-<li>merging of changes from different people</li>
-</ul>
-</li>
-<li>Impossible to do manually -&gt; Need version control</li>
-</ul>
-</div>
-<div class="section" id="this-session-on-version-control-and-mercurial">
-<h3><a class="toc-backref" href="#id6">This session on Version Control and Mercurial</a></h3>
-<ul>
-<li><p class="first">will introduce <em>idea</em> of version control together with</p>
-</li>
-<li><p class="first"><em>Mercurial</em> which is a particular version control package</p>
-<p>Homepage: <a class="reference external" href="http://www.selenic.com/mercurial">http://www.selenic.com/mercurial</a></p>
-<p>Mercurial is abbreviated <tt class="docutils literal">hg</tt> (from the chemical element)</p>
-</li>
-</ul>
-</div>
-<div class="section" id="installation">
-<h3><a class="toc-backref" href="#id7">Installation</a></h3>
-<p>Download <em>binary</em> from  <a class="reference external" href="http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages">http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Linux:</th><td class="field-body">usually standard package of distribution. On Ubuntu/Debian, you can use <tt class="docutils literal">sudo <span class="pre">apt-get</span> install mercurial</tt> to install it.</td>
-</tr>
-<tr class="field"><th class="field-name">MacOS:</th><td class="field-body">compile from source or download binary</td>
-</tr>
-<tr class="field"><th class="field-name">Windows:</th><td class="field-body">recommend TortoiseHg at TortoiseHg <a class="reference external" href="http://www.selenic.com/mercurial/wiki/index.cgi/TortoiseHg">http://www.selenic.com/mercurial/wiki/index.cgi/TortoiseHg</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="terminology">
-<h3><a class="toc-backref" href="#id8">Terminology</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Repository:</th><td class="field-body"><p class="first">something keeping track of all changes to the project for all the past (hidden in <tt class="docutils literal">.hg</tt>)</p>
-<p>You can think of this as a (hidden) collection of the files
-<tt class="docutils literal"><span class="pre">file-1.doc</span></tt>, <tt class="docutils literal"><span class="pre">file-2.doc</span></tt>, <tt class="docutils literal"><span class="pre">file-3.doc</span></tt>, <tt class="docutils literal"><span class="pre">file-4.doc</span></tt>.</p>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Working copy:</th><td class="field-body"><p class="first">the set (visible) files (in the working directory), i.e. one copy of
-the project.</p>
-<p class="last">Typically, this will contain the most recent version
-(i.e. <tt class="docutils literal"><span class="pre">file-4.doc</span></tt>)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="getting-started-with-hg">
-<h3><a class="toc-backref" href="#id9">Getting started with hg</a></h3>
-<ul>
-<li><p class="first">Suppose we need to write a Python program in a directory <tt class="docutils literal">project1</tt></p>
-</li>
-<li><p class="first">Create directory and change into directory:</p>
-<pre class="literal-block">
-$&gt; mkdir project1
-$&gt; cd project1
-$project1&gt;
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="initialise-hg-repository">
-<h3><a class="toc-backref" href="#id10">Initialise hg repository</a></h3>
-<ul>
-<li><p class="first">Need to do this only once for a given repository:</p>
-<pre class="literal-block">
-$project1&gt; hg init
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="checking-the-status-of-files">
-<h3><a class="toc-backref" href="#id11">Checking the status of files</a></h3>
-<ul>
-<li><p class="first">Suppose our first file is <tt class="docutils literal">hello.py</tt> in the project1 directory:</p>
-<pre class="literal-block">
-def hello(msg):
-   print(&quot;Hello World: %s&quot; % msg)
-</pre>
-</li>
-<li><p class="first">We can ask <tt class="docutils literal">hg</tt> whether it knows about the file:</p>
-<pre class="literal-block">
-$project1&gt; hg status hello.py
-? hello.py
-</pre>
-<p>We could also have used:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-? hello.py
-</pre>
-<p>and <tt class="docutils literal">hg</tt> will report the status of all files in the directory.</p>
-<p><tt class="docutils literal">?</tt> means: unknown.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="in-built-help-function">
-<h3><a class="toc-backref" href="#id12">In-built help function</a></h3>
-<ul>
-<li><p class="first">Mercurial has a fairly comprehensive help command:</p>
-<pre class="literal-block">
-$&gt; hg help
-</pre>
-<p>Or to get help for a particular command:</p>
-<pre class="literal-block">
-$&gt; hg help add
-hg add [OPTION]... [FILE]...
-
-add the specified files on the next commit
-
-    Schedule files to be version controlled and added to the
-    repository.
-
-    The files will be added to the repository at the next
-    commit. To undo an add before that, see hg revert.
-
-    If no names are given, add all files in the repository.
-...
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-1-adding-files">
-<h3><a class="toc-backref" href="#id13">First steps 1: Adding files</a></h3>
-<ul>
-<li><p class="first">Add this file to the repository (i.e. tell <tt class="docutils literal">hg</tt> to track it):</p>
-<pre class="literal-block">
-$project1&gt; hg add hello.py
-$project1&gt;
-</pre>
-<p>At this stage, <tt class="docutils literal">hg</tt> knows that it should add the file. Let's check this (via the status command):</p>
-<pre class="literal-block">
-$project1&gt; hg status
-A hello.py
-</pre>
-<p><tt class="docutils literal">A</tt> stands for Added.</p>
-</li>
-<li><p class="first">Commit changes (ask <tt class="docutils literal">hg</tt> to take snapshot):</p>
-<pre class="literal-block">
-$project1&gt; hg commit -m &quot;Added my first file&quot;
-$project1&gt;
-</pre>
-</li>
-<li><p class="first">If at this point mercurial complains that no username is defined:</p>
-<pre class="literal-block">
-abort: no username supplied
-(use &quot;hg config --edit&quot; to set your username)
-</pre>
-<p>then we need to follow the instructions, and use the <tt class="docutils literal">hg config
-<span class="pre">--edit</span></tt> command. This will open the mercurial user configuration
-file in an editor.  We need to provide a username (and email) on the
-line starting with <tt class="docutils literal">username =</tt> that is provided in the
-configuration template.</p>
-<p>[On Linux and Mac OS X, the user configuration file is in
-<tt class="docutils literal"><span class="pre">~/.hgrc</span></tt> and can also be edited directly.]</p>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-2-checking-status">
-<h3><a class="toc-backref" href="#id14">First steps 2: checking status</a></h3>
-<ul>
-<li><p class="first">Check status:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-$project1&gt;
-</pre>
-<p><em>no news is good news</em>, i.e. all files in the directory are
-up-to-date (=identical to last snap-shot)</p>
-</li>
-<li><p class="first">Study history of repository (the log):</p>
-<pre class="literal-block">
-$project1&gt; hg log
-changeset:   0:f8087bdd8fc8
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-3-modifying-the-file">
-<h3><a class="toc-backref" href="#id15">First steps 3: modifying the file</a></h3>
-<ul>
-<li><p class="first">extend programm <tt class="docutils literal">hello.py</tt> to read:</p>
-<pre class="literal-block">
-def hello(msg):
-           print(&quot;Hello World: %s&quot; % msg)
-
-hello(&quot;from hello.py&quot;)
-</pre>
-</li>
-<li><p class="first">Has <tt class="docutils literal">hg</tt> realised we have changed the file?:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-M hello.py
-</pre>
-<p>Yes, <tt class="docutils literal">M</tt> stands for <tt class="docutils literal">M</tt>odified.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-4-review-the-change">
-<h3><a class="toc-backref" href="#id16">First steps 4: Review the change</a></h3>
-<ul>
-<li><p class="first">What is the <em>diff</em>erence (in comparison to the last snapshot):</p>
-<pre class="literal-block">
-$project1&gt; hg diff
-diff -r f8087bdd8fc8 hello.py
---- a/hello.py  Thu May 15 23:24:31 2008 +0100
-+++ b/hello.py  Thu May 15 23:29:32 2008 +0100
-&#64;&#64; -1,2 +1,4 &#64;&#64;
- def hello(msg):
-        print(&quot;Hello World: %s&quot; % msg)
-+
-+hello(&quot;from hello.py&quot;)
-</pre>
-</li>
-<li><p class="first">Suppose we are happy with this change, and want to take a snap-shot: (i.e. <em>commit</em> the change):</p>
-<pre class="literal-block">
-$project1&gt; hg commit -m &quot;Adding main program&quot;
-$project1&gt;
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-5-the-history-again">
-<h3><a class="toc-backref" href="#id17">First steps 5: The history (again)</a></h3>
-<ul>
-<li><p class="first">Check out the history of the project:</p>
-<pre class="literal-block">
-$project1&gt; hg log
-changeset:   1:7bcacdc541fb
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-6-adding-another-file">
-<h3><a class="toc-backref" href="#id18">First steps 6: Adding another file</a></h3>
-<p>We create a new file <tt class="docutils literal">README.txt</tt> which contains this line:</p>
-<pre class="literal-block">
-The hello.py program prints a friendly message.
-</pre>
-<p>Let's check the status, add, commit and check:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-? README.txt
-$project1&gt; hg add README.txt
-$project1&gt; hg status
-A README.txt
-$project1&gt; hg commit -m &quot;Adding RENAME file&quot;
-$project1&gt; hg status
-$project1&gt;
-</pre>
-</div>
-<div class="section" id="first-steps-7-study-the-history">
-<h3><a class="toc-backref" href="#id19">First steps 7: Study the history</a></h3>
-<ul>
-<li><p class="first">Using the <tt class="docutils literal">hg log</tt> command:</p>
-<pre class="literal-block">
-$project1&gt; hg log
-changeset:   2:7a6262cf0acf
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:53:41 2008 +0100
-summary:     Adding REAME file
-
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">The <tt class="docutils literal"><span class="pre">-v</span></tt> flag shows files affected by each changeset:</p>
-<pre class="literal-block">
-$project1&gt; hg log -v
-changeset:   3:691317be5f4b
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Fri May 16 16:26:41 2008 +0100
-files:       .hgtags
-description:
-Added tag release 1.0 for changeset 7a6262cf0acf
-
-
-changeset:   2:7a6262cf0acf
-tag:         release 1.0
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:53:41 2008 +0100
-files:       README.txt
-description:
-Adding REAME file
-
-
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-files:       hello.py
-description:
-Adding main program
-
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-files:       hello.py
-description:
-Added my first file
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="other-ways-of-reading-the-history-and-guis">
-<h3><a class="toc-backref" href="#id20">Other ways of reading the history (and GUIs)</a></h3>
-<ul>
-<li><p class="first">Graphical interface:</p>
-<pre class="literal-block">
-$project1&gt; hg view
-</pre>
-<img alt="Snapshot of hg view." src="./hgview.png" style="width: 80%;" />
-</li>
-<li><p class="first">Using webserver:</p>
-<pre class="literal-block">
-$project1&gt; hg serve
-</pre>
-<p>and point webbrowser to <a class="reference external" href="http://localhost:8000">http://localhost:8000</a></p>
-<img alt="Snapshot of hg view." src="./hgserve.png" style="width: 80%;" />
-</li>
-<li><p class="first">Use <tt class="docutils literal">hg glog</tt> (for <tt class="docutils literal">graphlog</tt>):</p>
-<pre class="literal-block">
-$project1&gt; hg glog
-&#64;  changeset:   3:691317be5f4b
-|  tag:         tip
-|  user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-|  date:        Fri May 16 16:26:41 2008 +0100
-|  summary:     Added tag release 1.0 for changeset 7a6262cf0acf
-|
-o  changeset:   2:7a6262cf0acf
-|  tag:         release 1.0
-|  user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-|  date:        Thu May 15 23:53:41 2008 +0100
-|  summary:     Adding REAME file
-|
-o  changeset:   1:7bcacdc541fb
-|  user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-|  date:        Thu May 15 23:35:53 2008 +0100
-|  summary:     Adding main program
-|
-o  changeset:   0:f8087bdd8fc8
-   user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-   date:        Thu May 15 23:24:31 2008 +0100
-   summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">Use graphical user interfaces (such as Sourcetree)</p>
-<img alt="Snapshot of Sourcetree." src="./sourcetree.png" style="width: 80%;" />
-</li>
-<li><p class="first">Use service such as bitbucket or github</p>
-<img alt="Snapshot of Sourcetree." src="./bitbucket.png" style="width: 80%;" />
-</li>
-</ul>
-</div>
-<div class="section" id="see-which-line-was-written-when-and-by-whom">
-<h3><a class="toc-backref" href="#id21">See which line was written when (and by whom!)</a></h3>
-<pre class="literal-block">
-$project1&gt; hg blame hello.py
-0: def hello(msg):
-0:      print &quot;Hello World: %s&quot; % msg
-1:
-1: hello(&quot;from hello.py&quot;)
-
-$project1&gt; hg blame -u hello.py
-fangohr: def hello(msg):
-fangohr:        print(&quot;Hello World: %s&quot; % msg)
-fangohr:
-fangohr: hello(&quot;from hello.py&quot;)
-</pre>
-</div>
-<div class="section" id="commit-messages">
-<h3><a class="toc-backref" href="#id22">Commit messages</a></h3>
-<p>Commit messages should be used to explain what has been changed in this commit, or what this commit provides / fixes / etc. For example:</p>
-<ul class="simple">
-<li>&quot;starting implementation of new feature X&quot;</li>
-<li>&quot;as used for figure 3 in Nature paper&quot;</li>
-<li>&quot;have added iterative method to solver suite&quot;</li>
-<li>&quot;implemented suggestion from examiner in transfer viva&quot;</li>
-</ul>
-<p>The purpose of them is to (help) find a particular version of the code later. The messages are not limited to one line but can be very long if desired.</p>
-</div>
-<div class="section" id="typical-cycle">
-<h3><a class="toc-backref" href="#id23">Typical cycle</a></h3>
-<p>While programming (or writing a report, creating a web page, etc), we
-tend to follow this cycle:</p>
-<ol class="arabic simple">
-<li>do the work (i.e. modify files)</li>
-<li>commit changes with commit message</li>
-<li>back to 1.</li>
-</ol>
-<p>Only occasionally, we need to do special things:</p>
-<blockquote>
-<ul class="simple">
-<li>examine the history (partly shown)</li>
-<li>go back to an older snap shot (next topic)</li>
-</ul>
-</blockquote>
-</div>
-<div class="section" id="the-update-command">
-<h3><a class="toc-backref" href="#id24">The update command</a></h3>
-<p><tt class="docutils literal">update</tt> refers to the files in the <em>working directory</em> (not the
-repository), and allows 'time travel'.</p>
-<ul>
-<li><p class="first">To go back to revision 0, use:</p>
-<pre class="literal-block">
-$project1&gt; hg update -r 0
-1 files updated, 0 files merged, 1 files removed, 0 files unresolved
-</pre>
-<p>(Similarly, can use <tt class="docutils literal">hg update <span class="pre">-r</span> 1</tt>, <tt class="docutils literal">hg update <span class="pre">-r</span> 2</tt> etc)</p>
-</li>
-<li><p class="first">What files are in the working directory?:</p>
-<pre class="literal-block">
-$project1&gt; ls
-hello.py
-</pre>
-</li>
-<li><p class="first">What is the content?:</p>
-<pre class="literal-block">
-$project1&gt; cat hello.py
-def hello(msg):
-        print &quot;Hello World: %s&quot; % msg
-</pre>
-</li>
-<li><p class="first">To  check the version of the files in the working directory, use the <tt class="docutils literal">parent</tt> command:</p>
-<pre class="literal-block">
-$project1&gt; hg parent
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">To go to the most recent version in the repository (the <em>tip</em>) use:</p>
-<pre class="literal-block">
-$project1&gt; hg update tip
-</pre>
-<p>or simply <tt class="docutils literal">hg update</tt>.</p>
-</li>
-<li><p class="first">Can also request the latest snap shot taken before 23:50 on 15 May 2008:</p>
-<pre class="literal-block">
-$project1&gt; hg update --date &quot;&lt;2008-05-15 23:45&quot;
-Found revision 1 from Thu May 15 23:35:53 2008 +0100
-0 files updated, 0 files merged, 1 files removed, 0 files unresolved
-</pre>
-<p>Check status of working directory:</p>
-<pre class="literal-block">
-$project1&gt; hg parents
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-</pre>
-<p>Useful if you happen to know that at a certain date something worked.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="the-cat-command">
-<h3><a class="toc-backref" href="#id25">The cat command</a></h3>
-<p>The <tt class="docutils literal">hg cat <span class="pre">-r</span> n FILE</tt> allows to send the FILE in revision <tt class="docutils literal">n</tt> to the stdout:</p>
-<pre class="literal-block">
-$project1&gt; hg cat -r 0 hello.py
-def hello(msg):
-  print(&quot;Hello World: %s&quot; % msg)
-$project1&gt; hg cat -r 1 hello.py
-def hello(msg):
-  print(&quot;Hello World: %s&quot; % msg)
-
-hello(&quot;from hello.py&quot;)
-</pre>
-<p>This is useful to see (or retrieve and redirect into a file) an older version of one file.
-The <tt class="docutils literal">update</tt> command will update all the files in the working repository to version <tt class="docutils literal">n</tt> and cannot operate on a single file.</p>
-</div>
-<div class="section" id="adding-user-defined-tags">
-<h3><a class="toc-backref" href="#id26">Adding user-defined tags</a></h3>
-<ul class="simple">
-<li>Version control is particularly important when maintaining software
-that is released to users.</li>
-<li>Also useful if we need to remember particular revisions (such as <tt class="docutils literal">interim report</tt>, <tt class="docutils literal">Masters thesis</tt>, ...)</li>
-</ul>
-</div>
-<div class="section" id="user-defined-tag-examples">
-<h3><a class="toc-backref" href="#id27">User-defined tag examples</a></h3>
-<p>Suppose we have released revision 2 as version 1.0 of the software, and we want to</p>
-<ul>
-<li><p class="first">Add a tag:</p>
-<pre class="literal-block">
-$project1&gt; hg tag -r 2 &quot;release 1.0&quot;
-</pre>
-</li>
-<li><p class="first">the <em>tags</em> command lists all defined tags:</p>
-<pre class="literal-block">
-$project1&gt; hg tags
-tip                                3:691317be5f4b
-release 1.0                        2:7a6262cf0acf
-</pre>
-</li>
-<li><p class="first">can also see tags in log:</p>
-<pre class="literal-block">
-$project1&gt; hg log
-
-changeset:   3:691317be5f4b
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Fri May 16 16:26:41 2008 +0100
-summary:     Added tag release 1.0 for changeset 7a6262cf0acf
-
-changeset:   2:7a6262cf0acf
-tag:         release 1.0
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:53:41 2008 +0100
-summary:     Adding REAME file
-
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">Can now use the tag &quot;release 1.0&quot; instead of the revision number if,
-say, we need to go back to that version:</p>
-<pre class="literal-block">
-$project1&gt; hg update -r &quot;release 1.0&quot;
-</pre>
-</li>
-<li><p class="first">You may want to t ag particular versions of your work,
-i.e. use tags like:</p>
-<ul class="simple">
-<li><tt class="docutils literal">interim_report</tt></li>
-<li><tt class="docutils literal">final_as_submitted</tt></li>
-<li><tt class="docutils literal">has bug</tt></li>
-<li><tt class="docutils literal"><span class="pre">as-submitted-to-Nature</span></tt></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="what-are-revision-specifiers">
-<h3><a class="toc-backref" href="#id28">What are revision specifiers</a></h3>
-<ul>
-<li><p class="first">Revisions (=snap-shots) are identified by</p>
-<ul class="simple">
-<li>hashes (such as 7a6262cf0acf) and</li>
-<li>integers (such as 2)</li>
-<li>user-defined tags (see <a class="reference internal" href="#adding-user-defined-tags">Adding user-defined tags</a>)</li>
-</ul>
-<p>The integers are easier to use.</p>
-</li>
-</ul>
-<div class="caution">
-<p class="first admonition-title">Caution!</p>
-<p class="last">If you use the <tt class="docutils literal">push</tt>, <tt class="docutils literal">pull</tt> or <tt class="docutils literal">merge</tt> commands, the
-integers may change. See <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial tutorial</a> for details.</p>
-</div>
-</div>
-<div class="section" id="removing-files-from-the-repository">
-<h3><a class="toc-backref" href="#id29">Removing files from the repository</a></h3>
-<ul>
-<li><p class="first">To remove a file from the repository (say <tt class="docutils literal">README.txt</tt>), you can use:</p>
-<pre class="literal-block">
-$project1&gt; hg remove README.txt
-</pre>
-</li>
-<li><p class="first">Mercurial will tag the file for removal, and will delete it with the
-next commit.</p>
-</li>
-<li><p class="first">Note that the history of the file is not changed: we can always go
-back to earlier revisions and the file will be there.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="renaming-files-and-directories">
-<h3><a class="toc-backref" href="#id30">Renaming files and directories</a></h3>
-<p>You can easily rename a file with <tt class="docutils literal">hg</tt>. Suppose we need to rename
-<tt class="docutils literal">README.txt</tt> to <tt class="docutils literal">readme.txt</tt>:</p>
-<pre class="literal-block">
-$project1&gt; hg rename README.txt readme.txt
-</pre>
-<p>This (i) renames the file in the working directory and (ii) include
-the change in the repository the next time we commit.</p>
-<dl class="docutils">
-<dt>You could rename a file as follows (but we shouldn't!):</dt>
-<dd><ul class="first last simple">
-<li>copy <tt class="docutils literal">README.txt</tt> to <tt class="docutils literal">readme.txt</tt> without <tt class="docutils literal">hg</tt></li>
-<li>tell <tt class="docutils literal">hg</tt> to remove <tt class="docutils literal">README.txt</tt> from the repository and</li>
-<li>tell <tt class="docutils literal">hg</tt> to add <tt class="docutils literal">readme.txt</tt>.</li>
-</ul>
-</dd>
-</dl>
-<p>This his two disadvantages: (i) <tt class="docutils literal">hg</tt> cannot know that this is the
-same file and (ii) this will take much more disk space than using <tt class="docutils literal">hg
-rename</tt>.</p>
-</div>
-<div class="section" id="where-is-all-the-history-stored">
-<h3><a class="toc-backref" href="#id31">Where is all the history stored?</a></h3>
-<ul>
-<li><p class="first">The whole repository lives in a hidden directory with name <tt class="docutils literal">.hg</tt>.
-(it is hidden due to the leading dot.</p>
-<p>On Linux/Unix/Mac OS X, you can display hidden directories with the <tt class="docutils literal"><span class="pre">-a</span></tt> switch:</p>
-<pre class="literal-block">
-$project1&gt; ls -a
-.hg  README.txt  hello.py
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="reverting-changes">
-<h3><a class="toc-backref" href="#id32">Reverting changes</a></h3>
-<ul>
-<li><p class="first">Suppose you are working on file <tt class="docutils literal">hello.py</tt>. You start with the most recent version from the repository:</p>
-<pre class="literal-block">
-$project1&gt; hg update
-</pre>
-<p>You make some changes to <tt class="docutils literal">hello.py</tt>, and then realise that your
-changes were not useful, and you want to go back the last version
-from the repository.</p>
-<p>There are (at least) two options:</p>
-<blockquote>
-<ol class="arabic simple">
-<li>You delete the file manually and run <tt class="docutils literal">hg update</tt>.</li>
-<li>You use the revert command: <tt class="docutils literal">hg revert hello.py</tt>.</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="uncommitting-the-commit">
-<h3><a class="toc-backref" href="#id33">Uncommitting the commit</a></h3>
-<p>If you have committed something that you didn't want to commit, you
-can <em>undo</em> the last commit (but only the last commit!) with:</p>
-<pre class="literal-block">
-$project1&gt; hg rollback
-</pre>
-</div>
-<div class="section" id="making-copies-backups-of-the-repository">
-<h3><a class="toc-backref" href="#id34">Making copies (backups?) of the repository</a></h3>
-<p>You can either</p>
-<ul>
-<li><p class="first">just copy the whole <tt class="docutils literal">project1</tt> folder (which includes the hidden <tt class="docutils literal">.hg</tt> directory) to another place</p>
-</li>
-<li><p class="first">or (recommended): you can ask <tt class="docutils literal">hg</tt> to make the copy:</p>
-<pre class="literal-block">
-$project1&gt; cd ..
-$&gt; hg clone project1 my-backup-project1
-</pre>
-<p>Now you have an identical copy of the repository in directory
-<tt class="docutils literal"><span class="pre">my-backup-project1</span></tt>.</p>
-<p>-&gt; See also using <a class="reference internal" href="#multiple-repositories">multiple repositories</a> (pull, push, merge)</p>
-<p>Note: To propagate changes from the original repository (<tt class="docutils literal">project1</tt>) to the cloned copy (<tt class="docutils literal"><span class="pre">my-backup-project</span></tt>), do this:</p>
-<pre class="literal-block">
-$&gt; cd my-backup-project1
-$my-backup-project1&gt; hg pull
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="multiple-repositories">
-<h3><a class="toc-backref" href="#id35">Multiple repositories</a></h3>
-<ul>
-<li><p class="first">When working with several people, one can have multiple repositories
-in different places:</p>
-<ul class="simple">
-<li>Developer A may be working on the graphical user interface while
-developer B is improving the numerical part of the code.</li>
-<li>In a Group Design Project report student A might be working on the
-introduction, student B on results chapter 1 and student C on the
-appendix of a large (LaTeX) document.</li>
-</ul>
-</li>
-<li><p class="first">Occasionally (maybe quite frequently), the changes in these
-repositories (or some of these) need to be combined (<em>merged</em>)</p>
-</li>
-<li><p class="first">We will cover this advanced topic only superficially for one
-particular setup (with one central master repository).</p>
-<p>There are many other ways in which (distributed) version control
-systems can be used. See <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial tutorial</a> for
-details.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="multiple-repositories-one-master-repository">
-<h3><a class="toc-backref" href="#id36">Multiple repositories: one master repository</a></h3>
-<ol class="arabic">
-<li><p class="first">Create the master repository, say:</p>
-<pre class="literal-block">
-$&gt; mkdir master
-$&gt; cd master
-$master&gt; hg init .
-</pre>
-</li>
-<li><p class="first">Add any files that you have already, and commit.</p>
-</li>
-<li><p class="first">Now individuals can clone from the master to carry out their work:</p>
-<pre class="literal-block">
-$&gt; hg clone master my-copy-A
-$&gt; cd my-copy-A
-</pre>
-<ul>
-<li><p class="first">Do the work here, and and modify files, commit as many times as
-you like (may need <em>pull</em>; see below).</p>
-</li>
-<li><p class="first">When you have completed your work, commit everything and <em>push</em>
-your changes to the master (may need <em>pull</em> first):</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg push
-</pre>
-</li>
-</ul>
-</li>
-<li><p class="first">To import changes from the master repository (others could have
-done some work in the mean time) into <tt class="docutils literal"><span class="pre">my-copy-A</span></tt>, use the <em>pull</em>
-command:</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg commit          #commit all our changes first
-$my-copy-A&gt; hg pull
-</pre>
-<p>This will update the <em>repository</em> (not the working directory). To
-bring changes into the working directory, we have to <em>update</em>:</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg update
-</pre>
-<p>If there have been changes on files that we have worked on as well,
-a <em>merge</em> has to take place (command is <tt class="docutils literal">hg merge</tt>)</p>
-<ul>
-<li><p class="first">This is usually automatic and <tt class="docutils literal">hg</tt> will tell us if
-required.</p>
-</li>
-<li><p class="first">Rarely, one needs to edit a file manually during the
-merge.</p>
-</li>
-<li><p class="first">After a merge, we need to commit, typically like this:</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg commit -m &quot;merge&quot;
-</pre>
-</li>
-</ul>
-</li>
-</ol>
-<p>Note that the extension <tt class="docutils literal">hg fetch</tt> automates the <tt class="docutils literal">pull, update, merge and commit if required</tt> sequence.</p>
-</div>
-<div class="section" id="location-of-multiple-repositories">
-<h3><a class="toc-backref" href="#id37">Location of multiple repositories</a></h3>
-<p>The <em>cloning</em>, <em>pull</em>ing and <em>push</em>ing between repositories can happen:</p>
-<ul class="simple">
-<li>on the same file system/computer, where multiple repositories are hosted in different subdirectories</li>
-<li>between computers using either<ul>
-<li>ssh or</li>
-<li>the web server</li>
-</ul>
-</li>
-<li>bitbucket and github offer webhosting of repositories.</li>
-</ul>
-<p>This is an advanced topic (see <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial Tutorial</a>).</p>
-<!-- comment:
-
-.. Caution::
-
-  When using multiple repositories, do not use integer revision
-  numbers to uniquely identify a version. -->
-</div>
-<div class="section" id="scientific-truth-and-reproducibility">
-<h3><a class="toc-backref" href="#id38">Scientific truth and <em>reproducibility</em></a></h3>
-<ul class="simple">
-<li>we tend to believe the 'results' or 'findings' of a research group
-(or individual), if other individuals and groups can <em>reproduce</em>
-them</li>
-<li>this implies that individuals should be able to reproduce all of
-their (earlier) results</li>
-<li>if these results include computer simulations, then we need to know<ul>
-<li>which version of the simulation programme/code was used</li>
-<li>what input parameters (configuration files?) were used</li>
-</ul>
-</li>
-</ul>
-<div class="important">
-<p class="first admonition-title">Important</p>
-<p class="last">When using computer simulations, we should use version control to
-be able to reproduce any earlier results at any point in the
-future.</p>
-</div>
-</div>
-<div class="section" id="summary-of-important-commands">
-<h3><a class="toc-backref" href="#id39">Summary of important commands</a></h3>
-<p><tt class="docutils literal">hg add</tt> (add files)</p>
-<p><tt class="docutils literal">hg commit</tt>  (commit changes)</p>
-<p><tt class="docutils literal">hg status</tt> (show modified/missing/added/removed files)</p>
-<p><tt class="docutils literal">hg log</tt> (show log)</p>
-<p><tt class="docutils literal">hg diff</tt> (show diff to version of working directory)</p>
-<p><tt class="docutils literal">hg parents</tt> (show version of working directory)</p>
-<p><tt class="docutils literal">hg update</tt> (updated working directory)</p>
-<p><tt class="docutils literal">hg cat</tt> (send version of file to stdout)</p>
-<p><tt class="docutils literal">hg clone</tt> (copy repository)</p>
-<p><tt class="docutils literal">hg tag</tt> (add tag)</p>
-<p><tt class="docutils literal">hg tags</tt> (list tags)</p>
-</div>
-<div class="section" id="abbreviating-commands">
-<h3><a class="toc-backref" href="#id40">Abbreviating commands</a></h3>
-<p>Most commands can be abbreviated, such as:</p>
-<pre class="literal-block">
-status -&gt; st
-
-commit -&gt; ci
-
-diff   -&gt; di
-
-update -&gt; up
-
-rename -&gt; mv
-</pre>
-</div>
-<div class="section" id="odd-bits-of-information">
-<h3><a class="toc-backref" href="#id41">Odd bits of information</a></h3>
-<ul class="simple">
-<li>Mercurial (<tt class="docutils literal">hg</tt>) is written in Python</li>
-</ul>
-</div>
-<div class="section" id="advanced-functionality">
-<h3><a class="toc-backref" href="#id42">Advanced functionality</a></h3>
-<p>Read more about these topics in the (unofficial) manual at <a class="reference external" href="http://hgbook.red-bean.com">http://hgbook.red-bean.com</a></p>
-<ul class="simple">
-<li>keyword expansion</li>
-<li>sending emails when revisions are committed, or repositories pushed</li>
-<li>access control (beyond ssh)</li>
-</ul>
-</div>
-<div class="section" id="useful-entries-in-user-hg-configuration-file">
-<h3><a class="toc-backref" href="#id43">Useful entries in user hg configuration file</a></h3>
-<p>On a Linux/Mac OS X user account, this is (an optional) file <tt class="docutils literal">.hgrc</tt>
-in the home directory:</p>
-<pre class="literal-block">
-[ui]
-#tell Mercurial what user information to use in commit messages
-username = Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-
-[extensions]
-#this enables the 'hg view' command
-hgk=
-hgext.graphlog=
-hgext.fetch=
-
-[web]
-#this makes for a nicer layout of the web interface (which is started
-#with 'hg serve'
-style=gitweb
-</pre>
-</div>
-<div class="section" id="what-about-git">
-<h3><a class="toc-backref" href="#id44">What about git?</a></h3>
-<p>In a first approximation, git and mercurial provide very similar functionality.</p>
-</div>
-<div class="section" id="summary">
-<h3><a class="toc-backref" href="#id45">Summary</a></h3>
-<ul class="simple">
-<li>Nowadays, version control software (such as <tt class="docutils literal">hg</tt> and <tt class="docutils literal">git</tt>) is<ul>
-<li>easy to install</li>
-<li>very easy to use (in single user mode), but sufficiently
-sophisticated to support very complex projects</li>
-<li>well documented (start with <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial Tutorial</a> and other links
-on <a class="reference external" href="http://www.selenic.com/mercurial">Mercurial home page</a>).</li>
-</ul>
-</li>
-<li>An effective way to:<ul>
-<li>keep track of the history of a project,</li>
-<li>reliably retrieve earlier versions if required</li>
-<li>recover from errors (such as accidental deletion of files,
-inability to retrieve working version)</li>
-<li>always find the most recent version of a document and</li>
-<li>have (versioned) backups</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="download-repository-created-in-this-archive">
-<h3><a class="toc-backref" href="#id46">Download repository created in this archive</a></h3>
-<p>The created archive from the exercises as in the videos is available here as <a class="reference external" href="./master.tar">master.tar</a>. Use <tt class="docutils literal">tar xfv master.tar</tt> to untar it into a directory with name <tt class="docutils literal">master</tt>.</p>
-</div>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./sublime.html" rel="bookmark"
-                           title="Permalink to Sublime is... sublime">Sublime is... sublime</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-02-12T16:00:00+01:00">
-                Published: Thu 12 February 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-robert-entwistle.html">Robert Entwistle</a>
-                        <a class="url fn" href="./author-paul-chambers.html">Paul Chambers</a>
-        </address>
-<p>In <a href="./category-text-editors.html">text-editors</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
-</div>
-<p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs ...</p>
-                <a class="readmore" href="./sublime.html">read more</a>
+<li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files ...</a></li></ul></li></ul></div></div>
+                <a class="readmore" href="./mercurial.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
