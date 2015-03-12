@@ -1,7 +1,7 @@
 Sublime is... sublime
 #####################
 
-:date: 2015-02-12 16:00
+:date: 2015-03-12 16:00
 :tags: Productivity, Efficiency, Outreach
 :category: text-editors
 :authors: Robert Entwistle, Paul Chambers
@@ -36,7 +36,7 @@ Sublime Text 2 offers a free and untimed trial version of the software which we 
 .. _here: http://www.ubuntuupdates.org/ppa/sublime_text_2
 
 .. code-block:: bash
-	
+
 	$ cd ~
 	$ sudo add-apt-repository ppa:webupd8team/sublime-text-2
 	$ sudo apt-get update
@@ -45,7 +45,7 @@ Sublime Text 2 offers a free and untimed trial version of the software which we 
 This will download the package and install it under ``/opt/sublime_text_2``. It will also create two *symbolic links*: ``subl`` and ``sublime-text`` which can be called in terminal to open ST2. If you wish to make your own you can do the following (in this case the symbolic link is set to be ``sublime``):
 
 .. code-block:: bash
-	
+
 	$ sudo ln -s /opt/sublime_text_2/sublime_text /bin/sublime
 
 NOTE: if you try to run ST2 from the terminal a ST2 window will open and be fully functional, however this will clog up the current terminal window due to a bug within GLib (I haven't found a fix for this as of yet). To carry on using the terminal you will need to open a new terminal tab or window. The error presents itself as shown below and will keep producing errors until you hit [kb:ctrl] + [kb:c] . But, upon doing this the sublime session you opened will shut down.
@@ -75,7 +75,7 @@ Once you have opened ST2 you will be presented with a window similar to that sho
 The red numbers on the image are described below:
 
 1. The taskbar. Here you should be able to access all the options for ST2. It is worth noting that all the menus/options are also accessible via the *Command Palette* which will be introduced later.
-2. File tabs. Along this bar will be all the open files in that window/pane. You can either navigate through them by clicking on them or use the keys [kb:alt] + [kb:#] to move the # file (where # is the number of the file from the left).
+2. File tabs. Along this bar will be all the open files in that window/pane. You can either navigate through them by clicking on them or use the keys [kb:alt] + [kb:#] to move to the # file (where # is the number of the file from the left).
 3. Overview pane (minimap). As you populate your file this will give you a zoomed-out view which can be useful for navigating through large files.
 4. File syntax. This shows you what the syntax the file is being displayed in. ST2 will automatically select a syntax based on the file extension (e.g. if the file is .py then ST2 will choose Python). However if you want to change this then you can click on the writing and select your required syntax from the list. This is also achievable through the *Command Palette*.
 
@@ -96,7 +96,7 @@ Built-in Goodies
 	</div>
 
 
-While using ST2, you will notice the smart autocomplete pop-up. This is another handy gadget which works out of the box, and will suggest possible completions for a word you are typing based on similar words in the file, keywords for the file syntax etc. 
+While using ST2, you will notice the smart autocomplete pop-up. This is another handy gadget which works out of the box, and will suggest possible completions for a word you are typing based on similar words in the file, keywords for the file syntax etc.
 
 In addition to these, "Snippets" and "Build Systems" are a powerful way to increase text-editing efficiency, and will be introduced once a few more packages are installed so that we can customise them for our blog entries.
 
@@ -163,7 +163,7 @@ There are many other useful packages available through *Package Control* but we 
 Exercise 2: Snippets
 ====================
 
-A snippet is best described as a smart template that will insert text for you and adapt it to its context. Snippets are very useful for short fragments of text that you use over and over again. A simple example is the "lorem" snippet that comes with ST2. In a new file type ``lorem`` followed by hitting the [kb:tab] key. This snippet will replace the single word "lorem" with the `Lorem ipsum`_ filler text. 
+A snippet is best described as a smart template that will insert text for you and adapt it to its context. Snippets are very useful for short fragments of text that you use over and over again. A simple example is the "lorem" snippet that comes with ST2. In a new file type ``lorem`` followed by hitting the [kb:tab] key. This snippet will replace the single word "lorem" with the `Lorem ipsum`_ filler text.
 
 .. _Lorem ipsum: http://en.wikipedia.org/wiki/Lorem_ipsum
 
@@ -293,7 +293,7 @@ Sticking with the blogging theme, we are going to create a build system that all
 Firstly, we need to create a new build system, so go to *Tools* > *Build System* > *New Build System...* which will open a new file. Like many other ST2 settings files, build systems are written in Java Script Object Notation (JSON) format, requiring key word and argument pairs. The default new build system should look like this:
 
 .. code-block:: json
- 
+
  	{
 	    "cmd": ["make"]
 	}
@@ -334,9 +334,9 @@ To add the option (or a variant) of viewing the output once you have built it yo
 	            "cmd": ["bash", "-c", "cd ~/comp_mod/blogs/tools-pelican && make html && cd ~/comp_mod/blogs/tools && firefox index.html"]
 	        }
 	    ]
-	}	
+	}
 
-This variant is called "Run" and carries out the same commands as "Build" but also opens the local ``index.html`` in a firefox browser. The name "Run" was chosen as it comes with the predefined key-binding [kb:ctrl] + [kb:shift] + [kb:b] and an option in the *Tools* drop down menu. You can add multiple variants to perform other tasks, however, they wont be available in to drop down menu; instead you can find them in the *Command Palette* ( [kb:ctrl] + [kb:shift] + [kb:p] ) and search for ``Build: <variant name>``, or add a personal key-binding under ``Preferences > Key Bindings - User`` (again in the JSON format: see ``Key Bindings - Default`` for the format).
+This variant is called "Run" and carries out the same commands as "Build" but also opens the local ``index.html`` in a firefox browser. The name "Run" was chosen as it comes with the predefined key-binding [kb:ctrl] + [kb:shift] + [kb:b] and an option in the *Tools* drop down menu. You can add multiple variants to perform other tasks, however, they won't be available in to drop down menu; instead you can find them in the *Command Palette* ( [kb:ctrl] + [kb:shift] + [kb:p] ) and search for ``Build: <variant name>``, or add a personal key-binding under ``Preferences > Key Bindings - User`` (again in the JSON format: see ``Key Bindings - Default`` for the format).
 
 .. figure:: {filename}/text-editors-sublime/sublime-images/st2_run.png
    :width: 80%
