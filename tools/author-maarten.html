@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Computational Modelling Tools Workshops</title>
+        <title>Computational Modelling Tools Workshops - Maarten</title>
         <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
@@ -27,16 +27,16 @@
                 <article>
                     <h1 class="entry-title"><a href="./demo-post.html">Introduction to Latex</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2015-03-17T00:00:00+01:00">
-                Published: Tue 17 March 2015
+        <abbr class="published" title="2015-03-13T00:00:00+01:00">
+                Published: Fri 13 March 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-ravish-karve.html">Ravish Karve</a>
-                        <a class="url fn" href="./author-maarten-debrouwere.html">Maarten Debrouwere</a>
+                By                         <a class="url fn" href="./author-ravish.html">Ravish</a>
+                        <a class="url fn" href="./author-maarten.html">Maarten</a>
         </address>
 <p>In <a href="./category-latex.html">Latex</a>. </p>
-<p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
+<p>tags: <a href="./tag-demo.html">demo</a> <a href="./tag-latex.html">Latex</a> </p>
 </footer><!-- /.post-info --><p><img alt="Latex" src="./Latex/LaTeX_logo.png" title="Latex" /></p>
 <h1>Introduction</h1>
 <p>Latex is a tool used to prepare documents. It is very useful to write scientific documents but can also be used to write a wide variety of other documents. Latex is not a <em>word processor</em> instead you concentrate on writing the content and Latex will format it for you. Latex is <strong>not</strong> a What You See is What You Get (WYSWG) editor like Microsoft Word. Almost everything in Latex can be customized, however it is recommended to stick with the default values as much as possible.</p>
@@ -48,7 +48,7 @@
 <li>TeX distribution e.g.:TeXLive, MiKTeX ...</li>
 <li>PDF viewer e.g.: Evince, Okular ...</li>
 </ul>
-<p>On Linux these tools can be installed by issuing the following commands in a terminal:</p>
+<p>On Linux theese tools can be installed by issuing the following commands in a terminal:</p>
 <div class="highlight"><pre>sudo apt-get install gedit
 sudo apt-get install texlive
 sudo apt-get install evince
@@ -99,7 +99,7 @@ Another section
 
 
 <p>A new line is started with a double-backslash and a new paragraph is started by a entering an empty line after a new line.</p>
-<h2>Labelling</h2>
+<h2>Labeling</h2>
 <p>Latex makes it very easy to reference and cross-reference parts of your document. This is done by using <em>labels</em>. In this example a label is attached to a section heading using the <code>\label</code> command. It can be refereed to later on using the <code>\ref</code> command.</p>
 <div class="highlight"><pre><span class="k">\section</span><span class="nb">{</span>Heading 1<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>sec:head1<span class="nb">}</span>
 This is a section.
@@ -111,10 +111,10 @@ And here we have reached a subsection under section <span class="k">\ref</span><
 <p>A common but not mandatory way of naming labels is:</p>
 <ul>
 <li><strong>chap:</strong> for chapters</li>
-<li><strong>sec:</strong> for sections</li>
-<li><strong>fig:</strong> for figures</li>
-<li><strong>eq:</strong>  or <strong>eqn:</strong>  for equations</li>
-<li><strong>tab:</strong> for tables</li>
+<li><strong>sec</strong> for sections</li>
+<li><strong>fig</strong> for figures</li>
+<li><strong>eq</strong>  or <strong>eqn</strong>  for equations</li>
+<li><strong>tab</strong> for tables</li>
 </ul>
 <h1></h1>
 <h2>Adding basic packages</h2>
@@ -131,7 +131,7 @@ And here we have reached a subsection under section <span class="k">\ref</span><
 
 
 <h1></h1>
-<h1>Custom formatting</h1>
+<h1>custom formating</h1>
 <p>Text can be easily formatted in Latex.</p>
 <div class="highlight"><pre><span class="k">\subsection*</span><span class="nb">{</span>Sub Heading 2<span class="nb">}</span>
 This is an unnumbered section. This sentence shows the different formatting options: 
@@ -143,14 +143,14 @@ or <span class="k">\small</span><span class="nb">{</span>small<span class="nb">}
 <p><img alt="text format1" src="./Latex/format1b.png" title="Different text format options" /></p>
 <p><img alt="text format2" src="./Latex/format2b.png" title="Different text format options" /></p>
 <h1>Environments</h1>
-<h2>Maths</h2>
-<p>Including maths in a Latex document is very convenient especially compared to some other word processing tools. There are two different ways in which mathematical expressions can be included. One is in-line with the text by enclosing your expression with <code>$</code> signs.</p>
+<h2>Math</h2>
+<p>Including math in a Latex document is very convenient especially compared to some other word processing tools. There are two different ways in which mathematical expressions can be included. One is in-line with the text by enclosing your expression with <code>$</code> signs.</p>
 <div class="highlight"><pre>There are two ways of included mathematical expression, in-line . 
 Maths expressions enclosed in <span class="k">\$</span> is used to create in-line maths. E.g. <span class="s">$</span><span class="nb">c^</span><span class="m">2</span><span class="o">=</span><span class="nb">a^</span><span class="m">2</span><span class="o">+</span><span class="nb">b^</span><span class="m">2</span><span class="s">$</span>.<span class="k">\\</span>
 </pre></div>
 
 
-<p>For longer expressions and labelling the <em>equation</em> environment is used.</p>
+<p>For longer expressions and labeling the <em>equation</em> environment is used.</p>
 <div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
 <span class="k">\frac</span><span class="nb">{</span>d f<span class="nb">}{</span>dx<span class="nb">}</span>=<span class="k">\lim</span><span class="nb">_{</span><span class="k">\Delta</span> x <span class="k">\rightarrow</span> 0<span class="nb">}</span><span class="k">\frac</span><span class="nb">{</span>f(x+<span class="k">\Delta</span> x)-f(x)<span class="nb">}{</span><span class="k">\Delta</span> x<span class="nb">}</span>,
 <span class="k">\label</span><span class="nb">{</span>eqn:eq1<span class="nb">}</span>
@@ -172,7 +172,7 @@ As you can see in equations <span class="k">\ref</span><span class="nb">{</span>
 </pre></div>
 
 
-<p>A comprehensive list of Latex's maths capabilities can be found <a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">here</a>.</p>
+<p>A comprehensive list of Latex's math capabilities can be found <a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">here</a>.</p>
 <h2>Figures</h2>
 <p>In Latex it also easy to include figures. Figures are treated as objects that are separate from the text. They are referred to as floats and their position is not fixed. An example figure is shown below:</p>
 <div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[htb]
@@ -261,195 +261,6 @@ The (Not So) Short Introduction to <span class="k">\LaTeX</span> 2e, www.latex-p
 <li>Exercise 2: <a href="./Latex/Exercise2.pdf">pdf</a>, use an external Bibtex file for the citations this time.</li>
 </ul>                </article>
             </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./sublime.html" rel="bookmark"
-                           title="Permalink to Sublime is... sublime">Sublime is... sublime</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-03-12T16:00:00+01:00">
-                Published: Thu 12 March 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-robert-entwistle.html">Robert Entwistle</a>
-                        <a class="url fn" href="./author-paul-chambers.html">Paul Chambers</a>
-        </address>
-<p>In <a href="./category-text-editors.html">text-editors</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
-</div>
-<p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs ...</p>
-                <a class="readmore" href="./sublime.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./mercurial.html" rel="bookmark"
-                           title="Permalink to Mercurial">Mercurial</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-02-26T00:00:00+01:00">
-                Published: Thu 26 February 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-hans-fangohr.html">Hans Fangohr</a>
-        </address>
-<p>In <a href="./category-mercurial-basics.html">mercurial-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-reproducibility.html">Reproducibility</a> <a href="./tag-testing.html">Testing</a> </p>
-</footer><!-- /.post-info -->                <div class="section" id="introduction-to-version-control-using-mercurial">
-<h2><a class="toc-backref" href="#id1">Introduction to version control (using Mercurial)</a></h2>
-<blockquote>
-<img alt="Mercurial logo" src="./mercurial-logo.jpeg" style="width: 20%;" />
-</blockquote>
-<div class="contents topic" id="contents">
-<p class="topic-title first">Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#introduction-to-version-control-using-mercurial" id="id1">Introduction to version control (using Mercurial)</a><ul>
-<li><a class="reference internal" href="#prerequisits-for-this-session" id="id2">Prerequisits for this session</a></li>
-<li><a class="reference internal" href="#video-recordings" id="id3">Video recordings</a></li>
-<li><a class="reference internal" href="#why-version-control-single-user" id="id4">Why version control - Single user</a></li>
-<li><a class="reference internal" href="#why-version-control-in-team" id="id5">Why version control - in Team</a></li>
-<li><a class="reference internal" href="#this-session-on-version-control-and-mercurial" id="id6">This session on Version Control and Mercurial</a></li>
-<li><a class="reference internal" href="#installation" id="id7">Installation</a></li>
-<li><a class="reference internal" href="#terminology" id="id8">Terminology</a></li>
-<li><a class="reference internal" href="#getting-started-with-hg" id="id9">Getting started with hg</a></li>
-<li><a class="reference internal" href="#initialise-hg-repository" id="id10">Initialise hg repository</a></li>
-<li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files ...</a></li></ul></li></ul></div></div>
-                <a class="readmore" href="./mercurial.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./bitbucket-forge.html" rel="bookmark"
-                           title="Permalink to Forking on Bitbucket">Forking on Bitbucket</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-02-14T00:00:00+01:00">
-                Published: Sat 14 February 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
-        </address>
-<p>In <a href="./category-forking.html">forking</a>. </p>
-<p>tags: <a href="./tag-tools.html">tools</a> <a href="./tag-bitbucket.html">bitbucket</a> <a href="./tag-versioning.html">versioning</a> <a href="./tag-repository.html">repository</a> </p>
-</footer><!-- /.post-info -->                <h1>Distributed Version Control 101</h1>
-<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="./pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
-<div class="highlight"><pre>hg clone &lt;url of remote repository&gt;
-</pre></div>
-
-
-<p>is the ...</p>
-                <a class="readmore" href="./bitbucket-forge.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./install-pelican.html" rel="bookmark"
-                           title="Permalink to Installing Pelican and Mercurial on lubuntu">Installing Pelican and Mercurial on lubuntu</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00+01:00">
-                Published: Thu 12 February 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
-        </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->                <p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have ...</p>
-                <a class="readmore" href="./install-pelican.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./pelican-basics.html" rel="bookmark"
-                           title="Permalink to Introduction to Pelican">Introduction to Pelican</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00+01:00">
-                Published: Thu 12 February 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
-        </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->                <iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=21f77ef2-8d99-4a69-91a7-3113505914d7&v=1" width="450" height="300" frameborder="0"></iframe>
-
-<p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png" /></p>
-<p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
-<h1>Prepare environment</h1>
-<p>The tools that we will need are</p>
-<ul>
-<li>Pelican 3.5 ...</li></ul>
-                <a class="readmore" href="./pelican-basics.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./virtualbox-basics.html" rel="bookmark"
-                           title="Permalink to Introduction to Virtualbox">Introduction to Virtualbox</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-02-05T00:00:00+01:00">
-                Published: Thu 05 February 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-ian-hawke.html">Ian Hawke</a>
-        </address>
-<p>In <a href="./category-tools.html">Tools</a>. </p>
-<p>tags: <a href="./tag-research.html">Research</a> <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-reproducibility.html">Reproducibility</a> <a href="./tag-testing.html">Testing</a> </p>
-</footer><!-- /.post-info -->                <div class="figure align-left" style="width: 10%">
-<img alt="Virtualbox logo" src="./virtualbox-basics/virtualbox-images/virtualbox-logo.png" style="width: 100%;" />
-</div>
-<p>What follows is the zero motivation and explanation instructions for getting the FEEG6003 base VirtualBox image (an LUbuntu 14.10 OS) up and running.</p>
-<p>First <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">download and install VirtualBox for your operating system</a>.</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Virtualbox download" src="./virtualbox-basics/virtualbox-images/VBoxDownload.png" style="width: 100%;" />
-</div>
-<p>Second <a class="reference external" href="http://www.soton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu.ova">download the feeg6003lubuntu image</a>.</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Importing the virtual machine" src="./virtualbox-basics/virtualbox-images/ImportAppliance1.png" style="width: 100%;" />
-</div>
-<p>Then import the virtual machine into VirtualBox.</p>
-<div class="figure align-left" style="width: 60%">
-<img alt="Importing the virtual machine" src="./virtualbox-basics/virtualbox-images/ImportAppliance2.png" style="width: 100%;" />
-</div>
-<p>To start the machine just ...</p>
-                <a class="readmore" href="./virtualbox-basics.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
