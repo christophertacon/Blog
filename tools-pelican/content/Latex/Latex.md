@@ -2,7 +2,6 @@ title: Introduction to Latex
 authors: Ravish Karve, Maarten Debrouwere
 date: 2015-03-17
 tags: Latex, reporting, document creation
-slug: demo-post
 
 ![Latex]( {filename}/Latex/LaTeX_logo.png "Latex")
 
