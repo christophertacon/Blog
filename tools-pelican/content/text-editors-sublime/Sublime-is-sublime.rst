@@ -283,6 +283,8 @@ Now that it is saved it should work straight away. Navigate back to your ``.rst`
 		<b>Figure 8:</b> The .rst file after completing the snippet exercise.
 	</div>
 
+\
+
 Build Systems
 =============
 
@@ -298,7 +300,7 @@ Firstly, we need to create a new build system, so go to *Tools* > *Build System*
 	    "cmd": ["make"]
 	}
 
-In here we will place our commands that we would normally type as a bash command. To start we need to give a coommand to navigate to where the ``Makefile`` is and then use it. The most robust way to do this is to start from a known point i.e. your home. In the case of the virtual appliance we have supplied, the path will be ``~/comp_mod/blogs/tools-pelican``. Then we can add the command ``make html`` as shown below. It is also good to add a ``selector`` field that means this build system only works on specific file types and will be automatically selected by ST2 (in this case we want it to work on ``text.restructuredtext`` files).
+In here we will place our commands that we would normally type as a bash command. To start we need to give a command to navigate to where the ``Makefile`` is and then use it. The most robust way to do this is to start from a known point i.e. your home. In the case of the virtual appliance we have supplied, the path will be ``~/comp_mod/blogs/tools-pelican``. Then we can add the command ``make html`` as shown below. It is also good to add a ``selector`` field that means this build system only works on specific file types and will be automatically selected by ST2 (in this case we want it to work on ``text.restructuredtext`` files).
 
 .. code-block:: json
 
@@ -347,3 +349,40 @@ This variant is called "Run" and carries out the same commands as "Build" but al
 	<div align="left">
 		<b>Figure 10:</b> A successful pelican blog run.
 	</div>
+
+
+\
+
+Additional Exercises
+====================
+
+As an extra challenge, we have provided a problem you may like to try to practise personalising ST2:
+
+1. Create an ANSI-C build system with flags ``-ansi -pedantic -Wall`` (as used in `FEEG6002 - Advanced Computational Methods 1`_)
+
+.. _FEEG6002 - Advanced Computational Methods 1: http://www.southampton.ac.uk/~feeg6002/toolsc.html
+
+2. Write hello.c to print "Hello World" to stdout (for example)
+3. Use the C build-system to compile hello.c program and run/display output to console
+4. Add a new variant called "save_output" in the build system to pipe the stdout feed to `output.txt` or a similar output log file
+5. Add a keybind to the save_output build variant (see default keybindings for `"variant": "Run"`)
+6. Check your output file in sublime
+   
+We also suggest looking at using ST2 for building LaTeX documents by following these rough steps (aimed at Linux systems):
+
+1. If you haven't already, install a tex-live distribution, latexmk and evince reader through the terminal (i.e. using apt-get)
+2. Download, via Package Control, the package "LaTeXTools"
+3. Got to *Preferences* > *Package Settings* > *LaTeXTools* and click on *Reconfigure LaTeXTools and migrate settings*.
+4. Create a minimal .tex file the compile using LaTeXTools (i.e. [kb:ctrl] + [kb:b] ).
+
+\
+
+Resources
+=========
+
+* `The presentation slides (.pdf)`_
+* `Link to the feeg6003_TextEditors.ova file`_
+
+.. _The presentation slides (.pdf): {filename}/text-editors-sublime/slides/text-editors-presentation.pdf
+.. _Link to the feeg6003_TextEditors.ova file: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
+

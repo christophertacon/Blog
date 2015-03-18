@@ -186,7 +186,8 @@
 <div class="figure align-center">
 <img alt="The .rst file after using the snippet created above." src="./text-editors-sublime/sublime-images/st2_complete-snippet.png" style="width: 80%;" />
 </div>
-<div align="left">         <b>Figure 8:</b> The .rst file after completing the snippet exercise. </div></div>
+<div align="left">         <b>Figure 8:</b> The .rst file after completing the snippet exercise. </div><p></p>
+</div>
 </div>
 <div class="section" id="build-systems">
 <h2>Build Systems</h2>
@@ -197,7 +198,7 @@
     <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
-<p>In here we will place our commands that we would normally type as a bash command. To start we need to give a coommand to navigate to where the <tt class="docutils literal">Makefile</tt> is and then use it. The most robust way to do this is to start from a known point i.e. your home. In the case of the virtual appliance we have supplied, the path will be <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican</span></tt>. Then we can add the command <tt class="docutils literal">make html</tt> as shown below. It is also good to add a <tt class="docutils literal">selector</tt> field that means this build system only works on specific file types and will be automatically selected by ST2 (in this case we want it to work on <tt class="docutils literal">text.restructuredtext</tt> files).</p>
+<p>In here we will place our commands that we would normally type as a bash command. To start we need to give a command to navigate to where the <tt class="docutils literal">Makefile</tt> is and then use it. The most robust way to do this is to start from a known point i.e. your home. In the case of the virtual appliance we have supplied, the path will be <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican</span></tt>. Then we can add the command <tt class="docutils literal">make html</tt> as shown below. It is also good to add a <tt class="docutils literal">selector</tt> field that means this build system only works on specific file types and will be automatically selected by ST2 (in this case we want it to work on <tt class="docutils literal">text.restructuredtext</tt> files).</p>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;</span><span class="p">],</span>
     <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.restructuredtext&quot;</span>
@@ -225,7 +226,37 @@
 <div class="figure align-center">
 <img alt="A successful pelican blog run." src="./text-editors-sublime/sublime-images/st2_run.png" style="width: 80%;" />
 </div>
-<div align="left">         <b>Figure 10:</b> A successful pelican blog run. </div></div>
+<div align="left">         <b>Figure 10:</b> A successful pelican blog run. </div><p></p>
+</div>
+<div class="section" id="additional-exercises">
+<h2>Additional Exercises</h2>
+<p>As an extra challenge, we have provided a problem you may like to try to practise personalising ST2:</p>
+<ol class="arabic simple">
+<li>Create an ANSI-C build system with flags <tt class="docutils literal"><span class="pre">-ansi</span> <span class="pre">-pedantic</span> <span class="pre">-Wall</span></tt> (as used in <a class="reference external" href="http://www.southampton.ac.uk/~feeg6002/toolsc.html">FEEG6002 - Advanced Computational Methods 1</a>)</li>
+</ol>
+<ol class="arabic simple" start="2">
+<li>Write hello.c to print &quot;Hello World&quot; to stdout (for example)</li>
+<li>Use the C build-system to compile hello.c program and run/display output to console</li>
+<li>Add a new variant called &quot;save_output&quot; in the build system to pipe the stdout feed to <cite>output.txt</cite> or a similar output log file</li>
+<li>Add a keybind to the save_output build variant (see default keybindings for <cite>&quot;variant&quot;: &quot;Run&quot;</cite>)</li>
+<li>Check your output file in sublime</li>
+</ol>
+<p>We also suggest looking at using ST2 for building LaTeX documents by following these rough steps (aimed at Linux systems):</p>
+<ol class="arabic simple">
+<li>If you haven't already, install a tex-live distribution, latexmk and evince reader through the terminal (i.e. using apt-get)</li>
+<li>Download, via Package Control, the package &quot;LaTeXTools&quot;</li>
+<li>Got to <em>Preferences</em> &gt; <em>Package Settings</em> &gt; <em>LaTeXTools</em> and click on <em>Reconfigure LaTeXTools and migrate settings</em>.</li>
+<li>Create a minimal .tex file the compile using LaTeXTools (i.e. <kbd class="light">ctrl</kbd> + <kbd class="light">b</kbd> ).</li>
+</ol>
+<p></p>
+</div>
+<div class="section" id="resources">
+<h2>Resources</h2>
+<ul class="simple">
+<li><a class="reference external" href="./text-editors-sublime/slides/text-editors-presentation.pdf">The presentation slides (.pdf)</a></li>
+<li><a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">Link to the feeg6003_TextEditors.ova file</a></li>
+</ul>
+</div>
                 </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
