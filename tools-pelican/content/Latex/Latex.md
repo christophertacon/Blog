@@ -227,7 +227,7 @@ Latex allows you you to include your hard earned data in tables such as:
 #Some useful commands
 
 
-* Table of contents: `\toc`
+* Table of contents: `\tableofcontents`
 * Today's date: `\today`
 * Continue on next page: `\newpage`
 * Comments: `%`
@@ -268,5 +268,10 @@ The (Not So) Short Introduction to \LaTeX 2e, www.latex-project.org (2011).
 
 Try and recreate the following documents as best as you can:
 
-* Exercise 1: [pdf]({filename}/Latex/Exercise1.pdf)
+* Exercise 1: [pdf]({filename}/Latex/Exercise1.pdf), 
 * Exercise 2: [pdf]({filename}/Latex/Exercise2.pdf), use an external Bibtex file for the citations this time.
+
+Solutions to the exercises:
+
+* Exercise 1: [Latex]({filename}/Latex/Exercise1.tex), 
+* Exercise 2: [Latex]({filename}/Latex/Exercise2.tex), [Bibtex]({filename}/Latex/library.bib)

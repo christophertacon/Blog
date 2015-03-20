@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amsfonts,graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
+
+\begin{document}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+\section{Heading 1}\label{sec:head1}
+This is a section.
+\subsection{Sub Heading 1}
+And here we have reached a subsection under section \ref{sec:head1}.
+\subsection*{Sub Heading 2}
+This is an unnumbered section. This sentence shows the different formatting options: \textbf{bold}, \textit{italic}, \emph{emphasize}. You can also make text \huge{huge} or \small{small} or any combination like \textbf{\huge{bold and large}}.
+
+\section{Heading 2}
+This section contains examples of the most used environments.
+
+\subsection{Maths}
+
+There are two ways of included mathematical expression, in-line . Maths expressions enclosed in \$ is used to create in-line maths. E.g. $c^2=a^2+b^2$.\\
+
+Maths that does not need to be in-line can be typeset using the \textit{equation} environment. For example:
+\begin{equation}
+\frac{d f}{dx}=\lim_{\Delta x \rightarrow 0}\frac{f(x+\Delta x)-f(x)}{\Delta x},
+\label{eqn:eq1}
+\end{equation}
+if we wanted to add multiple equations that are aligned we use the \textit{align} environment as follows:
+\begin{align}
+\frac{d}{dx}(x+y)^{2}&=\frac{d}{dx}\left[ x^{2}+y^{2}+2xy\right], \nonumber\\
+&=2x+2y. \label{eqn:eq2}
+\end{align}
+as in other environments we can use the \textit{label} command to refer to equations. As you can see in equations \ref{eqn:eq1} and \eqref{eqn:eq2} typing maths in \LaTeX{} is fun and easy.
+
+\subsection{Figures}
+In \LaTeX{} it also easy to include figures. Figures are treated as objects that are separate from the text. They are referred to as floats and their position is not fixed. An example figure is shown below:
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.75\textwidth]{phd-front.jpg} %You can also comment your Latex file
+\caption{This is a very funny picture.}
+\label{fig:funnypic}
+\end{figure}
+
+\subsection{Lists}
+\LaTeX{} also allows various ways to list text. They can either be numbered lists or unnumbered lists. An example of these are:
+\begin{enumerate}
+	\item We have so far learnt how to structure a document.
+	\item How to format text.
+	\item How to use various math environments.
+	\item How to display graphics.
+\end{enumerate}
+or in unnumbered fashion:
+\begin{itemize}
+	\item We have so far learnt how to structure a document.
+	\item How to format text.
+	\item How to use various math environments.
+	\item How to display graphics.
+\end{itemize}
+
+%Useful command
+\newpage
+\subsection{Tables}
+\LaTeX{} allows you you to include your hard earned data in tables such as:
+
+\begin{table}[htb]
+\caption{A table with useless info.}
+\label{tab:tab1}
+\centering
+	\begin{tabular}{c|l|l}
+	S.No. & Price [\$] & Stock \\ 	
+	\hline
+	\hline
+	1 & 200 & 5 \\
+	2 & 65 & 7 \\
+	3 & 198 & 8 \\
+	\end{tabular}
+\end{table}
+
+%This is a bibliography placed within the document. It is more common to create a seperate file.
+\begin{thebibliography}{99}
+\bibitem{lamp} Leslie Lamport, \LaTeX\ Guide and Reference Manual, 
+Addison Wesley (1994).
+
+\bibitem{oet} Tobias Oetiker, Hubert Partl, Irene Hyna and Elisabeth Schlegl,
+The (Not So) Short Introduction to \LaTeX 2e, www.latex-project.org (2011).
+ 
+\end{thebibliography} 
+\end{document}
