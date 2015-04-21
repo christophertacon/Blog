@@ -68,7 +68,7 @@
 <p>The tools blog is hosted on <a href="http://www.bitbucket.org">bitbucket.org</a>  </p>
 <p><em>Hint</em>: If you have a bitbucket account, you can also forge the repository and send a pull request to have your changes merged back into the hosting repository. That might make it easier for you as a group to work on your material as you can use the benefits of distributed version control.</p>
 <p>For now, we will simply clone the repository to create a local copy to host your changes. This command will clone the repository into a "blogs" folder in the current directory.</p>
-<div class="highlight"><pre><span class="n">hg</span> <span class="n">clone</span> <span class="n">http:</span><span class="sr">//</span><span class="n">bitbucket</span><span class="o">.</span><span class="n">org</span><span class="sr">/computationalmodelling/com</span><span class="n">putationalmodelling</span><span class="o">.</span><span class="n">bitbucket</span><span class="o">.</span><span class="n">org</span> <span class="n">blogs</span>
+<div class="highlight"><pre>hg clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs
 </pre></div>
 
 
@@ -114,8 +114,8 @@
 <h1>Starting your own blog</h1>
 <p>Pelican understands the following 'dialects': <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> (.rst) and <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> (.md). While reStructuredText originates from the coding community for source code comments, it is also useful for simple webpages. Markdown was invented by John Gruber (the Apple blogger) to help him with writing and maintaining his blog <a href="http://daringfireball.net">Daring Fireball</a>. The Markdown syntax is still evolving via a number of implementations that each has their own oddities. </p>
 <p>Change into the content folder and look at its content</p>
-<div class="highlight"><pre><span class="n">cd</span> <span class="n">content</span>
-<span class="n">ls</span>
+<div class="highlight"><pre>cd content
+ls
 </pre></div>
 
 
@@ -150,11 +150,11 @@
 <li>a number of tags to sort the post into categories.</li>
 </ul>
 <p>A metadata block could look like</p>
-<div class="highlight"><pre><span class="err">title:</span> <span class="err">My</span> <span class="err">amazing</span> <span class="err">first</span> <span class="err">blog</span>
-<span class="err">authors:</span> <span class="err">You</span> <span class="err">know</span> <span class="err">who</span>
-<span class="err">date:</span> <span class="err">2015-02-12</span>
-<span class="err">tags:</span> <span class="err">demo,</span> <span class="err">training</span>
-<span class="err">slug:</span> <span class="err">demo-post</span>
+<div class="highlight"><pre><span class="n">title</span><span class="o">:</span> <span class="n">My</span> <span class="n">amazing</span> <span class="n">first</span> <span class="n">blog</span>
+<span class="n">authors</span><span class="o">:</span> <span class="n">You</span> <span class="n">know</span> <span class="n">who</span>
+<span class="n">date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">12</span>
+<span class="n">tags</span><span class="o">:</span> <span class="n">demo</span><span class="o">,</span> <span class="n">training</span>
+<span class="n">slug</span><span class="o">:</span> <span class="n">demo</span><span class="o">-</span><span class="n">post</span>
 </pre></div>
 
 
@@ -170,7 +170,7 @@
 <p>if you use reStructuredText. Note the <strong>slug</strong> attribute, which will be used by Pelican to build the URL. </p>
 <h2>Linking to internal files</h2>
 <p>You most likely want to link to other files in the repository. Pelican provides the <strong>{filename}</strong> variable for this purpose, which points to the content folder. You should always refer to the source file, not the generated file in the output folder. Pelican is smart enough to translate this for you. So if you want to reference this blog post for instance, you would write</p>
-<div class="highlight"><pre><span class="n">I</span> <span class="n">learned</span> <span class="n">how</span> <span class="n">to</span> <span class="k">use</span> <span class="n">Pelican</span> <span class="k">for</span> <span class="n">blogging</span> <span class="p">[</span><span class="n">here</span><span class="p">]({</span><span class="n">filename</span><span class="sr">/pelican-basics/</span><span class="n">pelican</span><span class="o">-</span><span class="n">basics</span><span class="o">.</span><span class="n">md</span><span class="p">})</span>
+<div class="highlight"><pre>I learned how to use Pelican for blogging [here]({filename/pelican-basics/pelican-basics.md})
 </pre></div>
 
 
@@ -196,7 +196,7 @@
 
 
 <p>and pointing the web browser at </p>
-<div class="highlight"><pre><span class="n">http:</span><span class="sr">//</span><span class="n">localhost:8000</span>
+<div class="highlight"><pre>http://localhost:8000
 </pre></div>
 
 
