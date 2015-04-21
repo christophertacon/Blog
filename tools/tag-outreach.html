@@ -65,7 +65,7 @@
 <p>NOTE: if you try to run ST2 from the terminal a ST2 window will open and be fully functional, however this will clog up the current terminal window due to a bug within GLib (I haven't found a fix for this as of yet). To carry on using the terminal you will need to open a new terminal tab or window. The error presents itself as shown below and will keep producing errors until you hit <kbd class="light">ctrl</kbd> + <kbd class="light">c</kbd> . But, upon doing this the sublime session you opened will shut down.</p>
 <div class="highlight"><pre><span class="nv">$ </span>sublime-text
 
-<span class="o">(</span>sublime: 6476<span class="o">)</span>: GLib-CRITICAL **<span class="p">;</span> Source ID <span class="m">1982</span> was not found when attempting to remove it.
+<span class="o">(</span>sublime: 6476<span class="o">)</span>: GLib-CRITICAL **; Source ID 1982 was not found when attempting to remove it.
 </pre></div>
 <div class="section" id="first-look-at-sublime-text-2">
 <h3>First look at Sublime Text 2</h3>
@@ -132,15 +132,15 @@
 <p>This example builds on what was taught in the &quot;<a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">Introduction to Pelican</a>&quot; session. During that session we learnt to write a blog entry in <tt class="docutils literal">.rst</tt> format. However, each time you start a new blog you have to firstly remember all the important metadata attributes and format them correctly. Therefore, to increase our efficiency we will build a snippet to do this for us.</p>
 <p>Firstly, it best to have a file with the extension that you want to build the snippet for open in ST2. This allows you to find the scope needed for the snippet and allows you to test it. On the virtual appliance we have supplied for the module, create a directory called <tt class="docutils literal"><span class="pre">my-blog</span></tt> under the path <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican/content/</span></tt> then open a new file and save as <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt> in the <tt class="docutils literal"><span class="pre">my-blog</span></tt> directory so we can use it throughout this workshop. <em>Note: This can be done quickly with <kbd class="light">ctrl</kbd> + <kbd class="light">n</kbd> , then <kbd class="light">ctrl</kbd> + <kbd class="light">s</kbd> and use the file-save GUI.</em></p>
 <p>To build a new snippet we need to go to <em>Tools</em> &gt; <em>New Snippet...</em> which will open a new file with the following code pre-entered:</p>
-<div class="highlight"><pre><span class="lineno">1 </span><span class="nt">&lt;snippet&gt;</span>
-<span class="lineno">2 </span><span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
-<span class="lineno">3 </span><span class="cp">Hello, ${1:this} is a ${2:snippet}.</span>
-<span class="lineno">4 </span><span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
-<span class="lineno">5 </span>    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
-<span class="lineno">6 </span>    <span class="c">&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;</span>
-<span class="lineno">7 </span>    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
-<span class="lineno">8 </span>    <span class="c">&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span>
-<span class="lineno">9 </span><span class="nt">&lt;/snippet&gt;</span>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="nt">&lt;snippet&gt;</span>
+<span class="lineno">2</span> <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="lineno">3</span> <span class="cp">Hello, ${1:this} is a ${2:snippet}.</span>
+<span class="lineno">4</span> <span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+<span class="lineno">5</span>     <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
+<span class="lineno">6</span>     <span class="c">&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;</span>
+<span class="lineno">7</span>     <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
+<span class="lineno">8</span>     <span class="c">&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span>
+<span class="lineno">9</span> <span class="nt">&lt;/snippet&gt;</span>
 </pre></div>
 <p>There are three main lines of interest here:</p>
 <dl class="docutils">
@@ -152,14 +152,14 @@
 <dd>The code <tt class="docutils literal"><span class="pre">&lt;scope&gt;source.python&lt;/scope&gt;</span></tt> is where you define what file format you can apply the snippet.</dd>
 </dl>
 <p>We will firstly define the tab-trigger and the scope so that we can use it our file <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt>. As the snippet will be creating the title and metadata a sensible tab-trigger would be <tt class="docutils literal">title</tt> so replace line 6 with the following (<strong>note:</strong> to uncomment/comment lines push <kbd class="light">ctrl</kbd> + <kbd class="light">/</kbd> ):</p>
-<div class="highlight"><pre><span class="lineno">6 </span>    <span class="nt">&lt;tabTrigger&gt;</span>title<span class="nt">&lt;/tabTrigger&gt;</span>
+<div class="highlight"><pre><span class="lineno">6</span>     <span class="nt">&lt;tabTrigger&gt;</span>title<span class="nt">&lt;/tabTrigger&gt;</span>
 </pre></div>
 <p>Next, cycle back to the <tt class="docutils literal">.rst</tt> file and push <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">alt</kbd> + <kbd class="light">p</kbd> to show the scope in the status bar at the bottom of the window, see Figure 7.</p>
 <div class="figure align-center">
 <img alt="Displaying the scope of a .rst file." src="./text-editors-sublime/sublime-images/st2_scope.png" style="width: 40%;" />
 </div>
 <div align="left">         <b>Figure 7:</b> Display of the scope of a .rst file in the status bar. </div><p>Copy <tt class="docutils literal">text.restructuredtext</tt> into line 8 so that it reads:</p>
-<div class="highlight"><pre><span class="lineno">8 </span>    <span class="nt">&lt;scope&gt;</span>text.restructuredtext<span class="nt">&lt;/scope&gt;</span>
+<div class="highlight"><pre><span class="lineno">8</span>     <span class="nt">&lt;scope&gt;</span>text.restructuredtext<span class="nt">&lt;/scope&gt;</span>
 </pre></div>
 <p>Now we can start looking at the body of the snippet. Currently we have: <tt class="docutils literal">Hello, ${1:this} is a ${2:snippet}.</tt>. This contains two tab key markers which allow you to cycle through the fields that you wish to enter each time you use the snippet. The tab key markers are denoted by the <tt class="docutils literal">$</tt> sign, and the number that follows it in the curly brace defines the cycle order (i.e. when you press <kbd class="light">tab</kbd> ). You can repeat the number if you want to fill in two fields with the same information. The word that follows the colon is the field text that you will replace when you start typing.</p>
 <p>For our &quot;blog title&quot; snippet we will input the following for the content:</p>
@@ -194,33 +194,33 @@
 <p>ST2 gives you the option to &quot;build&quot; the file you are working on (e.g. if you were working on a <tt class="docutils literal">.c</tt> file you can run a C build system to compile the code and even run it). There are several build systems that come with ST2 such as C++ and python. However, we want to show you how you can make your own personal build system.</p>
 <p>Sticking with the blogging theme, we are going to create a build system that allows you to generate the <tt class="docutils literal">.html</tt> files and a &quot;Run&quot; option to locally view the <tt class="docutils literal">index.html</tt> files in a browser.</p>
 <p>Firstly, we need to create a new build system, so go to <em>Tools</em> &gt; <em>Build System</em> &gt; <em>New Build System...</em> which will open a new file. Like many other ST2 settings files, build systems are written in Java Script Object Notation (JSON) format, requiring key word and argument pairs. The default new build system should look like this:</p>
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span>
-<span class="p">}</span>
+<div class="highlight"><pre>{
+    &quot;cmd&quot;: [&quot;make&quot;]
+}
 </pre></div>
 <p>In here we will place our commands that we would normally type as a bash command. To start we need to give a command to navigate to where the <tt class="docutils literal">Makefile</tt> is and then use it. The most robust way to do this is to start from a known point i.e. your home. In the case of the virtual appliance we have supplied, the path will be <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican</span></tt>. Then we can add the command <tt class="docutils literal">make html</tt> as shown below. It is also good to add a <tt class="docutils literal">selector</tt> field that means this build system only works on specific file types and will be automatically selected by ST2 (in this case we want it to work on <tt class="docutils literal">text.restructuredtext</tt> files).</p>
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.restructuredtext&quot;</span>
-<span class="p">}</span>
+<div class="highlight"><pre>{
+    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;],
+    &quot;selector&quot;: &quot;text.restructuredtext&quot;
+}
 </pre></div>
 <p>If we now save this in the user directory <tt class="docutils literal"><span class="pre">~/.config/Sublime</span> Text <span class="pre">2/Packages/User``as</span> <span class="pre">``pelican-blog.sublime-build</span></tt> (again the extension <tt class="docutils literal"><span class="pre">.sublime-build</span></tt> is required) and then return to editing to the <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt> file that was created above and we can use this build system. To use the build system either go to <em>Tools</em> &gt; <em>Build System</em>  and select the <em>pelican-blog</em> system, or alternatively, press <kbd class="light">ctrl</kbd> + <kbd class="light">b</kbd> . Upon doing this the bash output of the commands will be displayed at the bottom of the screen as shown in Figure 9.</p>
 <div class="figure align-center">
 <img alt="A successful pelican blog build." src="./text-editors-sublime/sublime-images/st2_build.png" style="width: 80%;" />
 </div>
 <div align="left">         <b>Figure 9:</b> A successful pelican blog build system. </div><p>To add the option (or a variant) of viewing the output once you have built it you can update the build system as follows:</p>
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.restructuredtext&quot;</span><span class="p">,</span>
+<div class="highlight"><pre>{
+    &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;],
+    &quot;selector&quot;: &quot;text.restructuredtext&quot;,
 
-    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
-    <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html &amp;&amp; cd ~/comp_mod/blogs/tools &amp;&amp; firefox index.html&quot;</span><span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+    &quot;variants&quot;:
+    [
+        {
+            &quot;name&quot;: &quot;Run&quot;,
+            &quot;cmd&quot;: [&quot;bash&quot;, &quot;-c&quot;, &quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html &amp;&amp; cd ~/comp_mod/blogs/tools &amp;&amp; firefox index.html&quot;]
+        }
+    ]
+}
 </pre></div>
 <p>This variant is called &quot;Run&quot; and carries out the same commands as &quot;Build&quot; but also opens the local <tt class="docutils literal">index.html</tt> in a firefox browser. The name &quot;Run&quot; was chosen as it comes with the predefined key-binding <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">b</kbd> and an option in the <em>Tools</em> drop down menu. You can add multiple variants to perform other tasks, however, they won't be available in to drop down menu; instead you can find them in the <em>Command Palette</em> ( <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> ) and search for <tt class="docutils literal">Build: &lt;variant name&gt;</tt>, or add a personal key-binding under <tt class="docutils literal">Preferences &gt; Key Bindings - User</tt> (again in the JSON format: see <tt class="docutils literal">Key Bindings - Default</tt> for the format).</p>
 <div class="figure align-center">

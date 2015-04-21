@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - Noorvir Aulakh</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./vagrant.html">Virtualisation with Vagrant</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-04-23T00:00:00+02:00">
+                Published: Thu 23 April 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-james-lambert.html">James Lambert</a>
+                        <a class="url fn" href="./author-noorvir-aulakh.html">Noorvir Aulakh</a>
+                        <a class="url fn" href="./author-thomas-rickard.html">Thomas Rickard</a>
+        </address>
+<p>In <a href="./category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
+<p>tags: <a href="./tag-virtualisation.html">virtualisation</a> <a href="./tag-virtual-machines.html">virtual machines</a> <a href="./tag-vagrant.html">vagrant</a> </p>
+</footer><!-- /.post-info --><p>Files:</p>
+<p><a href="./virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
+<a href="./virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
+<p><img src="./virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
+<!--<button id='image_button' type="button" onclick=delete_images()>I don't like images</button>-->
+
+<h1>Introduction</h1>
+<h2>Learning outcomes</h2>
+<ol>
+<li>Understand different types of virtual machines</li>
+<li>Be able to run, provision and stop a vagrant virtual machine. </li>
+</ol>
+<p></br></p>
+<h2>Virtual machine recap/overview</h2>
+<p>A virtual machine is a software implementation of a machine that executes programs like a physical machine. It essentially emulates a particular computer system. There are two main types of virtual machines, <strong>system virutal machines</strong> and <strong>process virtual machines</strong>. </p>
+<h3>System virtual machines</h3>
+<p>A system virtual machine allows the execution of a complete operating system. Important points include:</p>
+<ol>
+<li>Multiple virtual machines can co-exist on the same primary hard drive.</li>
+<li>Can provide emulated hardware environments, different from the host instruction set.</li>
+<li>Less efficient that actual machine.</li>
+</ol>
+<h3>Process virtual machines</h3>
+<p>Process virtual machines are designed to run a single program and therefore support a single process. They are generally used to provide portability for programming languages. Some important points inlcude: </p>
+<ol>
+<li>Can provide a platform independent programming environment</li>
+<li>A common example is the Java VIrtual Machine used for the Java Programming Language.</li>
+<li>Another example is the .NET framework which runs on Common Language Runtime.</li>
+</ol>
+<h3>Virtualisation on raw hardware (full virtualisation)</h3>
+<p>Full virtualisation of the hardware can be achieved using either a type 1 or type 2 hypervisor. A type 1 hypervisor runs directly on the hardware and a type 2 hypervisor runs on another operating system e.g. linux. Some common hypervisors include Xen, KVM (used by Amazon Web Services), VMware and Virtualbox. </p>
+<p>Full optimisation is particularly in operating system development. It allows experimental code to be run at the same time as older more stable code, each in separate machines. Clusters of machines can aso be combined and access as a single virtual machine with shared memory.</p>
+<h3>Virtualisation at operating system level</h3>
+<p>Here the virtualisation takes place on the operating system (kernel) layer. It can be thought of a slicing a single server into multiple small  partitions called virtual environments (VEs). This approaches has very little overhead due to the lack of multiple kernels (they must use the same kernel) unlike KVM or XEN hypervisors. This is in itself also a limitations as all the VEs are limited to same kernel. Generally operating system level virtualisation can run a much higher density of VEs than fully virtualised hardware. </p>
+<h2>Vagrant</h2>
+<h3>What is it?</h3>
+<p><strong>Vagrant</strong> is software for easily creating and configuring virtual development environments. Essentially it is a wrapper around other virtualisation software such as <strong>Virtualbox</strong>, <strong>VMware</strong> and around configuration management software such as <strong>Ansible</strong>, <strong>Puppet</strong>, <strong>Chef</strong> and <strong>salt</strong>. It also supports <strong>Docker</strong>, which is an operating system level virtualisation. Today we will be using basic vagrant commands as well as puppet for setting up our virtual environment.</p>
+<p>Vagrant is configured using the <strong>Vagrantfile</strong> which contains information stored in plain text. A Vagrantfile can be used to configure a single machine or multiple machines. When vagrant commands are run, vagrant looks in it's current directory for a Vagrantfile. There must be only one Vagrantfile in a folder. </p>
+<h3>Why use vagrant? (instead of virtualbox or other virtualisation software)</h3>
+<ol>
+<li>Allows the set up multiple virtual machines with ease</li>
+<li>It is highly portable</li>
+<li>Can use source control on setup files</li>
+<li>Can try a large number of various platforms quickly</li>
+</ol>
+<h3>Common workflow</h3>
+<p><img src="./virtualisation-vagrant/images/vagrant_workflow_landscape.jpg"  style="width: 600px;"/></p>
+<h3>What is puppet?</h3>
+<p>Puppet is a configuration management tool for unix-like and windows systems. Essentially, the desired system configuration is placed in a <strong>manifest</strong> (a file written in Puppet's declaritive language). This manifest is then converted into a system of resources and dependencies that are used to configure the system. It makes it easy to install and setup software in an automated way. A manifest can be included in the Vagrantfile and used to configure the virtual machine, an example of this is shown further down.</p>
+<h3>Getting started cheat sheet</h3>
+<p><a href="./virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"><img src="./virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"  style="width: 600px"/></a></p>
+<h1>Tutorial</h1>
+<p>1) Installing Vagrant</p>
+<p>Linux:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">vagrant</span>
+</pre></div>
+
+
+<p>Windows/OSX:</p>
+<p>Go to <a href="http://www.vagrantup.com">vagrant website</a> and download the appropriate install file for Windows or OSX. You can then proceed to install it like a standard program.</p>
+<p>2) Setting up our folder</p>
+<div class="highlight"><pre><span class="nb">mkdir</span> <span class="n">vagranttest</span>
+</pre></div>
+
+
+<p>Vagrant works on the basis of project folders. Each folder that you set-up vagrant in, starts a new project that is seperate from any other vagrant setups on the host machine.</p>
+<p>3) Adding a box </p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">box</span> <span class="n">add</span> <span class="sr">&lt;BOX_NAME&gt;</span>
+</pre></div>
+
+
+<p>We have two boxes that we want to set-up today as part of this exercise. To begin with, we are setting up a 32bit Ubuntu box called 'hashicorp/precise32'. This is pulled from the default box provider in vagrant. </p>
+<p>4) Initialising Vagrant</p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">init</span> <span class="n">hashicorp</span><span class="o">/</span><span class="n">precise32</span>
+</pre></div>
+
+
+<p>This stage unpacks our downloaded box into the virtualisation software it was setup with and prepares it for launch.</p>
+<p>5) Running the virtual machine</p>
+<p>To run a virtual machine we need to tell vagrant to start the box, we do this with the command </p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">up</span>
+</pre></div>
+
+
+<p>6) Provisioning with puppet</p>
+<p>This is where vagrant gets very useful, using a provisioning system such as puppet we can automate tasks and commands to be run
+at the provisioning stage (when the machine is initially setup). This allows for the easy setup of multiple machines for testing purposes.</p>
+<p>There is a set folder structure that needs to be used with the puppet files in our project folder.</p>
+<p>The first created folder needs to be called 'puppet'. In this folder, we make our default 'manifests' file, and create a default puppet file called 'default.pp'</p>
+<p>ie.
+    /home/feeg6003/puppet/manifests/default.pp</p>
+<p>An example puppet file can be seen here for the system-update module:</p>
+<div class="highlight"><pre><span class="n">class</span> <span class="nb">system</span><span class="o">-</span><span class="n">update</span><span class="p">{</span>
+<span class="nb">exec</span><span class="p">{</span><span class="s">&#39;apt-get update&#39;</span><span class="p">:</span>
+<span class="n">command</span> <span class="o">=&gt;</span> <span class="s">&#39;apt-get update&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nv">$sysPackages</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;build-essential&quot;</span><span class="p">]</span>
+<span class="nb">package</span><span class="p">{</span><span class="nv">$sysPackages:</span>
+<span class="n">ensure</span><span class="o">=&gt;</span> <span class="s">&quot;installed&quot;</span><span class="p">,</span>
+<span class="nb">require</span><span class="o">=&gt;</span><span class="n">Exec</span><span class="p">[</span><span class="s">&#39;qpt-get update&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>To setup modules for puppet we need to create a folder in the puppet root folder named 'modules'. The structure for our modules are that the name of a folder created in 'modules' is the name of the module.</p>
+<p>Inside the module's folder we have a similar structure to our root puppet folder, with a manifests folder but this time the file in this folder is named 'init.pp'</p>
+<p>To run the module, the default puppet file needs to be written. For example here we have a complete puppet file that will run the modules 'gcc' and 'system-update'</p>
+<div class="highlight"><pre><span class="n">Exec</span> <span class="p">{</span> <span class="n">path</span> <span class="o">=&gt;</span> <span class="p">[</span> <span class="s">&quot;/bin/&quot;</span><span class="p">,</span> <span class="s">&quot;/sbin/&quot;</span> <span class="p">,</span> <span class="s">&quot;/usr/bin/&quot;</span><span class="p">,</span> <span class="s">&quot;/usr/sbin/&quot;</span> <span class="p">]</span> <span class="p">}</span>
+
+<span class="n">include</span> <span class="n">gcc</span>
+<span class="n">include</span> <span class="nb">system</span><span class="o">-</span><span class="n">update</span>
+</pre></div>
+
+
+<p>7) Integrating puppet with vagrant and editing the Vagrantfile</p>
+<p>There are many variables that can be changed in the Vagrantfile, however most of these settings are present by default and can be commented out to exclude.  </p>
+<p>The most important ones needed to start a virtual machine are:</p>
+<div class="highlight"><pre>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="s">&quot;private_network&quot;</span><span class="p">,</span> <span class="n">ip:</span> <span class="s">&quot;192.168.33.10&quot;</span>
+</pre></div>
+
+
+<p>This makes it possible to ssh into the virtual machine in vagrant and for it to support your connection to the terminal.</p>
+<div class="highlight"><pre>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">synced_folder</span> <span class="s">&quot;./&quot;</span><span class="p">,</span> <span class="s">&quot;/vagrant_check&quot;</span>
+</pre></div>
+
+
+<p>This gives us the vagrant project folder and a folder in it named 'vagrant_check' that are synced.</p>
+<p>Finally we need to activate our puppet scripts to run correctly. We do this by enabling provisioning with a shell script at the end of the file using the following code:</p>
+<div class="highlight"><pre><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="p">:</span><span class="n">puppet</span> <span class="k">do</span> <span class="o">|</span><span class="n">puppet</span><span class="o">|</span>
+<span class="n">puppet</span><span class="o">.</span><span class="n">manifests_path</span> <span class="o">=</span> <span class="s">&quot;puppet/manifests&quot;</span>
+<span class="n">puppet</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;--verbose&#39;</span><span class="p">]</span>
+<span class="n">puppet</span><span class="o">.</span><span class="n">module_path</span> <span class="o">=</span> <span class="s">&quot;puppet/modules&quot;</span>
+<span class="n">end</span>
+</pre></div>
+
+
+<p>All of these can be seen below:</p>
+<p><img src="./virtualisation-vagrant/images/vagrantfile.png"  style="width: 600px"/></p>
+<p>8) Running the virtual machine</p>
+<p>To run a virtual machine we need to tell vagrant to start the box, we do this with the command </p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">up</span>
+</pre></div>
+
+
+<p>9) Terminal control</p>
+<p>To connect to the virtual machine and control it from the terminal we can <code>ssh</code> in using:</p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">ssh</span>
+</pre></div>
+
+
+<h1>Exercise 1 - Setting up a virtual machine</h1>
+<p>For this first excercise, setup a virtual machine using the precise32 box employing all of the knowledge covered in this presentation so far. Write 2 puppet files to update the system and install gcc.</p>
+<h1>Tutorial 2 - Configuring multiple machines</h1>
+<p>To setup multiple virtual machines in vagrant we need to add an additional box. This is done in the same way as the tutorial 1, except this time add the box 'chef/centos-6.5-i386'.</p>
+<p>Now we need to edit our Vagrantfile so that it will run both virtual machines and not just our original one.</p>
+<div class="highlight"><pre><span class="n">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="s">&quot;shell&quot;</span><span class="p">,</span> <span class="n">inline:</span> <span class="s">&quot;echo Hello&quot;</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s">&quot;ubuntu&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">web</span><span class="o">|</span>
+<span class="n">ubuntu</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s">&quot;hashicorp/precise32&quot;</span>
+<span class="n">end</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">define</span> <span class="s">&quot;centos&quot;</span> <span class="k">do</span> <span class="o">|</span><span class="n">db</span><span class="o">|</span>
+<span class="n">centos</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s">&quot;chef/centos-6.5-i386&quot;</span>
+<span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+
+
+<p>This replaces our current machine selection shown in the default Vagrantfile below</p>
+<div class="highlight"><pre><span class="n">Every</span> <span class="n">Vagrant</span> <span class="n">development</span> <span class="n">environment</span> <span class="n">requires</span> <span class="n">a</span> <span class="n">box</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">search</span> <span class="k">for</span>
+<span class="n">boxes</span> <span class="n">at</span> <span class="n">https:</span><span class="sr">//</span><span class="n">atlas</span><span class="o">.</span><span class="n">hashicorp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">search</span><span class="o">.</span>
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s">&quot;hashicorp/precise32&quot;</span>
+</pre></div>
+
+
+<p>The first two lines of this will be commented out.</p>
+<p>Now that we have multiple machines we can choose which ones we want to launch, if we use</p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">up</span>
+</pre></div>
+
+
+<p>as before all of the virtual machines will run at once, however we can also use</p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">up</span> <span class="o">&lt;</span><span class="n">vm</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>to just run one of the virtual machines.</p>
+<p>This also effects the way we have to ssh into our machines, now we have to use</p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">ssh</span> <span class="o">&lt;</span><span class="n">vm</span> <span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>to tell vagrant which one we want to connect to.</p>
+<h1>Real world demo - Setting up an openmpi environment to test code</h1>
+<p>A useful work-case for vagrant is that is allows you to remotely test your application on a personalised and specificly configured environment. This allows you to mimic an evironment you might want to deploy your finalised application on (a supercomputer for instance). </p>
+<p>Here, we use a shell script provisioner to set-up our environment to run OpenMPI code. </p>
+<p>(Note: You could use puppet, but it is a lot harder as we are compiling our code from source since there is no up to date package for OpenMPI.)</p>
+<h2>Setting up the vagrant machine</h2>
+<p>Before we deploy our code we need to set up a virtual machine with the required OpenMPI packages to run it. As before, we initialise a new vagrant machine using <em>vagrant init</em> </p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">init</span>
+</pre></div>
+
+
+<p>This creates a Vagrantfile where we can specify the provisioning instructions. Before we do this, we create the provisioning shell script. </p>
+<h3>Creating the shell script</h3>
+<p>Update the system and install <code>build essentials</code> and <code>make</code>, as the box we are using does not come pre-installed with these</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">-</span><span class="n">y</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">make</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+
+
+<p>Next download the source code for builing OpenMPI using <code>wget</code> with the <code>--no-check-certificate</code> to stop it prompting you to confirm the connection.</p>
+<div class="highlight"><pre><span class="n">wget</span> <span class="n">https:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="nb">open</span><span class="o">-</span><span class="n">mpi</span><span class="o">.</span><span class="n">org</span><span class="sr">/software/om</span><span class="n">pi</span><span class="sr">/v1.8/</span><span class="n">downloads</span><span class="o">/</span><span class="n">openmpi</span><span class="o">-</span><span class="mf">1.8.3</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="o">--</span><span class="nb">no</span><span class="o">-</span><span class="n">check</span><span class="o">-</span><span class="n">certificate</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">openmpi</span><span class="o">-</span><span class="mf">1.8.3</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+
+
+<p>Configure and install OpenMPI in a new directory </p>
+<div class="highlight"><pre><span class="nb">mkdir</span> <span class="sr">/home/</span><span class="n">vagrant</span><span class="o">/</span><span class="n">openmpi</span>
+<span class="n">cd</span> <span class="n">openmpi</span><span class="o">-</span><span class="mf">1.8.3</span>
+<span class="o">.</span><span class="sr">/configure --prefix=&quot;/</span><span class="n">home</span><span class="sr">/vagrant/o</span><span class="n">penmpi</span><span class="s">&quot;</span>
+
+
+<span class="s">make</span>
+<span class="s">echo &quot;</span><span class="n">sudo</span> <span class="n">making</span><span class="err">&quot;</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+
+
+<p>Export the OpenMPI package path to the bash settings file</p>
+<div class="highlight"><pre><span class="n">echo</span> <span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s">&quot;$PATH:/home/vagrant/openmpi/bin&quot;</span> <span class="o">&gt;&gt;</span> <span class="sr">/home/</span><span class="n">vagrant</span><span class="o">/.</span><span class="n">bashrc</span>
+<span class="n">echo</span> <span class="n">export</span> <span class="n">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s">&quot;$LD_LIBRARY_PATH:/home/vagrant/openmpi/lib/&quot;</span> <span class="o">&gt;&gt;</span> <span class="sr">/home/</span><span class="n">vagrant</span><span class="o">/.</span><span class="n">bashrc</span>
+</pre></div>
+
+
+<p>This makes Open MPI available when running through an interactive shell. To use it through <code>ssh</code>, add </p>
+<div class="highlight"><pre><span class="n">echo</span> <span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s">&quot;$PATH:/home/vagrant/openmpi/bin&quot;</span> <span class="o">&gt;&gt;</span> <span class="sr">/home/</span><span class="n">vagrant</span><span class="o">/.</span><span class="n">profile</span>
+<span class="n">echo</span> <span class="n">export</span> <span class="n">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s">&quot;$LD_LIBRARY_PATH:/home/vagrant/openmpi/lib/&quot;</span> <span class="o">&gt;&gt;</span> <span class="sr">/home/</span><span class="n">vagrant</span><span class="o">/.</span><span class="n">profile</span>
+</pre></div>
+
+
+<h3>Vagrantfile file settings</h3>
+<p>We can now modify the Vagrantfile to run our script when provisioning the vagrant machine. To do this, add the following lines to your vagrant file</p>
+<div class="highlight"><pre><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="p">:</span><span class="n">shell</span><span class="p">,</span> <span class="p">:</span><span class="n">path</span> <span class="o">=&gt;</span> <span class="s">&quot;provision.sh&quot;</span>
+</pre></div>
+
+
+<p>We are now ready to <code>vagrant up</code>. </p>
+<p>(Tip: You might want to take a tea break at this point as this takes between 5-15 minutes to complete)</p>
+<h3>Saving into the /vagrant shared area</h3>
+<p>We can now save a piece of code that we wish to test in the vagrant shared folder and use <code>vagrant ssh</code> to compile and run it on the vagrant machine. This allows you to develop and edit your program in your host environment and deploy it for testing in your specially configured vagrant box. A simple OpenMPI test code is shown below</p>
+<p><img src="./virtualisation-vagrant/images/hello_c.png"  style="width: 400px"/></p>
+<p>Here we use a simple shell script shown below to deploy the <code>hello.c</code> program</p>
+<p><img src="./virtualisation-vagrant/images/run_script.png"  style="width: 400px"/></p>
+<p>Executing the following command runs the script to compile and run hello.c</p>
+<div class="highlight"><pre><span class="n">vagrant</span> <span class="n">ssh</span> <span class="o">-</span><span class="n">c</span> <span class="s">&quot;bash /vagrant/run_mpi.sh&quot;</span>
+</pre></div>
+
+
+<p><img src="./virtualisation-vagrant/images/compile_run.jpg"  style="width: 400px"/></p>
+<h1>Links</h1>
+<p><a href="https://docs.vagrantup.com/v2/">Vagrant Documentation</a></br>
+<a href="https://docs.puppetlabs.com/#">Puppet Documentation</a></p>
+<script type = 'text/javascript'>
+
+function delete_images(){
+for (var i= document.images.length; i-->0;)
+    document.images[i].parentNode.removeChild(document.images[i]);
+}
+</script>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
