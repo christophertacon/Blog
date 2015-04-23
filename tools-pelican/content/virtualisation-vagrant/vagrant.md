@@ -6,6 +6,7 @@ slug: vagrant
 
 Files:
 
+<a href="{filename}/virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
 <a href="{filename}/virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
 <a href="{filename}/virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a>
 
