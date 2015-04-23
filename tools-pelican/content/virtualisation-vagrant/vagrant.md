@@ -93,7 +93,7 @@ Go to <a href="http://www.vagrantup.com">vagrant website</a> and download the ap
 
 2) Setting up our folder
 
-	mkdir vagranttest
+	mkdir vagrant
 
 Vagrant works on the basis of project folders. Each folder that you set-up vagrant in, starts a new project that is seperate from any other vagrant setups on the host machine.
 
@@ -109,13 +109,7 @@ We have two boxes that we want to set-up today as part of this exercise. To begi
 
 This stage unpacks our downloaded box into the virtualisation software it was setup with and prepares it for launch.
 
-5) Running the virtual machine
-
-To run a virtual machine we need to tell vagrant to start the box, we do this with the command 
-
-	vagrant up 
-
-6) Provisioning with puppet
+5) Provisioning with puppet
 
 This is where vagrant gets very useful, using a provisioning system such as puppet we can automate tasks and commands to be run
 at the provisioning stage (when the machine is initially setup). This allows for the easy setup of multiple machines for testing purposes.
@@ -152,7 +146,7 @@ To run the module, the default puppet file needs to be written. For example here
 	include gcc
 	include system-update
 
-7) Integrating puppet with vagrant and editing the Vagrantfile
+6) Integrating puppet with vagrant and editing the Vagrantfile
 
 There are many variables that can be changed in the Vagrantfile, however most of these settings are present by default and can be commented out to exclude.  
 
@@ -179,14 +173,14 @@ All of these can be seen below:
 <img src="{filename}/virtualisation-vagrant/images/vagrantfile.png"  style="width: 600px"/>
 
 
-8) Running the virtual machine
+7) Running the virtual machine
 
 To run a virtual machine we need to tell vagrant to start the box, we do this with the command 
 
 	vagrant up 
 
 
-9) Terminal control
+8) Terminal control
 
 To connect to the virtual machine and control it from the terminal we can `ssh` in using:
 
