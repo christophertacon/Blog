@@ -12,7 +12,7 @@ Fortran programming languadge
    :alt: Programmer's first Reference Manual for Fortran
    :align: center
 
-FORTRAN (or FORmula TRANsalator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles needed to read and write FORTRAN codes in scientific computing, and secondly introduce the Fortran to Python interface (f2py) that allows the creation of Python modules from FORTRAN.
+FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles needed to read and write FORTRAN codes in scientific computing, and secondly introduce the Fortran to Python interface (f2py) that allows the creation of Python modules from FORTRAN.
 
 Detailed slides of the workshop can be found at: `presentation slides.pdf`_
 
@@ -55,7 +55,7 @@ Write a FORTRAN program "*Fibonacci*" that dynamically calculates a given number
 			A[i]=A[i-1]+A[i-2] 
 
 
-Note: In order to declare the array variable N needs to be defined before declaration. One way to do this is to introduce it as a constant before the array is declared. Example:
+Note: In order to declare the array variable, N needs to be defined before declaration. One way to do this is to introduce it as a constant before the array is declared. Example:
 
 
 
