@@ -40,7 +40,7 @@
 </footer><!-- /.post-info --><div class="figure align-center">
 <img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
 </div>
-<p>FORTRAN (or FORmula TRANsalator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles needed to read and write FORTRAN codes in scientific computing, and secondly introduce the Fortran to Python interface (f2py) that allows the creation of Python modules from FORTRAN.</p>
+<p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles needed to read and write FORTRAN codes in scientific computing, and secondly introduce the Fortran to Python interface (f2py) that allows the creation of Python modules from FORTRAN.</p>
 <p>Detailed slides of the workshop can be found at: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">presentation slides.pdf</a></p>
 <p>Further reading about f2py and a FORTRAN manual can be found in the resources section.</p>
 <div class="section" id="practical-session">
@@ -65,12 +65,12 @@
         <span class="k">else</span><span class="p">:</span>
                 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
-<p>Note: In order to declare the array variable N needs to be defined before declaration. One way to do this is to introduce it as a constant before the array is declared. Example:</p>
+<p>Note: In order to declare the array variable, N needs to be defined before declaration. One way to do this is to introduce it as a constant before the array is declared. Example:</p>
 <blockquote>
 integer, parameter :: N=9</blockquote>
 <p>When running ignore the floating point errors that arise for high N.
 Note you are advised to use the lecture slides as reference.
-The solution can be found in: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">Exercise1.f90</a></p>
+The solution can be found in: <a class="reference external" href="./FORTRAN/Solution1.f90">Exercise1.f90</a></p>
 </div>
 <div class="section" id="exercise-2-converting-to-a-subprogram">
 <h2>Exercise 2: Converting to a subprogram</h2>
@@ -82,7 +82,7 @@ The solution can be found in: <a class="reference external" href="./FORTRAN/FORT
 <li>The subroutine should then do the calculation previously done in exercise 1</li>
 <li>The main program then prints them to a file as done in exercise 1</li>
 </ul>
-<p>Solutions are found in: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">Exercise2.f90</a></p>
+<p>Solutions are found in: <a class="reference external" href="./FORTRAN/solution2.f90">Exercise2.f90</a></p>
 </div>
 <div class="section" id="exercise-3-making-a-python-module">
 <h2>Exercise 3: Making a python module</h2>
@@ -92,7 +92,7 @@ The solution can be found in: <a class="reference external" href="./FORTRAN/FORT
 <p>Then compile the FORTRAN to python interface command:</p>
 <div class="highlight"><pre><span class="nv">$ </span>f2py -c fibonacci_sub.f90 -m fibonacci
 </pre></div>
-<p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">fibonacci_sub.f90</a></p>
+<p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
 <p>If no errors are visible then make shure that your module is correct by using the python program:</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">fibpnacci_sub</span>
