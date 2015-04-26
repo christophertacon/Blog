@@ -125,9 +125,9 @@ Resources
 
 .. _FORTRAN Manual: http://www-eio.upc.edu/lceio/manuals/Fortran95-manual.pdf
 .. _f2py: https://sysbio.ioc.ee/projects/f2py2e/
-.. _Exercise1.f90: {filename}/FORTRAN/FORTAN_beamer.pdf
-.. _Exercise2.f90: {filename}/FORTRAN/FORTAN_beamer.pdf
-.. _fibonacci_sub.f90: {filename}/FORTRAN/FORTAN_beamer.pdf
+.. _Exercise1.f90: {filename}/FORTRAN/Solution1.f90
+.. _Exercise2.f90: {filename}/FORTRAN/solution2.f90
+.. _fibonacci_sub.f90: {filename}/FORTRAN/subroutine.f90
 
 .. _Lubuntu_ova_fortran: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_fortran.ova
 .. _presentation slides.pdf: {filename}/FORTRAN/FORTAN_beamer.pdf
