@@ -70,7 +70,7 @@
 integer, parameter :: N=9</blockquote>
 <p>When running ignore the floating point errors that arise for high N.
 Note you are advised to use the lecture slides as reference.
-The solution can be found in: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">Exercise1.f90</a></p>
+The solution can be found in: <a class="reference external" href="./FORTRAN/Solution1.f90">Exercise1.f90</a></p>
 </div>
 <div class="section" id="exercise-2-converting-to-a-subprogram">
 <h2>Exercise 2: Converting to a subprogram</h2>
@@ -82,7 +82,7 @@ The solution can be found in: <a class="reference external" href="./FORTRAN/FORT
 <li>The subroutine should then do the calculation previously done in exercise 1</li>
 <li>The main program then prints them to a file as done in exercise 1</li>
 </ul>
-<p>Solutions are found in: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">Exercise2.f90</a></p>
+<p>Solutions are found in: <a class="reference external" href="./FORTRAN/solution2.f90">Exercise2.f90</a></p>
 </div>
 <div class="section" id="exercise-3-making-a-python-module">
 <h2>Exercise 3: Making a python module</h2>
@@ -92,7 +92,7 @@ The solution can be found in: <a class="reference external" href="./FORTRAN/FORT
 <p>Then compile the FORTRAN to python interface command:</p>
 <div class="highlight"><pre><span class="nv">$ </span>f2py -c fibonacci_sub.f90 -m fibonacci
 </pre></div>
-<p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">fibonacci_sub.f90</a></p>
+<p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
 <p>If no errors are visible then make shure that your module is correct by using the python program:</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">fibpnacci_sub</span>
