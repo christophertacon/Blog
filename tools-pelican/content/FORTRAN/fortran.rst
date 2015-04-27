@@ -1,4 +1,4 @@
-Fortran programming languadge
+Fortran programming language
 #############################
 
 :date: 2015-04-30 16:00
