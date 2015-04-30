@@ -20,10 +20,22 @@ Also you can find the presentation slides using the link below:
 
 .._here:
 
+If you do not currently have access to HDF5 you can download it for free using macports or from their website.
+
+Part 1: HDF5 Command Line Tools
+===============================
+
+The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal
+
 Exercise 1: Find the Code
 =========================
 
 The first exercise for this tutorial will be based on using the three terminal comamnds discussed in the first section of the presentation; h5ls, h5dump and h5copy. In the DIRECTORY inside the VirtualBox, you will find two HDF5 files. The objective here is to search these files to find a code and piece it together. This exercise begins with a clue in the attribute of the root group. Keep on collecting the correct datasets and copy them over to another HDF5 named solution.h5 in the format specified by the attributes. When you have completed this task, run the python file "codebreaker.py" and it will check your solution.h5 to see if what you have submitted is correct.
+
+Exercise 2: Create your own file1
+=================================
+
+In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file.
 
 
 First look at Sublime Text 2
