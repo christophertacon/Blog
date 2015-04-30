@@ -12,49 +12,18 @@ HDF5
    :alt: Sublime Text 2
    :align: center
 
-This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs - for this example we will focus on writing a ``.rst`` file for a *Pelican Blog* entry. This is a follow-on from a previous `FEEG6003 pelican tutorial`_ lead by Denis Kramer, however all the ideas presented here should be transferable to other projects. Exercises are split and labelled, and those following the module presentation should stop when each exercise is complete ready for the next part of the presentation. Let's begin.
+This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, the built in terminal commands and some use of h5py, a HDF5 python package is explored. You can download the VirtualBox image from the following link:
 
-.. _FEEG6003 pelican tutorial: http://computationalmodelling.bitbucket.org/tools/pelican-basics.html
+.._link: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
 
-**Note**
-	To be able to work through this tutorial efficiently we recommend you are running the virtual machine appliance (``feeg6003_TextEditors.ova`` file) supplied for this tutorial from `this repository`_. Brief Reminder: In Virtual Box this involves clicking *File* > *Import Appliance...* and select the ``.ova``, continue and check settings, then click *Import*. It is also useful to allow copy and paste between host and guest by installing guest additions through *Devices* > *Insert Guest Additions*, then in a terminal window on the guest machine navigate to ``/media/feeg6003/VBOXADDITIONS...`` and enter
+Also you can find the presentation slides using the link below:
 
-.. _this repository: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
+.._here:
 
-.. code-block:: bash
+Exercise 1: Find the Code
+=========================
 
-	$ sudo sh ./VBoxLinuxAdditions.run
-
-\
-	and finally in Virtual Box Manager select this virtual appliance, go to *Settings* > *General* > *Advanced*  and change "Shared Clipboard" and "Drag'n'drop" settings to bidirectional.
-
-Exercise 1: Installing Sublime
-==============================
-
-Sublime Text 2 offers a free and untimed trial version of the software which we will use for this tutorial - this provides full functionality, however a license should be purchased for continued use (users will be prompted with a reminder of this after a certain number of saves). To install the free version, firstly open up terminal on your machine and enter these commands (alternatively found here_):
-
-.. _here: http://www.ubuntuupdates.org/ppa/sublime_text_2
-
-.. code-block:: bash
-
-	$ cd ~
-	$ sudo add-apt-repository ppa:webupd8team/sublime-text-2
-	$ sudo apt-get update
-	$ sudo apt-get install sublime-text
-
-This will download the package and install it under ``/opt/sublime_text_2``. It will also create two *symbolic links*: ``subl`` and ``sublime-text`` which can be called in terminal to open ST2. If you wish to make your own you can do the following (in this case the symbolic link is set to be ``sublime``):
-
-.. code-block:: bash
-
-	$ sudo ln -s /opt/sublime_text_2/sublime_text /bin/sublime
-
-NOTE: if you try to run ST2 from the terminal a ST2 window will open and be fully functional, however this will clog up the current terminal window due to a bug within GLib (I haven't found a fix for this as of yet). To carry on using the terminal you will need to open a new terminal tab or window. The error presents itself as shown below and will keep producing errors until you hit [kb:ctrl] + [kb:c] . But, upon doing this the sublime session you opened will shut down.
-
-.. code-block:: bash
-
-	$ sublime-text
-
-	(sublime: 6476): GLib-CRITICAL **; Source ID 1982 was not found when attempting to remove it.
+The first exercise for this tutorial will be based on using the three terminal comamnds discussed in the first section of the presentation; h5ls, h5dump and h5copy. In the DIRECTORY inside the VirtualBox, you will find two HDF5 files. The objective here is to search these files to find a code and piece it together. This exercise begins with a clue in the attribute of the root group. Keep on collecting the correct datasets and copy them over to another HDF5 named solution.h5 in the format specified by the attributes. When you have completed this task, run the python file "codebreaker.py" and it will check your solution.h5 to see if what you have submitted is correct.
 
 
 First look at Sublime Text 2
