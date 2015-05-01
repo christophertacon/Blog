@@ -66,7 +66,7 @@ Finally, the final command line tool that will e covered in this blog is h5copy,
 Exercise 1: Find the Code
 -------------------------
 
-The first exercise for this tutorial will be based on using the three terminal comamnds discussed in the first section of the presentation; h5ls, h5dump and h5copy. In the DIRECTORY inside the VirtualBox, you will find two HDF5 files. The objective here is to search these files to find a code and piece it together. This exercise begins with a clue in the attribute of the root group. Keep on collecting the correct datasets and copy them over to another HDF5 named solution.h5 in the format specified by the attributes. When you have completed this task, run the python file "codebreaker.py" and it will check your solution.h5 to see if what you have submitted is correct.
+The first exercise for this tutorial will be based on using the three terminal comamnds discussed in the first section of the presentation; h5ls, h5dump and h5copy. In /Documents/ inside the VirtualBox image, you will find two HDF5 files named exercise1.h5 and solution.h5. The objective here is to search these files to find a code and piece it together. This exercise begins with a clue in the attribute of the root group. Keep on collecting the correct datasets and copy them over to another HDF5 named solution.h5 in the format specified by the attributes. When you have completed this task, run the python file "codebreaker.py" and it will check your solution.h5 to see if what you have submitted is correct.
 
 Part 2: HDF5 and h5py
 =====================
@@ -77,8 +77,12 @@ For those that are familiar with python, there is a module that provides various
 Exercise 2: Create your own file1
 ---------------------------------
 
-In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file. 
+In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file. In /Documents/ inside the VirtualBox image, you will find an IPython Notebook. Open this notebook through terminal using the command
 
+.. code-block:: bash
+
+	$ cd ~/Documents/
+	$ ipython notebook exercise2.ipynb
 
 Resources
 =========
