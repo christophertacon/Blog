@@ -12,25 +12,67 @@ HDF5
    :alt: Sublime Text 2
    :align: center
 
-This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, the built in terminal commands and some use of h5py, a HDF5 python package is explored. You can download the VirtualBox image from the following link:
+This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, the built in terminal commands and some use of h5py, a HDF5 python package is explored. You can download the VirtualBox image from the following link_:
 
-.._link: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
+.. _link: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
 
-Also you can find the presentation slides using the link below:
+Also you can find the presentation slides here_:
 
-.._here:
+.. _here:
 
-If you do not currently have access to HDF5 you can download it for free using macports or from their website.
+If you do not currently have access to HDF5 you can download it for free using macports or from their website. Acquiring the h5py module is very straightforward if you have an anaconda distribution installed and we would recommend doing it using this method.
+
+.. code-block:: bash
+
+	$ conda install h5py
+
+Note that this installs the h5py module and the HDF5 tools at the same time.
 
 Part 1: HDF5 Command Line Tools
 ===============================
 
-The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal
+The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal. The first of these commands that we will mention is h5ls which is a method very similar to the ls which is used in a terminal to look at the contents of a directory.
+
+
+.. figure:: {filename}/HDF5/HDF5-images/h5ls.png
+   :width: 80%
+   :alt: First view of Sublime Text 2
+   :align: center
+
+
+The second tool we will explain a bit about is the h5dump command. This is also a viewing tool but without using any flags is quite different to the aforementioned h5ls.
+
+
+.. figure:: {filename}/HDF5/HDF5-images/h5dump1.png
+   :width: 80%
+   :alt: First view of Sublime Text 2
+   :align: center
+
+
+.. figure:: {filename}/HDF5/HDF5-images/h5dump2.png
+   :width: 80%
+   :alt: First view of Sublime Text 2
+   :align: center
+
+
+Finally, the final command line tool that will e covered in this blog is h5copy, which allows a user to copy datasets from one file to another.
+
+
+.. figure:: {filename}/HDF5/HDF5-images/h5copy.png
+   :width: 80%
+   :alt: First view of Sublime Text 2
+   :align: center
 
 Exercise 1: Find the Code
 =========================
 
 The first exercise for this tutorial will be based on using the three terminal comamnds discussed in the first section of the presentation; h5ls, h5dump and h5copy. In the DIRECTORY inside the VirtualBox, you will find two HDF5 files. The objective here is to search these files to find a code and piece it together. This exercise begins with a clue in the attribute of the root group. Keep on collecting the correct datasets and copy them over to another HDF5 named solution.h5 in the format specified by the attributes. When you have completed this task, run the python file "codebreaker.py" and it will check your solution.h5 to see if what you have submitted is correct.
+
+Part 2: HDF5 and h5py
+=====================
+
+For those that are familiar with python, there is a module that provides various commands for the manipulation of HDF5 files. 
+
 
 Exercise 2: Create your own file1
 =================================
