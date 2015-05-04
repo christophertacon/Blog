@@ -16,9 +16,9 @@ This blog is a tutorial on some of the tools and features of HDF5 files. More sp
 
 .. _link: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
 
-Also you can find the presentation slides here_:
+Also you can find the presentation slides here_.
 
-.. _here:
+.. _here: {filename}/HDF5/slides/HDF5_presentation.pdf
 
 If you do not currently have access to HDF5 you can download it for free using macports or from their website. Acquiring the h5py module is very straightforward if you have an anaconda distribution installed and we would recommend doing it using this method.
 
@@ -74,7 +74,7 @@ Part 2: HDF5 and h5py
 For those that are familiar with python, there is a module that provides various commands for the manipulation of HDF5 files. 
 
 
-Exercise 2: Create your own file1
+Exercise 2: Create your own file!
 ---------------------------------
 
 In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file. In /Documents/ inside the VirtualBox image, you will find an IPython Notebook. Open this notebook through terminal using the command
@@ -84,12 +84,14 @@ In the second part, you will have learned about using h5py and some of its featu
 	$ cd ~/Documents/
 	$ ipython notebook exercise2.ipynb
 
+Run through the exercises found in this file.
+
 Resources
 =========
 
-* `The presentation slides (.ppt)`_
+* `The presentation slides (.pdf)`_
 * `Link to the feeg6003_TextEditors.ova file`_
 
-.. _The presentation slides (.ppt): {filename}/HDF5/slides/HDF5_presentation.ppt
+.. _The presentation slides (.pdf): {filename}/HDF5/slides/HDF5_presentation.pdf
 .. _Link to the feeg6003_TextEditors.ova file: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
 
