@@ -7,8 +7,8 @@ HDF5
 :authors: James Harrison, Rory Brown
 :slug: HDF5
 
-.. figure:: {filename}/text-editors-sublime/sublime-images/st2_icon.png
-   :width: 15%
+.. figure:: {filename}/HDF5/HDF5-images/Image.png
+   :width: 40%
    :alt: Sublime Text 2
    :align: center
 
@@ -28,40 +28,53 @@ If you do not currently have access to HDF5 you can download it for free using m
 
 Note that this installs the h5py module and the HDF5 tools at the same time.
 
+What is HDF5?
+=============
+
+It is a hierarchical file format that allows various types of data and metadata to be stored in the same file. It has a huge amount of structural versatility and can even be used for parallel applications.
+
+The three main sections of an HDF5 file are groups, datasets and attributes. Groups can contain other groups and datasets and is mainly used for structure. Datasets contain the information that needs to be stored. Attributes contain the metadata and can be attached to either groups or datasets.
+
 Part 1: HDF5 Command Line Tools
 ===============================
 
-The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal. The first of these commands that we will mention is h5ls which is a method very similar to the ls which is used in a terminal to look at the contents of a directory.
+The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal. The first of these commands that we will mention is h5ls which is a method very similar to the ls which is used in a terminal to look at the contents of a directory. The flags for this command are shown below. 
 
 
 .. figure:: {filename}/HDF5/HDF5-images/h5ls.png
-   :width: 80%
+   :width: 50%
    :alt: First view of Sublime Text 2
-   :align: center
+   :align: center 
 
+To use h5ls, you are required to provide a path inside the file i.e.
 
-The second tool we will explain a bit about is the h5dump command. This is also a viewing tool but without using any flags is quite different to the aforementioned h5ls.
+.. code-block:: bash
+
+   $ h5ls file.h5/path
+
+The second tool we will explain a bit about is the h5dump command. This is also a viewing tool but without using any flags is quite different to the aforementioned h5ls. It is a lot more verbose in its standard output, providing details of all data and even attributes and it is therefore recommended to initially surpress some of these details using flags if observing large HDF5 files.
 
 
 .. figure:: {filename}/HDF5/HDF5-images/h5dump1.png
-   :width: 80%
+   :width: 50%
    :alt: First view of Sublime Text 2
    :align: center
 
 
 .. figure:: {filename}/HDF5/HDF5-images/h5dump2.png
-   :width: 80%
+   :width: 50%
    :alt: First view of Sublime Text 2
    :align: center
 
 
-Finally, the final command line tool that will e covered in this blog is h5copy, which allows a user to copy datasets from one file to another.
+Finally, the final command line tool that will be covered in this blog is h5copy, which allows a user to copy datasets from one file to another.
 
 
 .. figure:: {filename}/HDF5/HDF5-images/h5copy.png
-   :width: 80%
+   :width: 50%
    :alt: First view of Sublime Text 2
    :align: center
+
 
 Exercise 1: Find the Code
 -------------------------
@@ -71,7 +84,13 @@ The first exercise for this tutorial will be based on using the three terminal c
 Part 2: HDF5 and h5py
 =====================
 
-For those that are familiar with python, there is a module that provides various commands for the manipulation of HDF5 files. 
+For those that are familiar with python, there is a module that provides various commands for the manipulation of HDF5 files. Extensive documentation for this module can be found on this website_.
+
+.. _website: http://docs.h5py.org/en/latest/
+
+This module has various features, including creation, reading and writing and the manipulation of file structure within HDF5 files. When wshing to use this module do not forget to use the "import h5py" command.
+
+See the slides for details on the covered commands.
 
 
 Exercise 2: Create your own file!
@@ -91,7 +110,11 @@ Resources
 
 * `The presentation slides (.pdf)`_
 * `Link to the feeg6003_TextEditors.ova file`_
+* `Link to the h5py documentation`_
+* `Link to the HDF Group website`_
 
 .. _The presentation slides (.pdf): {filename}/HDF5/slides/HDF5_presentation.pdf
 .. _Link to the feeg6003_TextEditors.ova file: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
+.. _Link to the h5py documentation: http://docs.h5py.org/en/latest/
+.. _`Link to the HDF Group website`: https://www.hdfgroup.org/HDF5/
 
