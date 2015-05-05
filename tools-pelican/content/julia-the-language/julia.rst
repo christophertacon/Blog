@@ -7,7 +7,7 @@ Julia: The Language
 :authors: Josh Greenhalgh, Jonothan Waters
 :slug: Julia
 
-.. figure:: {filename}/julia-the-language/julia-images/Julia.png
+.. figure:: {filename}/julia-the-language/julia-images/julia.png
    :width: 15%
    :alt: Julia: The Language
    :align: center
