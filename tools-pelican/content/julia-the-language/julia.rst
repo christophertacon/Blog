@@ -61,7 +61,7 @@ The Basics
 `View Notebook-The-Basics.ipynb`_
 
 
-.. _DL Notebook-The-Basics.ipynb: https://raw.githubusercontent.com/josh-gree/juliafiles/master/The-Basics.ipynb
+.. _DL Notebook-The-Basics.ipynb: {filename}/julia-the-language/julia-files/The-Basics.ipynb
 .. _View Notebook-The-Basics.ipynb: http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/The-Basics.ipynb
 
 Julia types
@@ -72,19 +72,19 @@ Julia types
 `View Notebook-Julia-Types.ipynb`_
 
 
-.. _DL Notebook-Julia-Types.ipynb: https://raw.githubusercontent.com/josh-gree/juliafiles/master/Julia-Types.ipynb
+.. _DL Notebook-Julia-Types.ipynb: {filename}/julia-the-language/julia-files/Julia-Types.ipynb
 .. _View Notebook-Julia-Types.ipynb: http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Julia-Types.ipynb
 
 
 Parallelism in Julia
 --------------------
 
-`DL Notebook-Parrallel.ipynb`_ (right click and save as..)
+`DL Notebook-Parallel.ipynb`_ (right click and save as..)
 
-`View Notebook-Parrallel.ipynb`_
+`View Notebook-Parallel.ipynb`_
 
-.. _DL Notebook-Parrallel.ipynb: https://raw.githubusercontent.com/josh-gree/juliafiles/master/Parallel.ipynb
-.. _View Notebook-Parrallel.ipynb: http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Parallel.ipynb
+.. _DL Notebook-Parallel.ipynb: {filename}/julia-the-language/julia-files/Parallel.ipynb
+.. _View Notebook-Parallel.ipynb: http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Parallel.ipynb
 
 More to learn....
 =================
