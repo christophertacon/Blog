@@ -109,12 +109,12 @@ Resources
 =========
 
 * `The presentation slides (.pdf)`_
-* `Link to the feeg6003_TextEditors.ova file`_
+* `Link to the feeg6003lubuntu_HDF5.ova file`_
 * `Link to the h5py documentation`_
 * `Link to the HDF Group website`_
 
 .. _The presentation slides (.pdf): {filename}/HDF5/slides/HDF5_presentation.pdf
-.. _Link to the feeg6003_TextEditors.ova file: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
+.. _Link to the feeg6003lubuntu_HDF5.ova file: http://www.southampton.ac.uk/~ngcmbits/virtualmachines/
 .. _Link to the h5py documentation: http://docs.h5py.org/en/latest/
 .. _`Link to the HDF Group website`: https://www.hdfgroup.org/HDF5/
 
