@@ -26,147 +26,8 @@
             <aside id="featured" class="body">
                 <article>
                     <h1 class="entry-title"><a href="./HDF5.html">HDF5</a></h1>
-                    <h1 class="entry-title"><a href="./Julia.html">Julia: The Language</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2015-05-07T16:00:00+02:00">
-                Published: Thu 07 May 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-josh-greenhalgh.html">Josh Greenhalgh</a>
-                        <a class="url fn" href="./author-jonothan-waters.html">Jonothan Waters</a>
-        </address>
-<p>In <a href="./category-languages.html">Languages</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info --><div class="figure align-center">
-<img alt="Julia: The Language" src="./julia-the-language/julia-images/julia.png" style="width: 15%;" />
-</div>
-<div class="section" id="introduction">
-<h2>Introduction</h2>
-<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low level virtual machine) JIT (just-in-time) complier which allows for high performance at usually around 2-3x C speed and in some cases vitually equal to C speed. Unlike the usual strategy of vectorising code to increase speed, as found in python, Julia works extreamly rapidly when just using standard for loops. The main developers of the Julia language are based at MIT and have written an in depth description of the design philosophy of the language which can be found <a class="reference external" href="http://arxiv.org/pdf/1411.1607v3.pdf">here</a>.</p>
-</div>
-<div class="section" id="installation">
-<h2>Installation</h2>
-<p>For this workshop a virtual machine has been set up with Julia allready installed - the image can be found at this <a class="reference external" href="https://www.dropbox.com/s/n0fkh7p5p534t6x/Julia.ova?dl=0">link</a>. However if you wish to install Julia on your own machine their are various routes available. The easiest possible route is to follow the instructions, for your operating system, found on the <a class="reference external" href="http://julialang.org/downloads/platform.html">Julia website</a>. It may be necassary to add the Julia executable to your path in order to run the REPL from the terminal. If you would like to live on the bleeding edge of Julia development then you can install from source by following the instructions on the <a class="reference external" href="https://github.com/JuliaLang/julia">Julia Github</a> - be aware that when following this method you will have to wait a very very long time (expect upto 3 hours!!) and there will probably be various errors because of dependencies that you lack (<a class="reference external" href="http://www.cmake.org/install/">cmake</a> and <a class="reference external" href="https://www.gnu.org/software/m4/">m4</a> were needed when installing on mac).</p>
-<p>Julia can be used via the REPL or by running scripts, however an excellent working enviroment is provided by the IJulia kernal for the Jupyter (formally IPython) notebook. In order to install IJulia you will first need a version of Python, version 2.7 is recomended, along with IPython and the IPython notebook. IPython and the notebook can be installed using pip;</p>
-<div class="highlight"><pre><span class="nv">$ </span>pip install <span class="s1">&#39;ipython[notebook]&#39;</span>
-</pre></div>
-<p>Once the Python dependencies have been installed you will need to open up a Julia REPL and use the following command;</p>
-<div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
-</pre></div>
-<p>The IJulia package will then be installed and should be available in Jupyter by running the following in the terminal;</p>
-<div class="highlight"><pre><span class="nv">$ </span>ipython notebook
-</pre></div>
-<p>A new browser window should appear in which the local file structure will be displayed, selecting new in the top right corner and then picking the julia kernal from the dropdown menu should start a new notebook file.</p>
-</div>
-<div class="section" id="workshop-content">
-<h2>Workshop Content</h2>
-<div class="section" id="the-basics">
-<h3>The Basics</h3>
-<p><a class="reference external" href="./julia-the-language/julia-files/The-Basics.ipynb">DL Notebook-The-Basics.ipynb</a> (right click and save as..)</p>
-<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/The-Basics.ipynb">View Notebook-The-Basics.ipynb</a></p>
-</div>
-<div class="section" id="julia-types">
-<h3>Julia types</h3>
-<p><a class="reference external" href="./julia-the-language/julia-files/Julia-Types.ipynb">DL Notebook-Julia-Types.ipynb</a> (right click and save as..)</p>
-<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Julia-Types.ipynb">View Notebook-Julia-Types.ipynb</a></p>
-</div>
-<div class="section" id="parallelism-in-julia">
-<h3>Parallelism in Julia</h3>
-<p><a class="reference external" href="./julia-the-language/julia-files/Parallel.ipynb">DL Notebook-Parallel.ipynb</a> (right click and save as..)</p>
-<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Parallel.ipynb">View Notebook-Parallel.ipynb</a></p>
-</div>
-</div>
-<div class="section" id="more-to-learn">
-<h2>More to learn....</h2>
-<p>Some links to find out more about julia;</p>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=vWkgEddb4-A">Tutorial</a></p>
-<p><a class="reference external" href="http://en.wikibooks.org/wiki/Introducing_Julia/Plotting">Plotting</a></p>
-<p><a class="reference external" href="http://pkg.julialang.org/">Package Listing</a></p>
-<p><a class="reference external" href="http://docs.julialang.org/en/release-0.3/">Documentation</a></p>
-<p><a class="reference external" href="https://groups.google.com/forum/#!forum/julia-users">Google Group</a></p>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./FORTRAN.html" rel="bookmark"
-                           title="Permalink to Fortran programming language">Fortran programming language</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-04-30T16:00:00+02:00">
-                Published: Thu 30 April 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-ioannis-begleris.html">Ioannis Begleris</a>
-                        <a class="url fn" href="./author-hao-wang.html">Hao Wang</a>
-        </address>
-<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
-<p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
-</footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
-</div>
-<p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles ...</p>
-                <a class="readmore" href="./FORTRAN.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./vagrant.html" rel="bookmark"
-                           title="Permalink to Virtualisation with Vagrant">Virtualisation with Vagrant</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-04-23T00:00:00+02:00">
-                Published: Thu 23 April 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author-james-lambert.html">James Lambert</a>
-                        <a class="url fn" href="./author-noorvir-aulakh.html">Noorvir Aulakh</a>
-                        <a class="url fn" href="./author-thomas-rickard.html">Thomas Rickard</a>
-        </address>
-<p>In <a href="./category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
-<p>tags: <a href="./tag-virtualisation.html">virtualisation</a> <a href="./tag-virtual-machines.html">virtual machines</a> <a href="./tag-vagrant.html">vagrant</a> </p>
-</footer><!-- /.post-info -->                <p>Files:</p>
-<p><a href="./virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
-<a href="./virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
-<a href="./virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
-<p><img src="./virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
-<!--<button id='image_button' type="button" onclick=delete_images()>I don't like images</button>-->
-
-<h1>Introduction</h1>
-<h2>Learning outcomes</h2>
-<ol>
-<li>Understand different types of virtual machines</li>
-<li>Be able to run, provision and stop a vagrant virtual machine. </li>
-</ol>
-<p></br></p>
-<h2>Virtual machine recap/overview</h2>
-<p>A virtual machine is a software implementation of a machine that executes programs like ...</p></!--<button>
-                <a class="readmore" href="./vagrant.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./introduction-to-latex.html" rel="bookmark"
-                           title="Permalink to Introduction to Latex">Introduction to Latex</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-05-11T14:00:00">
+        <abbr class="published" title="2015-05-11T14:00:00+02:00">
                 Published: Mon 11 May 2015
         </abbr>
 
@@ -247,13 +108,106 @@
 
             <li><article class="hentry">
                 <header>
+                    <h1><a href="./Julia.html" rel="bookmark"
+                           title="Permalink to Julia: The Language">Julia: The Language</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-05-07T16:00:00+02:00">
+                Published: Thu 07 May 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-josh-greenhalgh.html">Josh Greenhalgh</a>
+                        <a class="url fn" href="./author-jonothan-waters.html">Jonothan Waters</a>
+        </address>
+<p>In <a href="./category-languages.html">Languages</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->                <div class="figure align-center">
+<img alt="Julia: The Language" src="{filename}/julia-the-language/julia-images/julia.png" style="width: 15%;" />
+</div>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low ...</p></div>
+                <a class="readmore" href="./Julia.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./FORTRAN.html" rel="bookmark"
+                           title="Permalink to Fortran programming language">Fortran programming language</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-04-30T16:00:00+02:00">
+                Published: Thu 30 April 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-ioannis-begleris.html">Ioannis Begleris</a>
+                        <a class="url fn" href="./author-hao-wang.html">Hao Wang</a>
+        </address>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
+</footer><!-- /.post-info -->                <div class="figure align-center">
+<img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
+</div>
+<p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles ...</p>
+                <a class="readmore" href="./FORTRAN.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./vagrant.html" rel="bookmark"
+                           title="Permalink to Virtualisation with Vagrant">Virtualisation with Vagrant</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-04-23T00:00:00+02:00">
+                Published: Thu 23 April 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-james-lambert.html">James Lambert</a>
+                        <a class="url fn" href="./author-noorvir-aulakh.html">Noorvir Aulakh</a>
+                        <a class="url fn" href="./author-thomas-rickard.html">Thomas Rickard</a>
+        </address>
+<p>In <a href="./category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
+<p>tags: <a href="./tag-virtualisation.html">virtualisation</a> <a href="./tag-virtual-machines.html">virtual machines</a> <a href="./tag-vagrant.html">vagrant</a> </p>
+</footer><!-- /.post-info -->                <p>Files:</p>
+<p><a href="./virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
+<a href="./virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
+<a href="./virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
+<p><img src="./virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
+<!--<button id='image_button' type="button" onclick=delete_images()>I don't like images</button>-->
+
+<h1>Introduction</h1>
+<h2>Learning outcomes</h2>
+<ol>
+<li>Understand different types of virtual machines</li>
+<li>Be able to run, provision and stop a vagrant virtual machine. </li>
+</ol>
+<p></br></p>
+<h2>Virtual machine recap/overview</h2>
+<p>A virtual machine is a software implementation of a machine that executes programs like ...</p></!--<button>
+                <a class="readmore" href="./vagrant.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="./introduction-to-latex.html" rel="bookmark"
                            title="Permalink to Introduction to Latex">Introduction to Latex</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-03-17T00:00:00">
+        <abbr class="published" title="2015-03-17T00:00:00+01:00">
                 Published: Tue 17 March 2015
         </abbr>
 
@@ -278,7 +232,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-03-12T16:00:00">
+        <abbr class="published" title="2015-03-12T16:00:00+01:00">
                 Published: Thu 12 March 2015
         </abbr>
 
@@ -304,7 +258,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-26T00:00:00">
+        <abbr class="published" title="2015-02-26T00:00:00+01:00">
                 Published: Thu 26 February 2015
         </abbr>
 
@@ -316,7 +270,7 @@
 </footer><!-- /.post-info -->                <div class="section" id="introduction-to-version-control-using-mercurial">
 <h2><a class="toc-backref" href="#id1">Introduction to version control (using Mercurial)</a></h2>
 <blockquote>
-<img alt="Mercurial logo" src="{attach}mercurial-logo.jpeg" style="width: 20%;" />
+<img alt="Mercurial logo" src="./mercurial-logo.jpeg" style="width: 20%;" />
 </blockquote>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
@@ -344,7 +298,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-14T00:00:00">
+        <abbr class="published" title="2015-02-14T00:00:00+01:00">
                 Published: Sat 14 February 2015
         </abbr>
 
@@ -372,7 +326,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
                 Published: Thu 12 February 2015
         </abbr>
 
@@ -394,7 +348,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
                 Published: Thu 12 February 2015
         </abbr>
 
@@ -423,7 +377,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-05T00:00:00">
+        <abbr class="published" title="2015-02-05T00:00:00+01:00">
                 Published: Thu 05 February 2015
         </abbr>
 
