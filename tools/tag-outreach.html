@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Computational Modelling Tools Workshops - Outreach</title>
+        <title>Computational Modelling Tools Workshops - outreach</title>
         <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
@@ -25,7 +25,106 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./sublime.html">Sublime is... sublime</a></h1>
+                    <h1 class="entry-title"><a href="./Julia.html">Julia: The Language</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-05-07T16:00:00+02:00">
+                Published: Thu 07 May 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-josh-greenhalgh.html">Josh Greenhalgh</a>
+                        <a class="url fn" href="./author-jonothan-waters.html">Jonothan Waters</a>
+        </address>
+<p>In <a href="./category-languages.html">Languages</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><div class="figure align-center">
+<img alt="Julia: The Language" src="./julia-the-language/julia-images/julia.png" style="width: 15%;" />
+</div>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low level virtual machine) JIT (just-in-time) complier which allows for high performance at usually around 2-3x C speed and in some cases vitually equal to C speed. Unlike the usual strategy of vectorising code to increase speed, as found in python, Julia works extreamly rapidly when just using standard for loops. The main developers of the Julia language are based at MIT and have written an in depth description of the design philosophy of the language which can be found <a class="reference external" href="http://arxiv.org/pdf/1411.1607v3.pdf">here</a>.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<p>For this workshop a virtual machine has been set up with Julia allready installed - the image can be found at this <a class="reference external" href="https://www.dropbox.com/s/n0fkh7p5p534t6x/Julia.ova?dl=0">link</a>. However if you wish to install Julia on your own machine their are various routes available. The easiest possible route is to follow the instructions, for your operating system, found on the <a class="reference external" href="http://julialang.org/downloads/platform.html">Julia website</a>. It may be necassary to add the Julia executable to your path in order to run the REPL from the terminal. If you would like to live on the bleeding edge of Julia development then you can install from source by following the instructions on the <a class="reference external" href="https://github.com/JuliaLang/julia">Julia Github</a> - be aware that when following this method you will have to wait a very very long time (expect upto 3 hours!!) and there will probably be various errors because of dependencies that you lack (<a class="reference external" href="http://www.cmake.org/install/">cmake</a> and <a class="reference external" href="https://www.gnu.org/software/m4/">m4</a> were needed when installing on mac).</p>
+<p>Julia can be used via the REPL or by running scripts, however an excellent working enviroment is provided by the IJulia kernal for the Jupyter (formally IPython) notebook. In order to install IJulia you will first need a version of Python, version 2.7 is recomended, along with IPython and the IPython notebook. IPython and the notebook can be installed using pip;</p>
+<div class="highlight"><pre><span class="nv">$ </span>pip install <span class="s1">&#39;ipython[notebook]&#39;</span>
+</pre></div>
+<p>Once the Python dependencies have been installed you will need to open up a Julia REPL and use the following command;</p>
+<div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
+</pre></div>
+<p>The IJulia package will then be installed and should be available in Jupyter by running the following in the terminal;</p>
+<div class="highlight"><pre><span class="nv">$ </span>ipython notebook
+</pre></div>
+<p>A new browser window should appear in which the local file structure will be displayed, selecting new in the top right corner and then picking the julia kernal from the dropdown menu should start a new notebook file.</p>
+</div>
+<div class="section" id="workshop-content">
+<h2>Workshop Content</h2>
+<div class="section" id="the-basics">
+<h3>The Basics</h3>
+<p><a class="reference external" href="./julia-the-language/julia-files/The-Basics.ipynb">DL Notebook-The-Basics.ipynb</a> (right click and save as..)</p>
+<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/The-Basics.ipynb">View Notebook-The-Basics.ipynb</a></p>
+</div>
+<div class="section" id="julia-types">
+<h3>Julia types</h3>
+<p><a class="reference external" href="./julia-the-language/julia-files/Julia-Types.ipynb">DL Notebook-Julia-Types.ipynb</a> (right click and save as..)</p>
+<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Julia-Types.ipynb">View Notebook-Julia-Types.ipynb</a></p>
+</div>
+<div class="section" id="parallelism-in-julia">
+<h3>Parallelism in Julia</h3>
+<p><a class="reference external" href="./julia-the-language/julia-files/Parallel.ipynb">DL Notebook-Parallel.ipynb</a> (right click and save as..)</p>
+<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Parallel.ipynb">View Notebook-Parallel.ipynb</a></p>
+</div>
+</div>
+<div class="section" id="more-to-learn">
+<h2>More to learn....</h2>
+<p>Some links to find out more about julia;</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=vWkgEddb4-A">Tutorial</a></p>
+<p><a class="reference external" href="http://en.wikibooks.org/wiki/Introducing_Julia/Plotting">Plotting</a></p>
+<p><a class="reference external" href="http://pkg.julialang.org/">Package Listing</a></p>
+<p><a class="reference external" href="http://docs.julialang.org/en/release-0.3/">Documentation</a></p>
+<p><a class="reference external" href="https://groups.google.com/forum/#!forum/julia-users">Google Group</a></p>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./FORTRAN.html" rel="bookmark"
+                           title="Permalink to Fortran programming language">Fortran programming language</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-04-30T16:00:00+02:00">
+                Published: Thu 30 April 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-ioannis-begleris.html">Ioannis Begleris</a>
+                        <a class="url fn" href="./author-hao-wang.html">Hao Wang</a>
+        </address>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
+</footer><!-- /.post-info -->                <div class="figure align-center">
+<img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
+</div>
+<p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles ...</p>
+                <a class="readmore" href="./FORTRAN.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./sublime.html" rel="bookmark"
+                           title="Permalink to Sublime is... sublime">Sublime is... sublime</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-03-12T16:00:00">
                 Published: Thu 12 March 2015
@@ -37,232 +136,13 @@
         </address>
 <p>In <a href="./category-text-editors.html">text-editors</a>. </p>
 <p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info --><div class="figure align-center">
+</footer><!-- /.post-info -->                <div class="figure align-center">
 <img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
 </div>
-<p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs - for this example we will focus on writing a <tt class="docutils literal">.rst</tt> file for a <em>Pelican Blog</em> entry. This is a follow-on from a previous <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">FEEG6003 pelican tutorial</a> lead by Denis Kramer, however all the ideas presented here should be transferable to other projects. Exercises are split and labelled, and those following the module presentation should stop when each exercise is complete ready for the next part of the presentation. Let's begin.</p>
-<dl class="docutils">
-<dt><strong>Note</strong></dt>
-<dd>To be able to work through this tutorial efficiently we recommend you are running the virtual machine appliance (<tt class="docutils literal">feeg6003_TextEditors.ova</tt> file) supplied for this tutorial from <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">this repository</a>. Brief Reminder: In Virtual Box this involves clicking <em>File</em> &gt; <em>Import Appliance...</em> and select the <tt class="docutils literal">.ova</tt>, continue and check settings, then click <em>Import</em>. It is also useful to allow copy and paste between host and guest by installing guest additions through <em>Devices</em> &gt; <em>Insert Guest Additions</em>, then in a terminal window on the guest machine navigate to <tt class="docutils literal"><span class="pre">/media/feeg6003/VBOXADDITIONS...</span></tt> and enter</dd>
-</dl>
-<div class="highlight"><pre><span class="nv">$ </span>sudo sh ./VBoxLinuxAdditions.run
-</pre></div>
-<dl class="docutils">
-<dt></dt>
-<dd>and finally in Virtual Box Manager select this virtual appliance, go to <em>Settings</em> &gt; <em>General</em> &gt; <em>Advanced</em>  and change &quot;Shared Clipboard&quot; and &quot;Drag'n'drop&quot; settings to bidirectional.</dd>
-</dl>
-<div class="section" id="exercise-1-installing-sublime">
-<h2>Exercise 1: Installing Sublime</h2>
-<p>Sublime Text 2 offers a free and untimed trial version of the software which we will use for this tutorial - this provides full functionality, however a license should be purchased for continued use (users will be prompted with a reminder of this after a certain number of saves). To install the free version, firstly open up terminal on your machine and enter these commands (alternatively found <a class="reference external" href="http://www.ubuntuupdates.org/ppa/sublime_text_2">here</a>):</p>
-<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~
-<span class="nv">$ </span>sudo add-apt-repository ppa:webupd8team/sublime-text-2
-<span class="nv">$ </span>sudo apt-get update
-<span class="nv">$ </span>sudo apt-get install sublime-text
-</pre></div>
-<p>This will download the package and install it under <tt class="docutils literal">/opt/sublime_text_2</tt>. It will also create two <em>symbolic links</em>: <tt class="docutils literal">subl</tt> and <tt class="docutils literal"><span class="pre">sublime-text</span></tt> which can be called in terminal to open ST2. If you wish to make your own you can do the following (in this case the symbolic link is set to be <tt class="docutils literal">sublime</tt>):</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo ln -s /opt/sublime_text_2/sublime_text /bin/sublime
-</pre></div>
-<p>NOTE: if you try to run ST2 from the terminal a ST2 window will open and be fully functional, however this will clog up the current terminal window due to a bug within GLib (I haven't found a fix for this as of yet). To carry on using the terminal you will need to open a new terminal tab or window. The error presents itself as shown below and will keep producing errors until you hit <kbd class="light">ctrl</kbd> + <kbd class="light">c</kbd> . But, upon doing this the sublime session you opened will shut down.</p>
-<div class="highlight"><pre><span class="nv">$ </span>sublime-text
-
-<span class="o">(</span>sublime: 6476<span class="o">)</span>: GLib-CRITICAL **<span class="p">;</span> Source ID <span class="m">1982</span> was not found when attempting to remove it.
-</pre></div>
-<div class="section" id="first-look-at-sublime-text-2">
-<h3>First look at Sublime Text 2</h3>
-<p>Once you have opened ST2 you will be presented with a window similar to that shown in Figure 1.</p>
-<div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_first.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 1:</b> First look at Sublime Text 2 </div><p>The red numbers on the image are described below:</p>
-<ol class="arabic simple">
-<li>The taskbar. Here you should be able to access all the options for ST2. It is worth noting that all the menus/options are also accessible via the <em>Command Palette</em> which will be introduced later.</li>
-<li>File tabs. Along this bar will be all the open files in that window/pane. You can either navigate through them by clicking on them or use the keys <kbd class="light">alt</kbd> + <kbd class="light">#</kbd> to move to the # file (where # is the number of the file from the left).</li>
-<li>Overview pane (minimap). As you populate your file this will give you a zoomed-out view which can be useful for navigating through large files.</li>
-<li>File syntax. This shows you what the syntax the file is being displayed in. ST2 will automatically select a syntax based on the file extension (e.g. if the file is .py then ST2 will choose Python). However if you want to change this then you can click on the writing and select your required syntax from the list. This is also achievable through the <em>Command Palette</em>.</li>
-</ol>
-<p>There are many useful tools within ST2 and the following sections aim to give you an insight into those we find most valuable.</p>
-</div>
-<div class="section" id="built-in-goodies">
-<h3>Built-in Goodies</h3>
-<p>&quot;Projects&quot; are one of the more useful features of ST2. This feature allows entire folders and their contents to be displayed in the side bar. This gives the user the ability to not only switch quickly between files in a number of directories, but also see what other files exist in the project at all times as in Figure 2. To do this, go to <em>File</em> &gt; <em>Open Folder</em> and select a folder (Advanced Computational Methods Part II students, open <tt class="docutils literal">~/comp_mod/blogs</tt>). Additional folders can be added to the workspace, and the project can then be saved for another session under the <em>Project</em> tab.</p>
-<div class="figure align-center">
-<img alt="Projects in Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_projects.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 2:</b> Projects in Sublime Text 2 </div><p>While using ST2, you will notice the smart autocomplete pop-up. This is another handy gadget which works out of the box, and will suggest possible completions for a word you are typing based on similar words in the file, keywords for the file syntax etc.</p>
-<p>In addition to these, &quot;Snippets&quot; and &quot;Build Systems&quot; are a powerful way to increase text-editing efficiency, and will be introduced once a few more packages are installed so that we can customise them for our blog entries.</p>
-</div>
-<div class="section" id="install-package-control">
-<h3>Install Package Control</h3>
-<blockquote>
-<p>Package control is the <strong>Sublime Text</strong> package manager that makes it exceedingly simple to find, install and keep packages up-to-date.</p>
-<p class="attribution">&mdash;<a class="reference external" href="https://packagecontrol.io">https://packagecontrol.io</a></p>
-</blockquote>
-<p>To get package control in ST2, firstly open ST2 and either push the keys <kbd class="light">ctrl</kbd> + <kbd class="light">'</kbd> (if you are working on a Virtual Machine, the Keyboard setup may not be the same as your host's - on a MacBook Air, the key <kbd class="light">'</kbd> was actually the <kbd class="light">§</kbd> key above tab). Alternatively go to <em>View</em> &gt; <em>Show Console</em> . By doing this a white box at the bottom of your Sublime window should open as shown in Figure 3.</p>
-<div class="figure align-center">
-<img alt="Screenshot of ST2 console." src="./text-editors-sublime/sublime-images/st2_console.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 3:</b> Screenshot of console mode open in ST2 </div><p>Now follow this <a class="reference external" href="https://packagecontrol.io/installation#st2">link</a> and copy the code provided. Return to the ST2 window and paste the code into the console (i.e. the white box) and then hit return. This will install package control. You may be required to restart ST2 a couple of times depending on what is already installed on your machine.</p>
-<p>An easy way to verify if package control is installed is to open the <em>Command Palette</em> with <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> or going to <em>Tools</em> &gt; <em>Command Palette...</em> . The Command Palette is a way to search ST2 for packages, syntax, snippets, ... in other words it is your best friend in ST2! It uses a search method called <em>fuzzy search</em> which allows the user to type keywords only partially and returns the closest matches, making it easy to find tools without needing to remember the exact name and wording. With the Command Palette open, start typing <tt class="docutils literal">Package Control</tt>. This should present you with all options available with regards to <em>Package Control</em> (this is how you will make use of <em>Package Control</em> later).</p>
-<div class="figure align-center">
-<img alt="Finding Package Control using the Command Palette" src="./text-editors-sublime/sublime-images/st2_package-control.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 4:</b> Finding Package Control using the Command Palette </div><p>An alternative method to check if it is fully installed is to go to <em>Preferences</em> and you should see <em>Package Control</em> at the bottom of the list. By clicking on this it will open the <em>Command Palette</em> as described in the above paragraph. However, we thoroughly recommend learning the important key bindings such as <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> to open the <em>Command Palette</em> as removing the need of the mouse to navigate will make your use of ST2 much more efficient.</p>
-</div>
-<div class="section" id="installing-a-package">
-<h3>Installing a Package</h3>
-<p>We are going to install a package that improves the syntax of reStructuredText in ST2.</p>
-<p>To install a package we need to open the <em>Command Palette</em> (with <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> ) and type in <tt class="docutils literal">Package Control: Install Package</tt> and select that entry (remember it is a <em>fuzzy search</em> so you don't need to type it all in). Now you are presented with a list of all the packages available to install via <em>Package Control</em>. Start typing <tt class="docutils literal">RestructuredText Improved</tt> and select the entry that has the description: &quot;Improved Syntax Highlighting for RestructuredText.&quot; This will download and install the package and should be functional immediately - this may seem strange and wonderful to users of other text editors whereby restarting the editor is the only method of invoking new tools.</p>
-<p>To check, click in the bottom right-hand corner where the file syntax is displayed and see if there is one for <tt class="docutils literal">reStructuredText Improved</tt>. If so you have successfully installed the package.</p>
-<div class="figure align-center">
-<img alt="RST improved syntax" src="./text-editors-sublime/sublime-images/st2_rst-improved.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 5:</b> Successful installation of the "RestructuredText Improved" package. </div><p>There are many other useful packages available through <em>Package Control</em> but we just wanted to demonstrate how easy it is to install one! If your ideal package/tool does not exist however, then we need to learn to tweak ST2. Below are two ways to personalise ST2 for your own use: snippets and build systems.</p>
-</div>
-</div>
-<div class="section" id="exercise-2-snippets">
-<h2>Exercise 2: Snippets</h2>
-<p>A snippet is best described as a smart template that will insert text for you and adapt it to its context. Snippets are very useful for short fragments of text that you use over and over again. A simple example is the &quot;lorem&quot; snippet that comes with ST2. In a new file type <tt class="docutils literal">lorem</tt> followed by hitting the <kbd class="light">tab</kbd> key. This snippet will replace the single word &quot;lorem&quot; with the <a class="reference external" href="http://en.wikipedia.org/wiki/Lorem_ipsum">Lorem ipsum</a> filler text.</p>
-<p>It is possible to see all the snippets available for that document format by either going to <em>Tools</em> &gt; <em>Snippets</em> or by using the <em>Command Palette</em>. In here start typing <em>snippet</em>. A list should appear as shown in Figure 6. Try changing the syntax (Figure 1, point 4) to your favourite language and explore the built-in snippets!</p>
-<div class="figure align-center">
-<img alt="Default snippet list for Plain Text syntax" src="./text-editors-sublime/sublime-images/st2_snippets.png" style="width: 60%;" />
-</div>
-<div align="left">         <b>Figure 6:</b> Default snippet list for Plain Text syntax </div><p>The first item in the list titled &quot;Lorem ipsum&quot; is the example we just used. Note that the short-cut to the snippet is displayed on the right as lorem,tab i.e. you can use the snippet as we did earlier: type <tt class="docutils literal">lorem</tt> and hit <kbd class="light">tab</kbd> . We are now going to make our own snippet.</p>
-<div class="section" id="new-snippet">
-<h3>New Snippet...</h3>
-<p>This example builds on what was taught in the &quot;<a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">Introduction to Pelican</a>&quot; session. During that session we learnt to write a blog entry in <tt class="docutils literal">.rst</tt> format. However, each time you start a new blog you have to firstly remember all the important metadata attributes and format them correctly. Therefore, to increase our efficiency we will build a snippet to do this for us.</p>
-<p>Firstly, it best to have a file with the extension that you want to build the snippet for open in ST2. This allows you to find the scope needed for the snippet and allows you to test it. On the virtual appliance we have supplied for the module, create a directory called <tt class="docutils literal"><span class="pre">my-blog</span></tt> under the path <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican/content/</span></tt> then open a new file and save as <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt> in the <tt class="docutils literal"><span class="pre">my-blog</span></tt> directory so we can use it throughout this workshop. <em>Note: This can be done quickly with <kbd class="light">ctrl</kbd> + <kbd class="light">n</kbd> , then <kbd class="light">ctrl</kbd> + <kbd class="light">s</kbd> and use the file-save GUI.</em></p>
-<p>To build a new snippet we need to go to <em>Tools</em> &gt; <em>New Snippet...</em> which will open a new file with the following code pre-entered:</p>
-<div class="highlight"><pre><span class="lineno">1 </span><span class="nt">&lt;snippet&gt;</span>
-<span class="lineno">2 </span><span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
-<span class="lineno">3 </span><span class="cp">Hello, ${1:this} is a ${2:snippet}.</span>
-<span class="lineno">4 </span><span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
-<span class="lineno">5 </span>    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
-<span class="lineno">6 </span>    <span class="c">&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;</span>
-<span class="lineno">7 </span>    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
-<span class="lineno">8 </span>    <span class="c">&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span>
-<span class="lineno">9 </span><span class="nt">&lt;/snippet&gt;</span>
-</pre></div>
-<p>There are three main lines of interest here:</p>
-<dl class="docutils">
-<dt><strong>Line 3</strong></dt>
-<dd>This area (between the [ ] opened at the end of line 2 and closed on line 4) is the text that gets pasted into the file when you create the snippet. We will look at the format in a bit.</dd>
-<dt><strong>Line 6</strong></dt>
-<dd>The code <tt class="docutils literal"><span class="pre">&lt;tabTrigger&gt;hello&lt;/tabTrigger&gt;</span></tt> is where you define the tab-trigger to use the snippet.</dd>
-<dt><strong>Line 8</strong></dt>
-<dd>The code <tt class="docutils literal"><span class="pre">&lt;scope&gt;source.python&lt;/scope&gt;</span></tt> is where you define what file format you can apply the snippet.</dd>
-</dl>
-<p>We will firstly define the tab-trigger and the scope so that we can use it our file <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt>. As the snippet will be creating the title and metadata a sensible tab-trigger would be <tt class="docutils literal">title</tt> so replace line 6 with the following (<strong>note:</strong> to uncomment/comment lines push <kbd class="light">ctrl</kbd> + <kbd class="light">/</kbd> ):</p>
-<div class="highlight"><pre><span class="lineno">6 </span>    <span class="nt">&lt;tabTrigger&gt;</span>title<span class="nt">&lt;/tabTrigger&gt;</span>
-</pre></div>
-<p>Next, cycle back to the <tt class="docutils literal">.rst</tt> file and push <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">alt</kbd> + <kbd class="light">p</kbd> to show the scope in the status bar at the bottom of the window, see Figure 7.</p>
-<div class="figure align-center">
-<img alt="Displaying the scope of a .rst file." src="./text-editors-sublime/sublime-images/st2_scope.png" style="width: 40%;" />
-</div>
-<div align="left">         <b>Figure 7:</b> Display of the scope of a .rst file in the status bar. </div><p>Copy <tt class="docutils literal">text.restructuredtext</tt> into line 8 so that it reads:</p>
-<div class="highlight"><pre><span class="lineno">8 </span>    <span class="nt">&lt;scope&gt;</span>text.restructuredtext<span class="nt">&lt;/scope&gt;</span>
-</pre></div>
-<p>Now we can start looking at the body of the snippet. Currently we have: <tt class="docutils literal">Hello, ${1:this} is a ${2:snippet}.</tt>. This contains two tab key markers which allow you to cycle through the fields that you wish to enter each time you use the snippet. The tab key markers are denoted by the <tt class="docutils literal">$</tt> sign, and the number that follows it in the curly brace defines the cycle order (i.e. when you press <kbd class="light">tab</kbd> ). You can repeat the number if you want to fill in two fields with the same information. The word that follows the colon is the field text that you will replace when you start typing.</p>
-<p>For our &quot;blog title&quot; snippet we will input the following for the content:</p>
-<div class="highlight"><pre><span class="nt">&lt;snippet&gt;</span>
-    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
-<span class="cp">${1:Title}</span>
-<span class="cp">####${2:#}</span>
-
-<span class="cp">:authors: Your Name</span>
-<span class="cp">:date: ${3:2015-03-01}</span>
-<span class="cp">:tags: ${4:Tags}</span>
-<span class="cp">:slug: ${5:slug}</span>
-
-<span class="cp">${6:Starting typing content here...}</span>
-<span class="cp">    ]]&gt;</span><span class="nt">&lt;/content&gt;</span>
-    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
-    <span class="nt">&lt;tabTrigger&gt;</span>title<span class="nt">&lt;/tabTrigger&gt;</span>
-    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
-    <span class="nt">&lt;scope&gt;</span>text.restructuredtext<span class="nt">&lt;/scope&gt;</span>
-<span class="nt">&lt;/snippet&gt;</span>
-</pre></div>
-<p>Now we just need to save it by selecting <em>File</em> &gt; <em>Save as</em> or by pressing <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> +<kbd class="light">s</kbd> . The snippet needs to be saved under <em>~</em> &gt; <em>.config</em> &gt; <em>sublime-text-2</em> &gt; <em>Packages</em> &gt; <em>User</em> (ST2 should open the &quot;Save&quot; window in this directory by default) and must have the extension <tt class="docutils literal"><span class="pre">.sublime-snippet</span></tt>. We suggest saving it as a sensible name such as <tt class="docutils literal"><span class="pre">rst-blog-title.sublime-snippet</span></tt> .</p>
-<p>Now that it is saved it should work straight away. Navigate back to your <tt class="docutils literal">.rst</tt> file and type in <tt class="docutils literal">title</tt> followed by hitting <kbd class="light">tab</kbd> . The snippet should paste all the metadata into your file and allow you to tab through each field and let you update them. Fill in all these fields and add some content such as the classic &quot;Hello World!&quot; Finally, save this file for use in the next section.</p>
-<div class="figure align-center">
-<img alt="The .rst file after using the snippet created above." src="./text-editors-sublime/sublime-images/st2_complete-snippet.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 8:</b> The .rst file after completing the snippet exercise. </div><p></p>
-</div>
-</div>
-<div class="section" id="build-systems">
-<h2>Build Systems</h2>
-<p>ST2 gives you the option to &quot;build&quot; the file you are working on (e.g. if you were working on a <tt class="docutils literal">.c</tt> file you can run a C build system to compile the code and even run it). There are several build systems that come with ST2 such as C++ and python. However, we want to show you how you can make your own personal build system.</p>
-<p>Sticking with the blogging theme, we are going to create a build system that allows you to generate the <tt class="docutils literal">.html</tt> files and a &quot;Run&quot; option to locally view the <tt class="docutils literal">index.html</tt> files in a browser.</p>
-<p>Firstly, we need to create a new build system, so go to <em>Tools</em> &gt; <em>Build System</em> &gt; <em>New Build System...</em> which will open a new file. Like many other ST2 settings files, build systems are written in Java Script Object Notation (JSON) format, requiring key word and argument pairs. The default new build system should look like this:</p>
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;make&quot;</span><span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-<p>In here we will place our commands that we would normally type as a bash command. To start we need to give a command to navigate to where the <tt class="docutils literal">Makefile</tt> is and then use it. The most robust way to do this is to start from a known point i.e. your home. In the case of the virtual appliance we have supplied, the path will be <tt class="docutils literal"><span class="pre">~/comp_mod/blogs/tools-pelican</span></tt>. Then we can add the command <tt class="docutils literal">make html</tt> as shown below. It is also good to add a <tt class="docutils literal">selector</tt> field that means this build system only works on specific file types and will be automatically selected by ST2 (in this case we want it to work on <tt class="docutils literal">text.restructuredtext</tt> files).</p>
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.restructuredtext&quot;</span>
-<span class="p">}</span>
-</pre></div>
-<p>If we now save this in the user directory <tt class="docutils literal"><span class="pre">~/.config/Sublime</span> Text <span class="pre">2/Packages/User``as</span> <span class="pre">``pelican-blog.sublime-build</span></tt> (again the extension <tt class="docutils literal"><span class="pre">.sublime-build</span></tt> is required) and then return to editing to the <tt class="docutils literal"><span class="pre">blog-entry.rst</span></tt> file that was created above and we can use this build system. To use the build system either go to <em>Tools</em> &gt; <em>Build System</em>  and select the <em>pelican-blog</em> system, or alternatively, press <kbd class="light">ctrl</kbd> + <kbd class="light">b</kbd> . Upon doing this the bash output of the commands will be displayed at the bottom of the screen as shown in Figure 9.</p>
-<div class="figure align-center">
-<img alt="A successful pelican blog build." src="./text-editors-sublime/sublime-images/st2_build.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 9:</b> A successful pelican blog build system. </div><p>To add the option (or a variant) of viewing the output once you have built it you can update the build system as follows:</p>
-<div class="highlight"><pre><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.restructuredtext&quot;</span><span class="p">,</span>
-
-    <span class="nt">&quot;variants&quot;</span><span class="p">:</span>
-    <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Run&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;bash&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;cd ~/comp_mod/blogs/tools-pelican &amp;&amp; make html &amp;&amp; cd ~/comp_mod/blogs/tools &amp;&amp; firefox index.html&quot;</span><span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-<p>This variant is called &quot;Run&quot; and carries out the same commands as &quot;Build&quot; but also opens the local <tt class="docutils literal">index.html</tt> in a firefox browser. The name &quot;Run&quot; was chosen as it comes with the predefined key-binding <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">b</kbd> and an option in the <em>Tools</em> drop down menu. You can add multiple variants to perform other tasks, however, they won't be available in to drop down menu; instead you can find them in the <em>Command Palette</em> ( <kbd class="light">ctrl</kbd> + <kbd class="light">shift</kbd> + <kbd class="light">p</kbd> ) and search for <tt class="docutils literal">Build: &lt;variant name&gt;</tt>, or add a personal key-binding under <tt class="docutils literal">Preferences &gt; Key Bindings - User</tt> (again in the JSON format: see <tt class="docutils literal">Key Bindings - Default</tt> for the format).</p>
-<div class="figure align-center">
-<img alt="A successful pelican blog run." src="./text-editors-sublime/sublime-images/st2_run.png" style="width: 80%;" />
-</div>
-<div align="left">         <b>Figure 10:</b> A successful pelican blog run. </div><p></p>
-</div>
-<div class="section" id="additional-exercises">
-<h2>Additional Exercises</h2>
-<p>As an extra challenge, we have provided a problem you may like to try to practise personalising ST2:</p>
-<ol class="arabic simple">
-<li>Create an ANSI-C build system with flags <tt class="docutils literal"><span class="pre">-ansi</span> <span class="pre">-pedantic</span> <span class="pre">-Wall</span></tt> (as used in <a class="reference external" href="http://www.southampton.ac.uk/~feeg6002/toolsc.html">FEEG6002 - Advanced Computational Methods 1</a>)</li>
-</ol>
-<ol class="arabic simple" start="2">
-<li>Write hello.c to print &quot;Hello World&quot; to stdout (for example)</li>
-<li>Use the C build-system to compile hello.c program and run/display output to console</li>
-<li>Add a new variant called &quot;save_output&quot; in the build system to pipe the stdout feed to <cite>output.txt</cite> or a similar output log file</li>
-<li>Add a keybind to the save_output build variant (see default keybindings for <cite>&quot;variant&quot;: &quot;Run&quot;</cite>)</li>
-<li>Check your output file in sublime</li>
-</ol>
-<p>We also suggest looking at using ST2 for building LaTeX documents by following these rough steps (aimed at Linux systems):</p>
-<ol class="arabic simple">
-<li>If you haven't already, install a tex-live distribution, latexmk and evince reader through the terminal (i.e. using apt-get)</li>
-<li>Download, via Package Control, the package &quot;LaTeXTools&quot;</li>
-<li>Got to <em>Preferences</em> &gt; <em>Package Settings</em> &gt; <em>LaTeXTools</em> and click on <em>Reconfigure LaTeXTools and migrate settings</em>.</li>
-<li>Create a minimal .tex file the compile using LaTeXTools (i.e. <kbd class="light">ctrl</kbd> + <kbd class="light">b</kbd> ).</li>
-</ol>
-<p></p>
-</div>
-<div class="section" id="resources">
-<h2>Resources</h2>
-<ul class="simple">
-<li><a class="reference external" href="./text-editors-sublime/slides/text-editors-presentation.pdf">The presentation slides (.pdf)</a></li>
-<li><a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">Link to the feeg6003_TextEditors.ova file</a></li>
-</ul>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs ...</p>
+                <a class="readmore" href="./sublime.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
