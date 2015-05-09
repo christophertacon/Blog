@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - FORTRAN</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./FORTRAN.html">Fortran programming language</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-04-30T16:00:00+02:00">
+                Published: Thu 30 April 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-ioannis-begleris.html">Ioannis Begleris</a>
+                        <a class="url fn" href="./author-hao-wang.html">Hao Wang</a>
+        </address>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
+</footer><!-- /.post-info --><div class="figure align-center">
+<img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
+</div>
+<p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles needed to read and write FORTRAN codes in scientific computing, and secondly introduce the Fortran to Python interface (f2py) that allows the creation of Python modules from FORTRAN.</p>
+<p>Detailed slides of the workshop can be found at: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">presentation slides.pdf</a></p>
+<p>Further reading about f2py and a FORTRAN manual can be found in the resources section.</p>
+<div class="section" id="practical-session">
+<h2>Practical Session</h2>
+<p>In order to run through this session either download the <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_fortran.ova">Lubuntu_ova_fortran</a> virtualbox image and load it to your virtual-box or simply run these commands (if you haven’t already) on your Debian operating system:</p>
+<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install python ipython gfortran python-dev python-numpy gedit
+</pre></div>
+<p>When compiling and running use:</p>
+<div class="highlight"><pre><span class="nv">$ </span>gfortran program.f90 -o program
+<span class="nv">$ </span>./program
+</pre></div>
+</div>
+<div class="section" id="exercise-1-writing-your-first-fortran-program">
+<h2>Exercise 1: Writing your first FORTRAN program</h2>
+<p>Write a FORTRAN program &quot;<em>Fibonacci</em>&quot; that dynamically calculates a given number (N) of the Fibonacci numbers and stores them in a real vector of size N. The program should then write the elements of the array in a dat file using the default format. You can use the Python code provided as guidance.</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mf">0.</span>
+        <span class="k">elif</span> <span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mf">1.</span>
+        <span class="k">else</span><span class="p">:</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+<p>Note: In order to declare the array variable, N needs to be defined before declaration. One way to do this is to introduce it as a constant before the array is declared. Example:</p>
+<blockquote>
+integer, parameter :: N=9</blockquote>
+<p>When running ignore the floating point errors that arise for high N.
+Note you are advised to use the lecture slides as reference.
+The solution can be found in: <a class="reference external" href="./FORTRAN/Solution1.f90">Exercise1.f90</a></p>
+</div>
+<div class="section" id="exercise-2-converting-to-a-subprogram">
+<h2>Exercise 2: Converting to a subprogram</h2>
+<p>Convert your previous code to a program that:</p>
+<!-- Bullet lists: -->
+<ul class="simple">
+<li>Initialised the number N and an array of size N</li>
+<li>Calls the subroutine &quot;<em>fib</em>&quot; while Passing in the array and the number of elements N</li>
+<li>The subroutine should then do the calculation previously done in exercise 1</li>
+<li>The main program then prints them to a file as done in exercise 1</li>
+</ul>
+<p>Solutions are found in: <a class="reference external" href="./FORTRAN/solution2.f90">Exercise2.f90</a></p>
+</div>
+<div class="section" id="exercise-3-making-a-python-module">
+<h2>Exercise 3: Making a python module</h2>
+<p>Take your subroutine and place it in a new file, fibonacci_sub.f90, without the main program and make sure it compiles without errors using:</p>
+<div class="highlight"><pre><span class="nv">$ </span>gfortran -Wall -c fibonacci_sub.f90
+</pre></div>
+<p>Then compile the FORTRAN to python interface command:</p>
+<div class="highlight"><pre><span class="nv">$ </span>f2py -c fibonacci_sub.f90 -m fibonacci
+</pre></div>
+<p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
+<p>If no errors are visible then make shure that your module is correct by using the python program:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">fibpnacci_sub</span>
+<span class="n">a</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">fibpnacci_sub</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">a</span>
+</pre></div>
+<p>You can copy and paste the above python program in a terminal that is running python or Ipython.</p>
+<p>Even though the subroutine taken in two variable in FORTRAN the beauty of f2py is that it it is clever enough to know that, allowing you to enter only the array itself.</p>
+<p>Note: If you are finding errors from calling the module its maybe because you are sending an array with 64-bit floating point precision elements to a module that only understands 32-bit. This is the difference between REAL and DOUBLE PRECISION declarations.</p>
+</div>
+<div class="section" id="resources">
+<h2>Resources</h2>
+<p><a class="reference external" href="http://www-eio.upc.edu/lceio/manuals/Fortran95-manual.pdf">FORTRAN Manual</a>
+<a class="reference external" href="https://sysbio.ioc.ee/projects/f2py2e/">f2py</a></p>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
