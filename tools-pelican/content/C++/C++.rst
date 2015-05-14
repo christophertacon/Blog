@@ -90,7 +90,7 @@ Now we can easily create players and input their statistics:
 .. code-block:: cpp
 
 	Footballer PeterCrouch ; PeterCrouch.setValues("Peter Crouch", "Stoke City", 31, 7, 3) ;
-	Defender GarethMcAuley ; GarethMcAuley.setValues("Gareth McAuley", "West Bromwich Albion", 22, 0, 0, 11, 27) ''
+	Defender GarethMcAuley ; GarethMcAuley.setValues("Gareth McAuley", "West Bromwich Albion", 22, 0, 0, 11, 27) ;
 
 Try this for your Goalkeeper class as well. 
 
