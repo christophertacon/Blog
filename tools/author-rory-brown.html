@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - Rory Brown</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./HDF5.html">HDF5</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-05-11T14:00:00+02:00">
+                Published: Mon 11 May 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-james-harrison.html">James Harrison</a>
+                        <a class="url fn" href="./author-rory-brown.html">Rory Brown</a>
+        </address>
+<p>In <a href="./category-file-formats.html">File Formats</a>. </p>
+<p>tags: <a href="./tag-data-storage.html">Data Storage</a> </p>
+</footer><!-- /.post-info --><div class="figure align-center">
+<img alt="Sublime Text 2" src="./HDF5/HDF5-images/Image.png" style="width: 40%;" />
+</div>
+<p>This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, we will cover the built-in terminal commands and some use of h5py, a HDF5 python package. You can download a VirtualBox image with required materials for the exercises from the following <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">link</a> (the username and password are both feeg6003).</p>
+<p>Also, you can find the presentation slides <a class="reference external" href="./HDF5/slides/HDF5_presentation.pdf">here</a>.</p>
+<p>If you do not currently have access to HDF5 you can download it for free using macports or from their website. Acquiring the h5py module is very straightforward if you have an anaconda distribution installed, and we would recommend installing it using this method.</p>
+<div class="highlight"><pre><span class="nv">$ </span>conda install h5py
+</pre></div>
+<p>Note that this installs the h5py module and the HDF5 tools at the same time.</p>
+<div class="section" id="what-is-hdf5">
+<h2>What is HDF5?</h2>
+<p>HDF5 is a hierarchical file format that allows various types of data and metadata to be stored in the same file. It has a huge amount of structural versatility and can even be used for parallel applications.</p>
+<p>The three main sections of an HDF5 file are groups, datasets and attributes. Groups can contain other groups and datasets and are used in a similar way to folders in a directory structure. Data is stored in datasets. Attributes contain the metadata and can be attached to either groups or datasets.</p>
+</div>
+<div class="section" id="part-1-hdf5-command-line-tools">
+<h2>Part 1: HDF5 Command Line Tools</h2>
+<p>The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal. The first of these commands that we will mention is h5ls, which is a method very similar to the ls which is used in a terminal to look at the contents of a directory. The flags for this command are shown below.</p>
+<div class="figure align-center">
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5ls.png" style="width: 50%;" />
+</div>
+<p>In addition to a filename, you may also provide h5ls with a path inside the file i.e.</p>
+<div class="highlight"><pre><span class="nv">$ </span>h5ls file.h5/path
+</pre></div>
+<p>The second tool we will explain a bit about is the h5dump command. This is also a viewing tool but without using any flags is quite different to the aforementioned h5ls. It is a lot more verbose in its standard output, providing details of all data and even attributes and it is therefore recommended to initially surpress some of these details using flags if observing large HDF5 files.</p>
+<div class="figure align-center">
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5dump1.png" style="width: 50%;" />
+</div>
+<div class="figure align-center">
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5dump2.png" style="width: 50%;" />
+</div>
+<p>The final command line tool that will be covered in this blog is h5copy, which allows a user to copy datasets from one file to another or within a file.</p>
+<div class="figure align-center">
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5copy.png" style="width: 50%;" />
+</div>
+<div class="section" id="exercise-1-find-the-code">
+<h3>Exercise 1: Find the Code</h3>
+<p>The first exercise for this tutorial will be based on using the three terminal comamnds discussed in the first section of the presentation; h5ls, h5dump and h5copy. In /Documents/ inside the VirtualBox image, you will find two HDF5 files named exercise1.h5 and solution.h5. The objective here is to search exercise1.h5, following clues in attributes to copy datasets to solution.h5. This exercise begins with a clue in the attribute of the root group. Keep on collecting the correct datasets and copy them over to another HDF5 named solution.h5 in the format specified by the attributes. When you have completed this task, run the python file &quot;codebreaker.py&quot; and it will check your solution.h5 to see if what you have submitted is correct.</p>
+</div>
+</div>
+<div class="section" id="part-2-hdf5-and-h5py">
+<h2>Part 2: HDF5 and h5py</h2>
+<p>For those that are familiar with python, there is a module that provides various commands for the creation and manipulation of HDF5 files. Extensive documentation for this module can be found on this <a class="reference external" href="http://docs.h5py.org/en/latest/">website</a>.</p>
+<p>This module has various features, including creation, reading and writing and the manipulation of file structure within HDF5 files. When wishing to use this module do not forget to use the &quot;import h5py&quot; command.</p>
+<p>See the slides for details on the covered commands.</p>
+<div class="section" id="exercise-2-create-your-own-file">
+<h3>Exercise 2: Create your own file!</h3>
+<p>In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file. In /Documents/ inside the VirtualBox image, you will find an IPython Notebook. Open this notebook through terminal using the command</p>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/Documents/
+<span class="nv">$ </span>ipython notebook exercise2.ipynb
+</pre></div>
+<p>Run through the exercises found in this file.</p>
+</div>
+</div>
+<div class="section" id="resources">
+<h2>Resources</h2>
+<ul class="simple">
+<li><a class="reference external" href="./HDF5/slides/HDF5_presentation.pdf">The presentation slides (.pdf)</a></li>
+<li><a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">Link to the feeg6003lubuntu_HDF5.ova file</a></li>
+<li><a class="reference external" href="http://docs.h5py.org/en/latest/">Link to the h5py documentation</a></li>
+<li><a class="reference external" href="https://www.hdfgroup.org/HDF5/">Link to the HDF Group website</a></li>
+</ul>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
