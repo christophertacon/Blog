@@ -25,7 +25,170 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./HDF5.html">HDF5</a></h1>
+                    <h1 class="entry-title"><a href="./cpp.html">Introducing C++</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-05-14T16:00:00+02:00">
+                Published: Thu 14 May 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-jan-kamenik.html">Jan Kamenik</a>
+                        <a class="url fn" href="./author-shriram-sunder.html">Shriram Sunder</a>
+                        <a class="url fn" href="./author-stephen-gow.html">Stephen Gow</a>
+        </address>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><hr class="docutils" />
+<div class="figure align-center">
+<img alt="The C++ programming language" src="./C++/C++_logo.jpg" style="width: 15%;" />
+</div>
+<p>This entry accompanies a presentation for the module 'Advanced Computational Methods Part II'; it can also be viewed as a stand-alone exercise for those not present at the workshop. The material presented here consists of tutorials and exercises designed to introduce the programming language C++.</p>
+<p>These exercises are designed for use on the virtual machine provided for this tutorial. To download this machine image, <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_C++.ova">click here</a>. The presentation slides associated with this tutorial can be found on <a class="reference external" href="https://github.com/jankamenik/Cplusplus-presentation/blob/master/presentation.pdf">Github</a>.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>The virtual machine contains the text editor Sublime Text 3. For all of these exercises and examples, code should be written and run in this editor. When you are ready to run the code you have written, simply press Ctrl-B and the program will compile using the in-built C++ build system.</p>
+<p>Pre-written source files providing examples of some of the concepts discussed can be found in the 'C++' folder located on the desktop. A small number of these examples run using the newer C++11 system; in order to build these examples, you will need to select Tools&gt;Build&gt;C++11 from the Sublime Text 3 toolbar.</p>
+<p>In order to make your code run correctly, include these lines at the top of each new program:</p>
+<div class="highlight"><pre><span class="cp">#include&lt;iostream&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="tutorial-1-object-oriented-programming">
+<h2>Tutorial 1: object-oriented programming</h2>
+<p>The slides provide an introduction to creating new classes and objects in C++. Let's apply these ideas to a more interesting problem. Suppose we wish to create a database of footballers (a standard task for a fantasy football league, for instance). Attributes such as name, club, games played, goals scored and goal assists will be common to all players. Goals conceded and number of clean sheets are relevant only to defenders and goalkeepers; the number of saves made applies to goalkeepers and no other players. Object orientation in general, and inheritance in particular, provides us with the tools needed to do this.</p>
+<div class="section" id="step-1-create-the-classes">
+<h3>Step 1: create the classes</h3>
+<p>We need a general &quot;Footballer&quot; class:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Footballer</span>
+<span class="p">{</span>
+        <span class="k">protected</span><span class="o">:</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">club</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">games</span><span class="p">,</span> <span class="n">goals_scored</span><span class="p">,</span> <span class="n">assists</span><span class="p">;</span>
+
+        <span class="k">public</span><span class="o">:</span>
+                <span class="kt">void</span> <span class="n">setValues</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">)</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;}</span>
+        <span class="n">string</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">name</span><span class="p">;}</span>
+        <span class="n">string</span> <span class="n">getClub</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">club</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGames</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">games</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGoalsScored</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_scored</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getAssists</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">assists</span><span class="p">;}</span>
+<span class="p">};</span>
+</pre></div>
+<p>(Optional exercise: rewrite this to use a constructor methods instead of the setValues routine.)</p>
+<p>&quot;Defender&quot; should be a subclass of &quot;Footballer&quot;, inheriting all of its parent class's attributes and adding its own:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Defender</span><span class="o">:</span> <span class="k">public</span> <span class="n">Footballer</span>
+<span class="p">{</span>
+        <span class="k">protected</span><span class="o">:</span>
+                <span class="kt">int</span> <span class="n">clean_sheets</span><span class="p">,</span> <span class="n">goals_conceded</span><span class="p">;</span>
+
+        <span class="k">public</span><span class="o">:</span>
+                <span class="kt">void</span> <span class="n">set_Values</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">,</span> <span class="kt">int</span> <span class="n">clnshts</span><span class="p">,</span> <span class="n">in</span> <span class="n">glscon</span><span class="p">)</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;</span> <span class="n">clean_sheets</span> <span class="o">=</span> <span class="n">clnshts</span><span class="p">;</span> <span class="n">goals_conceded</span> <span class="o">=</span> <span class="n">glscon</span><span class="p">;}</span>
+                <span class="kt">int</span> <span class="n">getCleanSheets</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">clean_sheets</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGoalsConceded</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_conceded</span><span class="p">;}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Notice how we have to call the 'set_Values' function in the subclass by a different name to the 'setValues' function in the parent class. If they had the same name, the function call would be ambiguous and could call the parent class's function instead of the subclass's function. This could be avoided using virtual functions, which are discussed later.</p>
+<ul class="simple">
+<li>Exercise: create a &quot;Goalkeeper&quot; subclass, inheriting the &quot;Footballer&quot; class with additional integer variables for clean sheets, goals conceded and saves.</li>
+</ul>
+<p>Now we can easily create players and input their statistics:</p>
+<div class="highlight"><pre><span class="n">Footballer</span> <span class="n">PeterCrouch</span> <span class="p">;</span> <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Peter Crouch&quot;</span><span class="p">,</span> <span class="s">&quot;Stoke City&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">Defender</span> <span class="n">GarethMcAuley</span> <span class="p">;</span> <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Gareth McAuley&quot;</span><span class="p">,</span> <span class="s">&quot;West Bromwich Albion&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+<p>Try this for your Goalkeeper class as well.</p>
+</div>
+</div>
+<div class="section" id="tutorial-2-operator-overloading">
+<h2>Tutorial 2: Operator overloading</h2>
+<p>The slides introduce the concept of overloading functions and operators.</p>
+<ul class="simple">
+<li>Exercise: rewrite your &quot;Defender&quot; and &quot;Goalkeeper&quot; code from tutorial 1 to overload the 'setValues' function in the subclasses using virtual functions.</li>
+</ul>
+<p>In the example in the slides, we overloaded the * operator to extend its functionality to include matrix multiplication. Let's see how this works in practice. First, we need to create a matrix class:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">matrix</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+        <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
+
+        <span class="n">matrix</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// default constructor</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">set</span><span class="p">(){</span><span class="c1">// to set matrix elements</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Enter &quot;</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="o">&lt;&lt;</span><span class="n">j</span><span class="o">&lt;&lt;</span><span class="s">&quot; element=&quot;</span><span class="p">;</span>
+                <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// to show matrix elements</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Matrix is=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+</pre></div>
+<p>Don't worry too much about how this code works - the principles are more important the specifics. Now we need to include our new matrix multiplication operator (still inside the public methods of the class):</p>
+<div class="highlight"><pre>        <span class="n">matrix</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">matrix</span> <span class="n">x</span><span class="p">)</span><span class="c1">// overloading * for multiplication</span>
+        <span class="p">{</span>
+        <span class="n">matrix</span> <span class="n">c</span><span class="p">;</span><span class="c1">// this will hold our result</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+        <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Now we can see how the operator works. Try generating two matrices (note that you will have to enter each entry of the matrix separately), and multiply them together:</p>
+<div class="highlight"><pre>    <span class="n">matrix</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
+<span class="n">b</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="n">b</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="n">c</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="additional-resources">
+<h2>Additional resources</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.tutorialspoint.com/cplusplus/">A useful tutorial</a> on the use of C++.</li>
+</ul>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./HDF5.html" rel="bookmark"
+                           title="Permalink to HDF5">HDF5</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-05-11T14:00:00+02:00">
                 Published: Mon 11 May 2015
@@ -37,74 +200,13 @@
         </address>
 <p>In <a href="./category-file-formats.html">File Formats</a>. </p>
 <p>tags: <a href="./tag-data-storage.html">Data Storage</a> </p>
-</footer><!-- /.post-info --><div class="figure align-center">
+</footer><!-- /.post-info -->                <div class="figure align-center">
 <img alt="Sublime Text 2" src="./HDF5/HDF5-images/Image.png" style="width: 40%;" />
 </div>
-<p>This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, we will cover the built-in terminal commands and some use of h5py, a HDF5 python package. You can download a VirtualBox image with required materials for the exercises from the following <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">link</a> (the username and password are both feeg6003).</p>
-<p>Also, you can find the presentation slides <a class="reference external" href="./HDF5/slides/HDF5_presentation.pdf">here</a>.</p>
-<p>If you do not currently have access to HDF5 you can download it for free using macports or from their website. Acquiring the h5py module is very straightforward if you have an anaconda distribution installed, and we would recommend installing it using this method.</p>
-<div class="highlight"><pre><span class="nv">$ </span>conda install h5py
-</pre></div>
-<p>Note that this installs the h5py module and the HDF5 tools at the same time.</p>
-<div class="section" id="what-is-hdf5">
-<h2>What is HDF5?</h2>
-<p>HDF5 is a hierarchical file format that allows various types of data and metadata to be stored in the same file. It has a huge amount of structural versatility and can even be used for parallel applications.</p>
-<p>The three main sections of an HDF5 file are groups, datasets and attributes. Groups can contain other groups and datasets and are used in a similar way to folders in a directory structure. Data is stored in datasets. Attributes contain the metadata and can be attached to either groups or datasets.</p>
-</div>
-<div class="section" id="part-1-hdf5-command-line-tools">
-<h2>Part 1: HDF5 Command Line Tools</h2>
-<p>The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal. The first of these commands that we will mention is h5ls, which is a method very similar to the ls which is used in a terminal to look at the contents of a directory. The flags for this command are shown below.</p>
-<div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5ls.png" style="width: 50%;" />
-</div>
-<p>In addition to a filename, you may also provide h5ls with a path inside the file i.e.</p>
-<div class="highlight"><pre><span class="nv">$ </span>h5ls file.h5/path
-</pre></div>
-<p>The second tool we will explain a bit about is the h5dump command. This is also a viewing tool but without using any flags is quite different to the aforementioned h5ls. It is a lot more verbose in its standard output, providing details of all data and even attributes and it is therefore recommended to initially surpress some of these details using flags if observing large HDF5 files.</p>
-<div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5dump1.png" style="width: 50%;" />
-</div>
-<div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5dump2.png" style="width: 50%;" />
-</div>
-<p>The final command line tool that will be covered in this blog is h5copy, which allows a user to copy datasets from one file to another or within a file.</p>
-<div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5copy.png" style="width: 50%;" />
-</div>
-<div class="section" id="exercise-1-find-the-code">
-<h3>Exercise 1: Find the Code</h3>
-<p>The first exercise for this tutorial will be based on using the three terminal comamnds discussed in the first section of the presentation; h5ls, h5dump and h5copy. In /Documents/ inside the VirtualBox image, you will find two HDF5 files named exercise1.h5 and solution.h5. The objective here is to search exercise1.h5, following clues in attributes to copy datasets to solution.h5. This exercise begins with a clue in the attribute of the root group. Keep on collecting the correct datasets and copy them over to another HDF5 named solution.h5 in the format specified by the attributes. When you have completed this task, run the python file &quot;codebreaker.py&quot; and it will check your solution.h5 to see if what you have submitted is correct.</p>
-</div>
-</div>
-<div class="section" id="part-2-hdf5-and-h5py">
-<h2>Part 2: HDF5 and h5py</h2>
-<p>For those that are familiar with python, there is a module that provides various commands for the creation and manipulation of HDF5 files. Extensive documentation for this module can be found on this <a class="reference external" href="http://docs.h5py.org/en/latest/">website</a>.</p>
-<p>This module has various features, including creation, reading and writing and the manipulation of file structure within HDF5 files. When wishing to use this module do not forget to use the &quot;import h5py&quot; command.</p>
-<p>See the slides for details on the covered commands.</p>
-<div class="section" id="exercise-2-create-your-own-file">
-<h3>Exercise 2: Create your own file!</h3>
-<p>In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file. In /Documents/ inside the VirtualBox image, you will find an IPython Notebook. Open this notebook through terminal using the command</p>
-<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/Documents/
-<span class="nv">$ </span>ipython notebook exercise2.ipynb
-</pre></div>
-<p>Run through the exercises found in this file.</p>
-</div>
-</div>
-<div class="section" id="resources">
-<h2>Resources</h2>
-<ul class="simple">
-<li><a class="reference external" href="./HDF5/slides/HDF5_presentation.pdf">The presentation slides (.pdf)</a></li>
-<li><a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">Link to the feeg6003lubuntu_HDF5.ova file</a></li>
-<li><a class="reference external" href="http://docs.h5py.org/en/latest/">Link to the h5py documentation</a></li>
-<li><a class="reference external" href="https://www.hdfgroup.org/HDF5/">Link to the HDF Group website</a></li>
-</ul>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, we will cover the built-in terminal commands and some use of h5py, a HDF5 python package. You can download a VirtualBox image with required materials for the exercises from the following <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">link</a> (the ...</p>
+                <a class="readmore" href="./HDF5.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -258,7 +360,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-26T00:00:00">
+        <abbr class="published" title="2015-02-26T00:00:00+01:00">
                 Published: Thu 26 February 2015
         </abbr>
 
@@ -270,7 +372,7 @@
 </footer><!-- /.post-info -->                <div class="section" id="introduction-to-version-control-using-mercurial">
 <h2><a class="toc-backref" href="#id1">Introduction to version control (using Mercurial)</a></h2>
 <blockquote>
-<img alt="Mercurial logo" src="{attach}mercurial-logo.jpeg" style="width: 20%;" />
+<img alt="Mercurial logo" src="./mercurial-logo.jpeg" style="width: 20%;" />
 </blockquote>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
@@ -298,7 +400,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-14T00:00:00">
+        <abbr class="published" title="2015-02-14T00:00:00+01:00">
                 Published: Sat 14 February 2015
         </abbr>
 
@@ -326,7 +428,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
                 Published: Thu 12 February 2015
         </abbr>
 
@@ -348,7 +450,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
                 Published: Thu 12 February 2015
         </abbr>
 
@@ -377,7 +479,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-05T00:00:00">
+        <abbr class="published" title="2015-02-05T00:00:00+01:00">
                 Published: Thu 05 February 2015
         </abbr>
 

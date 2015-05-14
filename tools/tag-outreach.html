@@ -25,7 +25,170 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./Julia.html">Julia: The Language</a></h1>
+                    <h1 class="entry-title"><a href="./cpp.html">Introducing C++</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-05-14T16:00:00+02:00">
+                Published: Thu 14 May 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-jan-kamenik.html">Jan Kamenik</a>
+                        <a class="url fn" href="./author-shriram-sunder.html">Shriram Sunder</a>
+                        <a class="url fn" href="./author-stephen-gow.html">Stephen Gow</a>
+        </address>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><hr class="docutils" />
+<div class="figure align-center">
+<img alt="The C++ programming language" src="./C++/C++_logo.jpg" style="width: 15%;" />
+</div>
+<p>This entry accompanies a presentation for the module 'Advanced Computational Methods Part II'; it can also be viewed as a stand-alone exercise for those not present at the workshop. The material presented here consists of tutorials and exercises designed to introduce the programming language C++.</p>
+<p>These exercises are designed for use on the virtual machine provided for this tutorial. To download this machine image, <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_C++.ova">click here</a>. The presentation slides associated with this tutorial can be found on <a class="reference external" href="https://github.com/jankamenik/Cplusplus-presentation/blob/master/presentation.pdf">Github</a>.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>The virtual machine contains the text editor Sublime Text 3. For all of these exercises and examples, code should be written and run in this editor. When you are ready to run the code you have written, simply press Ctrl-B and the program will compile using the in-built C++ build system.</p>
+<p>Pre-written source files providing examples of some of the concepts discussed can be found in the 'C++' folder located on the desktop. A small number of these examples run using the newer C++11 system; in order to build these examples, you will need to select Tools&gt;Build&gt;C++11 from the Sublime Text 3 toolbar.</p>
+<p>In order to make your code run correctly, include these lines at the top of each new program:</p>
+<div class="highlight"><pre><span class="cp">#include&lt;iostream&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="tutorial-1-object-oriented-programming">
+<h2>Tutorial 1: object-oriented programming</h2>
+<p>The slides provide an introduction to creating new classes and objects in C++. Let's apply these ideas to a more interesting problem. Suppose we wish to create a database of footballers (a standard task for a fantasy football league, for instance). Attributes such as name, club, games played, goals scored and goal assists will be common to all players. Goals conceded and number of clean sheets are relevant only to defenders and goalkeepers; the number of saves made applies to goalkeepers and no other players. Object orientation in general, and inheritance in particular, provides us with the tools needed to do this.</p>
+<div class="section" id="step-1-create-the-classes">
+<h3>Step 1: create the classes</h3>
+<p>We need a general &quot;Footballer&quot; class:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Footballer</span>
+<span class="p">{</span>
+        <span class="k">protected</span><span class="o">:</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">club</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">games</span><span class="p">,</span> <span class="n">goals_scored</span><span class="p">,</span> <span class="n">assists</span><span class="p">;</span>
+
+        <span class="k">public</span><span class="o">:</span>
+                <span class="kt">void</span> <span class="n">setValues</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">)</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;}</span>
+        <span class="n">string</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">name</span><span class="p">;}</span>
+        <span class="n">string</span> <span class="n">getClub</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">club</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGames</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">games</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGoalsScored</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_scored</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getAssists</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">assists</span><span class="p">;}</span>
+<span class="p">};</span>
+</pre></div>
+<p>(Optional exercise: rewrite this to use a constructor methods instead of the setValues routine.)</p>
+<p>&quot;Defender&quot; should be a subclass of &quot;Footballer&quot;, inheriting all of its parent class's attributes and adding its own:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Defender</span><span class="o">:</span> <span class="k">public</span> <span class="n">Footballer</span>
+<span class="p">{</span>
+        <span class="k">protected</span><span class="o">:</span>
+                <span class="kt">int</span> <span class="n">clean_sheets</span><span class="p">,</span> <span class="n">goals_conceded</span><span class="p">;</span>
+
+        <span class="k">public</span><span class="o">:</span>
+                <span class="kt">void</span> <span class="n">set_Values</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">,</span> <span class="kt">int</span> <span class="n">clnshts</span><span class="p">,</span> <span class="n">in</span> <span class="n">glscon</span><span class="p">)</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;</span> <span class="n">clean_sheets</span> <span class="o">=</span> <span class="n">clnshts</span><span class="p">;</span> <span class="n">goals_conceded</span> <span class="o">=</span> <span class="n">glscon</span><span class="p">;}</span>
+                <span class="kt">int</span> <span class="n">getCleanSheets</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">clean_sheets</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGoalsConceded</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_conceded</span><span class="p">;}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Notice how we have to call the 'set_Values' function in the subclass by a different name to the 'setValues' function in the parent class. If they had the same name, the function call would be ambiguous and could call the parent class's function instead of the subclass's function. This could be avoided using virtual functions, which are discussed later.</p>
+<ul class="simple">
+<li>Exercise: create a &quot;Goalkeeper&quot; subclass, inheriting the &quot;Footballer&quot; class with additional integer variables for clean sheets, goals conceded and saves.</li>
+</ul>
+<p>Now we can easily create players and input their statistics:</p>
+<div class="highlight"><pre><span class="n">Footballer</span> <span class="n">PeterCrouch</span> <span class="p">;</span> <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Peter Crouch&quot;</span><span class="p">,</span> <span class="s">&quot;Stoke City&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">Defender</span> <span class="n">GarethMcAuley</span> <span class="p">;</span> <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Gareth McAuley&quot;</span><span class="p">,</span> <span class="s">&quot;West Bromwich Albion&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+<p>Try this for your Goalkeeper class as well.</p>
+</div>
+</div>
+<div class="section" id="tutorial-2-operator-overloading">
+<h2>Tutorial 2: Operator overloading</h2>
+<p>The slides introduce the concept of overloading functions and operators.</p>
+<ul class="simple">
+<li>Exercise: rewrite your &quot;Defender&quot; and &quot;Goalkeeper&quot; code from tutorial 1 to overload the 'setValues' function in the subclasses using virtual functions.</li>
+</ul>
+<p>In the example in the slides, we overloaded the * operator to extend its functionality to include matrix multiplication. Let's see how this works in practice. First, we need to create a matrix class:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">matrix</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+        <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
+
+        <span class="n">matrix</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// default constructor</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">set</span><span class="p">(){</span><span class="c1">// to set matrix elements</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Enter &quot;</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="o">&lt;&lt;</span><span class="n">j</span><span class="o">&lt;&lt;</span><span class="s">&quot; element=&quot;</span><span class="p">;</span>
+                <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// to show matrix elements</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Matrix is=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+</pre></div>
+<p>Don't worry too much about how this code works - the principles are more important the specifics. Now we need to include our new matrix multiplication operator (still inside the public methods of the class):</p>
+<div class="highlight"><pre>        <span class="n">matrix</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">matrix</span> <span class="n">x</span><span class="p">)</span><span class="c1">// overloading * for multiplication</span>
+        <span class="p">{</span>
+        <span class="n">matrix</span> <span class="n">c</span><span class="p">;</span><span class="c1">// this will hold our result</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+        <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Now we can see how the operator works. Try generating two matrices (note that you will have to enter each entry of the matrix separately), and multiply them together:</p>
+<div class="highlight"><pre>    <span class="n">matrix</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
+<span class="n">b</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="n">b</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="n">c</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="additional-resources">
+<h2>Additional resources</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.tutorialspoint.com/cplusplus/">A useful tutorial</a> on the use of C++.</li>
+</ul>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./Julia.html" rel="bookmark"
+                           title="Permalink to Julia: The Language">Julia: The Language</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-05-07T16:00:00+02:00">
                 Published: Thu 07 May 2015
@@ -37,60 +200,15 @@
         </address>
 <p>In <a href="./category-languages.html">Languages</a>. </p>
 <p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info --><div class="figure align-center">
+</footer><!-- /.post-info -->                <div class="figure align-center">
 <img alt="Julia: The Language" src="{filename}/julia-the-language/julia-images/julia.png" style="width: 15%;" />
 </div>
 <div class="section" id="introduction">
 <h2>Introduction</h2>
-<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low level virtual machine) JIT (just-in-time) complier which allows for high performance at usually around 2-3x C speed and in some cases vitually equal to C speed. Unlike the usual strategy of vectorising code to increase speed, as found in python, Julia works extreamly rapidly when just using standard for loops. The main developers of the Julia language are based at MIT and have written an in depth description of the design philosophy of the language which can be found <a class="reference external" href="http://arxiv.org/pdf/1411.1607v3.pdf">here</a>.</p>
-</div>
-<div class="section" id="installation">
-<h2>Installation</h2>
-<p>For this workshop a virtual machine has been set up with Julia allready installed - the image can be found at this <a class="reference external" href="https://www.dropbox.com/s/n0fkh7p5p534t6x/Julia.ova?dl=0">link</a>. However if you wish to install Julia on your own machine their are various routes available. The easiest possible route is to follow the instructions, for your operating system, found on the <a class="reference external" href="http://julialang.org/downloads/platform.html">Julia website</a>. It may be necassary to add the Julia executable to your path in order to run the REPL from the terminal. If you would like to live on the bleeding edge of Julia development then you can install from source by following the instructions on the <a class="reference external" href="https://github.com/JuliaLang/julia">Julia Github</a> - be aware that when following this method you will have to wait a very very long time (expect upto 3 hours!!) and there will probably be various errors because of dependencies that you lack (<a class="reference external" href="http://www.cmake.org/install/">cmake</a> and <a class="reference external" href="https://www.gnu.org/software/m4/">m4</a> were needed when installing on mac).</p>
-<p>Julia can be used via the REPL or by running scripts, however an excellent working enviroment is provided by the IJulia kernal for the Jupyter (formally IPython) notebook. In order to install IJulia you will first need a version of Python, version 2.7 is recomended, along with IPython and the IPython notebook. IPython and the notebook can be installed using pip;</p>
-<div class="highlight"><pre><span class="nv">$ </span>pip install <span class="s1">&#39;ipython[notebook]&#39;</span>
-</pre></div>
-<p>Once the Python dependencies have been installed you will need to open up a Julia REPL and use the following command;</p>
-<div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
-</pre></div>
-<p>The IJulia package will then be installed and should be available in Jupyter by running the following in the terminal;</p>
-<div class="highlight"><pre><span class="nv">$ </span>ipython notebook
-</pre></div>
-<p>A new browser window should appear in which the local file structure will be displayed, selecting new in the top right corner and then picking the julia kernal from the dropdown menu should start a new notebook file.</p>
-</div>
-<div class="section" id="workshop-content">
-<h2>Workshop Content</h2>
-<div class="section" id="the-basics">
-<h3>The Basics</h3>
-<p><a class="reference external" href="./julia-the-language/julia-files/The-Basics.ipynb">DL Notebook-The-Basics.ipynb</a> (right click and save as..)</p>
-<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/The-Basics.ipynb">View Notebook-The-Basics.ipynb</a></p>
-</div>
-<div class="section" id="julia-types">
-<h3>Julia types</h3>
-<p><a class="reference external" href="./julia-the-language/julia-files/Julia-Types.ipynb">DL Notebook-Julia-Types.ipynb</a> (right click and save as..)</p>
-<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Julia-Types.ipynb">View Notebook-Julia-Types.ipynb</a></p>
-</div>
-<div class="section" id="parallelism-in-julia">
-<h3>Parallelism in Julia</h3>
-<p><a class="reference external" href="./julia-the-language/julia-files/Parallel.ipynb">DL Notebook-Parallel.ipynb</a> (right click and save as..)</p>
-<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Parallel.ipynb">View Notebook-Parallel.ipynb</a></p>
-</div>
-</div>
-<div class="section" id="more-to-learn">
-<h2>More to learn....</h2>
-<p>Some links to find out more about julia;</p>
-<p><a class="reference external" href="https://www.youtube.com/watch?v=vWkgEddb4-A">Tutorial</a></p>
-<p><a class="reference external" href="http://en.wikibooks.org/wiki/Introducing_Julia/Plotting">Plotting</a></p>
-<p><a class="reference external" href="http://pkg.julialang.org/">Package Listing</a></p>
-<p><a class="reference external" href="http://docs.julialang.org/en/release-0.3/">Documentation</a></p>
-<p><a class="reference external" href="https://groups.google.com/forum/#!forum/julia-users">Google Group</a></p>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low ...</p></div>
+                <a class="readmore" href="./Julia.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -152,7 +270,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
                 Published: Thu 12 February 2015
         </abbr>
 
@@ -174,7 +292,7 @@
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2015-02-12T00:00:00">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
                 Published: Thu 12 February 2015
         </abbr>
 
