@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Julia: The Language</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./Julia.html" rel="bookmark"
+           title="Permalink to Julia: The Language">Julia: The Language</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-05-07T16:00:00+02:00">
+                Published: Thu 07 May 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-josh-greenhalgh.html">Josh Greenhalgh</a>
+                        <a class="url fn" href="./author-jonothan-waters.html">Jonothan Waters</a>
+        </address>
+<p>In <a href="./category-languages.html">Languages</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->      <div class="figure align-center">
+<img alt="Julia: The Language" src="{filename}/julia-the-language/julia-images/julia.png" style="width: 15%;" />
+</div>
+<div class="section" id="introduction">
+<h2>Introduction</h2>
+<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low level virtual machine) JIT (just-in-time) complier which allows for high performance at usually around 2-3x C speed and in some cases vitually equal to C speed. Unlike the usual strategy of vectorising code to increase speed, as found in python, Julia works extreamly rapidly when just using standard for loops. The main developers of the Julia language are based at MIT and have written an in depth description of the design philosophy of the language which can be found <a class="reference external" href="http://arxiv.org/pdf/1411.1607v3.pdf">here</a>.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation</h2>
+<p>For this workshop a virtual machine has been set up with Julia allready installed - the image can be found at this <a class="reference external" href="https://www.dropbox.com/s/n0fkh7p5p534t6x/Julia.ova?dl=0">link</a>. However if you wish to install Julia on your own machine their are various routes available. The easiest possible route is to follow the instructions, for your operating system, found on the <a class="reference external" href="http://julialang.org/downloads/platform.html">Julia website</a>. It may be necassary to add the Julia executable to your path in order to run the REPL from the terminal. If you would like to live on the bleeding edge of Julia development then you can install from source by following the instructions on the <a class="reference external" href="https://github.com/JuliaLang/julia">Julia Github</a> - be aware that when following this method you will have to wait a very very long time (expect upto 3 hours!!) and there will probably be various errors because of dependencies that you lack (<a class="reference external" href="http://www.cmake.org/install/">cmake</a> and <a class="reference external" href="https://www.gnu.org/software/m4/">m4</a> were needed when installing on mac).</p>
+<p>Julia can be used via the REPL or by running scripts, however an excellent working enviroment is provided by the IJulia kernal for the Jupyter (formally IPython) notebook. In order to install IJulia you will first need a version of Python, version 2.7 is recomended, along with IPython and the IPython notebook. IPython and the notebook can be installed using pip;</p>
+<div class="highlight"><pre><span class="nv">$ </span>pip install <span class="s1">&#39;ipython[notebook]&#39;</span>
+</pre></div>
+<p>Once the Python dependencies have been installed you will need to open up a Julia REPL and use the following command;</p>
+<div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
+</pre></div>
+<p>The IJulia package will then be installed and should be available in Jupyter by running the following in the terminal;</p>
+<div class="highlight"><pre><span class="nv">$ </span>ipython notebook
+</pre></div>
+<p>A new browser window should appear in which the local file structure will be displayed, selecting new in the top right corner and then picking the julia kernal from the dropdown menu should start a new notebook file.</p>
+</div>
+<div class="section" id="workshop-content">
+<h2>Workshop Content</h2>
+<div class="section" id="the-basics">
+<h3>The Basics</h3>
+<p><a class="reference external" href="./julia-the-language/julia-files/The-Basics.ipynb">DL Notebook-The-Basics.ipynb</a> (right click and save as..)</p>
+<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/The-Basics.ipynb">View Notebook-The-Basics.ipynb</a></p>
+</div>
+<div class="section" id="julia-types">
+<h3>Julia types</h3>
+<p><a class="reference external" href="./julia-the-language/julia-files/Julia-Types.ipynb">DL Notebook-Julia-Types.ipynb</a> (right click and save as..)</p>
+<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Julia-Types.ipynb">View Notebook-Julia-Types.ipynb</a></p>
+</div>
+<div class="section" id="parallelism-in-julia">
+<h3>Parallelism in Julia</h3>
+<p><a class="reference external" href="./julia-the-language/julia-files/Parallel.ipynb">DL Notebook-Parallel.ipynb</a> (right click and save as..)</p>
+<p><a class="reference external" href="http://nbviewer.ipython.org/url/raw.githubusercontent.com/josh-gree/juliafiles/master/Parallel.ipynb">View Notebook-Parallel.ipynb</a></p>
+</div>
+</div>
+<div class="section" id="more-to-learn">
+<h2>More to learn....</h2>
+<p>Some links to find out more about julia;</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=vWkgEddb4-A">Tutorial</a></p>
+<p><a class="reference external" href="http://en.wikibooks.org/wiki/Introducing_Julia/Plotting">Plotting</a></p>
+<p><a class="reference external" href="http://pkg.julialang.org/">Package Listing</a></p>
+<p><a class="reference external" href="http://docs.julialang.org/en/release-0.3/">Documentation</a></p>
+<p><a class="reference external" href="https://groups.google.com/forum/#!forum/julia-users">Google Group</a></p>
+</div>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
