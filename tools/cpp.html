@@ -61,8 +61,6 @@
 <div class="section" id="tutorial-1-object-oriented-programming">
 <h2>Tutorial 1: object-oriented programming</h2>
 <p>The slides provide an introduction to creating new classes and objects in C++. Let's apply these ideas to a more interesting problem. Suppose we wish to create a database of footballers (a standard task for a fantasy football league, for instance). Attributes such as name, club, games played, goals scored and goal assists will be common to all players. Goals conceded and number of clean sheets are relevant only to defenders and goalkeepers; the number of saves made applies to goalkeepers and no other players. Object orientation in general, and inheritance in particular, provides us with the tools needed to do this.</p>
-<div class="section" id="step-1-create-the-classes">
-<h3>Step 1: create the classes</h3>
 <p>We need a general &quot;Footballer&quot; class:</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">Footballer</span>
 <span class="p">{</span>
@@ -101,7 +99,6 @@
 <span class="n">Defender</span> <span class="n">GarethMcAuley</span> <span class="p">;</span> <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Gareth McAuley&quot;</span><span class="p">,</span> <span class="s">&quot;West Bromwich Albion&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">;</span>
 </pre></div>
 <p>Try this for your Goalkeeper class as well.</p>
-</div>
 </div>
 <div class="section" id="tutorial-2-operator-overloading">
 <h2>Tutorial 2: Operator overloading</h2>

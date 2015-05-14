@@ -42,9 +42,6 @@ Tutorial 1: object-oriented programming
 
 The slides provide an introduction to creating new classes and objects in C++. Let's apply these ideas to a more interesting problem. Suppose we wish to create a database of footballers (a standard task for a fantasy football league, for instance). Attributes such as name, club, games played, goals scored and goal assists will be common to all players. Goals conceded and number of clean sheets are relevant only to defenders and goalkeepers; the number of saves made applies to goalkeepers and no other players. Object orientation in general, and inheritance in particular, provides us with the tools needed to do this.
 
-Step 1: create the classes
---------------------------
-
 We need a general "Footballer" class:
 
 .. code-block:: cpp
