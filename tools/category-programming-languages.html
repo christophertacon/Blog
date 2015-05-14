@@ -25,9 +25,172 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./FORTRAN.html">Fortran programming language</a></h1>
+                    <h1 class="entry-title"><a href="./cpp.html">Introducing C++</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2015-04-30T16:00:00+02:00">
+        <abbr class="published" title="2015-05-14T16:00:00">
+                Published: Thu 14 May 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-jan-kamenik.html">Jan Kamenik</a>
+                        <a class="url fn" href="./author-shriram-sunder.html">Shriram Sunder</a>
+                        <a class="url fn" href="./author-stephen-gow.html">Stephen Gow</a>
+        </address>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><hr class="docutils" />
+<div class="figure align-center">
+<img alt="The C++ programming language" src="./C++/C++_logo.jpg" style="width: 15%;" />
+</div>
+<p>This entry accompanies a presentation for the module 'Advanced Computational Methods Part II'; it can also be viewed as a stand-alone exercise for those not present at the workshop. The material presented here consists of tutorials and exercises designed to introduce the programming language C++.</p>
+<p>These exercises are designed for use on the virtual machine provided for this tutorial. To download this machine image, <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_C++.ova">click here</a>. The presentation slides associated with this tutorial can be found on <a class="reference external" href="https://github.com/jankamenik/Cplusplus-presentation/blob/master/presentation.pdf">Github</a>.</p>
+<div class="section" id="prerequisites">
+<h2>Prerequisites</h2>
+<p>The virtual machine contains the text editor Sublime Text 3. For all of these exercises and examples, code should be written and run in this editor. When you are ready to run the code you have written, simply press Ctrl-B and the program will compile using the in-built C++ build system.</p>
+<p>Pre-written source files providing examples of some of the concepts discussed can be found in the 'C++' folder located on the desktop. A small number of these examples run using the newer C++11 system; in order to build these examples, you will need to select Tools&gt;Build&gt;C++11 from the Sublime Text 3 toolbar.</p>
+<p>In order to make your code run correctly, include these lines at the top of each new program:</p>
+<div class="highlight"><pre><span class="cp">#include&lt;iostream&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="tutorial-1-object-oriented-programming">
+<h2>Tutorial 1: object-oriented programming</h2>
+<p>The slides provide an introduction to creating new classes and objects in C++. Let's apply these ideas to a more interesting problem. Suppose we wish to create a database of footballers (a standard task for a fantasy football league, for instance). Attributes such as name, club, games played, goals scored and goal assists will be common to all players. Goals conceded and number of clean sheets are relevant only to defenders and goalkeepers; the number of saves made applies to goalkeepers and no other players. Object orientation in general, and inheritance in particular, provides us with the tools needed to do this.</p>
+<div class="section" id="step-1-create-the-classes">
+<h3>Step 1: create the classes</h3>
+<p>We need a general &quot;Footballer&quot; class:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Footballer</span>
+<span class="p">{</span>
+        <span class="k">protected</span><span class="o">:</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">club</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">games</span><span class="p">,</span> <span class="n">goals_scored</span><span class="p">,</span> <span class="n">assists</span><span class="p">;</span>
+
+        <span class="k">public</span><span class="o">:</span>
+                <span class="kt">void</span> <span class="n">setValues</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">)</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;}</span>
+        <span class="n">string</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">name</span><span class="p">;}</span>
+        <span class="n">string</span> <span class="n">getClub</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">club</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGames</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">games</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGoalsScored</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_scored</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getAssists</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">assists</span><span class="p">;}</span>
+<span class="p">};</span>
+</pre></div>
+<p>(Optional exercise: rewrite this to use a constructor methods instead of the setValues routine.)</p>
+<p>&quot;Defender&quot; should be a subclass of &quot;Footballer&quot;, inheriting all of its parent class's attributes and adding its own:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Defender</span><span class="o">:</span> <span class="k">public</span> <span class="n">Footballer</span>
+<span class="p">{</span>
+        <span class="k">protected</span><span class="o">:</span>
+                <span class="kt">int</span> <span class="n">clean_sheets</span><span class="p">,</span> <span class="n">goals_conceded</span><span class="p">;</span>
+
+        <span class="k">public</span><span class="o">:</span>
+                <span class="kt">void</span> <span class="n">set_Values</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">,</span> <span class="kt">int</span> <span class="n">clnshts</span><span class="p">,</span> <span class="n">in</span> <span class="n">glscon</span><span class="p">)</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;</span> <span class="n">clean_sheets</span> <span class="o">=</span> <span class="n">clnshts</span><span class="p">;</span> <span class="n">goals_conceded</span> <span class="o">=</span> <span class="n">glscon</span><span class="p">;}</span>
+                <span class="kt">int</span> <span class="n">getCleanSheets</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">clean_sheets</span><span class="p">;}</span>
+        <span class="kt">int</span> <span class="n">getGoalsConceded</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_conceded</span><span class="p">;}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Notice how we have to call the 'set_Values' function in the subclass by a different name to the 'setValues' function in the parent class. If they had the same name, the function call would be ambiguous and could call the parent class's function instead of the subclass's function. This could be avoided using virtual functions, which are discussed later.</p>
+<ul class="simple">
+<li>Exercise: create a &quot;Goalkeeper&quot; subclass, inheriting the &quot;Footballer&quot; class with additional integer variables for clean sheets, goals conceded and saves.</li>
+</ul>
+<p>Now we can easily create players and input their statistics:</p>
+<div class="highlight"><pre><span class="n">Footballer</span> <span class="n">PeterCrouch</span> <span class="p">;</span> <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Peter Crouch&quot;</span><span class="p">,</span> <span class="s">&quot;Stoke City&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">Defender</span> <span class="n">GarethMcAuley</span> <span class="p">;</span> <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Gareth McAuley&quot;</span><span class="p">,</span> <span class="s">&quot;West Bromwich Albion&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">;</span>
+</pre></div>
+<p>Try this for your Goalkeeper class as well.</p>
+</div>
+</div>
+<div class="section" id="tutorial-2-operator-overloading">
+<h2>Tutorial 2: Operator overloading</h2>
+<p>The slides introduce the concept of overloading functions and operators.</p>
+<ul class="simple">
+<li>Exercise: rewrite your &quot;Defender&quot; and &quot;Goalkeeper&quot; code from tutorial 1 to overload the 'setValues' function in the subclasses using virtual functions.</li>
+</ul>
+<p>In the example in the slides, we overloaded the * operator to extend its functionality to include matrix multiplication. Let's see how this works in practice. First, we need to create a matrix class:</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">matrix</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+        <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
+
+        <span class="n">matrix</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// default constructor</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">set</span><span class="p">(){</span><span class="c1">// to set matrix elements</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Enter &quot;</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="o">&lt;&lt;</span><span class="n">j</span><span class="o">&lt;&lt;</span><span class="s">&quot; element=&quot;</span><span class="p">;</span>
+                <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// to show matrix elements</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Matrix is=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+</pre></div>
+<p>Don't worry too much about how this code works - the principles are more important the specifics. Now we need to include our new matrix multiplication operator (still inside the public methods of the class):</p>
+<div class="highlight"><pre>        <span class="n">matrix</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">matrix</span> <span class="n">x</span><span class="p">)</span><span class="c1">// overloading * for multiplication</span>
+        <span class="p">{</span>
+        <span class="n">matrix</span> <span class="n">c</span><span class="p">;</span><span class="c1">// this will hold our result</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+        <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+<p>Now we can see how the operator works. Try generating two matrices (note that you will have to enter each entry of the matrix separately), and multiply them together:</p>
+<div class="highlight"><pre>    <span class="n">matrix</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
+<span class="n">b</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+<span class="n">a</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="n">b</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="n">c</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="section" id="additional-resources">
+<h2>Additional resources</h2>
+<ul class="simple">
+<li><a class="reference external" href="http://www.tutorialspoint.com/cplusplus/">A useful tutorial</a> on the use of C++.</li>
+</ul>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./FORTRAN.html" rel="bookmark"
+                           title="Permalink to Fortran programming language">Fortran programming language</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-04-30T16:00:00">
                 Published: Thu 30 April 2015
         </abbr>
 
@@ -37,80 +200,15 @@
         </address>
 <p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
 <p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
-</footer><!-- /.post-info --><div class="figure align-center">
+</footer><!-- /.post-info -->                <div class="figure align-center">
 <img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
 </div>
-<p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles needed to read and write FORTRAN codes in scientific computing, and secondly introduce the Fortran to Python interface (f2py) that allows the creation of Python modules from FORTRAN.</p>
-<p>Detailed slides of the workshop can be found at: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">presentation slides.pdf</a></p>
-<p>Further reading about f2py and a FORTRAN manual can be found in the resources section.</p>
-<div class="section" id="practical-session">
-<h2>Practical Session</h2>
-<p>In order to run through this session either download the <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_fortran.ova">Lubuntu_ova_fortran</a> virtualbox image and load it to your virtual-box or simply run these commands (if you haven’t already) on your Debian operating system:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update
-<span class="nv">$ </span>sudo apt-get install python ipython gfortran python-dev python-numpy gedit
-</pre></div>
-<p>When compiling and running use:</p>
-<div class="highlight"><pre><span class="nv">$ </span>gfortran program.f90 -o program
-<span class="nv">$ </span>./program
-</pre></div>
-</div>
-<div class="section" id="exercise-1-writing-your-first-fortran-program">
-<h2>Exercise 1: Writing your first FORTRAN program</h2>
-<p>Write a FORTRAN program &quot;<em>Fibonacci</em>&quot; that dynamically calculates a given number (N) of the Fibonacci numbers and stores them in a real vector of size N. The program should then write the elements of the array in a dat file using the default format. You can use the Python code provided as guidance.</p>
-<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mf">0.</span>
-        <span class="k">elif</span> <span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
-                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mf">1.</span>
-        <span class="k">else</span><span class="p">:</span>
-                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-<p>Note: In order to declare the array variable, N needs to be defined before declaration. One way to do this is to introduce it as a constant before the array is declared. Example:</p>
-<blockquote>
-integer, parameter :: N=9</blockquote>
-<p>When running ignore the floating point errors that arise for high N.
-Note you are advised to use the lecture slides as reference.
-The solution can be found in: <a class="reference external" href="./FORTRAN/Solution1.f90">Exercise1.f90</a></p>
-</div>
-<div class="section" id="exercise-2-converting-to-a-subprogram">
-<h2>Exercise 2: Converting to a subprogram</h2>
-<p>Convert your previous code to a program that:</p>
-<!-- Bullet lists: -->
-<ul class="simple">
-<li>Initialised the number N and an array of size N</li>
-<li>Calls the subroutine &quot;<em>fib</em>&quot; while Passing in the array and the number of elements N</li>
-<li>The subroutine should then do the calculation previously done in exercise 1</li>
-<li>The main program then prints them to a file as done in exercise 1</li>
-</ul>
-<p>Solutions are found in: <a class="reference external" href="./FORTRAN/solution2.f90">Exercise2.f90</a></p>
-</div>
-<div class="section" id="exercise-3-making-a-python-module">
-<h2>Exercise 3: Making a python module</h2>
-<p>Take your subroutine and place it in a new file, fibonacci_sub.f90, without the main program and make sure it compiles without errors using:</p>
-<div class="highlight"><pre><span class="nv">$ </span>gfortran -Wall -c fibonacci_sub.f90
-</pre></div>
-<p>Then compile the FORTRAN to python interface command:</p>
-<div class="highlight"><pre><span class="nv">$ </span>f2py -c fibonacci_sub.f90 -m fibonacci
-</pre></div>
-<p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
-<p>If no errors are visible then make shure that your module is correct by using the python program:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">fibpnacci_sub</span>
-<span class="n">a</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">fibpnacci_sub</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">a</span>
-</pre></div>
-<p>You can copy and paste the above python program in a terminal that is running python or Ipython.</p>
-<p>Even though the subroutine taken in two variable in FORTRAN the beauty of f2py is that it it is clever enough to know that, allowing you to enter only the array itself.</p>
-<p>Note: If you are finding errors from calling the module its maybe because you are sending an array with 64-bit floating point precision elements to a module that only understands 32-bit. This is the difference between REAL and DOUBLE PRECISION declarations.</p>
-</div>
-<div class="section" id="resources">
-<h2>Resources</h2>
-<p><a class="reference external" href="http://www-eio.upc.edu/lceio/manuals/Fortran95-manual.pdf">FORTRAN Manual</a>
-<a class="reference external" href="https://sysbio.ioc.ee/projects/f2py2e/">f2py</a></p>
-</div>
-                </article>
-            </aside><!-- /#featured -->
+<p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles ...</p>
+                <a class="readmore" href="./FORTRAN.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
