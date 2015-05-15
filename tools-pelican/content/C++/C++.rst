@@ -105,7 +105,7 @@ In the previous section, we use the same function name "setValues" for both the 
 
 .. code-block:: cpp
 
-    int update(Footballer Player, int games_new, int goals_new, int assists_new){
+    int update(Footballer Player, int games_new, int goals_new, int assists_new, bool def){
         Name = Player.getName() ;
         Club = Player.getClub() ;
         Games = Player.getGames() ;
@@ -114,7 +114,14 @@ In the previous section, we use the same function name "setValues" for both the 
         GamesNew = Games + games_new ;
         GoalsNew = Goals + goals_new ;
         AssistsNew = Assists + assists_new ;
-        Player.setValues(Name, Club, GamesNew, GoalsNew, Assists)
+        if (def = true) {
+            GoalsConceded = Player.getGoalsConceded()
+            CleanSheets = Player.getCleanSheets()
+            Player.setValues(Name, Club, GamesNew, GoalsNew, Assists, GoalsConceded, CleanSheets)
+        }
+        else {
+            Player.setValues(Name, Club, GamesNew, GoalsNew, Assists)
+        }
     }
 
     int main(){

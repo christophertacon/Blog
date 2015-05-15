@@ -106,7 +106,7 @@
 <div class="section" id="tutorial-2-virtual-functions-and-operator-overloading">
 <h2>Tutorial 2: Virtual functions and operator overloading</h2>
 <p>In the previous section, we use the same function name &quot;setValues&quot; for both the &quot;Footballer&quot; and &quot;Defender&quot; classes. This is OK provided we only call these methods directly from our &quot;main&quot; function. If we instead try to call the &quot;setValues&quot; function from inside another function, problems can arise. Consider a function which takes an already-existing player's games, goals and assists and updates them:</p>
-<div class="highlight"><pre><span class="kt">int</span> <span class="nf">update</span><span class="p">(</span><span class="n">Footballer</span> <span class="n">Player</span><span class="p">,</span> <span class="kt">int</span> <span class="n">games_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">goals_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">assists_new</span><span class="p">){</span>
+<div class="highlight"><pre><span class="kt">int</span> <span class="nf">update</span><span class="p">(</span><span class="n">Footballer</span> <span class="n">Player</span><span class="p">,</span> <span class="kt">int</span> <span class="n">games_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">goals_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">assists_new</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">def</span><span class="p">){</span>
     <span class="n">Name</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="p">;</span>
     <span class="n">Club</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getClub</span><span class="p">()</span> <span class="p">;</span>
     <span class="n">Games</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getGames</span><span class="p">()</span> <span class="p">;</span>
@@ -115,7 +115,14 @@
     <span class="n">GamesNew</span> <span class="o">=</span> <span class="n">Games</span> <span class="o">+</span> <span class="n">games_new</span> <span class="p">;</span>
     <span class="n">GoalsNew</span> <span class="o">=</span> <span class="n">Goals</span> <span class="o">+</span> <span class="n">goals_new</span> <span class="p">;</span>
     <span class="n">AssistsNew</span> <span class="o">=</span> <span class="n">Assists</span> <span class="o">+</span> <span class="n">assists_new</span> <span class="p">;</span>
-    <span class="n">Player</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Club</span><span class="p">,</span> <span class="n">GamesNew</span><span class="p">,</span> <span class="n">GoalsNew</span><span class="p">,</span> <span class="n">Assists</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">def</span> <span class="o">=</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">GoalsConceded</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getGoalsConceded</span><span class="p">()</span>
+        <span class="n">CleanSheets</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getCleanSheets</span><span class="p">()</span>
+        <span class="n">Player</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Club</span><span class="p">,</span> <span class="n">GamesNew</span><span class="p">,</span> <span class="n">GoalsNew</span><span class="p">,</span> <span class="n">Assists</span><span class="p">,</span> <span class="n">GoalsConceded</span><span class="p">,</span> <span class="n">CleanSheets</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">Player</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Club</span><span class="p">,</span> <span class="n">GamesNew</span><span class="p">,</span> <span class="n">GoalsNew</span><span class="p">,</span> <span class="n">Assists</span><span class="p">)</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
