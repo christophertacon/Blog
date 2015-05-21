@@ -53,7 +53,8 @@ We need a general "Footballer" class:
   			int games, goals_scored, assists;
 
   		public:
-  			void setValues (string nm, string cb, int gms, int gls, int asts) {name = nm; club = cb; games = gms; goals_scored = gls; assists = asts;}
+  			void setValues (string nm, string cb, int gms, int gls, int asts) {
+            name = nm; club = cb; games = gms; goals_scored = gls; assists = asts;}
     		string getName() {return name;}
     		string getClub() {return club;}
     		int getGames() {return games;}
@@ -73,30 +74,66 @@ We need a general "Footballer" class:
 			int clean_sheets, goals_conceded;
 
 		public:
-			void set_Values (string nm, string cb, int gms, int gls, int asts, int clnshts, in glscon) {name = nm; club = cb; games = gms; goals_scored = gls; assists = asts; clean_sheets = clnshts; goals_conceded = glscon;}
+			void setValues (string nm, string cb, int gms, int gls, int asts, int clnshts, int glscon) {
+            name = nm; club = cb; games = gms; goals_scored = gls; assists = asts; 
+            clean_sheets = clnshts; goals_conceded = glscon;}
 			int getCleanSheets() {return clean_sheets;}
     		int getGoalsConceded() {return goals_conceded;}
 	};
 
-Notice how we have to call the 'set_Values' function in the subclass by a different name to the 'setValues' function in the parent class. If they had the same name, the function call would be ambiguous and could call the parent class's function instead of the subclass's function. This could be avoided using virtual functions, which are discussed later.
-
 * Exercise: create a "Goalkeeper" subclass, inheriting the "Footballer" class with additional integer variables for clean sheets, goals conceded and saves.
 
-Now we can easily create players and input their statistics:
+Now we can easily create players, input and view their statistics:
 
 .. code-block:: cpp
 
-	Footballer PeterCrouch ; PeterCrouch.setValues("Peter Crouch", "Stoke City", 31, 7, 3) ;
-	Defender GarethMcAuley ; GarethMcAuley.setValues("Gareth McAuley", "West Bromwich Albion", 22, 0, 0, 11, 27) ;
+	int main(){
+        Footballer PeterCrouch ; PeterCrouch.setValues("Peter Crouch", "Stoke City", 31, 7, 3) ;
+        Defender GarethMcAuley ; GarethMcAuley.setValues("Gareth McAuley", "West Bromwich Albion", 22, 0, 0, 11, 27) ;
+        Crouch_Goals = PeterCrouch.getGoalsScored()
+        cout << Crouch_Goals
+        McAuley_CleanSheets = GarethMcAuley.getCleanSheets()
+        cout << McAuley_CleanSheets
+    }
 
 Try this for your Goalkeeper class as well. 
 
-Tutorial 2: Operator overloading
-================================
+Tutorial 2: Virtual functions and operator overloading
+======================================================
 
-The slides introduce the concept of overloading functions and operators.
+In the previous section, we use the same function name "setValues" for both the "Footballer" and "Defender" classes. This is OK provided we only call these methods directly from our "main" function. If we instead try to call the "setValues" function from inside another function, problems can arise. Consider a function which takes an already-existing player's games, goals and assists and updates them:
 
-* Exercise: rewrite your "Defender" and "Goalkeeper" code from tutorial 1 to overload the 'setValues' function in the subclasses using virtual functions.
+.. code-block:: cpp
+
+    int update(Footballer Player, int games_new, int goals_new, int assists_new, bool def){
+        Name = Player.getName() ;
+        Club = Player.getClub() ;
+        Games = Player.getGames() ;
+        Goals = Player.getGoalsScored() ;
+        Assists = Player.getAssists() ;
+        GamesNew = Games + games_new ;
+        GoalsNew = Goals + goals_new ;
+        AssistsNew = Assists + assists_new ;
+        if (def = true) {
+            GoalsConceded = Player.getGoalsConceded()
+            CleanSheets = Player.getCleanSheets()
+            Player.setValues(Name, Club, GamesNew, GoalsNew, Assists, GoalsConceded, CleanSheets)
+        }
+        else {
+            Player.setValues(Name, Club, GamesNew, GoalsNew, Assists)
+        }
+    }
+
+    int main(){
+        Footballer PeterCrouch ; 
+        PeterCrouch.setValues("Peter Crouch", "Stoke City", 31, 7, 3) ;
+        Defender GarethMcAuley ; 
+        GarethMcAuley.setValues("Gareth McAuley", "West Bromwich Albion", 22, 0, 0, 11, 27) ;
+        update(PeterCrouch, 1, 1, 0) ;
+        update(GarethMcAuley, 1, 0, 0) ;
+    }
+
+This code will run correctly for Peter Crouch, but returns an error when applied to Gareth McAuley. The reason is that when the "update" function calls the  If we rewrite the "setValues" function in the "Footballer" class to use the "virtual" keyword, the code will work correctly for both players.
 
 In the example in the slides, we overloaded the * operator to extend its functionality to include matrix multiplication. Let's see how this works in practice. First, we need to create a matrix class:
 
