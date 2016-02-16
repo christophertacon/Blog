@@ -49,7 +49,7 @@ On lubuntu 15.10, pip can be installed via apt-get
 	:::bash
 	sudo apt-get install python-pip
 
-If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining ![installation of pelican with mercurial]({filename}/pelican-basics/pelican-install.md).
+If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining [installation of pelican with mercurial]({filename}/pelican-basics/pelican-install.md).
 
 Finally, once pip is available, pelican (with markdown extension) can be installed
 
@@ -65,4 +65,4 @@ Use the linux package manager to install git and meld
 
 	 sudo apt-get install git meld
 
-![Meld](http://meldmerge.org) is a visual diff and merge tool that is useful.
+[Meld](http://meldmerge.org) is a visual diff and merge tool that is useful.
