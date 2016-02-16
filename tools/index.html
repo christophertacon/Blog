@@ -25,10 +25,84 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./cpp.html">Introducing C++</a></h1>
+                    <h1 class="entry-title"><a href="./install-pelican-git.html">Installing Pelican and Git on lubuntu</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-02-16T00:00:00+01:00">
+                Published: 火 16 2月 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+        </address>
+<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu-2016.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have Python 2.x and the python package manager <strong>pip</strong> available. Then it should be as simple as running</p>
+<div class="highlight"><pre>pip install pelican markdown
+</pre></div>
+
+
+<p>as root or super-user. </p>
+<p>We also use Git as version control software. Please refer to the <a href="https://git-scm.com">Git webpage</a> for downloads and installation instructions for your machine. On most Linux systems, it is usually best to trust the package manager and use something like</p>
+<div class="highlight"><pre>sudo apt-get install git
+</pre></div>
+
+
+<h1>Obtain virtual machine</h1>
+<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="./virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
+<h2>Install make gcc</h2>
+<p>Make is needed for the guest installations. We also use make with pelican for convenience (more on that later)</p>
+<div class="highlight"><pre>sudo apt-get install make gcc
+</pre></div>
+
+
+<p><img alt="Installing gcc" src="./pelican-basics/images/install_gcc.png" title="Installing gcc and make" /></p>
+<p>Install Guest additions by injecting the <em>Host Additions CD</em> and run the following command in the cd subdirectory</p>
+<div class="highlight"><pre><span class="nb">cd</span> /media/feeg6003/&lt;NAME OF VBOXADDITIONS CD&gt;
+sudo ./VBoxLinuxAdditions.run
+</pre></div>
+
+
+<p><img alt="Installing guest additions" src="./pelican-basics/images/install_vbox.png" title="Installing guest additions" /></p>
+<p>This should take a minute or two. Reboot the virtual machine after installation of the guest additions.</p>
+<h1>Installing Pelican</h1>
+<p><strong>Hint:</strong> Make sure that you are <strong>not</strong> using python 3.</p>
+<p><img alt="Python version" src="./pelican-basics/images/python_version.png" title="Checking the python version" /></p>
+<p>On lubuntu 15.10, pip can be installed via apt-get</p>
+<div class="highlight"><pre>sudo apt-get install python-pip
+</pre></div>
+
+
+<p>If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining <img alt="installation of pelican with mercurial" src="./install-pelican.html" />.</p>
+<p>Finally, once pip is available, pelican (with markdown extension) can be installed</p>
+<div class="highlight"><pre>sudo pip install pelican markdown
+</pre></div>
+
+
+<p><img alt="Install pip" src="./pelican-basics/images/install_pelican.png" title="Installing the python package manager" /></p>
+<h1>Installing Git</h1>
+<p>We use <a href="https://git-scm.com">Git</a> as version control software for the blocks post repository.</p>
+<p>Use the linux package manager to install git and meld</p>
+<div class="highlight"><pre> sudo apt-get install git meld
+</pre></div>
+
+
+<p><img alt="Meld" src="http://meldmerge.org" /> is a visual diff and merge tool that is useful.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./cpp.html" rel="bookmark"
+                           title="Permalink to Introducing C++">Introducing C++</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-05-14T16:00:00+02:00">
-                Published: Thu 14 May 2015
+                Published: 木 14 5月 2015
         </abbr>
 
         <address class="vcard author">
@@ -38,180 +112,15 @@
         </address>
 <p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
 <p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info --><hr class="docutils" />
+</footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
 <img alt="The C++ programming language" src="./C++/C++_logo.jpg" style="width: 15%;" />
 </div>
 <p>This entry accompanies a presentation for the module 'Advanced Computational Methods Part II'; it can also be viewed as a stand-alone exercise for those not present at the workshop. The material presented here consists of tutorials and exercises designed to introduce the programming language C++.</p>
-<p>These exercises are designed for use on the virtual machine provided for this tutorial. To download this machine image, <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_C++.ova">click here</a>. The presentation slides associated with this tutorial can be found on <a class="reference external" href="https://github.com/jankamenik/Cplusplus-presentation/blob/master/presentation.pdf">Github</a>.</p>
-<div class="section" id="prerequisites">
-<h2>Prerequisites</h2>
-<p>The virtual machine contains the text editor Sublime Text 3. For all of these exercises and examples, code should be written and run in this editor. When you are ready to run the code you have written, simply press Ctrl-B and the program will compile using the in-built C++ build system.</p>
-<p>Pre-written source files providing examples of some of the concepts discussed can be found in the 'C++' folder located on the desktop. A small number of these examples run using the newer C++11 system; in order to build these examples, you will need to select Tools&gt;Build&gt;C++11 from the Sublime Text 3 toolbar.</p>
-<p>In order to make your code run correctly, include these lines at the top of each new program:</p>
-<div class="highlight"><pre><span class="cp">#include&lt;iostream&gt;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-</pre></div>
-</div>
-<div class="section" id="tutorial-1-object-oriented-programming">
-<h2>Tutorial 1: object-oriented programming</h2>
-<p>The slides provide an introduction to creating new classes and objects in C++. Let's apply these ideas to a more interesting problem. Suppose we wish to create a database of footballers (a standard task for a fantasy football league, for instance). Attributes such as name, club, games played, goals scored and goal assists will be common to all players. Goals conceded and number of clean sheets are relevant only to defenders and goalkeepers; the number of saves made applies to goalkeepers and no other players. Object orientation in general, and inheritance in particular, provides us with the tools needed to do this.</p>
-<p>We need a general &quot;Footballer&quot; class:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Footballer</span>
-<span class="p">{</span>
-        <span class="k">protected</span><span class="o">:</span>
-                <span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">club</span><span class="p">;</span>
-                <span class="kt">int</span> <span class="n">games</span><span class="p">,</span> <span class="n">goals_scored</span><span class="p">,</span> <span class="n">assists</span><span class="p">;</span>
-
-        <span class="k">public</span><span class="o">:</span>
-                <span class="kt">void</span> <span class="n">setValues</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;}</span>
-        <span class="n">string</span> <span class="n">getName</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">name</span><span class="p">;}</span>
-        <span class="n">string</span> <span class="n">getClub</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">club</span><span class="p">;}</span>
-        <span class="kt">int</span> <span class="n">getGames</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">games</span><span class="p">;}</span>
-        <span class="kt">int</span> <span class="n">getGoalsScored</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_scored</span><span class="p">;}</span>
-        <span class="kt">int</span> <span class="n">getAssists</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">assists</span><span class="p">;}</span>
-<span class="p">};</span>
-</pre></div>
-<p>(Optional exercise: rewrite this to use a constructor methods instead of the setValues routine.)</p>
-<p>&quot;Defender&quot; should be a subclass of &quot;Footballer&quot;, inheriting all of its parent class's attributes and adding its own:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Defender</span><span class="o">:</span> <span class="k">public</span> <span class="n">Footballer</span>
-<span class="p">{</span>
-        <span class="k">protected</span><span class="o">:</span>
-                <span class="kt">int</span> <span class="n">clean_sheets</span><span class="p">,</span> <span class="n">goals_conceded</span><span class="p">;</span>
-
-        <span class="k">public</span><span class="o">:</span>
-                <span class="kt">void</span> <span class="n">setValues</span> <span class="p">(</span><span class="n">string</span> <span class="n">nm</span><span class="p">,</span> <span class="n">string</span> <span class="n">cb</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gms</span><span class="p">,</span> <span class="kt">int</span> <span class="n">gls</span><span class="p">,</span> <span class="kt">int</span> <span class="n">asts</span><span class="p">,</span> <span class="kt">int</span> <span class="n">clnshts</span><span class="p">,</span> <span class="kt">int</span> <span class="n">glscon</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">nm</span><span class="p">;</span> <span class="n">club</span> <span class="o">=</span> <span class="n">cb</span><span class="p">;</span> <span class="n">games</span> <span class="o">=</span> <span class="n">gms</span><span class="p">;</span> <span class="n">goals_scored</span> <span class="o">=</span> <span class="n">gls</span><span class="p">;</span> <span class="n">assists</span> <span class="o">=</span> <span class="n">asts</span><span class="p">;</span>
-    <span class="n">clean_sheets</span> <span class="o">=</span> <span class="n">clnshts</span><span class="p">;</span> <span class="n">goals_conceded</span> <span class="o">=</span> <span class="n">glscon</span><span class="p">;}</span>
-                <span class="kt">int</span> <span class="n">getCleanSheets</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">clean_sheets</span><span class="p">;}</span>
-        <span class="kt">int</span> <span class="n">getGoalsConceded</span><span class="p">()</span> <span class="p">{</span><span class="k">return</span> <span class="n">goals_conceded</span><span class="p">;}</span>
-<span class="p">};</span>
-</pre></div>
-<ul class="simple">
-<li>Exercise: create a &quot;Goalkeeper&quot; subclass, inheriting the &quot;Footballer&quot; class with additional integer variables for clean sheets, goals conceded and saves.</li>
-</ul>
-<p>Now we can easily create players, input and view their statistics:</p>
-<div class="highlight"><pre>    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">Footballer</span> <span class="n">PeterCrouch</span> <span class="p">;</span> <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Peter Crouch&quot;</span><span class="p">,</span> <span class="s">&quot;Stoke City&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">Defender</span> <span class="n">GarethMcAuley</span> <span class="p">;</span> <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Gareth McAuley&quot;</span><span class="p">,</span> <span class="s">&quot;West Bromwich Albion&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">Crouch_Goals</span> <span class="o">=</span> <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">getGoalsScored</span><span class="p">()</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Crouch_Goals</span>
-    <span class="n">McAuley_CleanSheets</span> <span class="o">=</span> <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">getCleanSheets</span><span class="p">()</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">McAuley_CleanSheets</span>
-<span class="p">}</span>
-</pre></div>
-<p>Try this for your Goalkeeper class as well.</p>
-</div>
-<div class="section" id="tutorial-2-virtual-functions-and-operator-overloading">
-<h2>Tutorial 2: Virtual functions and operator overloading</h2>
-<p>In the previous section, we use the same function name &quot;setValues&quot; for both the &quot;Footballer&quot; and &quot;Defender&quot; classes. This is OK provided we only call these methods directly from our &quot;main&quot; function. If we instead try to call the &quot;setValues&quot; function from inside another function, problems can arise. Consider a function which takes an already-existing player's games, goals and assists and updates them:</p>
-<div class="highlight"><pre><span class="kt">int</span> <span class="nf">update</span><span class="p">(</span><span class="n">Footballer</span> <span class="n">Player</span><span class="p">,</span> <span class="kt">int</span> <span class="n">games_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">goals_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">assists_new</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">def</span><span class="p">){</span>
-    <span class="n">Name</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="p">;</span>
-    <span class="n">Club</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getClub</span><span class="p">()</span> <span class="p">;</span>
-    <span class="n">Games</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getGames</span><span class="p">()</span> <span class="p">;</span>
-    <span class="n">Goals</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getGoalsScored</span><span class="p">()</span> <span class="p">;</span>
-    <span class="n">Assists</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getAssists</span><span class="p">()</span> <span class="p">;</span>
-    <span class="n">GamesNew</span> <span class="o">=</span> <span class="n">Games</span> <span class="o">+</span> <span class="n">games_new</span> <span class="p">;</span>
-    <span class="n">GoalsNew</span> <span class="o">=</span> <span class="n">Goals</span> <span class="o">+</span> <span class="n">goals_new</span> <span class="p">;</span>
-    <span class="n">AssistsNew</span> <span class="o">=</span> <span class="n">Assists</span> <span class="o">+</span> <span class="n">assists_new</span> <span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">def</span> <span class="o">=</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">GoalsConceded</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getGoalsConceded</span><span class="p">()</span>
-        <span class="n">CleanSheets</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getCleanSheets</span><span class="p">()</span>
-        <span class="n">Player</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Club</span><span class="p">,</span> <span class="n">GamesNew</span><span class="p">,</span> <span class="n">GoalsNew</span><span class="p">,</span> <span class="n">Assists</span><span class="p">,</span> <span class="n">GoalsConceded</span><span class="p">,</span> <span class="n">CleanSheets</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="n">Player</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="n">Name</span><span class="p">,</span> <span class="n">Club</span><span class="p">,</span> <span class="n">GamesNew</span><span class="p">,</span> <span class="n">GoalsNew</span><span class="p">,</span> <span class="n">Assists</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="n">Footballer</span> <span class="n">PeterCrouch</span> <span class="p">;</span>
-    <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Peter Crouch&quot;</span><span class="p">,</span> <span class="s">&quot;Stoke City&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">Defender</span> <span class="n">GarethMcAuley</span> <span class="p">;</span>
-    <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Gareth McAuley&quot;</span><span class="p">,</span> <span class="s">&quot;West Bromwich Albion&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">update</span><span class="p">(</span><span class="n">PeterCrouch</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>
-    <span class="n">update</span><span class="p">(</span><span class="n">GarethMcAuley</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-<p>This code will run correctly for Peter Crouch, but returns an error when applied to Gareth McAuley. The reason is that when the &quot;update&quot; function calls the  If we rewrite the &quot;setValues&quot; function in the &quot;Footballer&quot; class to use the &quot;virtual&quot; keyword, the code will work correctly for both players.</p>
-<p>In the example in the slides, we overloaded the * operator to extend its functionality to include matrix multiplication. Let's see how this works in practice. First, we need to create a matrix class:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">matrix</span>
-<span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-        <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
-
-        <span class="n">matrix</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// default constructor</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="kt">void</span> <span class="n">set</span><span class="p">(){</span><span class="c1">// to set matrix elements</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Enter &quot;</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="o">&lt;&lt;</span><span class="n">j</span><span class="o">&lt;&lt;</span><span class="s">&quot; element=&quot;</span><span class="p">;</span>
-                <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
-                <span class="p">}</span>
-                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="p">}</span>
-
-        <span class="kt">void</span> <span class="n">show</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// to show matrix elements</span>
-        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Matrix is=</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot;,&quot;</span><span class="p">;</span>
-                <span class="p">}</span>
-                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="p">}</span>
-</pre></div>
-<p>Don't worry too much about how this code works - the principles are more important the specifics. Now we need to include our new matrix multiplication operator (still inside the public methods of the class):</p>
-<div class="highlight"><pre>        <span class="n">matrix</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">matrix</span> <span class="n">x</span><span class="p">)</span><span class="c1">// overloading * for multiplication</span>
-        <span class="p">{</span>
-        <span class="n">matrix</span> <span class="n">c</span><span class="p">;</span><span class="c1">// this will hold our result</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="p">{</span>
-                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
-                <span class="p">{</span>
-                <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
-                <span class="p">{</span>
-                        <span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">c</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
-                <span class="p">}</span>
-                <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
-
-        <span class="p">}</span>
-<span class="p">};</span>
-</pre></div>
-<p>Now we can see how the operator works. Try generating two matrices (note that you will have to enter each entry of the matrix separately), and multiply them together:</p>
-<div class="highlight"><pre>    <span class="n">matrix</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
-<span class="n">a</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
-<span class="n">b</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
-
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-<span class="n">a</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
-<span class="n">b</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
-<span class="n">c</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
-</pre></div>
-</div>
-<div class="section" id="additional-resources">
-<h2>Additional resources</h2>
-<ul class="simple">
-<li><a class="reference external" href="http://www.tutorialspoint.com/cplusplus/">A useful tutorial</a> on the use of C++.</li>
-</ul>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>These exercises are designed for ...</p>
+                <a class="readmore" href="./cpp.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -222,7 +131,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-05-11T14:00:00+02:00">
-                Published: Mon 11 May 2015
+                Published: 月 11 5月 2015
         </abbr>
 
         <address class="vcard author">
@@ -248,7 +157,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-05-07T16:00:00+02:00">
-                Published: Thu 07 May 2015
+                Published: 木 07 5月 2015
         </abbr>
 
         <address class="vcard author">
@@ -276,7 +185,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-04-30T16:00:00+02:00">
-                Published: Thu 30 April 2015
+                Published: 木 30 4月 2015
         </abbr>
 
         <address class="vcard author">
@@ -302,7 +211,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-04-23T00:00:00+02:00">
-                Published: Thu 23 April 2015
+                Published: 木 23 4月 2015
         </abbr>
 
         <address class="vcard author">
@@ -341,7 +250,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-03-17T00:00:00+01:00">
-                Published: Tue 17 March 2015
+                Published: 火 17 3月 2015
         </abbr>
 
         <address class="vcard author">
@@ -366,7 +275,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-03-12T16:00:00+01:00">
-                Published: Thu 12 March 2015
+                Published: 木 12 3月 2015
         </abbr>
 
         <address class="vcard author">
@@ -392,7 +301,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-26T00:00:00+01:00">
-                Published: Thu 26 February 2015
+                Published: 木 26 2月 2015
         </abbr>
 
         <address class="vcard author">
@@ -432,7 +341,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-14T00:00:00+01:00">
-                Published: Sat 14 February 2015
+                Published: 土 14 2月 2015
         </abbr>
 
         <address class="vcard author">
@@ -460,7 +369,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-12T00:00:00+01:00">
-                Published: Thu 12 February 2015
+                Published: 木 12 2月 2015
         </abbr>
 
         <address class="vcard author">
@@ -482,7 +391,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-12T00:00:00+01:00">
-                Published: Thu 12 February 2015
+                Published: 木 12 2月 2015
         </abbr>
 
         <address class="vcard author">
@@ -511,7 +420,7 @@
                 <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-05T00:00:00+01:00">
-                Published: Thu 05 February 2015
+                Published: 木 05 2月 2015
         </abbr>
 
         <address class="vcard author">
