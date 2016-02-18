@@ -4,8 +4,6 @@ authors: Denis Kramer
 tags: Infrastructure, Productivity, Outreach
 slug: pelican-basics
 
-<iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=21f77ef2-8d99-4a69-91a7-3113505914d7&v=1" width="450" height="300" frameborder="0"></iframe>
-
 ![Pelican logo]({filename}/pelican-basics/images/pelican-logo.png)
 
 [Pelican](http://docs.getpelican.com) is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.
@@ -40,12 +38,11 @@ You can also take the clean lubuntu image as a starting point and install the ne
 
 The tools blog is hosted on [bitbucket.org](http://www.bitbucket.org)  
 
-*Hint*: If you have a bitbucket account, you can also forge the repository and send a pull request to have your changes merged back into the hosting repository. That might make it easier for you as a group to work on your material as you can use the benefits of distributed version control.
-
 For now, we will simply clone the repository to create a local copy to host your changes. This command will clone the repository into a "blogs" folder in the current directory.
 	
-	hg clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs
+	git clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs
 
+*Hint*: You should forge the repository to work on your own blogs. You will need a bitbucket account to forge the repository and send a pull request to have your changes merged back into the hosting repository. That might make it easier for you as a group to work on your material as you can use the benefits of distributed version control and provides a simple way for us to merge your additions back into the main repository.
 
 # Structure of the repository
 
