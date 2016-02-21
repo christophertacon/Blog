@@ -1,6 +1,6 @@
 Title: Continuous Integration for Scientists
-Date: 2016-02-15 16:00
-Modified: 2016-02-15 16:00
+Date: 2016-02-21 16:00
+Modified: 2016-02-21 16:00
 Category: Programming
 Tags: Python, GitHub, Git, Testing
 Slug: continuous-integration
