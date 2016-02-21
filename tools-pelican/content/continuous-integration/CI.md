@@ -65,7 +65,7 @@ Now, we clearly haven't written the function Fibonacci yet, but we'll show how t
 
 Go to [CircleCI](http://www.circle.com), and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository *continuousintegration*, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."
 
-![No tests!]({attach}image/no_tests.png)
+![No tests!]({filename}/continuous-integration/image/no_tests.png)
 
 The next step is therefore to set the build environment up so that the virtual machine will run tests when we then push a commit. 
 
@@ -110,9 +110,9 @@ git push
 Then we can go back to the CicleCI website and wait for the tests to run. The test runs and fails as the function we are testing doesn't exist (yet).
 
 
-![Tests failed!]({attach}image/failed.png)
+![Tests failed!]({filename}/continuous-integration/image/failed.png)
 
-![No module Fibonacci!]({attach}image/no_module_fibonacci.png)
+![No module Fibonacci!]({filename}/continuous-integration/image/no_module_fibonacci.png)
 
 
 ## Add the CircleCI status badge to your GitHub repository (very handy!)
@@ -133,7 +133,7 @@ git push
 
 Now, when you go to your GitHub repository you should see a red badge saying "Failed":
 
-![No tests!]({attach}image/badge_failed.png | width=100)
+![No tests!]({filename}/continuous-integration/image/badge_failed.png | width=100)
 
 We will turn it to green in the next step!
 
@@ -166,15 +166,15 @@ git push
 
 and get our first green light message!
 
-![No tests!]({attach}image/passed.png)
+![No tests!]({filename}/continuous-integration/image/passed.png)
 
 We can check that indeed, our test has passed successfully:
 
-![No tests!]({attach}image/test_passed.png)
+![No tests!]({filename}/continuous-integration/image/test_passed.png)
 
 and we have a green badge in our GitHub account:
 
-![No tests!]({attach}image/badge_passed.png)
+![No tests!]({filename}/continuous-integration/image/badge_passed.png)
 
 ## Add more tests
 
@@ -249,16 +249,16 @@ In order to do this, you must first set up SSH access with your GitHub account. 
 
 Now, navigate to the CircleCI page for your repository. In the latest build, you can see a *Rebuild* menu - click the arrow to expand the list, and select *Rebuid with SSH*. 
 
-![No tests!]({attach}image/ssh-menu.png)
+![No tests!]({filename}/continuous-integration/image/ssh-menu.png)
 
 The build will then start, and you can then see a list of Containers, and the associated commands needed to login. For our simple case, we should see only something like the following, with a single Container:
 
 
-![No tests!]({attach}image/ssh-address.png)
+![No tests!]({filename}/continuous-integration/image/ssh-address.png)
 
 If you then copy the highlighted text, and execute it in a terminal, you can log into the box and do whatever you like. As a warning - if you are disconnected, it may mean that you are using too much memory in the remote box.
 
-![No tests!]({attach}image/ssh.png)
+![No tests!]({filename}/continuous-integration/image/ssh.png)
 
 # Where to from here?
 
