@@ -10,7 +10,7 @@
 Introduction to version control (using Mercurial)
 =================================================
 
- .. image:: {attach}mercurial-logo.jpeg
+ .. image:: {filename}/mercurial-basics/mercurial-logo.jpeg
     :alt: Mercurial logo
     :width: 20%
 
@@ -31,7 +31,7 @@ Prerequisits for this session
   If this is not working, you need to install Mercurial: see Installation_
 
 * If you want to explore the example repository used in this session, you can download it from
-  `project1.tar.gz <{attach}project1.tar.gz>`__. To unpack the archive, you can use ``tar xfvz project1.tar.gz``.
+  `project1.tar.gz <{filename}/mercurial-basics/project1.tar.gz>`__. To unpack the archive, you can use ``tar xfvz project1.tar.gz``.
 
   However, the recommended exercise is to follow the examples in the notes below and create your own repository as you work through the material.
 
@@ -84,13 +84,13 @@ Why version control - Single user
 
   or
 
-  .. image:: {attach}versioning-grant-proposals-fake.png
+  .. image:: {filename}/mercurial-basics/versioning-grant-proposals-fake.png
     :alt: Invented names of different versions of one document.  Version control provides a better solution.
     :width: 90%
 
   or
 
-  .. image:: {attach}versioning-code-fake.png
+  .. image:: {filename}/mercurial-basics/versioning-code-fake.png
     :alt: Invented names for fortran code versions. Version control provides a better solution.
     :width: 50%
 
@@ -431,7 +431,7 @@ Other ways of reading the history (and GUIs)
 
     $project1> hg view
 
-  .. image:: {attach}hgview.png
+  .. image:: {filename}/mercurial-basics/hgview.png
     :alt: Snapshot of hg view.
     :width: 80%
 
@@ -441,7 +441,7 @@ Other ways of reading the history (and GUIs)
 
   and point webbrowser to http://localhost:8000
 
-  .. image:: {attach}hgserve.png
+  .. image:: {filename}/mercurial-basics/hgserve.png
     :alt: Snapshot of hg view.
     :width: 80%
 
@@ -472,13 +472,13 @@ Other ways of reading the history (and GUIs)
 
 * Use graphical user interfaces (such as Sourcetree)
 
-  .. image:: {attach}sourcetree.png
+  .. image:: {filename}/mercurial-basics/sourcetree.png
     :alt: Snapshot of Sourcetree.
     :width: 80%
 
 * Use service such as bitbucket or github
 
-  .. image:: {attach}bitbucket.png
+  .. image:: {filename}/mercurial-basics/bitbucket.png
     :alt: Snapshot of Sourcetree.
     :width: 80%
 
@@ -1037,7 +1037,7 @@ Summary
 Download repository created in this archive
 -------------------------------------------
 
-The created archive from the exercises as in the videos is available here as `master.tar <{attach}master.tar>`__. Use ``tar xfv master.tar`` to untar it into a directory with name ``master``.
+The created archive from the exercises as in the videos is available here as `master.tar <{filename}/mercurial-basics/master.tar>`__. Use ``tar xfv master.tar`` to untar it into a directory with name ``master``.
 
 
 
