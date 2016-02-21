@@ -7,7 +7,7 @@ Slug: continuous-integration
 Authors: Ryan Pepper, Alvaro Perez-Diaz
 Summary: A post about Continuous Integration in GitHub
 
-This blog entry accompanies a workshop deliverd on 22/02/2016 as part of Advanced Computational Methods II. It can also be used as standalone exercise.
+This blog entry accompanies a workshop delivered on 22/02/2016 as part of Advanced Computational Methods II. It can also be used as standalone exercise.
 
 # Continuous Integration - What is the point?
 
