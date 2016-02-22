@@ -63,7 +63,7 @@ git push
 
 Now, we clearly haven't written the function Fibonacci yet, but we'll show how to set up CircleCI so that you *know* you haven't written the function yet.
 
-Go to [CircleCI](http://www.circle.com), and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository *continuousintegration*, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."
+Go to [CircleCI](http://www.circleci.com), and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository *continuousintegration*, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."
 
 ![No tests!]({filename}/continuous-integration/image/no_tests.png)
 
