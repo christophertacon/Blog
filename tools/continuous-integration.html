@@ -86,7 +86,7 @@ git push
 
 
 <p>Now, we clearly haven't written the function Fibonacci yet, but we'll show how to set up CircleCI so that you <em>know</em> you haven't written the function yet.</p>
-<p>Go to <a href="http://www.circle.com">CircleCI</a>, and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository <em>continuousintegration</em>, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."</p>
+<p>Go to <a href="http://www.circleci.com">CircleCI</a>, and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository <em>continuousintegration</em>, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."</p>
 <p><img alt="No tests!" src="./continuous-integration/image/no_tests.png" /></p>
 <p>The next step is therefore to set the build environment up so that the virtual machine will run tests when we then push a commit. </p>
 <h2>CircleCI Configuration</h2>
