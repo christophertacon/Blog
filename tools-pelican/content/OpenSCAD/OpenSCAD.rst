@@ -14,7 +14,16 @@ Introducing Constructive Solid Geometry with OpenSCAD
 	:alt: OpenSCAD Logo.
 	:align: center
 
+Instructions for using the Virtual Machine
+==========================================
 
+A link to download the Virtual Machine with OpenSCAD installed is provided `here <http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003Debian_OpenSCAD.ova>`__.
+
+The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user **csg** with the password **csg**. There is no display manager installed, so you will need to start the X window environment using the **startx** command. You find OpenSCAD in the **Applications** menu under **Graphics**.
+
+(Normally you will not need this, but if you want to modify this virtual machine, the *root* account has the password *feeg6003*. If you don't know what you are doing or if you wish so for your own peace of mind, you might consider running *apt-get\ install\ sudo* and then leaving the *root* account forever.)
+
+An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided `here <{filename}/OpenSCAD/ExerciseSheet.pdf>`__ and should be completable after finishing reading this blog. It may require some reading of the OpenSCAD `documentation <http://www.openscad.org/documentation.html>`__ however.
 
 What is Constructive Solid Geometry?
 ====================================
@@ -460,6 +469,8 @@ For More see the Documentation
 ------------------------------
 
 Using these 3 primative shapes, along with the 2 geometric transformations and the 3 operations is enough to create some quite complex shapes already but the toolkit supplied by the OpenSCAD software contains much more useful functionality, see the `documentation <http://www.openscad.org/documentation.html>`__ for the complete functionality of openSCAD.
+
+An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided `here <{filename}/OpenSCAD/ExerciseSheet.pdf>`__
 
 Some Practical Applications of OpenSCAD
 =======================================
