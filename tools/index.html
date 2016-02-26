@@ -41,6 +41,13 @@
 <div class="figure align-center">
 <img alt="OpenSCAD Logo." src="./OpenSCAD/images/OpenSCAD-logo.png" style="width: 20%;" />
 </div>
+<div class="section" id="instructions-for-using-the-virtual-machine">
+<h2>Instructions for using the Virtual Machine</h2>
+<p>A link to download the Virtual Machine with OpenSCAD installed is provided <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003Debian_OpenSCAD.ova">here</a>.</p>
+<p>The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user <strong>csg</strong> with the password <strong>csg</strong>. There is no display manager installed, so you will need to start the X window environment using the <strong>startx</strong> command. You find OpenSCAD in the <strong>Applications</strong> menu under <strong>Graphics</strong>.</p>
+<p>(Normally you will not need this, but if you want to modify this virtual machine, the <em>root</em> account has the password <em>feeg6003</em>. If you don't know what you are doing or if you wish so for your own peace of mind, you might consider running <em>apt-getinstallsudo</em> and then leaving the <em>root</em> account forever.)</p>
+<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a> and should be completable after finishing reading this blog. It may require some reading of the OpenSCAD <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> however.</p>
+</div>
 <div class="section" id="what-is-constructive-solid-geometry">
 <h2>What is Constructive Solid Geometry?</h2>
 <p>Constructive Solid Geometry (<strong>CSG</strong>) is a technique used to model solid objects. It is where you build a more complex shape out of more simple shapes called primitives.</p>
@@ -297,6 +304,7 @@ cylinder(r=5, h=20);</blockquote>
 <div class="section" id="for-more-see-the-documentation">
 <h3>For More see the Documentation</h3>
 <p>Using these 3 primative shapes, along with the 2 geometric transformations and the 3 operations is enough to create some quite complex shapes already but the toolkit supplied by the OpenSCAD software contains much more useful functionality, see the <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> for the complete functionality of openSCAD.</p>
+<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a></p>
 </div>
 </div>
 <div class="section" id="some-practical-applications-of-openscad">
