@@ -25,7 +25,384 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./CSG.html">Introducing Constructive Solid Geometry with OpenSCAD</a></h1>
+                    <h1 class="entry-title"><a href="./Pint.html">Computing with Units in Python <strong>Pint</strong></a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-02-29T16:00:00+01:00">
+                Published: Mon 29 February 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-hossam-ragheb.html">Hossam Ragheb</a>
+                        <a class="url fn" href="./author-emanuele-zappia.html">Emanuele Zappia</a>
+        </address>
+<p>In <a href="./category-computing-with-units.html">Computing with units</a>. </p>
+<p>tags: <a href="./tag-computing-with-units.html">Computing with units</a> <a href="./tag-python.html">Python</a> <a href="./tag-pint.html">Pint</a> </p>
+</footer><!-- /.post-info --><hr class="docutils" />
+<div class="figure align-center">
+<img alt="**Pint** Logo" src="./computing-with-units/fig/logo-full.jpg" style="width: 30%;" />
+</div>
+<div class="section" id="how-to-use-the-virtual-machine">
+<h2>How to use the Virtual Machine?</h2>
+<p>To download the Virtual machine please click <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_Prog_w_Units.ova">here</a></p>
+<p>The virtual machine has a light lubuntu distribution, the user name and password are 'feeg6003'.</p>
+<p>Once you are logged in press ctrl + alt + t which will open a terminal, we modified the terminal to automatically start a jupyter notebook right away for users who are not familiar with linux environment. if you want at any point to use the command line press ctrl + c to get  back to the normal temrinal.</p>
+<p>After allowing the Jupyter notebook to load, please click on the Desktop folder, where you will find 2 notebooks:</p>
+<dl class="docutils">
+<dt>1- LiveCoding.ipynb</dt>
+<dd>This notebook contains the live coding commands used in presentation for your reference. feel free to use these commands in the excercise.</dd>
+<dt>2- computing_with_units_exercises.ipynb</dt>
+<dd>This notebook contains 4 exercises which covers <strong>Pint</strong> basic commands and Buckingham theorem.</dd>
+</dl>
+</div>
+<hr class="docutils" />
+<div class="section" id="why-to-compute-with-units">
+<h2>Why to compute with units?</h2>
+<p>International joint projects and scientific researches became a fact. In reality countries uses different standards and units such as metric, empirical,..etc. The interface between international companies is a critical part of the project, which needs to be handled with extra care otherwise international collaboration would be a source of risk to the project, finances and even lives.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a> disaster in 1999 is a well known example of interface failure. <a class="reference external" href="https://en.wikipedia.org/wiki/NASA">NASA</a> / <a class="reference external" href="https://en.wikipedia.org/wiki/Lockheed_Martin">Lockheed</a> lost the mars climate orbiter because part of the project staff used <a class="reference external" href="https://en.wikipedia.org/wiki/United_States_customary_units">United States customary units</a> and the other metric units. 125 million dollars was lost and the reason was that computer codes didn't account for different UNITS interface.</p>
+<div class="figure align-center">
+<img alt="Mars Orbiter artist impression." src="./computing-with-units/fig/orbiter.png" style="width: 30%;" />
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="physical-quantities-in-computational-environment">
+<h2>Physical quantities in computational environment</h2>
+<p>A physical quantity is essentially a set composed by magnitude and units, such a quantity posses dimensionality as well ex. <span class="formula"><i>Force</i> = 24.0[<i>mass</i>*<i>length</i> ⁄ <i>time</i><sup>2</sup>]</span>.</p>
+<p>various packages are available to define, operate and convert physical quantities such as <strong>Pint</strong>, Physics, Units, numerical units.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="introducing-pint">
+<h2>Introducing <strong>Pint</strong></h2>
+<p><strong>Pint</strong> is a BSD licensed package for Python to define physical quantities and allow arithmetic operations between them. It allows conversion between units and even mixing them in the same equation while doing the internal conversion for you, Moreover supports various physical units, constants,numpy operations and runs on Python 2.6+ and 3.2+. It also allows you to define your own units simply in a txt file.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="how-pint-works">
+<h2>How <strong>Pint</strong> works?</h2>
+<p>Python uses Container model approach (employed by <strong>Pint</strong> and other libraries):</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Quantity</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__</span> <span class="n">init</span> <span class="n">__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">magnitdue</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
+</pre></div>
+<p>Packages such as numerical units uses different approaches, however we are not going to discuss these packages further.</p>
+<p><strong>Pint</strong> creates a Quantity object for each physical quantity defined by two main arguments: Magnitude, Unit.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="how-to-install-and-import-pint">
+<h2>How to install and import <strong>Pint</strong>?</h2>
+<p>to install:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pint</span>
+</pre></div>
+<p>or you can use:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">easy_install</span> <span class="n">pint</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="basic-pint-commands">
+<h2>Basic <strong>Pint</strong> Commands</h2>
+<div class="section" id="import-pint">
+<h3>1. Import <strong>Pint</strong></h3>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
+</pre></div>
+</div>
+<div class="section" id="initialise-pint-by-creating-instance-of-unitregistry">
+<h3>2. initialise <strong>Pint</strong> by creating instance of UnitRegistry</h3>
+<div class="highlight"><pre><span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
+</pre></div>
+<p>now you are ready to start using <strong>Pint</strong>.</p>
+</div>
+<div class="section" id="example-cube-material-density">
+<h3>3. Example: Cube material density</h3>
+<p>We will calculate the density of a cube, define the side of the cube in meters, this is done by multiplying the magnitude by the ureg.meter.</p>
+<div class="highlight"><pre><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">meter</span>
+</pre></div>
+<p>now <strong>Pint</strong> defined a Quantity object with the name 'L' and assigned a magnitude and unit of 1.0 and meter respectively.</p>
+<p>we can easily check that this is the case by printing the variable:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="mf">1.0</span> <span class="n">meter</span>
+</pre></div>
+<p>now we continue working normally with the variable L to define the cube volume, lets assume that the cube material is steel.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="n">V_st</span> <span class="o">=</span> <span class="n">L</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+<p>Cubing the Length 'L' also affects it's unit, we expect the V_st to have a unit of cubic meter.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">V_St</span><span class="p">)</span>
+<span class="mf">1.0</span> <span class="n">meter</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+<p>as we expected the units reflected the operation done on the variable 'L'</p>
+<p>now we take this further and define a new variable M_st for the mass of the steel cube then we calculate the density 'ro_st' of the steel cube by dividing the mass 'M_st' by the volume 'V_st':</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="n">M_st</span> <span class="o">=</span> <span class="mi">7785</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">kilogram</span>
+<span class="n">ro_st</span> <span class="o">=</span> <span class="n">M_st</span><span class="o">/</span><span class="n">V_st</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ro_st</span><span class="p">)</span>
+
+<span class="mf">7785.0</span> <span class="n">kilogram</span> <span class="o">/</span> <span class="n">meter</span> <span class="o">**</span> <span class="mi">3</span>
+</pre></div>
+<p>the density has the correct units as we expected.</p>
+<p><strong>Pint</strong> allows operations on different unit systems in the same equation. internal conversion takes place and set the default system to the first variable in the equation. we will investiage this further and evolve the previous example to demonstrate this concept.</p>
+<p>Stack of Cubes:</p>
+<p>imagine two cubes stacked on top of each other the first is made of steel with density of 7785 kg/m3 and the second is made of aluminium with density of 22.53 lb/gal. both cubes size are 1.0 m3, calculate the force under the cubes due to gravity.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="o">*</span> <span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="o">/</span><span class="n">ureg</span><span class="o">.</span><span class="n">second</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ro_al</span> <span class="o">=</span> <span class="mf">22.53</span> <span class="o">*</span> <span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">lb</span><span class="o">/</span><span class="n">ureg</span><span class="o">.</span><span class="n">gallon</span><span class="p">)</span>
+<span class="n">V_st</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">V_al</span> <span class="o">=</span> <span class="n">V_st</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">M_st</span> <span class="o">=</span> <span class="n">ro_st</span> <span class="o">*</span> <span class="n">V_st</span>
+<span class="n">M_al</span> <span class="o">=</span> <span class="n">ro_al</span> <span class="o">*</span> <span class="n">V_al</span>
+</pre></div>
+<p>we mixed units in our calculations and we are going to demonstrate that <strong>Pint</strong> handle mixed units very well.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">M_al</span>
+<span class="mf">22.53</span> <span class="n">meter3</span> <span class="n">pound</span><span class="o">/</span><span class="n">gallon</span>
+</pre></div>
+<p>here we multiplied a volume of 1 m3 with a density pound/gallon. it's clear that <strong>Pint</strong> keeps track of this fact.</p>
+<p>we calculate the total force due to the two stacked cubes as follows:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">Ftotal</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_St</span><span class="o">+</span><span class="n">M_al</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span>
+<span class="n">Ftotal</span>
+<span class="mf">102854.80308708138</span> <span class="n">kilogram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second2</span>
+</pre></div>
+<p>it's now clear that <strong>Pint</strong> does the internal conversion and produce the correct units even if we have mixed units in the equation.</p>
+</div>
+<div class="section" id="concept-of-physical-quantity">
+<h3>3.1 Concept of Physical Quantity</h3>
+<p>We have discussed earlier the concept of physical quantity, <strong>Pint</strong> can store three methods for each Quantity object, magnitude, units and dimensionality and we can call them simply as follows:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">magnitude</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">dimensionality</span><span class="p">)</span>
+
+<span class="mf">1.0</span>
+<span class="n">meter</span>
+<span class="p">[</span><span class="n">length</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="conversion">
+<h3>3.2 Conversion</h3>
+<p>If we don't want to convert the unit permenantely we can use method '.to' however for permenant conversion we use '.ito' instead.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
+<span class="mf">102854.80308708138</span> <span class="n">newton</span>
+</pre></div>
+<p><strong>Pint</strong> has 'newton' units which is exactly the same as kilogram meter/second2, but we will use it here to show the concept of conversion in general. it's clear that the conversion done successfuly but this is not permenant and we can prove this by printing the 'Ftotal' variable.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
+<span class="mf">102854.80308708138</span> <span class="n">kilogram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second2</span>
+</pre></div>
+<p>it's unchanged as expected, however if we want to permenantely convert the unit we use:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
+<span class="mf">102854.80308708138</span> <span class="n">newton</span>
+</pre></div>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
+<span class="mf">102854.80308708138</span> <span class="n">newton</span>
+</pre></div>
+<p>now the variable 'Ftotal' is permenantely converted.</p>
+<p><strong>Pint</strong> also identifies invalid conversions and produce dimensionality error message, so if we try to convert the 'Ftotal' to meter we should expect and error to handle this invalid conversion:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
+</pre></div>
+<p>we get the following error.</p>
+<div class="figure align-center">
+<img alt="Dimensionality error" src="./computing-with-units/fig/error.png" style="width: 90%;" />
+</div>
+<p><strong>Pint</strong> also has base units which is SI system and can be called as follows:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">())</span>
+
+<span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="o">*</span> <span class="n">meter</span> <span class="o">/</span> <span class="n">second</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito_base_units</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
+
+<span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="o">*</span> <span class="n">meter</span> <span class="o">/</span> <span class="n">second</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<div class="section" id="string-parsing">
+<h3>4. String parsing</h3>
+<p>So far we assigned units to quantities by using object constructor but What if we have a .txt or .csv file with data and want to import these data with it's units?</p>
+<p>Assume we have a text file with magnitudes and units of some physical qunatities, and somehowe we managed to import these to python. we can assign these units to the magnitudes and use them in the program.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">Unit</span> <span class="o">=</span> <span class="s1">&#39;inch&#39;</span>
+</pre></div>
+<p>we have three ways of defining the units using the data imported:</p>
+<ol class="loweralpha simple">
+<li>Using Parse expression:</li>
+</ol>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">parse_expression</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
+<span class="mf">3.0</span> <span class="n">inch</span>
+</pre></div>
+<ol class="loweralpha simple" start="2">
+<li>Calling Registry (shortform):</li>
+</ol>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
+<span class="mf">3.0</span> <span class="n">inch</span>
+</pre></div>
+<ol class="loweralpha simple" start="3">
+<li>Using Quantity constructor:</li>
+</ol>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span><span class="n">Q</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
+<span class="n">Q</span><span class="p">(</span><span class="n">Mag</span><span class="p">,</span><span class="n">Unit</span><span class="p">)</span>
+<span class="mf">3.0</span> <span class="n">inch</span>
+</pre></div>
+<p>Remember that this is how <strong>Pint</strong> stores the physical qunatities, as can we see below <strong>Pint</strong> build the units using Quantity constructor. If we call the representation of the 'Ftotal' variable it will show us that it's stored as Quantity:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="nb">repr</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
+<span class="s2">&quot;&lt;Quantity(102854803.08708139, &#39;gram * meter / second ** 2&#39;)&gt;&quot;</span>
+</pre></div>
+<p>Websites such as google is using similar method to convert units if typed in the search bar. assume that we built a searchh engine and imported the text typed in the search bar we can return the converted units using a very simple 2 lines code which is fast to execute.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span><span class="n">Typedtext</span> <span class="o">=</span> <span class="s1">&#39;3.0 * meter to inch&#39;</span>
+<span class="n">conv</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="n">Typedtext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;to&#39;</span><span class="p">)</span>
+<span class="n">Q</span><span class="p">(</span><span class="n">conv</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">)</span>
+
+<span class="mf">118.11023622047242</span> <span class="n">inch</span>
+</pre></div>
+</div>
+<div class="section" id="formatting">
+<h3>5. Formatting</h3>
+<p><strong>Pint</strong> allows to present the units in many useful formats such as LateX, short abbreviated and HTML.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the latex formatting is {:L}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;appreviated formating is {:~}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;the HTML formatting is {:H}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+
+<span class="n">the</span> <span class="n">latex</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> \<span class="n">frac</span><span class="p">{</span><span class="n">gram</span> \<span class="n">cdot</span> <span class="n">meter</span><span class="p">}{</span><span class="n">second</span><span class="o">^</span><span class="p">{</span><span class="mi">2</span><span class="p">}}</span>
+<span class="n">appreviated</span> <span class="n">formating</span> <span class="ow">is</span> <span class="mf">102854.80308708138</span> <span class="n">N</span>
+<span class="n">the</span> <span class="n">HTML</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="o">&lt;</span><span class="n">sup</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">sup</span><span class="o">&gt;</span>
+</pre></div>
+<p>we can also set a specific format as the default formating:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">ureg</span><span class="o">.</span><span class="n">default_format</span><span class="o">=</span><span class="s1">&#39;P&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;the defualt formatting is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<span class="n">the</span> <span class="n">defualt</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span><span class="err">·</span><span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="err">²</span>
+</pre></div>
+</div>
+<div class="section" id="advanced-skills">
+<h3>6. Advanced Skills</h3>
+<ol class="arabic simple">
+<li>Define based on other Units</li>
+</ol>
+<p>Create a file .txt
+add your units interm of other units:
+example:</p>
+<div class="highlight"><pre><span class="n">hour</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">minute</span> <span class="o">=</span> <span class="n">h</span> <span class="o">=</span> <span class="n">hr</span>
+</pre></div>
+<p>the form of the definition is:</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Definition</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
+</pre></div>
+<ol class="arabic simple" start="2">
+<li>Define  a Reference Unit</li>
+</ol>
+<p>if the unit is a reference unit, we like to define the nature of this unit such as:</p>
+<div class="highlight"><pre><span class="n">second</span> <span class="o">=</span> <span class="p">[</span><span class="n">time</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sec</span>
+</pre></div>
+<p>the form of this definition is :</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dimensionality</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
+</pre></div>
+<p>The Reference Units or defining units interms of other units can be done in two ways:</p>
+<ol class="loweralpha simple">
+<li>txt file:</li>
+</ol>
+<p>create a file lets say has a name 'mydef.txt' in the same folder of your code and add the previous definitions in the file.it can be imported and used in <strong>Pint</strong> as follows:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">ureg2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">(</span><span class="s1">&#39;mydef.txt&#39;</span><span class="p">)</span>
+</pre></div>
+<p>and we can check the dimensionality of the defined unit 'second' which we assigned [time] to it as it's dimension.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">ureg2</span><span class="o">.</span><span class="n">second</span><span class="o">.</span><span class="n">dimensionality</span>
+<span class="sb">`&lt;UnitsContainer({&#39;[time]&#39;: 1.0})&gt;`</span>
+</pre></div>
+<ol class="loweralpha simple" start="2">
+<li>Programmatically</li>
+</ol>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">]:</span> <span class="kn">from</span> <span class="o">**</span><span class="n">Pint</span><span class="o">**</span> <span class="kn">import</span> <span class="nn">UnitRegistry</span>
+<span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
+<span class="n">Q2</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
+<span class="n">ureg</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="s1">&#39;ACM_time = 90 * minute = ACMtime&#39;</span><span class="p">)</span>
+<span class="n">your_Age</span> <span class="o">=</span> <span class="n">Q2</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">your_Age</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;ACMtime&#39;</span><span class="p">))</span>
+
+<span class="mf">175316.25541500002</span> <span class="n">ACM_time</span>
+</pre></div>
+<p>here we defined a new time unit ACM_time which is defined as 90 minutes and we gave it an alias ACMtime. we can see that the conversion was done as we expected.</p>
+</div>
+<div class="section" id="unit-registry">
+<h3>7. Unit Registry</h3>
+<p>One needs to be careful when using <strong>Pint</strong> with multiple modules. a unique registry needs to be created and it's not allowed to operate between multiple registries at the same time. this concept is demonstrated here:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="n">q1</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">meter</span>
+<span class="n">q2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">meter</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">q1</span><span class="o">.</span><span class="n">_REGISTRY</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">id</span><span class="p">(</span><span class="n">q2</span><span class="o">.</span><span class="n">_REGISTRY</span><span class="p">)</span>
+
+<span class="bp">False</span>
+</pre></div>
+<p>Avoid creating multiple instances of UnitRegistry if you plan to use <strong>Pint</strong> in multiple packages.in such a case the following steps needs to be done:</p>
+<ol class="arabic simple">
+<li>add the following to <em>__ init __.py</em></li>
+</ol>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
+<span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
+<span class="n">Q_</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
+</pre></div>
+<ol class="arabic simple" start="2">
+<li>then in your module add the <strong>Pint</strong> UnitRegistry as following:</li>
+</ol>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">ureg</span><span class="p">,</span> <span class="n">Q_</span>
+</pre></div>
+<ol class="arabic simple" start="3">
+<li>and then construct the qunatities as following:</li>
+</ol>
+<div class="highlight"><pre><span class="n">side</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;meter&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="bukingham-pi-theorem">
+<h2>Bukingham <span class="formula"><i>π</i></span> theorem</h2>
+<p>The Buckingham <span class="formula"><i>π</i></span> theorem states that if you are dealing with an equation associated to a physical system involving:</p>
+<ul class="simple">
+<li><span class="formula"><i>n</i></span> numbers of physical variables (as Velocity, Acceleration, Force, ...)</li>
+<li><span class="formula"><i>k</i></span> numbers of independent fundamental quantities (as [time], [length], ...)</li>
+</ul>
+<p>Then you can express the equation in terms of:
+<span class="formula"><i>p</i> = <i>n</i> − <i>k</i></span></p>
+<p>First, import <strong>pi_theorem</strong> from <strong>Pint</strong>.</p>
+<p>Consider a system like a pipe in which is flowing water, this system is characterzied by:</p>
+<ul class="simple">
+<li><span class="formula"><i>p</i></span> (pressure), <span class="formula"><i>L</i></span> (length), <span class="formula"><i>D</i></span> (length), <span class="formula"><i>ρ</i></span> (density), <span class="formula"><i>μ</i></span> (viscosity) and <span class="formula"><i>v</i></span> (velocity) as physical quantities. Then <span class="formula"><i>n</i> = 6</span>.</li>
+<li>[time], [mass], [length] as independent fundamental quantities (all qunatities could be expressed as one or more of these quantities). Then <span class="formula"><i>k</i> = 3</span>.</li>
+</ul>
+<p>So, as <span class="formula"><i>p</i> = 6 − 3 = 3</span> we can express our equation with one dimensionless number <span class="formula">Π.</span></p>
+<p><span class="formula"><i>p</i></span> dimensionless numbers.</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">Pi</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">pi_theorem</span><span class="p">({</span>  <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="s1">&#39;[mass]/[volume]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="s1">&#39;[viscosity]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;[speed]&#39;</span><span class="p">})</span>
+</pre></div>
+<p>If you look at the second number generated by the <cite>ureg.pi_theorem</cite> command:</p>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="n">Pi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="p">{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
+</pre></div>
+<p>This quantity is:</p>
+<p><span class="formula">Π<sub>1</sub> = <i>Re</i> = <span class="fraction"><span class="ignored">(</span><span class="numerator"><i>v</i><i>μ</i><i>L</i></span><span class="ignored">)/(</span><span class="denominator"><i>μ</i></span><span class="ignored">)</span></span> = <span class="fraction"><span class="ignored">(</span><span class="numerator"><span class="text">inertial forces</span></span><span class="ignored">)/(</span><span class="denominator"><span class="text">viscous forces</span></span><span class="ignored">)</span></span></span></p>
+<p>The Reynolds number:</p>
+<ul class="simple">
+<li>Used to state if a fluid dynamic system is &quot;dynamically&quot; similar to another one.</li>
+<li>Employed to predict the flow regime of a given system (for example for a flow in a Pipe there is laminar flow for <span class="formula"><i>Re</i> &lt; 2000</span> , transitory flow for <span class="formula"><i>Re</i> = 2100 − 4000</span> and fully developed turbolent flow for <span class="formula"><i>Re</i> &gt; 4000</span>.</li>
+<li>It can also be exploited to calculate characteristic quantities of the system.</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="exercises">
+<h2>Exercises:</h2>
+<p>The exercises notebook is avilable on the VM desktop with the name <strong>computing_with_units_exercises.ipynb</strong> or can be downloaded from the link below.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="links">
+<h2>Links</h2>
+<ol class="arabic simple">
+<li><strong>Pint</strong> website <a class="reference external" href="https://pint.readthedocs.org/en/0.6/">here</a></li>
+<li>To download the LiveCoding session notebook click <a class="reference external" href="./computing-with-units/LiveCoding.ipynb">here</a>. The definition file 'mydef' is <a class="reference external" href="./computing-with-units/mydef.txt">here</a></li>
+<li>To download the Exercise notebook click <a class="reference external" href="./computing-with-units/computing_with_units_exercises.ipynb">here</a>. and the txt file used in the exercise is <a class="reference external" href="./computing-with-units/data.txt">here</a></li>
+<li>To download the Exercises solutions click <a class="reference external" href="./computing-with-units/solutions.pdf">here</a>. <strong>Please try to solve the exercise yourself first</strong>.</li>
+<li>The presentation slides are <a class="reference external" href="./computing-with-units/Computing_with_units.ppt">here</a></li>
+</ol>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./CSG.html" rel="bookmark"
+                           title="Permalink to Introducing Constructive Solid Geometry with OpenSCAD">Introducing Constructive Solid Geometry with OpenSCAD</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-02-25T16:00:00+01:00">
                 Published: Thu 25 February 2016
@@ -37,330 +414,17 @@
         </address>
 <p>In <a href="./category-constructive-solid-geometry.html">Constructive Solid Geometry</a>. </p>
 <p>tags: <a href="./tag-csg.html">CSG</a> <a href="./tag-constructive-solid-geometry.html">Constructive Solid Geometry</a> <a href="./tag-cad.html">CAD</a> <a href="./tag-openscad.html">OpenSCAD</a> <a href="./tag-graphics.html">graphics</a> </p>
-</footer><!-- /.post-info --><hr class="docutils" />
+</footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
 <img alt="OpenSCAD Logo." src="./OpenSCAD/images/OpenSCAD-logo.png" style="width: 20%;" />
 </div>
 <div class="section" id="instructions-for-using-the-virtual-machine">
 <h2>Instructions for using the Virtual Machine</h2>
 <p>A link to download the Virtual Machine with OpenSCAD installed is provided <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003Debian_OpenSCAD.ova">here</a>.</p>
-<p>The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user <strong>csg</strong> with the password <strong>csg</strong>. There is no display manager installed, so you will need to start the X window environment using the <strong>startx</strong> command. You find OpenSCAD in the <strong>Applications</strong> menu under <strong>Graphics</strong>.</p>
-<p>(Normally you will not need this, but if you want to modify this virtual machine, the <em>root</em> account has the password <em>feeg6003</em>. If you don't know what you are doing or if you wish so for your own peace of mind, you might consider running <em>apt-getinstallsudo</em> and then leaving the <em>root</em> account forever.)</p>
-<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a> and should be completable after finishing reading this blog. It may require some reading of the OpenSCAD <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> however.</p>
-</div>
-<div class="section" id="what-is-constructive-solid-geometry">
-<h2>What is Constructive Solid Geometry?</h2>
-<p>Constructive Solid Geometry (<strong>CSG</strong>) is a technique used to model solid objects. It is where you build a more complex shape out of more simple shapes called primitives.</p>
-<p>You can then use the operations: Union, difference, intersection and geometric transformations (translation and rotation) to build more complex objects/shapes.</p>
-<div class="figure align-center">
-<img alt="Shows the product of the construction, difference and intersection operators." src="./OpenSCAD/images/OpenSCAD_demo.png" style="width: 100%;" />
-<p class="caption">Demonstration of the basic operations in OpenSCAD, the first is the result of a union of the cube and a sphere, the second is the result of a difference between a cube and a sphere, the third is the result of an intersection between a cube and a sphere.</p>
-</div>
-</div>
-<div class="section" id="what-is-openscad-and-why-should-i-use-it">
-<h2>What is OpenSCAD and why should I use it?</h2>
-<p>OpenSCAD is a free software tool for creating solid 3D CAD models. The CAD models are produced using a script which is coded in a language similar to C and is compiled to render a 3D model from this script file. This means that the models are easily reproduced, distributed, and altered.</p>
-<p>The 3d model can then be exported in a number of ways. It can be exported in such a way as to create a mesh for a CFD simulation or can be exported such that the design can be 3d printed. An example of the former can be seen below in form of 3D printed speaker vessels.</p>
-<div class="figure align-center">
-<img alt="Shows a laptop running OpenSCAD with the design for the speaker housing that looks like the Deathstar from the Star Wars franchise with 2 of such speakers either side of the user's laptop." src="./OpenSCAD/images/nomoon_desk.png" style="width: 100%;" />
-<p class="caption">An example OpenSCAD design with the 3D printed results. Some 3D printed Deathstar speaker housings created with OpenSCAD. Source: <a class="reference external" href="http://www.3ders.org/articles/20150108-3d-model-generator-creates-custom-star-wars-death-star-3d-printed-speaker-cases.html">http://www.3ders.org/articles/20150108-3d-model-generator-creates-custom-star-wars-death-star-3d-printed-speaker-cases.html</a></p>
-</div>
-<p>So, why shoud you use OpenSCAD as opposed to regular CAD software?</p>
-<dl class="docutils">
-<dt>The Pros of OpenSCAD are:</dt>
-<dd><ul class="first last simple">
-<li>precise placement of object (as all objects have explicit numbered coordinates and sizes)</li>
-<li>easily modifiable design, e.g. when you want to make a wall thicker or a hole larger, and the whole design adapts to the new numbers automatically.</li>
-<li>a text-readable design, and easily recyclable components or behaviors</li>
-</ul>
-</dd>
-</dl>
-<p>However if you are attempting to create an organic looking object where the precise sizes and dimensions don't matter OpenSCAD may not be the right tool for the job. Creating complex curving organic shapes using simple primative shapes can take quite a long time and would probably be easier in typical CAD software.</p>
-</div>
-<div class="section" id="openscad-as-a-functional-programming-language">
-<h2>OpenSCAD as a functional programming language</h2>
-<p>The concept of OpenSCAD is based on a <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">functional programming language</a>. One of the most apparent differences to imperative programming languages like C is the fact that variables are assigned at <strong>compile time</strong>, not at run time. In this sense they are somewhat similar to constants in other languages.</p>
-<p>While iterative formulations are not supported in any way, recursive functions can be defined. Since version 2015.3 OpenSCAD also includes list comprehension, which allows for very elegant formulations of a given problem.</p>
-<div class="section" id="variables-and-data-types">
-<h3>Variables and data types</h3>
-<p>The most important <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#Values_and_Data_Types">data types</a> are</p>
-<ul class="simple">
-<li>Numbers: <em>a = 2.3</em></li>
-<li>Boolean: <em>true</em>, <em>false</em></li>
-<li>Strings: <em>s = &quot;hello world&quot;</em></li>
-<li>Ranges: <em>r = [0:2.5:20]</em></li>
-<li>Vectors: <em>vec = [1, 2, &quot;somestring&quot;, [3.5, 7]]</em></li>
-</ul>
-<p>As the vector example already suggests, matrices can be easily defined as vectors of vectors. The range is a very important data type, as iterative programming is not feasible.</p>
-<p>New OpenSCAD users have to get used to the idea that expressions like <em>x = x + 1</em> are not allowed. They will also have to understand that, even if a variable can be assigned at various positions of the code, every variable call will use only the last assigned value.</p>
-<p>The following lines of code</p>
-<ul class="simple">
-<li><em>a = 1;</em></li>
-<li><em>echo(a);</em></li>
-<li><em>a = 2;</em></li>
-<li><em>echo(a);</em></li>
-</ul>
-<p>will consequently produce this output:</p>
-<ul class="simple">
-<li><em>ECHO: 2</em></li>
-<li><em>ECHO: 2</em></li>
-</ul>
-<p>In addition to the normal data types, there are also <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#Special_variables">special variables</a> used to control the rendering of objects. Some of the most important examples are</p>
-<ul class="simple">
-<li><em>$fn</em>, <em>$fs</em>, <em>$fa</em>: these variables control the number of facets</li>
-<li><em>$t</em>: time, which is needed for animations</li>
-</ul>
-</div>
-<div class="section" id="conditional-and-iterator-functions">
-<h3>Conditional and Iterator Functions</h3>
-<p>OpenSCAD uses concepts very similar to other programming languages, most notably <em>for</em> loops and <em>if</em> statements.</p>
-<p>Compared to imperative languages, <em>for</em> loops are different in the sense that the loop does not go through the increments of a variable, but through the elements of a <strong>range</strong> or a <strong>vector</strong>. This is why range is an important data type.</p>
-<p>The beauty of this can be seen when going through a vector of vectors, to name but one application.</p>
-<p>A nice demonstration of the power of <em>for</em> loops in OpenSCAD is the way a matrix can be flattened into a vector. Let's assume we are working with the matrix</p>
-<p><em>mat = [[1, 2], [3, 4]];</em></p>
-<p>Then the expression <em>for (i=mat) for (j=i)</em> goes through the vectors <em>[1, 2]</em> and <em>[3, 4]</em> first and then through the elements <em>1</em>, <em>2</em>, <em>3</em> and <em>4</em>.</p>
-<p>With the integration of list comprehension in version 2015.3, this idea can be brought to the next level:</p>
-<p><em>flattenedvector = [for (i=mat) for (j=i) j];</em></p>
-<p>If statements work very similar to other languages. It can also be very useful to use the conditional <em>?</em>, which uses a structure similar to the following expression:</p>
-<p><em>a =   test ? TrueValue : FalseValue ;</em></p>
-<p>So here the variable <em>a</em> is assigned depending on the boolean value <em>test</em>.</p>
-</div>
-<div class="section" id="operators-and-mathematical-functions">
-<h3>Operators and Mathematical Functions</h3>
-<p>Operators in OpenSCAD are similar to C/C++, although increments and decrements are not supported due to the non-iterative nature of OpenSCAD.</p>
-<p>Mathematical operators can easily be applied to vectors and matrices. There is also a cross product function <em>cross</em> as well as a broad range of mathematical functions which mostly operate on scalars.</p>
-<p>Vectors of uniformly distributed random numbers can be produced using the <em>rands</em> function.</p>
-</div>
-<div class="section" id="functions-modules-and-libraries">
-<h3>Functions, Modules and Libraries</h3>
-<p>Larger programs can be written making use of functions, modules and libraries.</p>
-<p><strong>Functions</strong> are definitions which return a value, for instance <em>function func0(x = 3) = 2 ∗ x + 1;</em>. They can be defined recursively, as in <em>function sumv(v,i,s = 0) = (i == s ? v[i] : v[i]+sumv(v,i −1,s));</em>.</p>
-<p><strong>Modules</strong> perform actions, but do not return values. They can be used to reuse combinations of objects, as in <em>module myshape(r, d) {union(){sphere(r); cube(d); }}</em>.</p>
-<p><strong>Library</strong> files can be <strong>executed</strong> (i.e. all the commands in the file will be performed) using the structure <em>include &lt; filename.scad &gt;</em>. If only the modules and functions of the library shall be <strong>imported</strong>, the command to use is <em>use &lt; filename.scad &gt;</em>.</p>
-</div>
-<div class="section" id="documentation">
-<h3>Documentation</h3>
-<p>The OpenSCAD website provides an extensive and easy to understand <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a>. To get a quick overview, a <a class="reference external" href="http://www.openscad.org/cheatsheet/index.html">cheat sheet</a> is provided, which includes direct links to the documentation for the most important commands.</p>
-</div>
-</div>
-<div class="section" id="getting-started-with-openscad">
-<h2>Getting Started with OpenSCAD</h2>
-<p><a class="reference external" href="http://www.openscad.org/cheatsheet/">Click here to open the OpenSCAD CheatSheet.</a> This is a good reference to have when getting started with OpenSCAD as it shows you all the commands and links directly to the OpenSCAD documentation.</p>
-<div class="section" id="some-basic-shapes">
-<h3>Some Basic Shapes</h3>
-<p>The first primative shape we will look at is the cube.</p>
-<p>To define a simple cube with sides of length 10mm in OpenSCAD you simply write the following:</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cube" src="./OpenSCAD/images/cube10.png" style="width: 50%;" />
-<p>You could also write the following to get the same result:</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
-</pre></div>
-<p>To create a cuboid with sides of different lengths you could type the following (Dimensions are defined in x, y and z format):</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]);</span>
-</pre></div>
-<img alt="Shows a cuboid" src="./OpenSCAD/images/cube102030.png" style="width: 50%;" />
-<p>These cubes are rendered with thier corner on the origin if you wish to have them centred on the origin simply use set argument center to true like so:</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cented cuboid" src="./OpenSCAD/images/cube102030C.png" style="width: 50%;" />
-<p>The next primative shape we will look at is the sphere. A sphere is automatically centered on the origin by default.</p>
-<p>To create a sphere with radius 10mm you can do the following:</p>
-<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a sphere" src="./OpenSCAD/images/sphere10.png" style="width: 50%;" />
-<p>You can also use arugments to specify the sizes of shapes, for example you can create a sphere by setting the radius using the argument r or a diameter by specifying the arugment d. The following codes creates the same sphere as above.</p>
-<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
-
-<span class="n">sphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-</pre></div>
-<p>It is often a good idea to use the arguments to specify the measurements of shapes since it is more obvious what measurement you are specifying, e.g. diameter or radius.</p>
-<p>The last primative shape we will look at is the cylinder. By default A cylinder has it's axis centered about the z axis but has it's base at z=0.</p>
-<p>You can define a cylinder with height 20mm and radius 10mm like so:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cylinder" src="./OpenSCAD/images/cylinder1020.png" style="width: 50%;" />
-<p>You can also create cones using this cylinder shape by specifying the arguments r1 and r2, see below:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cone" src="./OpenSCAD/images/cone.png" style="width: 50%;" />
-</div>
-<div class="section" id="making-smooth-objects">
-<h3>Making Smooth Objects</h3>
-<p>You can specify the number of facets on a shape to smooth out shapes or to make different shapes.</p>
-<p>For example a cylinder with 3 faces produces a triangular prism, see below. The number of facets on a shape is specified with the argument $fn.</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fn</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a traingular prism" src="./OpenSCAD/images/triprism.png" style="width: 50%;" />
-<p>By using 4 faces you get a cuboid, 5 and you get a pentagonal prism and so on.</p>
-<p>By using a very large number you get a shape which is closer to a real cylinder, however you should not attempt to use this to increase the resolution/smoothness of your object instead you should use the paramters/arguments defining the &quot;minimum angle&quot;, $fa, and the &quot;minimum size&quot;, $fs. These set the minumum angular size for a face and the minumum size of a side of that face. These can be set as a default value for the entire script or can be specified as an argument for a particular shape. See below for how to do this:</p>
-<p>You can set default values for $fa and $fs like so:
-.. code-block:: c</p>
-<blockquote>
-$fs = 0.5;
-$fa = 0.5;
-cylinder(r=5, h=20);</blockquote>
-<p>Or you can set them as a argument like this:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="err">$</span><span class="n">fa</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
-</pre></div>
-<p>These will produce the following shape</p>
-<img alt="Shows a cylinder" src="./OpenSCAD/images/Cylinder.png" style="width: 50%;" />
-<p>It is a good idea to set a particular default for your design based on what your object recuires, e.g. if you are 3D printing the object there will be a minimum size that the 3D printer can print. If you are using the object in a simulation you may need a certain resolution/smoothness of the shape to get a realistic output from your simulation. If you are not sure what is required setting values for both as 0.5, as shown above, provides a reasonable level of smoothness without slowing down the rendering of the object too much. A smoother shape with more sides will take significantly longer to render and manipulate.</p>
-</div>
-<div class="section" id="geometric-transformations">
-<h3>Geometric Transformations</h3>
-<p>The first geometric transformation we will cover is translation.</p>
-<p>Translations of objects are done by preceding the object definition with the command translation followed by a vector, see the example of a cube translated 10mm in the x axis below:</p>
-<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cube translated spaitally in the x axis" src="./OpenSCAD/images/transcube.png" style="width: 50%;" />
-<p>By setting the object to be centred and translating the object by a vector [x, y, z] the object can easily be centred around a generic vector postion [x, y ,z], see the example below of a cylinder centred on [x, y, z]:</p>
-<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>You can also define the vector seperately and translate by that vector like so:</p>
-<div class="highlight"><pre><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">];</span>
-<span class="n">translate</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>The next geometric transformation we will cover is rotation. Rotations are performed about the x, y and z axis.</p>
-<p>For example to rotate a cylinder thetaX about the x axis you perform the following operation:</p>
-<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="n">thetaX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>It is recommended to perform rotation about 1 axis at a time so that the operation is easy to understand. This is because after 1 rotation the next rotation performed depends upon the first. See the example below:</p>
-<p>This first code performs 2 rotations at once, one about the x axis, one about the y axis.</p>
-<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>This produces the following rendered object:</p>
-<img alt="Shows a cylinder rotated such that it's axis is parallel to the y axis." src="./OpenSCAD/images/doublerotation.png" style="width: 50%;" />
-<p>By performing the 2 rotations seperately a completely different rotation is observed. This is typically easier to visualise.</p>
-<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>This produces the following rendered object:</p>
-<img alt="Shows a cylinder rotated such that it's axis is parallel to the x axis." src="./OpenSCAD/images/2rotations.png" style="width: 50%;" />
-</div>
-<div class="section" id="operations">
-<h3>Operations</h3>
-<p>There are 3 primary operations in OpenSCAD, union, difference and intersection.</p>
-<p>Union is what OpenSCAD does by default if you construct multiple objects, it 'adds' the objects such that they build up a more complex object. 3 example of unions of 2 objects are shown below:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-</pre></div>
-<div class="highlight"><pre><span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<div class="highlight"><pre><span class="k">union</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>All 3 of these render the following object:</p>
-<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/union.png" style="width: 50%;" />
-<p>Difference is the next operation that you can use in OpenSCAD, this takes the subsequent objects away from the first object. See the example below with the same component parts.</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>This will render the following object:</p>
-<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/difference.png" style="width: 50%;" />
-<p>Finally there is intersection which renders the volume in which all the objects stated inside the intersection block intersect with each other. See the intersection example below with the same component parts as the previous 2 operations.</p>
-<div class="highlight"><pre><span class="n">intersection</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>This will render the following object:</p>
-<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/intersection.png" style="width: 50%;" />
-</div>
-<div class="section" id="a-common-gotcha-with-openscad-zero-thickness-surfaces">
-<h3>A common gotcha with OpenSCAD - Zero Thickness Surfaces</h3>
-<p>A common problem experienced when using OpenSCAD to design an object for simulation or fabrication is zero thickness surfaces, literally surfaces defined in the design which have a thinkness of zero and so are completely unphysical. This typically happens when using the difference operation to make a hole in an object. If you define a cylinder to make a hole in an object and the edge of that cylinder lies in the edge of the object you are differencing it from you will render a surface with 0 thickness, this can be seen in the example below when attemping to make a tube:</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<img alt="Shows a tube with a thin surface over the top hole." src="./OpenSCAD/images/0thickness.png" style="width: 50%;" />
-<p>You can see there appears to be a thin surface over the top of the tube. To solve this you may try to make the inner cylinder longer, which is partially the correct solution, see below:</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>The top of the tube now looks fine:</p>
-<img alt="Shows a tube with no thin surface over the top hole but a thin surface over the bottom hole." src="./OpenSCAD/images/0thicknesstop.png" style="width: 50%;" />
-<p>However the bottom still has this thin surface over it, since the bottoms of the tubes line up, by translating the tube slightly we can fix this and get a tube. See below:</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<img alt="Shows a tube." src="./OpenSCAD/images/tube.png" style="width: 50%;" />
-</div>
-<div class="section" id="for-more-see-the-documentation">
-<h3>For More see the Documentation</h3>
-<p>Using these 3 primative shapes, along with the 2 geometric transformations and the 3 operations is enough to create some quite complex shapes already but the toolkit supplied by the OpenSCAD software contains much more useful functionality, see the <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> for the complete functionality of openSCAD.</p>
-<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a></p>
-</div>
-</div>
-<div class="section" id="some-practical-applications-of-openscad">
-<h2>Some Practical Applications of OpenSCAD</h2>
-<div class="section" id="magnetic-simulation-with-openscad-and-femm">
-<h3>Magnetic Simulation with OpenSCAD and FEMM</h3>
-<p>An example of how to combine OpenSCAD and the simulation tool <a class="reference external" href="http://www.femm.info">FEMM</a> (Finite Element Method Magnetics) is described on the blog <a class="reference external" href="https://shanjaq.wordpress.com/2013/03/25/procedural-magnetic-simulation-with-openscad-and-femm-part-1/">The Test Chamber</a>.</p>
-<p>Starting with drawing a circle of squares and then subtracting them from a circle, a slot armature with coils is developed. The geometry is then exported in <em>DXF</em> format in order to perform a magnetic simulation.</p>
-<p>The code which is fully described on the blog also shows an efficient way of using OpenSCAD modules to create more complex geometries.</p>
-</div>
-<div class="section" id="direct-pore-scale-simulation-of-multiphase-flow">
-<h3>Direct pore-scale simulation of multiphase flow</h3>
-<p>A project presented at the <a class="reference external" href="https://workspace.imperial.ac.uk/earthscienceandengineering/Public/external/Research/PERM/Ali_NewUpload/Ali_Raeini_Pore-scaleMeeting2015.pdf">Imperial College Consortium on Pore Scale Modelling</a> (January 2015) shows how OpenSCAD can be used for Computational Fluid Dynamics with the free CFD software <a class="reference external" href="http://openfoam.org/">OpenFOAM</a>.</p>
-<p>In this case the geometry is created with OpenSCAD and then exported in the STL format. This format can be directly imported by the <em>snappyHexMesh</em> mesh generator provided by OpenFOAM. Here the mesh generator was used to generate a finite volume mesh. After setting up boundary and initial conditions, a 3D direct numerical simulation with OpenFOAM was performed.</p>
-</div>
-</div>
-<div class="section" id="libraries-for-openscad">
-<h2>Libraries for OpenSCAD</h2>
-<p>One of the huge advantages of OpenSCAD is the fact that many <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Libraries">libraries</a> are available, some of them with very specific definitions, which allow for professional results.</p>
-<p>The central project supported by OpenSCAD is the <a class="reference external" href="https://github.com/openscad/MCAD">MCAD</a> library. It offers a large variety of modules and functions like</p>
-<ul class="simple">
-<li>Common shapes: rounded boxes, polygons, polyeders etc.</li>
-<li>Gear generator</li>
-<li>Nuts, bolts, bearings, screws</li>
-<li>Material definitions for common materials</li>
-<li>Mathematical constants and curves</li>
-</ul>
-<p><a class="reference external" href="http://www.bolts-library.org">BOLTS</a> (BOLTS is an Open Library of Technical Specifications) is an open-source standard parts library that provides definitions of standard parts. Some examples are</p>
-<ul class="simple">
-<li>C-Beam profiles</li>
-<li>Bearings</li>
-<li>Nuts</li>
-<li>Batteries</li>
-<li>Washers</li>
-<li>Pipes</li>
-</ul>
-<p>Definitions of the most important standardisation bodies like ISO, EN, ANSI, DIN, IEC etc. are supported.</p>
-<p>For code development itself there are also helpful libraries available. A good example is <a class="reference external" href="https://github.com/oampo/testcard">Test Card</a>, which provides functions for unit testing. Some typical test include</p>
-<ul class="simple">
-<li>Equality / Non-equality</li>
-<li>Truthiness / Falseness</li>
-<li>Presence / Absence</li>
-</ul>
-</div>
-<div class="section" id="advanced-usage-of-openscad">
-<h2>Advanced Usage of OpenSCAD</h2>
-<p>Instead of using the graphical user interface, external text editors can be used to create <em>.scad</em> files. For various of the most common text editors like <a class="reference external" href="https://github.com/openscad/openscad/blob/master/contrib/scad-mode.el">emacs</a>, <a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=3556">vim</a> or <a class="reference external" href="https://atom.io/packages/language-openscad">atom</a>, extensions with OpenSCAD features are available.</p>
-<p>OpenSCAD files can also easily be called from the <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment">command line</a>, thus allowing for many options specifying input and output. As variables can be assigned from the command line using the <em>-D var=val</em> option, which can be used repeatedly, automisation within a shell script is easy to achieve, which is a very attractive feature in combination with other software.</p>
-<p>If specific files are required within a more complex process, a make file can be provided for creating the missing files (like <em>STL</em> files for example).</p>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user <strong>csg</strong> with the password <strong>csg</strong>. There is no display manager installed, so you ...</p></div>
+                <a class="readmore" href="./CSG.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
