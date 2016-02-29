@@ -504,7 +504,7 @@ The Reynolds number:
 Exercises:
 ==========
 
-The exercises notebook is avilable on the VM desktop with the name **computing_with_units_exercises.ipynb** or can be downloaded from the link below.
+The exercises notebook is available on the VM desktop with the name **computing_with_units_exercises.ipynb** or can be downloaded from the link below.
 
 ------------------------------------------
 
@@ -520,3 +520,12 @@ Links
 4. To download the Exercises solutions click `here <{filename}/computing-with-units/solutions.pdf>`__. **Please try to solve the exercise yourself first**.
 
 5. The presentation slides are `here <{filename}/computing-with-units/Computing_with_units.ppt>`__
+
+------------------------------------------
+
+Note
+====
+
+1. LiveCoding session and Exercises provided as Jupyter notebook files '.ipynb', to download jupyter notebook please follow the instructions available  `here <http://jupyter.org>`__
+
+2. When you download the notebooks, be aware that in order to access properly to the notebooks you have to delete the final extension ".txt" from these files.
