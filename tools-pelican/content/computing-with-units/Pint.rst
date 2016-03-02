@@ -17,27 +17,29 @@ Computing with Units in Python **Pint**
 How to use the Virtual Machine?
 ===============================
 
-To download the Virtual machine please click `here <http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_Prog_w_Units.ova>`__
+To download the virtual machine please click `here <http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_Prog_w_Units.ova>`__
 
-The virtual machine has a light lubuntu distribution, the user name and password are 'feeg6003'.
+The virtual machine has a light lubuntu distribution installed, the user name and password are 'feeg6003'.
 
-Once you are logged in press ctrl + alt + t which will open a terminal, we modified the terminal to automatically start a jupyter notebook right away for users who are not familiar with linux environment. if you want at any point to use the command line press ctrl + c to get  back to the normal temrinal.
+Once you are logged in press ctrl + alt + t which will open a new terminal, we modified the terminal to start a jupyter notebook right away for users who are not familiar with linux environment. If you want at any point to use the command line press ctrl + c to get  back to the normal temrinal.
 
-After allowing the Jupyter notebook to load, please click on the Desktop folder, where you will find 2 notebooks:
+After allowing the Jupyter notebook to load, please click on the desktop folder, where you will find two notebooks:
 
-1- LiveCoding.ipynb
-   This notebook contains the live coding commands used in presentation for your reference. feel free to use these commands in the excercise.
+1- LiveCoding.ipynb:
+
+   This notebook contains the live coding commands used in presentation for your reference. Feel free to use these commands in the excercise.
 
 
-2- computing_with_units_exercises.ipynb
-   This notebook contains 4 exercises which covers **Pint** basic commands and Buckingham theorem.
+2- computing_with_units_exercises.ipynb:
+
+   This notebook contains four exercises which cover **Pint** basic commands and Buckingham theorem.
 
 ------------------------------------------
 
 Why to compute with units?
 ==========================
 
-International joint projects and scientific researches became a fact. In reality countries uses different standards and units such as metric, empirical,..etc. The interface between international companies is a critical part of the project, which needs to be handled with extra care otherwise international collaboration would be a source of risk to the project, finances and even lives.
+International collaboration in research is essential, however In reality countries uses different standards and units such as metric, empirical,..etc. The interface between international companies is a critical part of the project, which needs to be handled with extra care otherwise international collaboration would be a source of risk to the project, finances and even lives.
 
 `Mars Climate Orbiter`_ disaster in 1999 is a well known example of interface failure. `NASA`_ / `Lockheed`_ lost the mars climate orbiter because part of the project staff used `United States customary units`_ and the other metric units. 125 million dollars was lost and the reason was that computer codes didn't account for different UNITS interface.
 
@@ -68,7 +70,7 @@ various packages are available to define, operate and convert physical quantitie
 Introducing **Pint**
 =====================
 
-**Pint** is a BSD licensed package for Python to define physical quantities and allow arithmetic operations between them. It allows conversion between units and even mixing them in the same equation while doing the internal conversion for you, Moreover supports various physical units, constants,numpy operations and runs on Python 2.6+ and 3.2+. It also allows you to define your own units simply in a txt file.
+**Pint** is a BSD licensed package for Python to define physical quantities, and allow arithmetic operations between them. It allows conversion between units and even mixing them in the same equation while doing the internal conversion for you, Moreover supports various physical units, constants,numpy operations and runs on Python 2.6+ and 3.2+. It also allows you to define your own units simply in a txt file.
 
 ------------------------------------------
 
@@ -125,22 +127,22 @@ now you are ready to start using **Pint**.
 3. Example: Cube material density
 ---------------------------------
 
-We will calculate the density of a cube, define the side of the cube in meters, this is done by multiplying the magnitude by the ureg.meter.
+We will calculate the density of a cube, first define the side of the cube in meters, this is done by multiplying the magnitude by the ureg.meter.
 
 .. code-block:: python
 
 	L = 1.0 * ureg.meter
 
-now **Pint** defined a Quantity object with the name 'L' and assigned a magnitude and unit of 1.0 and meter respectively.
+Now **Pint** defined a 'Quantity' object with the name 'L' and assigned a magnitude and unit of 1.0 and meter respectively.
 
-we can easily check that this is the case by printing the variable:
+We can easily check that this is the case by printing the variable:
 
 .. code-block:: python
 
 	In[1]:print(L)
 	1.0 meter
 
-now we continue working normally with the variable L to define the cube volume, lets assume that the cube material is steel.
+Define the cube volume, lets assume that the cube material is steel.
 
 .. code-block:: python
 
@@ -153,9 +155,9 @@ Cubing the Length 'L' also affects it's unit, we expect the V_st to have a unit 
 	In[3]:print(V_St)
 	1.0 meter**3
 
-as we expected the units reflected the operation done on the variable 'L'
+As expected the units reflected the operation done on the variable 'L'.
 
-now we take this further and define a new variable M_st for the mass of the steel cube then we calculate the density 'ro_st' of the steel cube by dividing the mass 'M_st' by the volume 'V_st':
+Now we take this further and define a new variable M_st for the mass of the steel cube then we calculate the density 'ro_st' of the steel cube by dividing the mass 'M_st' by the volume 'V_st':
 
 .. code-block:: python
 
@@ -165,13 +167,13 @@ now we take this further and define a new variable M_st for the mass of the stee
 
 	7785.0 kilogram / meter ** 3
 
-the density has the correct units as we expected.
+The density has the correct units as we expected.
 
 **Pint** allows operations on different unit systems in the same equation. internal conversion takes place and set the default system to the first variable in the equation. we will investiage this further and evolve the previous example to demonstrate this concept.
 
 Stack of Cubes:
 
-imagine two cubes stacked on top of each other the first is made of steel with density of 7785 kg/m3 and the second is made of aluminium with density of 22.53 lb/gal. both cubes size are 1.0 m3, calculate the force under the cubes due to gravity.
+Two cubes stacked on top of each other the first is made of steel with density of 7785 kg/m3 and the second is made of aluminium with density of 22.53 lb/gal. both cubes size are 1.0 m3, calculate the force under the cubes due to gravity.
 
 .. code-block:: python
 
@@ -182,16 +184,16 @@ imagine two cubes stacked on top of each other the first is made of steel with d
 	M_st = ro_st * V_st
 	M_al = ro_al * V_al
 
-we mixed units in our calculations and we are going to demonstrate that **Pint** handle mixed units very well.
+We mixed units in our calculations and we are going to demonstrate that **Pint** handle mixed units very well.
 
 .. code-block:: python
 
 	In[6]: M_al
 	22.53 meter3 pound/gallon
 
-here we multiplied a volume of 1 m3 with a density pound/gallon. it's clear that **Pint** keeps track of this fact.
+We multiplied a volume of 1 m3 with a density pound/gallon. it's clear that **Pint** keeps track of this fact.
 
-we calculate the total force due to the two stacked cubes as follows:
+Calculate the total force due to the two stacked cubes as follows:
 
 .. code-block:: python
 
@@ -199,7 +201,7 @@ we calculate the total force due to the two stacked cubes as follows:
 	Ftotal
 	102854.80308708138 kilogram meter/second2
 
-it's now clear that **Pint** does the internal conversion and produce the correct units even if we have mixed units in the equation.
+It's now clear that **Pint** does the internal conversion and produce the correct units even if we have mixed units in the equation.
 
 3.1 Concept of Physical Quantity
 --------------------------------
@@ -231,7 +233,7 @@ If we don't want to convert the unit permenantely we can use method '.to' howeve
 	In[10]: print(Ftotal)
 	102854.80308708138 kilogram meter/second2
 
-it's unchanged as expected, however if we want to permenantely convert the unit we use:
+It's unchanged as expected, however if we want to permenantely convert the unit we use:
 
 .. code-block:: python
 
@@ -243,7 +245,7 @@ it's unchanged as expected, however if we want to permenantely convert the unit 
 	In[12]: print(Ftotal)
 	102854.80308708138 newton
 
-now the variable 'Ftotal' is permenantely converted.
+The variable 'Ftotal' is permenantely converted.
 
 **Pint** also identifies invalid conversions and produce dimensionality error message, so if we try to convert the 'Ftotal' to meter we should expect and error to handle this invalid conversion:
 
@@ -251,14 +253,14 @@ now the variable 'Ftotal' is permenantely converted.
 
 	In[13]: Ftotal.ito(ureg.meter)
 
-we get the following error.
+**Pint** produces the following error.
 
 .. figure:: {filename}/computing-with-units/fig/error.png
         :width: 90%
         :alt: Dimensionality error
         :align: center
 
-**Pint** also has base units which is SI system and can be called as follows:
+**Pint** base units is metric system and can be called as follows:
 
 .. code-block:: python
 
@@ -285,7 +287,7 @@ Assume we have a text file with magnitudes and units of some physical qunatities
 	In[16]: Mag = 3.0
 	Unit = 'inch'
 
-we have three ways of defining the units using the data imported:
+Three ways of defining the units using the data imported:
 
 a. Using Parse expression:
 
@@ -341,7 +343,7 @@ Websites such as google is using similar method to convert units if typed in the
 	appreviated formating is 102854.80308708138 N
 	the HTML formatting is 102854803.08708139 gram meter/second<sup>2</sup>
 
-we can also set a specific format as the default formating:
+Set a specific format as the default formating:
 
 .. code-block:: python
 
@@ -370,7 +372,7 @@ the form of the definition is:
 
 2) Define  a Reference Unit
 
-if the unit is a reference unit, we like to define the nature of this unit such as:
+If the unit is a reference unit, we like to define it's parameters:
 
 .. code-block:: python
 	
@@ -386,14 +388,14 @@ The Reference Units or defining units interms of other units can be done in two 
 
 a. txt file:
 
-create a file lets say has a name 'mydef.txt' in the same folder of your code and add the previous definitions in the file.it can be imported and used in **Pint** as follows:
+Create a file lets say has a name 'mydef.txt' in the same folder of your code and add the previous definitions in the file.it can be imported and used in **Pint** as follows:
 
 .. code-block:: python
 
 	In[24]: ureg2 = UnitRegistry('mydef.txt')
 		        
 
-and we can check the dimensionality of the defined unit 'second' which we assigned [time] to it as it's dimension.
+And we can check the dimensionality of the defined unit 'second' which we assigned [time] to it as it's dimension.
 
 .. code-block:: python
 
@@ -413,7 +415,7 @@ b. Programmatically
 
 	175316.25541500002 ACM_time
 
-here we defined a new time unit ACM_time which is defined as 90 minutes and we gave it an alias ACMtime. we can see that the conversion was done as we expected.
+Here we defined a new time unit ACM_time which is defined as 90 minutes and we gave it an alias ACMtime. we can see that the conversion was done as we expected.
 
 7. Unit Registry
 ----------------
