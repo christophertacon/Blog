@@ -25,7 +25,351 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./Pint.html">Computing with Units in Python <strong>Pint</strong></a></h1>
+                    <h1 class="entry-title"><a href="./Bibtex.html">Introduction to LaTeX and BibTeX</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-03-03T00:00:00+01:00">
+                Published: Thu 03 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-gabriele-boschetto.html">Gabriele Boschetto</a>
+                        <a class="url fn" href="./author-alejandra-vergara.html">Alejandra Vergara</a>
+        </address>
+<p>In <a href="./category-bibtex.html">bibtex</a>. </p>
+<p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-bibtex.html">Bibtex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
+</footer><!-- /.post-info --><p><img alt="Latex_Bibtex" src="./bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow" /></p>
+<h1>Virtual Machine - How To</h1>
+<hr />
+<p>Install VirtualBox on your system (if you have not done so before); the link for the virtual machine is provided <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_bibtex.ova">here</a>. Log in as the user feeg6003 using the same password.</p>
+<p>In the virtual machine a basic LaTeX distribution has been installed, together with BibTeX, TeXstudio and also Mendeley. </p>
+<h1>Introduction to LaTeX</h1>
+<hr />
+<p>LaTeX (spelled <em>/ˈlatek/</em>) is a typesetting system that produces professionally scientific and mathematical documents with high typographical quality, nevertheless it is also suitable for producing all sorts of other documents, from simple letters to complete books. LaTeX uses TeX as its formatting engine.</p>
+<p>It is particularly useful for:</p>
+<ul>
+<li>Easily creating large documents keeping format and high typographical quality (thesis, PFC, etc.);</li>
+<li>Clearly separating the content from the format of your document;</li>
+<li>Easy writing complex maths;</li>
+<li>Creating professional presentations.</li>
+</ul>
+<p>So why should we use LaTeX instead of traditional text processors? There is a large number of advantages, such as:</p>
+<ul>
+<li>Beautiful mathematical expressions;</li>
+<li>Easy generation of indices, such as table of contents, bibliography etc.</li>
+<li>Allowing to focus on the text content rather than its appearance: LaTeX is going to do the job!</li>
+<li>Availability of professional templates;</li>
+<li>Free software;</li>
+<li>Standard language.</li>
+</ul>
+<p><img alt="Latex_Word" src="./bibtex/latex_word.png" title="LaTeX and Word complexity" /></p>
+<p>It takes some effort at the beginning to learn the commands and understand how everything works, but after that (and lots of compiling errors!) you're going to be highly satisfied.</p>
+<p>To get started you will need at least the following:</p>
+<ul>
+<li>Text editor (Gedit, GVim, Sublime or an IDE);</li>
+<li>TeX distribution (TeXLive, MiKTeX, MacTeX ...);</li>
+<li>Output viewers for different formats (.dvi, .ps, .pdf).</li>
+</ul>
+<p>If you're using Windows you can simply download everything directly as .exe files, if you're using a Linux machine you can type on the command line:</p>
+<div class="highlight"><pre>sudo apt-get install texlive-full
+</pre></div>
+
+
+<p>if you want a full LaTeX distribution (highly recommended). Otherwise you can type:</p>
+<div class="highlight"><pre>sudo apt-get texlive-latex-base
+</pre></div>
+
+
+<p>This will download only the essential packages.</p>
+<h2>Writing with LaTeX</h2>
+<h3>Document structure</h3>
+<p>LaTeX practically forces you to declare structure within your documents: commands are usually prefixed with a backslash, <code>\</code>. Some commands have different options that you can specify when you type the command (these options are called "arguments"). The optional arguments (things you can choose to tell the command) usually go inside square brackets, and mandatory arguments (things you have to tell the command) usually go inside curly braces. A generic command would look like:</p>
+<div class="highlight"><pre><span class="k">\command</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
+</pre></div>
+
+
+<p>Every LaTeX document starts by defining what kind of document this is going to be (standard classes being <em>article</em>, <em>report</em>, <em>book</em> and <em>letter</em>), and this section of the document is called the preamble. We do this by: </p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
+</pre></div>
+
+
+<h4>The document environment</h4>
+<p>The <code>\begin{document}...\end{document}</code> LaTeX commands are an example of an environment. Environments are always entered with a <code>\begin{}</code> command and exited via a <code>\end{}</code> command. They define particular typesetting features so that you can set out different parts of your document in different ways, according to its content and purpose. The main document starts with <code>\begin{document}</code> and ends with <code>\end{document}</code>.
+An environment is always defined by:</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>[options]
+commands
+<span class="k">\end</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>.
+</pre></div>
+
+
+<h4>Title</h4>
+<p>In LaTeX we can define the title and the authors of the document and this can be done in the preamble. Note that authors should be separated by the command <code>\and</code>. Command <code>\date</code> is used to replace or omit the current date, which LaTeX puts in the document by default. Command <code>\maketitle</code>, that has to be inserted inside the document environment, creates the title of the document based on the title, authors, and the date defined earlier.</p>
+<div class="highlight"><pre><span class="k">\title</span><span class="nb">{</span>...<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span>...<span class="nb">}</span> 
+<span class="k">\date</span><span class="nb">{</span>...<span class="nb">}</span> 
+<span class="k">\maketitle</span>
+</pre></div>
+
+
+<h4>Sections and hierarchy</h4>
+<p>We can define the division of the document into chapters, sections, and subsections. Of course, certain commands are appropriate to different document classes. Notice that you do not need to specify section numbers, LaTeX will do the job! Also, for sections, you do not need to markup which content belongs to a given block, using <code>\begin</code> and <code>\end</code> commands, for example:</p>
+<div class="highlight"><pre><span class="k">\part</span><span class="nb">{</span>part<span class="nb">}</span>
+<span class="k">\chapter</span><span class="nb">{</span>chapter<span class="nb">}</span>
+<span class="k">\section</span><span class="nb">{</span>section<span class="nb">}</span>
+<span class="k">\subsection</span><span class="nb">{</span>subsection<span class="nb">}</span>
+<span class="k">\subsubsection</span><span class="nb">{</span>subsubsection<span class="nb">}</span>
+<span class="k">\paragraph</span><span class="nb">{</span>paragraph<span class="nb">}</span>
+<span class="k">\subparagraph</span><span class="nb">{</span>subparagraph<span class="nb">}</span>
+</pre></div>
+
+
+<h4>Contents and indices</h4>
+<p>A table of contents is produced with the <code>\tableofcontents</code> command. It's possible to put the command right where you want the table of contents to go, as long as it is inside the document environment. There are similar commands like <code>\listoffigures</code> and <code>\listoftables</code> for producing a list of figures and a list of tables, respectively.</p>
+<h4>Mathematics</h4>
+<p>In LaTeX it is straightforward to include mathematical equations and notation in your document. To write a mathematical symbol or formula anywhere in the text of the document surround it with $ (dollar) characters. To write a formula in a separate line, put it in the equation environment, like shown in the example below:</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+    <span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span><span class="nb">^</span>2 <span class="k">\theta</span><span class="nb">}{</span><span class="k">\partial</span> s<span class="nb">^</span>2<span class="nb">}</span> = s f<span class="nb">_</span>g<span class="k">\cos</span>(<span class="k">\theta</span>) + sf<span class="nb">_</span>x<span class="k">\cos</span>(<span class="k">\phi</span>)<span class="k">\sin</span>(<span class="k">\theta</span>). 
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</pre></div>
+
+
+<h4>Tables</h4>
+<p>A table is a rectangular array of cells, arranged in rows and columns, and the relevant LaTeX environment is the tabular environment. It's recommended to nest this inside a table environment, which will make sure tables are floated to the top (or bottom) of a page, however this is not strictly necessary.</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+  <span class="k">\caption</span><span class="nb">{</span>Largest cities in the world (source: Wikipedia)<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>lr<span class="nb">}</span> 
+    City <span class="nb">&amp;</span> Population <span class="k">\\</span> <span class="k">\hline</span> <span class="k">\hline</span>
+    Mexico City <span class="nb">&amp;</span> 20,116,842<span class="k">\\</span>
+    Shanghai <span class="nb">&amp;</span> 19,210,000<span class="k">\\</span>
+    Peking <span class="nb">&amp;</span> 15,796,450<span class="k">\\</span>
+    Istanbul <span class="nb">&amp;</span> 14,160,467<span class="k">\\</span>
+    <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+</pre></div>
+
+
+<h4>The figure environment</h4>
+<p>Dealing with figures in LaTeX is quite tricky, especially because by default LaTeX will insert them where there is enough blank space available in the document. There are some commands to force a figure in a particular position, but usually it's always better to stick with LaTeX default settings.
+The basic syntax to put figures is: </p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[h]
+  <span class="k">\includegraphics</span><span class="na">[options]</span><span class="nb">{</span>filename<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</pre></div>
+
+
+<h1>Bibliography in LaTeX</h1>
+<hr />
+<p>Being able to manage the list of references that have been used when writing an article (or a book, for example) is a tedious but nevertheless essential task; fortunately LaTeX provides some useful tools that can be of help. </p>
+<h2>Standard Bibliography Environment</h2>
+<p>To manage the bibliography LaTeX provides a basic environment called, not so surprisingly, <em>thebibliography</em>; it can be useful when the number of references is not so high or maybe when we are writing a document on a topic that we do not treat frequently. Here is a very simple example:</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>thebibliography<span class="nb">}{</span>9<span class="nb">}</span>
+<span class="k">\bibitem</span><span class="nb">{</span>adams79<span class="nb">}</span>
+    Douglas Adams,
+    <span class="k">\emph</span><span class="nb">{</span>The Hitchhiker&#39;s Guide to the Galaxy<span class="nb">}</span>.
+    Pan Books,
+    1979.
+<span class="k">\end</span><span class="nb">{</span>thebibliography<span class="nb">}</span>
+</pre></div>
+
+
+<p>First of all it's worth ponting out that everything that is related to the bibliography goes within that environment. Secondly the number provided after the begin statement tells LaTeX how wide has to be the item label when creating a file; it actually doesn't matter the number itself, but instead the number of digits: for example in this case the number is '9', which means that the reference label is going to be only of one character in length. If we are planning to use more than nine references (until 99) then we can use any two-digits number, for example '23'.</p>
+<p>This environment is basically a list structure, such as <em>itemize</em> or <em>enumerate</em> and each entry has to be inserted after the command <code>\bibitem{cite_key}</code>, where the <em>cite_key</em> is a unique identifier for a certain reference. A part from this, everything that is inserted on each entry does not need to have a particular style: in this case the title of the book is in italics, but it could have been in bold letters or underlined. We also have total freedom also on which fields to insert (author, publisher, year...): in other words we need to specify the format of each element and it doesn't have to be uniform.</p>
+<p>In order to cite a reference in the document it's enough to type <code>\cite{cite_key}</code> when we want that particular citation to appear, as can be seen in the example below:</p>
+<div class="highlight"><pre>This book<span class="k">\cite</span><span class="nb">{</span>adams79<span class="nb">}</span> is amazing!
+</pre></div>
+
+
+<p>LaTeX allows for multiple references, just need to separate them with a comma. It is also possible to cite a particular page of a reference: to do that just type something like this <code>\cite[p. ~45]{cite_key}</code> (remember, what goes within square brackets is an argument to that command).</p>
+<h2>BibTeX</h2>
+<p>BibTeX can be seen as a general database manager: it takes some items from the database and exports them in a "LaTeXable" <code>thebibliography</code> environment. It's particularly useful when the number of references is high and when we want to use them (or some of them) in more than one article. With BibTeX:</p>
+<ul>
+<li>References are stored in a plain text database with a simple format; the file must be given the extension .bib.</li>
+<li>Most of the work involved in managing references for use in LaTeX files is automated: we need to type each reference only once.</li>
+<li>Citations and reference list are automatically formatted consistently, in a chosen style.</li>
+</ul>
+<h3>How Does It Work?</h3>
+<p>In order to include the bibliography in your document you just need to specify the database (the <code>.bib</code> file) and the style to be used (the <code>.bst</code> file); to do this you just need to include in your document:</p>
+<div class="highlight"><pre><span class="k">\bibliography</span><span class="nb">{</span>filename.bib<span class="nb">}</span>
+<span class="k">\bibliographystyle</span><span class="nb">{</span>style.bst<span class="nb">}</span>
+</pre></div>
+
+
+<p>You don't need to include the file extensions, the file names are enough. 
+Now if we want to create our document the general workflow is (if executed on the command line):</p>
+<div class="highlight"><pre>pdflatex filename
+bibtex filename
+pdflatex filename
+pdflatex filename
+</pre></div>
+
+
+<p>First you need to compile your document with (PDF)LaTeX: this creates the file without any bibliographic information and references, but the key of each reference is written in the <code>.aux</code> file together with the bibliography database and the style to be used.
+Now you can run BibTeX: it reads the <code>.aux</code> file that contains, as written before, the style to be used and the database and it produces a <code>.bbl</code> file with all the extracted cited references.
+Finally you need to rerun (PDF)LaTeX two times: the first one allows the bibliographic references to be written in the <code>.aux</code> file and the second one allows LaTeX to include the bibliographic citations in the document.</p>
+<p>If using an IDE such as TeXstudio or TeXmaker you may not need to execute all those commands.</p>
+<h3>The bib file</h3>
+<p>The structure of a database file is very simple, as shown in the example below:</p>
+<div class="highlight"><pre>@book<span class="nb">{</span>adams79,
+    author    = &quot;Douglas Adams&quot;,
+    title     = &quot;The <span class="nb">{</span>H<span class="nb">}</span>itchhiker&#39;s <span class="nb">{</span>G<span class="nb">}</span>uide to the <span class="nb">{</span>G<span class="nb">}</span>alaxy&quot;,
+    year      = 1979,
+    publisher = Pan Books,
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>Let's see in more detail how each entry has to be structured.
+We first need to define a reference type and this is done using the @ symbol followed by the type that we need; there is a huge number of types available, but amongst the most used there are:</p>
+<ul>
+<li><strong>article</strong>: an article from a journal or magazine.</li>
+<li><strong>book</strong>: a book with an explicit publisher.</li>
+<li><strong>booklet</strong>: a printed work, but without a named publisher.</li>
+<li><strong>conference</strong>: a conference article.</li>
+<li><strong>phdthesis</strong>: a PhD thesis.</li>
+<li><strong>manual</strong>: a technical documentation.</li>
+<li><strong>misc</strong>: use this when nothing else seems appropriate.</li>
+</ul>
+<p>Once defined an entry type we need to put all the required fields between curly braces; each field should have this format:</p>
+<div class="highlight"><pre>@entry<span class="nb">{</span>cite<span class="nb">_</span>key,
+    field<span class="nb">_</span>1 = &quot;value<span class="nb">_</span>1&quot;,
+    field<span class="nb">_</span>2 = &quot;value<span class="nb">_</span>2&quot;,
+    ...
+    field<span class="nb">_</span>9 = &quot;value<span class="nb">_</span>9&quot;,
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>First you have to declare the field and then you insert its value between double quotes (or curly braces); spaces and line breaks are not important, these are needed just to make the code easier to read, but commas are compulsory. The <code>cite_key</code> goes right after the curly braces and without double quotes.</p>
+<p>Regarding the fields, there are many of them, such as <em>author, title, year, journal</em>... each entry type has some mandatory fields that have to be included while others are optional. As for the structure of the fields, here are just two example: the title field and the author field. </p>
+<h4>The title field</h4>
+<p>One has to be careful when dealing with the <em>title</em>: for example when we create the reference list BibTeX will turn everything but the first letter of the title field lowercase. In order to avoid this problem you can enclose the letter that you want uppercase between curly braces, as shown in the first example of how to structure a bib file.</p>
+<h4>The author field</h4>
+<p>When writing the name of an author BibTeX recognizes three different formats; let's say the first name is <em>First</em>, the surname is <em>Last</em> and the von part is <em>von</em>, you can then type the author name as:</p>
+<ul>
+<li>First von Last;</li>
+<li>von Last, First;</li>
+<li>von Last, Jr, First.</li>
+</ul>
+<p>If you have more than one author you can separate them with <em>and</em>, while if you have a high number of contributors you can simply type <em>and others</em> to produce the output <em>et al.</em></p>
+<h4>Some tricks: strings and cross-references</h4>
+<p>It is possible to define strings inside the bib file: it can be helpful when one has to include the same authors or the same publisher/journal in many entries. A string can be define like this:</p>
+<div class="highlight"><pre>@string<span class="nb">{</span>PB = &quot;Pan Books&quot;<span class="nb">}</span>
+
+@string<span class="nb">{</span>adams = &quot;Douglas Adams&quot;<span class="nb">}</span>
+</pre></div>
+
+
+<p>Now you can use that string just defined to build your references. For example:</p>
+<div class="highlight"><pre>@book<span class="nb">{</span>adams79,
+    author    = adams,
+    title     = &quot;The <span class="nb">{</span>H<span class="nb">}</span>itchhiker&#39;s <span class="nb">{</span>G<span class="nb">}</span>uide to the <span class="nb">{</span>G<span class="nb">}</span>alaxy&quot;,
+    year      = 1979,
+    publisher = PB
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>This will produce the same output as the previous case. Note that when filling a field with a string we don't need to use double quotes, because we have already used them when we defined that string.</p>
+<p>Another useful feature of BibTeX is the possibility of cross-referencing: suppose we want to cite a chapter (or a part) of a book or an article in conference proceedings, for example chapter 13 of the LaTeX Companion:</p>
+<div class="highlight"><pre>@book<span class="nb">{</span>companion,
+    author    = &quot;Goossens, Michel and Mittelbach, Franck and Samarin, Alexander&quot;,
+    title     = &quot;The <span class="k">\LaTeX\ </span><span class="nb">{</span>C<span class="nb">}</span>ompanion&quot;,
+    booktitle = &quot;The <span class="k">\LaTeX</span> <span class="nb">{</span>C<span class="nb">}</span>ompanion&quot;,
+    year      = 1993,
+    publisher = &quot;Addison-Wesley&quot;,
+    month     = &quot;December&quot;,
+<span class="nb">}</span>
+
+@incollection<span class="nb">{</span>companion-bib,
+    crossref = &quot;companion&quot;,
+    title    = &quot;Bibliography Generation&quot;,
+    chapter  = 13,
+    pages    = &quot;371-420&quot;,
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>As shown in the example above we need to add the field <em>booktitle</em> in the main reference and then use the <em>incollection</em> entry type to build the cross-reference; usually this will need at least the title of the chapter/section and of course the <em>crossref</em> field that has to point to the main document.</p>
+<h3>Styles and the bst file</h3>
+<p>A style, in simple words, is the way that the bibliography entries are formatted when producing a document; this includes also the way they are sorted and how they are cited throughout the document. All the information that BibTeX needs are contained in a <em>.bst</em> file, for example:</p>
+<ul>
+<li>Which entry types are defined;</li>
+<li>Which fields are mandatory or optional;</li>
+<li>And how to produce a clean and <em>LaTeXable</em> bibliography. </li>
+</ul>
+<p>There are four basic styles included in the standard BibTeX:</p>
+<ul>
+<li><strong>plain</strong>: entries are sorted alphabetically and labelled with numbers;</li>
+<li><strong>alpha</strong>: entry labels are sorted alphanumerically and labelled with authors' names and year of publication;</li>
+<li><strong>unsrt</strong>: like plain, but entries are sorted by the order of their first citation;</li>
+<li><strong>abbrv</strong>: like plain, but entries are written in a more compact form.</li>
+</ul>
+<p>There are many other styles available, in order to use them you just need to load additional packages, such as <strong>natbib</strong>: with this loaded you can have access to lots of different styles plus the classical ones redefined especially for natbib (<em>plainnat</em>, <em>unsrtnat</em>, abbrvnat*) with other features, like for example the possibility to include an URL as a field within an entry. The <em>\cite</em> command has also been redefined, so that you can handle citations styles in different ways, for example changing the brackets, or making them superscript.</p>
+<p>As mentioned before, the bst file is the one responsible for building the reference list. Let's have a (brief) look at how it's structured:</p>
+<div class="highlight"><pre>ENTRY
+<span class="nb">{</span> ... <span class="nb">}</span>
+<span class="nb">{</span> ... <span class="nb">}</span>
+<span class="nb">{</span> ... <span class="nb">}</span>
+INTEGERS <span class="nb">{</span> ... <span class="nb">}</span>
+STRINGS <span class="nb">{</span> ... <span class="nb">}</span>
+MACRO <span class="nb">{</span> ... <span class="nb">}{</span> ... <span class="nb">}</span>
+FUNCTION <span class="nb">{</span> ... <span class="nb">}{</span> ... <span class="nb">}</span>
+READ
+EXECUTE <span class="nb">{</span> ... <span class="nb">}</span>
+ITERATE <span class="nb">{</span> ... <span class="nb">}</span>
+SORT
+ITERATE <span class="nb">{</span> ... <span class="nb">}</span>
+REVERSE <span class="nb">{</span> ... <span class="nb">}</span>
+EXECUTE <span class="nb">{</span> ... <span class="nb">}</span>
+</pre></div>
+
+
+<p>As you can see each command is written in uppercase and its argument is between curly braces. Following there is a very brief explanation of what those commands do:</p>
+<ul>
+<li><strong>ENTRY</strong>: Defines a list of all possible fields (address, author, title...);</li>
+<li><strong>INTEGERS</strong>: Declares integer variables;</li>
+<li><strong>STRINGS</strong>: Defines string variables (not to be confused with the @string mentioned before) in the same way as INTEGERS;</li>
+<li><strong>MACRO</strong>: Defines abbreviations and takes two arguments; the first one is the name of the abbreviation while the second is the definition itself (this is similar to @string);</li>
+<li><strong>FUNCTION</strong>: Defines macro functions that will be exectuted later on;</li>
+<li><strong>READ</strong>: Tells BibTeX to read the .bib file (must occur only one time);</li>
+<li><strong>EXECUTE</strong>: Executes the function that has been given as an argument;</li>
+<li><strong>ITERATE</strong>: Similar to EXECUTE, but the function is executed as many times as the number of entries imported by READ;</li>
+<li><strong>SORT</strong>: Sorts the entries according to the style;</li>
+<li><strong>REVERSE</strong>: Like ITERATE, but the functions are executed from the last entries to the first ones.</li>
+</ul>
+<p>Usually it's better not to modify the bst file, unless you really need to; if you're looking for a particular format there are hundreds of styles that can be downloaded (for example lots of journals have made their citation styles available for download). If you want to create a style file from scratch an useful tool could be <strong>custom-bib</strong>; you just need to type from the command line:</p>
+<div class="highlight"><pre>latex makebst.tex
+</pre></div>
+
+
+<p>This will start a <em>Q&amp;A</em> session in which you'll be required to answer some easy questions about the structure of the file that you want to create. In the end a bst file will be produced.</p>
+<h1>References and useful links</h1>
+<hr />
+<ul>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX">Latex Wiki</a></li>
+<li><a href="https://tobi.oetiker.ch/lshort/lshort.pdf">The Not So Short Introduction to Latex</a></li>
+<li><a href="http://tug.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf">Tame the BeaST</a> (Most of the examples of the BibTeX section are taken from here)</li>
+<li><a href="http://www.geocities.ws/kijoo2000/bibtex_guide.pdf">A BibTeX Guide via Examples</a></li>
+<li><a href="http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/natbib/natbib.pdf">Natbib Documentation</a></li>
+<li><a href="https://www.mendeley.com">Mendeley</a></li>
+</ul>
+<h1></h1>
+<h1>Exercise</h1>
+<hr />
+<p>The exercise consists of two parts: in the first one you'll be required to reproduce the document as best as you can, while in the second part you'll be required to deal with the bibliography using BibTeX.</p>
+<p><a href="./bibtex/Exercise.pdf">Exercise</a></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./Pint.html" rel="bookmark"
+                           title="Permalink to Computing with Units in Python Pint">Computing with Units in Python <strong>Pint</strong></a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-02-29T16:00:00+01:00">
                 Published: Mon 29 February 2016
@@ -37,7 +381,7 @@
         </address>
 <p>In <a href="./category-computing-with-units.html">Computing with units</a>. </p>
 <p>tags: <a href="./tag-computing-with-units.html">Computing with units</a> <a href="./tag-python.html">Python</a> <a href="./tag-pint.html">Pint</a> </p>
-</footer><!-- /.post-info --><hr class="docutils" />
+</footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
 <img alt="**Pint** Logo" src="./computing-with-units/fig/logo-full.jpg" style="width: 30%;" />
 </div>
@@ -45,364 +389,10 @@
 <h2>How to use the Virtual Machine?</h2>
 <p>To download the virtual machine please click <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_Prog_w_Units.ova">here</a></p>
 <p>The virtual machine has a light lubuntu distribution installed, the user name and password are 'feeg6003'.</p>
-<p>Once you are logged in press ctrl + alt + t which will open a new terminal, we modified the terminal to start a jupyter notebook right away for users who are not familiar with linux environment. If you want at any point to use the command line press ctrl + c to get  back to the normal temrinal.</p>
-<p>After allowing the Jupyter notebook to load, please click on the desktop folder, where you will find two notebooks:</p>
-<p>1- LiveCoding.ipynb:</p>
-<blockquote>
-This notebook contains the live coding commands used in presentation for your reference. Feel free to use these commands in the excercise.</blockquote>
-<p>2- computing_with_units_exercises.ipynb:</p>
-<blockquote>
-This notebook contains four exercises which cover <strong>Pint</strong> basic commands and Buckingham theorem.</blockquote>
-</div>
-<hr class="docutils" />
-<div class="section" id="why-to-compute-with-units">
-<h2>Why to compute with units?</h2>
-<p>International collaboration in research is essential, however In reality countries uses different standards and units such as metric, empirical,..etc. The interface between international companies is a critical part of the project, which needs to be handled with extra care otherwise international collaboration would be a source of risk to the project, finances and even lives.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a> disaster in 1999 is a well known example of interface failure. <a class="reference external" href="https://en.wikipedia.org/wiki/NASA">NASA</a> / <a class="reference external" href="https://en.wikipedia.org/wiki/Lockheed_Martin">Lockheed</a> lost the mars climate orbiter because part of the project staff used <a class="reference external" href="https://en.wikipedia.org/wiki/United_States_customary_units">United States customary units</a> and the other metric units. 125 million dollars was lost and the reason was that computer codes didn't account for different UNITS interface.</p>
-<div class="figure align-center">
-<img alt="Mars Orbiter artist impression." src="./computing-with-units/fig/orbiter.png" style="width: 30%;" />
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="physical-quantities-in-computational-environment">
-<h2>Physical quantities in computational environment</h2>
-<p>A physical quantity is essentially a set composed by magnitude and units, such a quantity posses dimensionality as well ex. <span class="formula"><i>Force</i> = 24.0[<i>mass</i>*<i>length</i> ⁄ <i>time</i><sup>2</sup>]</span>.</p>
-<p>various packages are available to define, operate and convert physical quantities such as <strong>Pint</strong>, Physics, Units, numerical units.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="introducing-pint">
-<h2>Introducing <strong>Pint</strong></h2>
-<p><strong>Pint</strong> is a BSD licensed package for Python to define physical quantities, and allow arithmetic operations between them. It allows conversion between units and even mixing them in the same equation while doing the internal conversion for you, Moreover supports various physical units, constants,numpy operations and runs on Python 2.6+ and 3.2+. It also allows you to define your own units simply in a txt file.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="how-pint-works">
-<h2>How <strong>Pint</strong> works?</h2>
-<p>Python uses Container model approach (employed by <strong>Pint</strong> and other libraries):</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Quantity</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">__</span> <span class="n">init</span> <span class="n">__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">magnitdue</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
-</pre></div>
-<p>Packages such as numerical units uses different approaches, however we are not going to discuss these packages further.</p>
-<p><strong>Pint</strong> creates a Quantity object for each physical quantity defined by two main arguments: Magnitude, Unit.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="how-to-install-and-import-pint">
-<h2>How to install and import <strong>Pint</strong>?</h2>
-<p>to install:</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pint</span>
-</pre></div>
-<p>or you can use:</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">easy_install</span> <span class="n">pint</span>
-</pre></div>
-</div>
-<hr class="docutils" />
-<div class="section" id="basic-pint-commands">
-<h2>Basic <strong>Pint</strong> Commands</h2>
-<div class="section" id="import-pint">
-<h3>1. Import <strong>Pint</strong></h3>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
-</pre></div>
-</div>
-<div class="section" id="initialise-pint-by-creating-instance-of-unitregistry">
-<h3>2. initialise <strong>Pint</strong> by creating instance of UnitRegistry</h3>
-<div class="highlight"><pre><span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
-</pre></div>
-<p>now you are ready to start using <strong>Pint</strong>.</p>
-</div>
-<div class="section" id="example-cube-material-density">
-<h3>3. Example: Cube material density</h3>
-<p>We will calculate the density of a cube, first define the side of the cube in meters, this is done by multiplying the magnitude by the ureg.meter.</p>
-<div class="highlight"><pre><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">meter</span>
-</pre></div>
-<p>Now <strong>Pint</strong> defined a 'Quantity' object with the name 'L' and assigned a magnitude and unit of 1.0 and meter respectively.</p>
-<p>We can easily check that this is the case by printing the variable:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="mf">1.0</span> <span class="n">meter</span>
-</pre></div>
-<p>Define the cube volume, lets assume that the cube material is steel.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="n">V_st</span> <span class="o">=</span> <span class="n">L</span><span class="o">**</span><span class="mi">3</span>
-</pre></div>
-<p>Cubing the Length 'L' also affects it's unit, we expect the V_st to have a unit of cubic meter.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">V_St</span><span class="p">)</span>
-<span class="mf">1.0</span> <span class="n">meter</span><span class="o">**</span><span class="mi">3</span>
-</pre></div>
-<p>As expected the units reflected the operation done on the variable 'L'.</p>
-<p>Now we take this further and define a new variable M_st for the mass of the steel cube then we calculate the density 'ro_st' of the steel cube by dividing the mass 'M_st' by the volume 'V_st':</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="n">M_st</span> <span class="o">=</span> <span class="mi">7785</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">kilogram</span>
-<span class="n">ro_st</span> <span class="o">=</span> <span class="n">M_st</span><span class="o">/</span><span class="n">V_st</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ro_st</span><span class="p">)</span>
-
-<span class="mf">7785.0</span> <span class="n">kilogram</span> <span class="o">/</span> <span class="n">meter</span> <span class="o">**</span> <span class="mi">3</span>
-</pre></div>
-<p>The density has the correct units as we expected.</p>
-<p><strong>Pint</strong> allows operations on different unit systems in the same equation. internal conversion takes place and set the default system to the first variable in the equation. we will investiage this further and evolve the previous example to demonstrate this concept.</p>
-<p>Stack of Cubes:</p>
-<p>Two cubes stacked on top of each other the first is made of steel with density of 7785 kg/m3 and the second is made of aluminium with density of 22.53 lb/gal. both cubes size are 1.0 m3, calculate the force under the cubes due to gravity.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="o">*</span> <span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="o">/</span><span class="n">ureg</span><span class="o">.</span><span class="n">second</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ro_al</span> <span class="o">=</span> <span class="mf">22.53</span> <span class="o">*</span> <span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">lb</span><span class="o">/</span><span class="n">ureg</span><span class="o">.</span><span class="n">gallon</span><span class="p">)</span>
-<span class="n">V_st</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="o">**</span><span class="mi">3</span>
-<span class="n">V_al</span> <span class="o">=</span> <span class="n">V_st</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">M_st</span> <span class="o">=</span> <span class="n">ro_st</span> <span class="o">*</span> <span class="n">V_st</span>
-<span class="n">M_al</span> <span class="o">=</span> <span class="n">ro_al</span> <span class="o">*</span> <span class="n">V_al</span>
-</pre></div>
-<p>We mixed units in our calculations and we are going to demonstrate that <strong>Pint</strong> handle mixed units very well.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">M_al</span>
-<span class="mf">22.53</span> <span class="n">meter3</span> <span class="n">pound</span><span class="o">/</span><span class="n">gallon</span>
-</pre></div>
-<p>We multiplied a volume of 1 m3 with a density pound/gallon. it's clear that <strong>Pint</strong> keeps track of this fact.</p>
-<p>Calculate the total force due to the two stacked cubes as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">Ftotal</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_St</span><span class="o">+</span><span class="n">M_al</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span>
-<span class="n">Ftotal</span>
-<span class="mf">102854.80308708138</span> <span class="n">kilogram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second2</span>
-</pre></div>
-<p>It's now clear that <strong>Pint</strong> does the internal conversion and produce the correct units even if we have mixed units in the equation.</p>
-</div>
-<div class="section" id="concept-of-physical-quantity">
-<h3>3.1 Concept of Physical Quantity</h3>
-<p>We have discussed earlier the concept of physical quantity, <strong>Pint</strong> can store three methods for each Quantity object, magnitude, units and dimensionality and we can call them simply as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">magnitude</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">dimensionality</span><span class="p">)</span>
-
-<span class="mf">1.0</span>
-<span class="n">meter</span>
-<span class="p">[</span><span class="n">length</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="section" id="conversion">
-<h3>3.2 Conversion</h3>
-<p>If we don't want to convert the unit permenantely we can use method '.to' however for permenant conversion we use '.ito' instead.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
-<span class="mf">102854.80308708138</span> <span class="n">newton</span>
-</pre></div>
-<p><strong>Pint</strong> has 'newton' units which is exactly the same as kilogram meter/second2, but we will use it here to show the concept of conversion in general. it's clear that the conversion done successfuly but this is not permenant and we can prove this by printing the 'Ftotal' variable.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
-<span class="mf">102854.80308708138</span> <span class="n">kilogram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second2</span>
-</pre></div>
-<p>It's unchanged as expected, however if we want to permenantely convert the unit we use:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
-<span class="mf">102854.80308708138</span> <span class="n">newton</span>
-</pre></div>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
-<span class="mf">102854.80308708138</span> <span class="n">newton</span>
-</pre></div>
-<p>The variable 'Ftotal' is permenantely converted.</p>
-<p><strong>Pint</strong> also identifies invalid conversions and produce dimensionality error message, so if we try to convert the 'Ftotal' to meter we should expect and error to handle this invalid conversion:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
-</pre></div>
-<p><strong>Pint</strong> produces the following error.</p>
-<div class="figure align-center">
-<img alt="Dimensionality error" src="./computing-with-units/fig/error.png" style="width: 90%;" />
-</div>
-<p><strong>Pint</strong> base units is metric system and can be called as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">())</span>
-
-<span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="o">*</span> <span class="n">meter</span> <span class="o">/</span> <span class="n">second</span> <span class="o">**</span> <span class="mi">2</span>
-</pre></div>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito_base_units</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
-
-<span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="o">*</span> <span class="n">meter</span> <span class="o">/</span> <span class="n">second</span> <span class="o">**</span> <span class="mi">2</span>
-</pre></div>
-</div>
-<div class="section" id="string-parsing">
-<h3>4. String parsing</h3>
-<p>So far we assigned units to quantities by using object constructor but What if we have a .txt or .csv file with data and want to import these data with it's units?</p>
-<p>Assume we have a text file with magnitudes and units of some physical qunatities, and somehowe we managed to import these to python. we can assign these units to the magnitudes and use them in the program.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="n">Unit</span> <span class="o">=</span> <span class="s1">&#39;inch&#39;</span>
-</pre></div>
-<p>Three ways of defining the units using the data imported:</p>
-<ol class="loweralpha simple">
-<li>Using Parse expression:</li>
-</ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">parse_expression</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
-<span class="mf">3.0</span> <span class="n">inch</span>
-</pre></div>
-<ol class="loweralpha simple" start="2">
-<li>Calling Registry (shortform):</li>
-</ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
-<span class="mf">3.0</span> <span class="n">inch</span>
-</pre></div>
-<ol class="loweralpha simple" start="3">
-<li>Using Quantity constructor:</li>
-</ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span><span class="n">Q</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
-<span class="n">Q</span><span class="p">(</span><span class="n">Mag</span><span class="p">,</span><span class="n">Unit</span><span class="p">)</span>
-<span class="mf">3.0</span> <span class="n">inch</span>
-</pre></div>
-<p>Remember that this is how <strong>Pint</strong> stores the physical qunatities, as can we see below <strong>Pint</strong> build the units using Quantity constructor. If we call the representation of the 'Ftotal' variable it will show us that it's stored as Quantity:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="nb">repr</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
-<span class="s2">&quot;&lt;Quantity(102854803.08708139, &#39;gram * meter / second ** 2&#39;)&gt;&quot;</span>
-</pre></div>
-<p>Websites such as google is using similar method to convert units if typed in the search bar. assume that we built a searchh engine and imported the text typed in the search bar we can return the converted units using a very simple 2 lines code which is fast to execute.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span><span class="n">Typedtext</span> <span class="o">=</span> <span class="s1">&#39;3.0 * meter to inch&#39;</span>
-<span class="n">conv</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="n">Typedtext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;to&#39;</span><span class="p">)</span>
-<span class="n">Q</span><span class="p">(</span><span class="n">conv</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">)</span>
-
-<span class="mf">118.11023622047242</span> <span class="n">inch</span>
-</pre></div>
-</div>
-<div class="section" id="formatting">
-<h3>5. Formatting</h3>
-<p><strong>Pint</strong> allows to present the units in many useful formats such as LateX, short abbreviated and HTML.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the latex formatting is {:L}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;appreviated formating is {:~}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;the HTML formatting is {:H}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
-
-<span class="n">the</span> <span class="n">latex</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> \<span class="n">frac</span><span class="p">{</span><span class="n">gram</span> \<span class="n">cdot</span> <span class="n">meter</span><span class="p">}{</span><span class="n">second</span><span class="o">^</span><span class="p">{</span><span class="mi">2</span><span class="p">}}</span>
-<span class="n">appreviated</span> <span class="n">formating</span> <span class="ow">is</span> <span class="mf">102854.80308708138</span> <span class="n">N</span>
-<span class="n">the</span> <span class="n">HTML</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="o">&lt;</span><span class="n">sup</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">sup</span><span class="o">&gt;</span>
-</pre></div>
-<p>Set a specific format as the default formating:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">ureg</span><span class="o">.</span><span class="n">default_format</span><span class="o">=</span><span class="s1">&#39;P&#39;</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;the defualt formatting is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
-<span class="n">the</span> <span class="n">defualt</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span><span class="err">·</span><span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="err">²</span>
-</pre></div>
-</div>
-<div class="section" id="advanced-skills">
-<h3>6. Advanced Skills</h3>
-<ol class="arabic simple">
-<li>Define based on other Units</li>
-</ol>
-<p>Create a file .txt
-add your units interm of other units:
-example:</p>
-<div class="highlight"><pre><span class="n">hour</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">minute</span> <span class="o">=</span> <span class="n">h</span> <span class="o">=</span> <span class="n">hr</span>
-</pre></div>
-<p>the form of the definition is:</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Definition</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
-</pre></div>
-<ol class="arabic simple" start="2">
-<li>Define  a Reference Unit</li>
-</ol>
-<p>If the unit is a reference unit, we like to define it's parameters:</p>
-<div class="highlight"><pre><span class="n">second</span> <span class="o">=</span> <span class="p">[</span><span class="n">time</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sec</span>
-</pre></div>
-<p>the form of this definition is :</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dimensionality</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
-</pre></div>
-<p>The Reference Units or defining units interms of other units can be done in two ways:</p>
-<ol class="loweralpha simple">
-<li>txt file:</li>
-</ol>
-<p>Create a file lets say has a name 'mydef.txt' in the same folder of your code and add the previous definitions in the file.it can be imported and used in <strong>Pint</strong> as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">ureg2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">(</span><span class="s1">&#39;mydef.txt&#39;</span><span class="p">)</span>
-</pre></div>
-<p>And we can check the dimensionality of the defined unit 'second' which we assigned [time] to it as it's dimension.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">ureg2</span><span class="o">.</span><span class="n">second</span><span class="o">.</span><span class="n">dimensionality</span>
-<span class="sb">`&lt;UnitsContainer({&#39;[time]&#39;: 1.0})&gt;`</span>
-</pre></div>
-<ol class="loweralpha simple" start="2">
-<li>Programmatically</li>
-</ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">]:</span> <span class="kn">from</span> <span class="o">**</span><span class="n">Pint</span><span class="o">**</span> <span class="kn">import</span> <span class="nn">UnitRegistry</span>
-<span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
-<span class="n">Q2</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
-<span class="n">ureg</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="s1">&#39;ACM_time = 90 * minute = ACMtime&#39;</span><span class="p">)</span>
-<span class="n">your_Age</span> <span class="o">=</span> <span class="n">Q2</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">your_Age</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;ACMtime&#39;</span><span class="p">))</span>
-
-<span class="mf">175316.25541500002</span> <span class="n">ACM_time</span>
-</pre></div>
-<p>Here we defined a new time unit ACM_time which is defined as 90 minutes and we gave it an alias ACMtime. we can see that the conversion was done as we expected.</p>
-</div>
-<div class="section" id="unit-registry">
-<h3>7. Unit Registry</h3>
-<p>One needs to be careful when using <strong>Pint</strong> with multiple modules. a unique registry needs to be created and it's not allowed to operate between multiple registries at the same time. this concept is demonstrated here:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="n">q1</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">meter</span>
-<span class="n">q2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">meter</span>
-<span class="nb">id</span><span class="p">(</span><span class="n">q1</span><span class="o">.</span><span class="n">_REGISTRY</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">id</span><span class="p">(</span><span class="n">q2</span><span class="o">.</span><span class="n">_REGISTRY</span><span class="p">)</span>
-
-<span class="bp">False</span>
-</pre></div>
-<p>Avoid creating multiple instances of UnitRegistry if you plan to use <strong>Pint</strong> in multiple packages.in such a case the following steps needs to be done:</p>
-<ol class="arabic simple">
-<li>add the following to <em>__ init __.py</em></li>
-</ol>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
-<span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
-<span class="n">Q_</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
-</pre></div>
-<ol class="arabic simple" start="2">
-<li>then in your module add the <strong>Pint</strong> UnitRegistry as following:</li>
-</ol>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">ureg</span><span class="p">,</span> <span class="n">Q_</span>
-</pre></div>
-<ol class="arabic simple" start="3">
-<li>and then construct the qunatities as following:</li>
-</ol>
-<div class="highlight"><pre><span class="n">side</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;meter&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="section" id="bukingham-pi-theorem">
-<h2>Bukingham <span class="formula"><i>π</i></span> theorem</h2>
-<p>The Buckingham <span class="formula"><i>π</i></span> theorem states that if you are dealing with an equation associated to a physical system involving:</p>
-<ul class="simple">
-<li><span class="formula"><i>n</i></span> numbers of physical variables (as Velocity, Acceleration, Force, ...)</li>
-<li><span class="formula"><i>k</i></span> numbers of independent fundamental quantities (as [time], [length], ...)</li>
-</ul>
-<p>Then you can express the equation in terms of:
-<span class="formula"><i>p</i> = <i>n</i> − <i>k</i></span></p>
-<p>First, import <strong>pi_theorem</strong> from <strong>Pint</strong>.</p>
-<p>Consider a system like a pipe in which is flowing water, this system is characterzied by:</p>
-<ul class="simple">
-<li><span class="formula"><i>p</i></span> (pressure), <span class="formula"><i>L</i></span> (length), <span class="formula"><i>D</i></span> (length), <span class="formula"><i>ρ</i></span> (density), <span class="formula"><i>μ</i></span> (viscosity) and <span class="formula"><i>v</i></span> (velocity) as physical quantities. Then <span class="formula"><i>n</i> = 6</span>.</li>
-<li>[time], [mass], [length] as independent fundamental quantities (all qunatities could be expressed as one or more of these quantities). Then <span class="formula"><i>k</i> = 3</span>.</li>
-</ul>
-<p>So, as <span class="formula"><i>p</i> = 6 − 3 = 3</span> we can express our equation with one dimensionless number <span class="formula">Π.</span></p>
-<p><span class="formula"><i>p</i></span> dimensionless numbers.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">Pi</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">pi_theorem</span><span class="p">({</span>  <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="s1">&#39;[mass]/[volume]&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="s1">&#39;[viscosity]&#39;</span><span class="p">,</span>
-                                <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;[speed]&#39;</span><span class="p">})</span>
-</pre></div>
-<p>If you look at the second number generated by the <cite>ureg.pi_theorem</cite> command:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="n">Pi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
-</pre></div>
-<p>This quantity is:</p>
-<p><span class="formula">Π<sub>1</sub> = <i>Re</i> = <span class="fraction"><span class="ignored">(</span><span class="numerator"><i>v</i><i>μ</i><i>L</i></span><span class="ignored">)/(</span><span class="denominator"><i>μ</i></span><span class="ignored">)</span></span> = <span class="fraction"><span class="ignored">(</span><span class="numerator"><span class="text">inertial forces</span></span><span class="ignored">)/(</span><span class="denominator"><span class="text">viscous forces</span></span><span class="ignored">)</span></span></span></p>
-<p>The Reynolds number:</p>
-<ul class="simple">
-<li>Used to state if a fluid dynamic system is &quot;dynamically&quot; similar to another one.</li>
-<li>Employed to predict the flow regime of a given system (for example for a flow in a Pipe there is laminar flow for <span class="formula"><i>Re</i> &lt; 2000</span> , transitory flow for <span class="formula"><i>Re</i> = 2100 − 4000</span> and fully developed turbolent flow for <span class="formula"><i>Re</i> &gt; 4000</span>.</li>
-<li>It can also be exploited to calculate characteristic quantities of the system.</li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="exercises">
-<h2>Exercises:</h2>
-<p>The exercises notebook is available on the VM desktop with the name <strong>computing_with_units_exercises.ipynb</strong> or can be downloaded from the link below.</p>
-</div>
-<hr class="docutils" />
-<div class="section" id="links">
-<h2>Links</h2>
-<ol class="arabic simple">
-<li><strong>Pint</strong> website <a class="reference external" href="https://pint.readthedocs.org/en/0.6/">here</a></li>
-<li>To download the LiveCoding session notebook click <a class="reference external" href="./computing-with-units/LiveCoding.ipynb">here</a>. The definition file 'mydef' is <a class="reference external" href="./computing-with-units/mydef.txt">here</a></li>
-<li>To download the Exercise notebook click <a class="reference external" href="./computing-with-units/computing_with_units_exercises.ipynb">here</a>. and the txt file used in the exercise is <a class="reference external" href="./computing-with-units/data.txt">here</a></li>
-<li>To download the Exercises solutions click <a class="reference external" href="./computing-with-units/solutions.pdf">here</a>. <strong>Please try to solve the exercise yourself first</strong>.</li>
-<li>The presentation slides are <a class="reference external" href="./computing-with-units/Computing_with_units.ppt">here</a></li>
-</ol>
-</div>
-<hr class="docutils" />
-<div class="section" id="note">
-<h2>Note</h2>
-<ol class="arabic simple">
-<li>LiveCoding session and Exercises provided as Jupyter notebook files '.ipynb', to download jupyter notebook please follow the instructions available  <a class="reference external" href="http://jupyter.org">here</a></li>
-<li>When you download the notebooks, be aware that in order to access properly to the notebooks you have to delete the final extension &quot;.txt&quot; from these files.</li>
-</ol>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Once you are logged in press ctrl + alt + t which will open a new terminal, we modified the terminal to ...</p></div>
+                <a class="readmore" href="./Pint.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
