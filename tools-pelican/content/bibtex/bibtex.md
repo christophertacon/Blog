@@ -224,7 +224,7 @@ The structure of a database file is very simple, as shown in the example below:
 	author    = "Douglas Adams",
 	title     = "The {H}itchhiker's {G}uide to the {G}alaxy",
 	year      = 1979,
-	publisher = Pan Books,
+	publisher ="Pan Books",
 }
 ```
 
