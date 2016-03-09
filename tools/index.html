@@ -25,7 +25,382 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./CSG.html">Introducing Constructive Solid Geometry with OpenSCAD</a></h1>
+                    <h1 class="entry-title"><a href="./Bibtex.html">Introduction to LaTeX and BibTeX</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-03-03T00:00:00+01:00">
+                Published: Thu 03 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-gabriele-boschetto.html">Gabriele Boschetto</a>
+                        <a class="url fn" href="./author-alejandra-vergara.html">Alejandra Vergara</a>
+        </address>
+<p>In <a href="./category-bibtex.html">bibtex</a>. </p>
+<p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-bibtex.html">Bibtex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
+</footer><!-- /.post-info --><p><img alt="Latex_Bibtex" src="./bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow" /></p>
+<h1>Virtual Machine - How To</h1>
+<hr />
+<p>Install VirtualBox on your system (if you have not done so before); the link for the virtual machine is provided <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_bibtex.ova">here</a>. Log in as the user feeg6003 using the same password.</p>
+<p>In the virtual machine a basic LaTeX distribution has been installed, together with BibTeX, TeXstudio and also Mendeley. </p>
+<h1>Introduction to LaTeX</h1>
+<hr />
+<p>LaTeX (spelled <em>/ˈlatek/</em>) is a typesetting system that produces professionally scientific and mathematical documents with high typographical quality, nevertheless it is also suitable for producing all sorts of other documents, from simple letters to complete books. LaTeX uses TeX as its formatting engine.</p>
+<p>It is particularly useful for:</p>
+<ul>
+<li>Easily creating large documents keeping format and high typographical quality (thesis, PFC, etc.);</li>
+<li>Clearly separating the content from the format of your document;</li>
+<li>Easy writing complex maths;</li>
+<li>Creating professional presentations.</li>
+</ul>
+<p>So why should we use LaTeX instead of traditional text processors? There is a large number of advantages, such as:</p>
+<ul>
+<li>Beautiful mathematical expressions;</li>
+<li>Easy generation of indices, such as table of contents, bibliography etc.</li>
+<li>Allowing to focus on the text content rather than its appearance: LaTeX is going to do the job!</li>
+<li>Availability of professional templates;</li>
+<li>Free software;</li>
+<li>Standard language.</li>
+</ul>
+<p><img alt="Latex_Word" src="./bibtex/latex_word.png" title="LaTeX and Word complexity" /></p>
+<p>It takes some effort at the beginning to learn the commands and understand how everything works, but after that (and lots of compiling errors!) you're going to be highly satisfied.</p>
+<p>To get started you will need at least the following:</p>
+<ul>
+<li>Text editor (Gedit, GVim, Sublime or an IDE);</li>
+<li>TeX distribution (TeXLive, MiKTeX, MacTeX ...);</li>
+<li>Output viewers for different formats (.dvi, .ps, .pdf).</li>
+</ul>
+<p>If you're using Windows you can simply download everything directly as .exe files, if you're using a Linux machine you can type on the command line:</p>
+<div class="highlight"><pre>sudo apt-get install texlive-full
+</pre></div>
+
+
+<p>if you want a full LaTeX distribution (highly recommended). Otherwise you can type:</p>
+<div class="highlight"><pre>sudo apt-get texlive-latex-base
+</pre></div>
+
+
+<p>This will download only the essential packages.</p>
+<h2>Writing with LaTeX</h2>
+<h3>Document structure</h3>
+<p>LaTeX practically forces you to declare structure within your documents: commands are usually prefixed with a backslash, <code>\</code>. Some commands have different options that you can specify when you type the command (these options are called "arguments"). The optional arguments (things you can choose to tell the command) usually go inside square brackets, and mandatory arguments (things you have to tell the command) usually go inside curly braces. A generic command would look like:</p>
+<div class="highlight"><pre><span class="k">\command</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
+</pre></div>
+
+
+<p>Every LaTeX document starts by defining what kind of document this is going to be (standard classes being <em>article</em>, <em>report</em>, <em>book</em> and <em>letter</em>), and this section of the document is called the preamble. We do this by: </p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
+</pre></div>
+
+
+<h4>The document environment</h4>
+<p>The <code>\begin{document}...\end{document}</code> LaTeX commands are an example of an environment. Environments are always entered with a <code>\begin{}</code> command and exited via a <code>\end{}</code> command. They define particular typesetting features so that you can set out different parts of your document in different ways, according to its content and purpose. The main document starts with <code>\begin{document}</code> and ends with <code>\end{document}</code>.
+An environment is always defined by:</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>[options]
+commands
+<span class="k">\end</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>.
+</pre></div>
+
+
+<h4>Title</h4>
+<p>In LaTeX we can define the title and the authors of the document and this can be done in the preamble. Note that authors should be separated by the command <code>\and</code>. Command <code>\date</code> is used to replace or omit the current date, which LaTeX puts in the document by default. Command <code>\maketitle</code>, that has to be inserted inside the document environment, creates the title of the document based on the title, authors, and the date defined earlier.</p>
+<div class="highlight"><pre><span class="k">\title</span><span class="nb">{</span>...<span class="nb">}</span>
+<span class="k">\author</span><span class="nb">{</span>...<span class="nb">}</span> 
+<span class="k">\date</span><span class="nb">{</span>...<span class="nb">}</span> 
+<span class="k">\maketitle</span>
+</pre></div>
+
+
+<h4>Sections and hierarchy</h4>
+<p>We can define the division of the document into chapters, sections, and subsections. Of course, certain commands are appropriate to different document classes. Notice that you do not need to specify section numbers, LaTeX will do the job! Also, for sections, you do not need to markup which content belongs to a given block, using <code>\begin</code> and <code>\end</code> commands, for example:</p>
+<div class="highlight"><pre><span class="k">\part</span><span class="nb">{</span>part<span class="nb">}</span>
+<span class="k">\chapter</span><span class="nb">{</span>chapter<span class="nb">}</span>
+<span class="k">\section</span><span class="nb">{</span>section<span class="nb">}</span>
+<span class="k">\subsection</span><span class="nb">{</span>subsection<span class="nb">}</span>
+<span class="k">\subsubsection</span><span class="nb">{</span>subsubsection<span class="nb">}</span>
+<span class="k">\paragraph</span><span class="nb">{</span>paragraph<span class="nb">}</span>
+<span class="k">\subparagraph</span><span class="nb">{</span>subparagraph<span class="nb">}</span>
+</pre></div>
+
+
+<h4>Contents and indices</h4>
+<p>A table of contents is produced with the <code>\tableofcontents</code> command. It's possible to put the command right where you want the table of contents to go, as long as it is inside the document environment. There are similar commands like <code>\listoffigures</code> and <code>\listoftables</code> for producing a list of figures and a list of tables, respectively.</p>
+<h4>Mathematics</h4>
+<p>In LaTeX it is straightforward to include mathematical equations and notation in your document. To write a mathematical symbol or formula anywhere in the text of the document surround it with $ (dollar) characters. To write a formula in a separate line, put it in the equation environment, like shown in the example below:</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+    <span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span><span class="nb">^</span>2 <span class="k">\theta</span><span class="nb">}{</span><span class="k">\partial</span> s<span class="nb">^</span>2<span class="nb">}</span> = s f<span class="nb">_</span>g<span class="k">\cos</span>(<span class="k">\theta</span>) + sf<span class="nb">_</span>x<span class="k">\cos</span>(<span class="k">\phi</span>)<span class="k">\sin</span>(<span class="k">\theta</span>). 
+<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
+</pre></div>
+
+
+<h4>Tables</h4>
+<p>A table is a rectangular array of cells, arranged in rows and columns, and the relevant LaTeX environment is the tabular environment. It's recommended to nest this inside a table environment, which will make sure tables are floated to the top (or bottom) of a page, however this is not strictly necessary.</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+  <span class="k">\caption</span><span class="nb">{</span>Largest cities in the world (source: Wikipedia)<span class="nb">}</span>
+    <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>lr<span class="nb">}</span> 
+    City <span class="nb">&amp;</span> Population <span class="k">\\</span> <span class="k">\hline</span> <span class="k">\hline</span>
+    Mexico City <span class="nb">&amp;</span> 20,116,842<span class="k">\\</span>
+    Shanghai <span class="nb">&amp;</span> 19,210,000<span class="k">\\</span>
+    Peking <span class="nb">&amp;</span> 15,796,450<span class="k">\\</span>
+    Istanbul <span class="nb">&amp;</span> 14,160,467<span class="k">\\</span>
+    <span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>table<span class="nb">}</span>
+</pre></div>
+
+
+<h4>The figure environment</h4>
+<p>Dealing with figures in LaTeX is quite tricky, especially because by default LaTeX will insert them where there is enough blank space available in the document. There are some commands to force a figure in a particular position, but usually it's always better to stick with LaTeX default settings.
+The basic syntax to put figures is: </p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[h]
+  <span class="k">\includegraphics</span><span class="na">[options]</span><span class="nb">{</span>filename<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
+</pre></div>
+
+
+<h1>Bibliography in LaTeX</h1>
+<hr />
+<p>Being able to manage the list of references that have been used when writing an article (or a book, for example) is a tedious but nevertheless essential task; fortunately LaTeX provides some useful tools that can be of help. </p>
+<h2>Standard Bibliography Environment</h2>
+<p>To manage the bibliography LaTeX provides a basic environment called, not so surprisingly, <em>thebibliography</em>; it can be useful when the number of references is not so high or maybe when we are writing a document on a topic that we do not treat frequently. Here is a very simple example:</p>
+<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>thebibliography<span class="nb">}{</span>9<span class="nb">}</span>
+<span class="k">\bibitem</span><span class="nb">{</span>adams79<span class="nb">}</span>
+    Douglas Adams,
+    <span class="k">\emph</span><span class="nb">{</span>The Hitchhiker&#39;s Guide to the Galaxy<span class="nb">}</span>.
+    Pan Books,
+    1979.
+<span class="k">\end</span><span class="nb">{</span>thebibliography<span class="nb">}</span>
+</pre></div>
+
+
+<p>First of all it's worth ponting out that everything that is related to the bibliography goes within that environment. Secondly the number provided after the begin statement tells LaTeX how wide has to be the item label when creating a file; it actually doesn't matter the number itself, but instead the number of digits: for example in this case the number is '9', which means that the reference label is going to be only of one character in length. If we are planning to use more than nine references (until 99) then we can use any two-digits number, for example '23'.</p>
+<p>This environment is basically a list structure, such as <em>itemize</em> or <em>enumerate</em> and each entry has to be inserted after the command <code>\bibitem{cite_key}</code>, where the <em>cite_key</em> is a unique identifier for a certain reference. A part from this, everything that is inserted on each entry does not need to have a particular style: in this case the title of the book is in italics, but it could have been in bold letters or underlined. We also have total freedom also on which fields to insert (author, publisher, year...): in other words we need to specify the format of each element and it doesn't have to be uniform.</p>
+<p>In order to cite a reference in the document it's enough to type <code>\cite{cite_key}</code> when we want that particular citation to appear, as can be seen in the example below:</p>
+<div class="highlight"><pre>This book<span class="k">\cite</span><span class="nb">{</span>adams79<span class="nb">}</span> is amazing!
+</pre></div>
+
+
+<p>LaTeX allows for multiple references, just need to separate them with a comma. It is also possible to cite a particular page of a reference: to do that just type something like this <code>\cite[p. ~45]{cite_key}</code> (remember, what goes within square brackets is an argument to that command).</p>
+<h2>BibTeX</h2>
+<p>BibTeX can be seen as a general database manager: it takes some items from the database and exports them in a "LaTeXable" <code>thebibliography</code> environment. It's particularly useful when the number of references is high and when we want to use them (or some of them) in more than one article. With BibTeX:</p>
+<ul>
+<li>References are stored in a plain text database with a simple format; the file must be given the extension .bib.</li>
+<li>Most of the work involved in managing references for use in LaTeX files is automated: we need to type each reference only once.</li>
+<li>Citations and reference list are automatically formatted consistently, in a chosen style.</li>
+</ul>
+<h3>How Does It Work?</h3>
+<p>In order to include the bibliography in your document you just need to specify the database (the <code>.bib</code> file) and the style to be used (the <code>.bst</code> file); to do this you just need to include in your document:</p>
+<div class="highlight"><pre><span class="k">\bibliography</span><span class="nb">{</span>filename.bib<span class="nb">}</span>
+<span class="k">\bibliographystyle</span><span class="nb">{</span>style.bst<span class="nb">}</span>
+</pre></div>
+
+
+<p>You don't need to include the file extensions, the file names are enough. 
+Now if we want to create our document the general workflow is (if executed on the command line):</p>
+<div class="highlight"><pre>pdflatex filename
+bibtex filename
+pdflatex filename
+pdflatex filename
+</pre></div>
+
+
+<p>First you need to compile your document with (PDF)LaTeX: this creates the file without any bibliographic information and references, but the key of each reference is written in the <code>.aux</code> file together with the bibliography database and the style to be used.
+Now you can run BibTeX: it reads the <code>.aux</code> file that contains, as written before, the style to be used and the database and it produces a <code>.bbl</code> file with all the extracted cited references.
+Finally you need to rerun (PDF)LaTeX two times: the first one allows the bibliographic references to be written in the <code>.aux</code> file and the second one allows LaTeX to include the bibliographic citations in the document.</p>
+<p>If using an IDE such as TeXstudio or TeXmaker you may not need to execute all those commands.</p>
+<h3>The bib file</h3>
+<p>The structure of a database file is very simple, as shown in the example below:</p>
+<div class="highlight"><pre>@book<span class="nb">{</span>adams79,
+    author    = &quot;Douglas Adams&quot;,
+    title     = &quot;The <span class="nb">{</span>H<span class="nb">}</span>itchhiker&#39;s <span class="nb">{</span>G<span class="nb">}</span>uide to the <span class="nb">{</span>G<span class="nb">}</span>alaxy&quot;,
+    year      = 1979,
+    publisher =&quot;Pan Books&quot;,
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>Let's see in more detail how each entry has to be structured.
+We first need to define a reference type and this is done using the @ symbol followed by the type that we need; there is a huge number of types available, but amongst the most used there are:</p>
+<ul>
+<li><strong>article</strong>: an article from a journal or magazine.</li>
+<li><strong>book</strong>: a book with an explicit publisher.</li>
+<li><strong>booklet</strong>: a printed work, but without a named publisher.</li>
+<li><strong>conference</strong>: a conference article.</li>
+<li><strong>phdthesis</strong>: a PhD thesis.</li>
+<li><strong>manual</strong>: a technical documentation.</li>
+<li><strong>misc</strong>: use this when nothing else seems appropriate.</li>
+</ul>
+<p>Once defined an entry type we need to put all the required fields between curly braces; each field should have this format:</p>
+<div class="highlight"><pre>@entry<span class="nb">{</span>cite<span class="nb">_</span>key,
+    field<span class="nb">_</span>1 = &quot;value<span class="nb">_</span>1&quot;,
+    field<span class="nb">_</span>2 = &quot;value<span class="nb">_</span>2&quot;,
+    ...
+    field<span class="nb">_</span>9 = &quot;value<span class="nb">_</span>9&quot;,
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>First you have to declare the field and then you insert its value between double quotes (or curly braces); spaces and line breaks are not important, these are needed just to make the code easier to read, but commas are compulsory. The <code>cite_key</code> goes right after the curly braces and without double quotes.</p>
+<p>Regarding the fields, there are many of them, such as <em>author, title, year, journal</em>... each entry type has some mandatory fields that have to be included while others are optional. As for the structure of the fields, here are just two example: the title field and the author field. </p>
+<h4>The title field</h4>
+<p>One has to be careful when dealing with the <em>title</em>: for example when we create the reference list BibTeX will turn everything but the first letter of the title field lowercase. In order to avoid this problem you can enclose the letter that you want uppercase between curly braces, as shown in the first example of how to structure a bib file.</p>
+<h4>The author field</h4>
+<p>When writing the name of an author BibTeX recognizes three different formats; let's say the first name is <em>First</em>, the surname is <em>Last</em> and the von part is <em>von</em>, you can then type the author name as:</p>
+<ul>
+<li>First von Last;</li>
+<li>von Last, First;</li>
+<li>von Last, Jr, First.</li>
+</ul>
+<p>If you have more than one author you can separate them with <em>and</em>, while if you have a high number of contributors you can simply type <em>and others</em> to produce the output <em>et al.</em></p>
+<h4>Some tricks: strings and cross-references</h4>
+<p>It is possible to define strings inside the bib file: it can be helpful when one has to include the same authors or the same publisher/journal in many entries. A string can be define like this:</p>
+<div class="highlight"><pre>@string<span class="nb">{</span>PB = &quot;Pan Books&quot;<span class="nb">}</span>
+
+@string<span class="nb">{</span>adams = &quot;Douglas Adams&quot;<span class="nb">}</span>
+</pre></div>
+
+
+<p>Now you can use that string just defined to build your references. For example:</p>
+<div class="highlight"><pre>@book<span class="nb">{</span>adams79,
+    author    = adams,
+    title     = &quot;The <span class="nb">{</span>H<span class="nb">}</span>itchhiker&#39;s <span class="nb">{</span>G<span class="nb">}</span>uide to the <span class="nb">{</span>G<span class="nb">}</span>alaxy&quot;,
+    year      = 1979,
+    publisher = PB
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>This will produce the same output as the previous case. Note that when filling a field with a string we don't need to use double quotes, because we have already used them when we defined that string.</p>
+<p>Another useful feature of BibTeX is the possibility of cross-referencing: suppose we want to cite a chapter (or a part) of a book or an article in conference proceedings, for example chapter 13 of the LaTeX Companion:</p>
+<div class="highlight"><pre>@book<span class="nb">{</span>companion,
+    author    = &quot;Goossens, Michel and Mittelbach, Franck and Samarin, Alexander&quot;,
+    title     = &quot;The <span class="k">\LaTeX\ </span><span class="nb">{</span>C<span class="nb">}</span>ompanion&quot;,
+    booktitle = &quot;The <span class="k">\LaTeX</span> <span class="nb">{</span>C<span class="nb">}</span>ompanion&quot;,
+    year      = 1993,
+    publisher = &quot;Addison-Wesley&quot;,
+    month     = &quot;December&quot;,
+<span class="nb">}</span>
+
+@incollection<span class="nb">{</span>companion-bib,
+    crossref = &quot;companion&quot;,
+    title    = &quot;Bibliography Generation&quot;,
+    chapter  = 13,
+    pages    = &quot;371-420&quot;,
+<span class="nb">}</span>
+</pre></div>
+
+
+<p>As shown in the example above we need to add the field <em>booktitle</em> in the main reference and then use the <em>incollection</em> entry type to build the cross-reference; usually this will need at least the title of the chapter/section and of course the <em>crossref</em> field that has to point to the main document.</p>
+<h3>Styles and the bst file</h3>
+<p>A style, in simple words, is the way that the bibliography entries are formatted when producing a document; this includes also the way they are sorted and how they are cited throughout the document. All the information that BibTeX needs are contained in a <em>.bst</em> file, for example:</p>
+<ul>
+<li>Which entry types are defined;</li>
+<li>Which fields are mandatory or optional;</li>
+<li>And how to produce a clean and <em>LaTeXable</em> bibliography. </li>
+</ul>
+<p>There are four basic styles included in the standard BibTeX:</p>
+<ul>
+<li><strong>plain</strong>: entries are sorted alphabetically and labelled with numbers;</li>
+<li><strong>alpha</strong>: entry labels are sorted alphanumerically and labelled with authors' names and year of publication;</li>
+<li><strong>unsrt</strong>: like plain, but entries are sorted by the order of their first citation;</li>
+<li><strong>abbrv</strong>: like plain, but entries are written in a more compact form.</li>
+</ul>
+<p>There are many other styles available, in order to use them you just need to load additional packages, such as <strong>natbib</strong>: with this loaded you can have access to lots of different styles plus the classical ones redefined especially for natbib (<em>plainnat</em>, <em>unsrtnat</em>, abbrvnat*) with other features, like for example the possibility to include an URL as a field within an entry. The <em>\cite</em> command has also been redefined, so that you can handle citations styles in different ways, for example changing the brackets, or making them superscript.</p>
+<p>As mentioned before, the bst file is the one responsible for building the reference list. Let's have a (brief) look at how it's structured:</p>
+<div class="highlight"><pre>ENTRY
+<span class="nb">{</span> ... <span class="nb">}</span>
+<span class="nb">{</span> ... <span class="nb">}</span>
+<span class="nb">{</span> ... <span class="nb">}</span>
+INTEGERS <span class="nb">{</span> ... <span class="nb">}</span>
+STRINGS <span class="nb">{</span> ... <span class="nb">}</span>
+MACRO <span class="nb">{</span> ... <span class="nb">}{</span> ... <span class="nb">}</span>
+FUNCTION <span class="nb">{</span> ... <span class="nb">}{</span> ... <span class="nb">}</span>
+READ
+EXECUTE <span class="nb">{</span> ... <span class="nb">}</span>
+ITERATE <span class="nb">{</span> ... <span class="nb">}</span>
+SORT
+ITERATE <span class="nb">{</span> ... <span class="nb">}</span>
+REVERSE <span class="nb">{</span> ... <span class="nb">}</span>
+EXECUTE <span class="nb">{</span> ... <span class="nb">}</span>
+</pre></div>
+
+
+<p>As you can see each command is written in uppercase and its argument is between curly braces. Following there is a very brief explanation of what those commands do:</p>
+<ul>
+<li><strong>ENTRY</strong>: Defines a list of all possible fields (address, author, title...);</li>
+<li><strong>INTEGERS</strong>: Declares integer variables;</li>
+<li><strong>STRINGS</strong>: Defines string variables (not to be confused with the @string mentioned before) in the same way as INTEGERS;</li>
+<li><strong>MACRO</strong>: Defines abbreviations and takes two arguments; the first one is the name of the abbreviation while the second is the definition itself (this is similar to @string);</li>
+<li><strong>FUNCTION</strong>: Defines macro functions that will be exectuted later on;</li>
+<li><strong>READ</strong>: Tells BibTeX to read the .bib file (must occur only one time);</li>
+<li><strong>EXECUTE</strong>: Executes the function that has been given as an argument;</li>
+<li><strong>ITERATE</strong>: Similar to EXECUTE, but the function is executed as many times as the number of entries imported by READ;</li>
+<li><strong>SORT</strong>: Sorts the entries according to the style;</li>
+<li><strong>REVERSE</strong>: Like ITERATE, but the functions are executed from the last entries to the first ones.</li>
+</ul>
+<p>Usually it's better not to modify the bst file, unless you really need to; if you're looking for a particular format there are hundreds of styles that can be downloaded (for example lots of journals have made their citation styles available for download). If you want to create a style file from scratch an useful tool could be <strong>custom-bib</strong>; you just need to type from the command line:</p>
+<div class="highlight"><pre>latex makebst.tex
+</pre></div>
+
+
+<p>This will start a <em>Q&amp;A</em> session in which you'll be required to answer some easy questions about the structure of the file that you want to create. In the end a bst file will be produced.</p>
+<h1>References and useful links</h1>
+<hr />
+<ul>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX">Latex Wiki</a></li>
+<li><a href="https://tobi.oetiker.ch/lshort/lshort.pdf">The Not So Short Introduction to Latex</a></li>
+<li><a href="http://tug.ctan.org/info/bibtex/tamethebeast/ttb_en.pdf">Tame the BeaST</a> (Most of the examples of the BibTeX section are taken from here)</li>
+<li><a href="http://www.geocities.ws/kijoo2000/bibtex_guide.pdf">A BibTeX Guide via Examples</a></li>
+<li><a href="http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/natbib/natbib.pdf">Natbib Documentation</a></li>
+<li><a href="https://www.mendeley.com">Mendeley</a></li>
+</ul>
+<h1></h1>
+<h1>Exercise</h1>
+<hr />
+<p>The exercise consists of two parts: in the first one you'll be required to reproduce the document as best as you can, while in the second part you'll be required to deal with the bibliography using BibTeX.</p>
+<p><a href="./bibtex/Exercise.pdf">Exercise</a></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./Pint.html" rel="bookmark"
+                           title="Permalink to Computing with Units in Python Pint">Computing with Units in Python <strong>Pint</strong></a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-29T16:00:00+01:00">
+                Published: Mon 29 February 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-hossam-ragheb.html">Hossam Ragheb</a>
+                        <a class="url fn" href="./author-emanuele-zappia.html">Emanuele Zappia</a>
+        </address>
+<p>In <a href="./category-computing-with-units.html">Computing with units</a>. </p>
+<p>tags: <a href="./tag-computing-with-units.html">Computing with units</a> <a href="./tag-python.html">Python</a> <a href="./tag-pint.html">Pint</a> </p>
+</footer><!-- /.post-info -->                <hr class="docutils" />
+<div class="figure align-center">
+<img alt="**Pint** Logo" src="./computing-with-units/fig/logo-full.jpg" style="width: 30%;" />
+</div>
+<div class="section" id="how-to-use-the-virtual-machine">
+<h2>How to use the Virtual Machine?</h2>
+<p>To download the virtual machine please click <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_Prog_w_Units.ova">here</a></p>
+<p>The virtual machine has a light lubuntu distribution installed, the user name and password are 'feeg6003'.</p>
+<p>Once you are logged in press ctrl + alt + t which will open a new terminal, we modified the terminal to ...</p></div>
+                <a class="readmore" href="./Pint.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./CSG.html" rel="bookmark"
+                           title="Permalink to Introducing Constructive Solid Geometry with OpenSCAD">Introducing Constructive Solid Geometry with OpenSCAD</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-02-25T16:00:00+01:00">
                 Published: Thu 25 February 2016
@@ -37,330 +412,17 @@
         </address>
 <p>In <a href="./category-constructive-solid-geometry.html">Constructive Solid Geometry</a>. </p>
 <p>tags: <a href="./tag-csg.html">CSG</a> <a href="./tag-constructive-solid-geometry.html">Constructive Solid Geometry</a> <a href="./tag-cad.html">CAD</a> <a href="./tag-openscad.html">OpenSCAD</a> <a href="./tag-graphics.html">graphics</a> </p>
-</footer><!-- /.post-info --><hr class="docutils" />
+</footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
 <img alt="OpenSCAD Logo." src="./OpenSCAD/images/OpenSCAD-logo.png" style="width: 20%;" />
 </div>
 <div class="section" id="instructions-for-using-the-virtual-machine">
 <h2>Instructions for using the Virtual Machine</h2>
 <p>A link to download the Virtual Machine with OpenSCAD installed is provided <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003Debian_OpenSCAD.ova">here</a>.</p>
-<p>The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user <strong>csg</strong> with the password <strong>csg</strong>. There is no display manager installed, so you will need to start the X window environment using the <strong>startx</strong> command. You find OpenSCAD in the <strong>Applications</strong> menu under <strong>Graphics</strong>.</p>
-<p>(Normally you will not need this, but if you want to modify this virtual machine, the <em>root</em> account has the password <em>feeg6003</em>. If you don't know what you are doing or if you wish so for your own peace of mind, you might consider running <em>apt-getinstallsudo</em> and then leaving the <em>root</em> account forever.)</p>
-<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a> and should be completable after finishing reading this blog. It may require some reading of the OpenSCAD <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> however.</p>
-</div>
-<div class="section" id="what-is-constructive-solid-geometry">
-<h2>What is Constructive Solid Geometry?</h2>
-<p>Constructive Solid Geometry (<strong>CSG</strong>) is a technique used to model solid objects. It is where you build a more complex shape out of more simple shapes called primitives.</p>
-<p>You can then use the operations: Union, difference, intersection and geometric transformations (translation and rotation) to build more complex objects/shapes.</p>
-<div class="figure align-center">
-<img alt="Shows the product of the construction, difference and intersection operators." src="./OpenSCAD/images/OpenSCAD_demo.png" style="width: 100%;" />
-<p class="caption">Demonstration of the basic operations in OpenSCAD, the first is the result of a union of the cube and a sphere, the second is the result of a difference between a cube and a sphere, the third is the result of an intersection between a cube and a sphere.</p>
-</div>
-</div>
-<div class="section" id="what-is-openscad-and-why-should-i-use-it">
-<h2>What is OpenSCAD and why should I use it?</h2>
-<p>OpenSCAD is a free software tool for creating solid 3D CAD models. The CAD models are produced using a script which is coded in a language similar to C and is compiled to render a 3D model from this script file. This means that the models are easily reproduced, distributed, and altered.</p>
-<p>The 3d model can then be exported in a number of ways. It can be exported in such a way as to create a mesh for a CFD simulation or can be exported such that the design can be 3d printed. An example of the former can be seen below in form of 3D printed speaker vessels.</p>
-<div class="figure align-center">
-<img alt="Shows a laptop running OpenSCAD with the design for the speaker housing that looks like the Deathstar from the Star Wars franchise with 2 of such speakers either side of the user's laptop." src="./OpenSCAD/images/nomoon_desk.png" style="width: 100%;" />
-<p class="caption">An example OpenSCAD design with the 3D printed results. Some 3D printed Deathstar speaker housings created with OpenSCAD. Source: <a class="reference external" href="http://www.3ders.org/articles/20150108-3d-model-generator-creates-custom-star-wars-death-star-3d-printed-speaker-cases.html">http://www.3ders.org/articles/20150108-3d-model-generator-creates-custom-star-wars-death-star-3d-printed-speaker-cases.html</a></p>
-</div>
-<p>So, why shoud you use OpenSCAD as opposed to regular CAD software?</p>
-<dl class="docutils">
-<dt>The Pros of OpenSCAD are:</dt>
-<dd><ul class="first last simple">
-<li>precise placement of object (as all objects have explicit numbered coordinates and sizes)</li>
-<li>easily modifiable design, e.g. when you want to make a wall thicker or a hole larger, and the whole design adapts to the new numbers automatically.</li>
-<li>a text-readable design, and easily recyclable components or behaviors</li>
-</ul>
-</dd>
-</dl>
-<p>However if you are attempting to create an organic looking object where the precise sizes and dimensions don't matter OpenSCAD may not be the right tool for the job. Creating complex curving organic shapes using simple primative shapes can take quite a long time and would probably be easier in typical CAD software.</p>
-</div>
-<div class="section" id="openscad-as-a-functional-programming-language">
-<h2>OpenSCAD as a functional programming language</h2>
-<p>The concept of OpenSCAD is based on a <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">functional programming language</a>. One of the most apparent differences to imperative programming languages like C is the fact that variables are assigned at <strong>compile time</strong>, not at run time. In this sense they are somewhat similar to constants in other languages.</p>
-<p>While iterative formulations are not supported in any way, recursive functions can be defined. Since version 2015.3 OpenSCAD also includes list comprehension, which allows for very elegant formulations of a given problem.</p>
-<div class="section" id="variables-and-data-types">
-<h3>Variables and data types</h3>
-<p>The most important <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#Values_and_Data_Types">data types</a> are</p>
-<ul class="simple">
-<li>Numbers: <em>a = 2.3</em></li>
-<li>Boolean: <em>true</em>, <em>false</em></li>
-<li>Strings: <em>s = &quot;hello world&quot;</em></li>
-<li>Ranges: <em>r = [0:2.5:20]</em></li>
-<li>Vectors: <em>vec = [1, 2, &quot;somestring&quot;, [3.5, 7]]</em></li>
-</ul>
-<p>As the vector example already suggests, matrices can be easily defined as vectors of vectors. The range is a very important data type, as iterative programming is not feasible.</p>
-<p>New OpenSCAD users have to get used to the idea that expressions like <em>x = x + 1</em> are not allowed. They will also have to understand that, even if a variable can be assigned at various positions of the code, every variable call will use only the last assigned value.</p>
-<p>The following lines of code</p>
-<ul class="simple">
-<li><em>a = 1;</em></li>
-<li><em>echo(a);</em></li>
-<li><em>a = 2;</em></li>
-<li><em>echo(a);</em></li>
-</ul>
-<p>will consequently produce this output:</p>
-<ul class="simple">
-<li><em>ECHO: 2</em></li>
-<li><em>ECHO: 2</em></li>
-</ul>
-<p>In addition to the normal data types, there are also <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#Special_variables">special variables</a> used to control the rendering of objects. Some of the most important examples are</p>
-<ul class="simple">
-<li><em>$fn</em>, <em>$fs</em>, <em>$fa</em>: these variables control the number of facets</li>
-<li><em>$t</em>: time, which is needed for animations</li>
-</ul>
-</div>
-<div class="section" id="conditional-and-iterator-functions">
-<h3>Conditional and Iterator Functions</h3>
-<p>OpenSCAD uses concepts very similar to other programming languages, most notably <em>for</em> loops and <em>if</em> statements.</p>
-<p>Compared to imperative languages, <em>for</em> loops are different in the sense that the loop does not go through the increments of a variable, but through the elements of a <strong>range</strong> or a <strong>vector</strong>. This is why range is an important data type.</p>
-<p>The beauty of this can be seen when going through a vector of vectors, to name but one application.</p>
-<p>A nice demonstration of the power of <em>for</em> loops in OpenSCAD is the way a matrix can be flattened into a vector. Let's assume we are working with the matrix</p>
-<p><em>mat = [[1, 2], [3, 4]];</em></p>
-<p>Then the expression <em>for (i=mat) for (j=i)</em> goes through the vectors <em>[1, 2]</em> and <em>[3, 4]</em> first and then through the elements <em>1</em>, <em>2</em>, <em>3</em> and <em>4</em>.</p>
-<p>With the integration of list comprehension in version 2015.3, this idea can be brought to the next level:</p>
-<p><em>flattenedvector = [for (i=mat) for (j=i) j];</em></p>
-<p>If statements work very similar to other languages. It can also be very useful to use the conditional <em>?</em>, which uses a structure similar to the following expression:</p>
-<p><em>a =   test ? TrueValue : FalseValue ;</em></p>
-<p>So here the variable <em>a</em> is assigned depending on the boolean value <em>test</em>.</p>
-</div>
-<div class="section" id="operators-and-mathematical-functions">
-<h3>Operators and Mathematical Functions</h3>
-<p>Operators in OpenSCAD are similar to C/C++, although increments and decrements are not supported due to the non-iterative nature of OpenSCAD.</p>
-<p>Mathematical operators can easily be applied to vectors and matrices. There is also a cross product function <em>cross</em> as well as a broad range of mathematical functions which mostly operate on scalars.</p>
-<p>Vectors of uniformly distributed random numbers can be produced using the <em>rands</em> function.</p>
-</div>
-<div class="section" id="functions-modules-and-libraries">
-<h3>Functions, Modules and Libraries</h3>
-<p>Larger programs can be written making use of functions, modules and libraries.</p>
-<p><strong>Functions</strong> are definitions which return a value, for instance <em>function func0(x = 3) = 2 ∗ x + 1;</em>. They can be defined recursively, as in <em>function sumv(v,i,s = 0) = (i == s ? v[i] : v[i]+sumv(v,i −1,s));</em>.</p>
-<p><strong>Modules</strong> perform actions, but do not return values. They can be used to reuse combinations of objects, as in <em>module myshape(r, d) {union(){sphere(r); cube(d); }}</em>.</p>
-<p><strong>Library</strong> files can be <strong>executed</strong> (i.e. all the commands in the file will be performed) using the structure <em>include &lt; filename.scad &gt;</em>. If only the modules and functions of the library shall be <strong>imported</strong>, the command to use is <em>use &lt; filename.scad &gt;</em>.</p>
-</div>
-<div class="section" id="documentation">
-<h3>Documentation</h3>
-<p>The OpenSCAD website provides an extensive and easy to understand <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a>. To get a quick overview, a <a class="reference external" href="http://www.openscad.org/cheatsheet/index.html">cheat sheet</a> is provided, which includes direct links to the documentation for the most important commands.</p>
-</div>
-</div>
-<div class="section" id="getting-started-with-openscad">
-<h2>Getting Started with OpenSCAD</h2>
-<p><a class="reference external" href="http://www.openscad.org/cheatsheet/">Click here to open the OpenSCAD CheatSheet.</a> This is a good reference to have when getting started with OpenSCAD as it shows you all the commands and links directly to the OpenSCAD documentation.</p>
-<div class="section" id="some-basic-shapes">
-<h3>Some Basic Shapes</h3>
-<p>The first primative shape we will look at is the cube.</p>
-<p>To define a simple cube with sides of length 10mm in OpenSCAD you simply write the following:</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cube" src="./OpenSCAD/images/cube10.png" style="width: 50%;" />
-<p>You could also write the following to get the same result:</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
-</pre></div>
-<p>To create a cuboid with sides of different lengths you could type the following (Dimensions are defined in x, y and z format):</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]);</span>
-</pre></div>
-<img alt="Shows a cuboid" src="./OpenSCAD/images/cube102030.png" style="width: 50%;" />
-<p>These cubes are rendered with thier corner on the origin if you wish to have them centred on the origin simply use set argument center to true like so:</p>
-<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cented cuboid" src="./OpenSCAD/images/cube102030C.png" style="width: 50%;" />
-<p>The next primative shape we will look at is the sphere. A sphere is automatically centered on the origin by default.</p>
-<p>To create a sphere with radius 10mm you can do the following:</p>
-<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a sphere" src="./OpenSCAD/images/sphere10.png" style="width: 50%;" />
-<p>You can also use arugments to specify the sizes of shapes, for example you can create a sphere by setting the radius using the argument r or a diameter by specifying the arugment d. The following codes creates the same sphere as above.</p>
-<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
-
-<span class="n">sphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-</pre></div>
-<p>It is often a good idea to use the arguments to specify the measurements of shapes since it is more obvious what measurement you are specifying, e.g. diameter or radius.</p>
-<p>The last primative shape we will look at is the cylinder. By default A cylinder has it's axis centered about the z axis but has it's base at z=0.</p>
-<p>You can define a cylinder with height 20mm and radius 10mm like so:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cylinder" src="./OpenSCAD/images/cylinder1020.png" style="width: 50%;" />
-<p>You can also create cones using this cylinder shape by specifying the arguments r1 and r2, see below:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cone" src="./OpenSCAD/images/cone.png" style="width: 50%;" />
-</div>
-<div class="section" id="making-smooth-objects">
-<h3>Making Smooth Objects</h3>
-<p>You can specify the number of facets on a shape to smooth out shapes or to make different shapes.</p>
-<p>For example a cylinder with 3 faces produces a triangular prism, see below. The number of facets on a shape is specified with the argument $fn.</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fn</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a traingular prism" src="./OpenSCAD/images/triprism.png" style="width: 50%;" />
-<p>By using 4 faces you get a cuboid, 5 and you get a pentagonal prism and so on.</p>
-<p>By using a very large number you get a shape which is closer to a real cylinder, however you should not attempt to use this to increase the resolution/smoothness of your object instead you should use the paramters/arguments defining the &quot;minimum angle&quot;, $fa, and the &quot;minimum size&quot;, $fs. These set the minumum angular size for a face and the minumum size of a side of that face. These can be set as a default value for the entire script or can be specified as an argument for a particular shape. See below for how to do this:</p>
-<p>You can set default values for $fa and $fs like so:
-.. code-block:: c</p>
-<blockquote>
-$fs = 0.5;
-$fa = 0.5;
-cylinder(r=5, h=20);</blockquote>
-<p>Or you can set them as a argument like this:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="err">$</span><span class="n">fa</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
-</pre></div>
-<p>These will produce the following shape</p>
-<img alt="Shows a cylinder" src="./OpenSCAD/images/Cylinder.png" style="width: 50%;" />
-<p>It is a good idea to set a particular default for your design based on what your object recuires, e.g. if you are 3D printing the object there will be a minimum size that the 3D printer can print. If you are using the object in a simulation you may need a certain resolution/smoothness of the shape to get a realistic output from your simulation. If you are not sure what is required setting values for both as 0.5, as shown above, provides a reasonable level of smoothness without slowing down the rendering of the object too much. A smoother shape with more sides will take significantly longer to render and manipulate.</p>
-</div>
-<div class="section" id="geometric-transformations">
-<h3>Geometric Transformations</h3>
-<p>The first geometric transformation we will cover is translation.</p>
-<p>Translations of objects are done by preceding the object definition with the command translation followed by a vector, see the example of a cube translated 10mm in the x axis below:</p>
-<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-<img alt="Shows a cube translated spaitally in the x axis" src="./OpenSCAD/images/transcube.png" style="width: 50%;" />
-<p>By setting the object to be centred and translating the object by a vector [x, y, z] the object can easily be centred around a generic vector postion [x, y ,z], see the example below of a cylinder centred on [x, y, z]:</p>
-<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>You can also define the vector seperately and translate by that vector like so:</p>
-<div class="highlight"><pre><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">];</span>
-<span class="n">translate</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>The next geometric transformation we will cover is rotation. Rotations are performed about the x, y and z axis.</p>
-<p>For example to rotate a cylinder thetaX about the x axis you perform the following operation:</p>
-<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="n">thetaX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>It is recommended to perform rotation about 1 axis at a time so that the operation is easy to understand. This is because after 1 rotation the next rotation performed depends upon the first. See the example below:</p>
-<p>This first code performs 2 rotations at once, one about the x axis, one about the y axis.</p>
-<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>This produces the following rendered object:</p>
-<img alt="Shows a cylinder rotated such that it's axis is parallel to the y axis." src="./OpenSCAD/images/doublerotation.png" style="width: 50%;" />
-<p>By performing the 2 rotations seperately a completely different rotation is observed. This is typically easier to visualise.</p>
-<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-</pre></div>
-<p>This produces the following rendered object:</p>
-<img alt="Shows a cylinder rotated such that it's axis is parallel to the x axis." src="./OpenSCAD/images/2rotations.png" style="width: 50%;" />
-</div>
-<div class="section" id="operations">
-<h3>Operations</h3>
-<p>There are 3 primary operations in OpenSCAD, union, difference and intersection.</p>
-<p>Union is what OpenSCAD does by default if you construct multiple objects, it 'adds' the objects such that they build up a more complex object. 3 example of unions of 2 objects are shown below:</p>
-<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-</pre></div>
-<div class="highlight"><pre><span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<div class="highlight"><pre><span class="k">union</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>All 3 of these render the following object:</p>
-<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/union.png" style="width: 50%;" />
-<p>Difference is the next operation that you can use in OpenSCAD, this takes the subsequent objects away from the first object. See the example below with the same component parts.</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>This will render the following object:</p>
-<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/difference.png" style="width: 50%;" />
-<p>Finally there is intersection which renders the volume in which all the objects stated inside the intersection block intersect with each other. See the intersection example below with the same component parts as the previous 2 operations.</p>
-<div class="highlight"><pre><span class="n">intersection</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
-<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>This will render the following object:</p>
-<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/intersection.png" style="width: 50%;" />
-</div>
-<div class="section" id="a-common-gotcha-with-openscad-zero-thickness-surfaces">
-<h3>A common gotcha with OpenSCAD - Zero Thickness Surfaces</h3>
-<p>A common problem experienced when using OpenSCAD to design an object for simulation or fabrication is zero thickness surfaces, literally surfaces defined in the design which have a thinkness of zero and so are completely unphysical. This typically happens when using the difference operation to make a hole in an object. If you define a cylinder to make a hole in an object and the edge of that cylinder lies in the edge of the object you are differencing it from you will render a surface with 0 thickness, this can be seen in the example below when attemping to make a tube:</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<img alt="Shows a tube with a thin surface over the top hole." src="./OpenSCAD/images/0thickness.png" style="width: 50%;" />
-<p>You can see there appears to be a thin surface over the top of the tube. To solve this you may try to make the inner cylinder longer, which is partially the correct solution, see below:</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<p>The top of the tube now looks fine:</p>
-<img alt="Shows a tube with no thin surface over the top hole but a thin surface over the bottom hole." src="./OpenSCAD/images/0thicknesstop.png" style="width: 50%;" />
-<p>However the bottom still has this thin surface over it, since the bottoms of the tubes line up, by translating the tube slightly we can fix this and get a tube. See below:</p>
-<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
-<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-<span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-<img alt="Shows a tube." src="./OpenSCAD/images/tube.png" style="width: 50%;" />
-</div>
-<div class="section" id="for-more-see-the-documentation">
-<h3>For More see the Documentation</h3>
-<p>Using these 3 primative shapes, along with the 2 geometric transformations and the 3 operations is enough to create some quite complex shapes already but the toolkit supplied by the OpenSCAD software contains much more useful functionality, see the <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> for the complete functionality of openSCAD.</p>
-<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a></p>
-</div>
-</div>
-<div class="section" id="some-practical-applications-of-openscad">
-<h2>Some Practical Applications of OpenSCAD</h2>
-<div class="section" id="magnetic-simulation-with-openscad-and-femm">
-<h3>Magnetic Simulation with OpenSCAD and FEMM</h3>
-<p>An example of how to combine OpenSCAD and the simulation tool <a class="reference external" href="http://www.femm.info">FEMM</a> (Finite Element Method Magnetics) is described on the blog <a class="reference external" href="https://shanjaq.wordpress.com/2013/03/25/procedural-magnetic-simulation-with-openscad-and-femm-part-1/">The Test Chamber</a>.</p>
-<p>Starting with drawing a circle of squares and then subtracting them from a circle, a slot armature with coils is developed. The geometry is then exported in <em>DXF</em> format in order to perform a magnetic simulation.</p>
-<p>The code which is fully described on the blog also shows an efficient way of using OpenSCAD modules to create more complex geometries.</p>
-</div>
-<div class="section" id="direct-pore-scale-simulation-of-multiphase-flow">
-<h3>Direct pore-scale simulation of multiphase flow</h3>
-<p>A project presented at the <a class="reference external" href="https://workspace.imperial.ac.uk/earthscienceandengineering/Public/external/Research/PERM/Ali_NewUpload/Ali_Raeini_Pore-scaleMeeting2015.pdf">Imperial College Consortium on Pore Scale Modelling</a> (January 2015) shows how OpenSCAD can be used for Computational Fluid Dynamics with the free CFD software <a class="reference external" href="http://openfoam.org/">OpenFOAM</a>.</p>
-<p>In this case the geometry is created with OpenSCAD and then exported in the STL format. This format can be directly imported by the <em>snappyHexMesh</em> mesh generator provided by OpenFOAM. Here the mesh generator was used to generate a finite volume mesh. After setting up boundary and initial conditions, a 3D direct numerical simulation with OpenFOAM was performed.</p>
-</div>
-</div>
-<div class="section" id="libraries-for-openscad">
-<h2>Libraries for OpenSCAD</h2>
-<p>One of the huge advantages of OpenSCAD is the fact that many <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Libraries">libraries</a> are available, some of them with very specific definitions, which allow for professional results.</p>
-<p>The central project supported by OpenSCAD is the <a class="reference external" href="https://github.com/openscad/MCAD">MCAD</a> library. It offers a large variety of modules and functions like</p>
-<ul class="simple">
-<li>Common shapes: rounded boxes, polygons, polyeders etc.</li>
-<li>Gear generator</li>
-<li>Nuts, bolts, bearings, screws</li>
-<li>Material definitions for common materials</li>
-<li>Mathematical constants and curves</li>
-</ul>
-<p><a class="reference external" href="http://www.bolts-library.org">BOLTS</a> (BOLTS is an Open Library of Technical Specifications) is an open-source standard parts library that provides definitions of standard parts. Some examples are</p>
-<ul class="simple">
-<li>C-Beam profiles</li>
-<li>Bearings</li>
-<li>Nuts</li>
-<li>Batteries</li>
-<li>Washers</li>
-<li>Pipes</li>
-</ul>
-<p>Definitions of the most important standardisation bodies like ISO, EN, ANSI, DIN, IEC etc. are supported.</p>
-<p>For code development itself there are also helpful libraries available. A good example is <a class="reference external" href="https://github.com/oampo/testcard">Test Card</a>, which provides functions for unit testing. Some typical test include</p>
-<ul class="simple">
-<li>Equality / Non-equality</li>
-<li>Truthiness / Falseness</li>
-<li>Presence / Absence</li>
-</ul>
-</div>
-<div class="section" id="advanced-usage-of-openscad">
-<h2>Advanced Usage of OpenSCAD</h2>
-<p>Instead of using the graphical user interface, external text editors can be used to create <em>.scad</em> files. For various of the most common text editors like <a class="reference external" href="https://github.com/openscad/openscad/blob/master/contrib/scad-mode.el">emacs</a>, <a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=3556">vim</a> or <a class="reference external" href="https://atom.io/packages/language-openscad">atom</a>, extensions with OpenSCAD features are available.</p>
-<p>OpenSCAD files can also easily be called from the <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment">command line</a>, thus allowing for many options specifying input and output. As variables can be assigned from the command line using the <em>-D var=val</em> option, which can be used repeatedly, automisation within a shell script is easy to achieve, which is a very attractive feature in combination with other software.</p>
-<p>If specific files are required within a more complex process, a make file can be provided for creating the missing files (like <em>STL</em> files for example).</p>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user <strong>csg</strong> with the password <strong>csg</strong>. There is no display manager installed, so you ...</p></div>
+                <a class="readmore" href="./CSG.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
