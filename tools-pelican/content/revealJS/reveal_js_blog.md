@@ -38,17 +38,17 @@ Summary of files contained within:
 - tutorial_material/: Material for the lab
 - uos-logo.css: CSS file to include the university logo in the corner of the presentation
 
-## Using a Reveal.js Presentations
+## Using Reveal.js Presentations
 
 You can view a Revel.js presentation in any JavaScript enabled browser.
 
 #### Using generic software
 
-Open the presentation/HTML file in your preferred text editor. Open the presentation/HTML file with your browser. When you make edits to the file, you then must refresh the presentation page in the broswer 
+Open the presentation/HTML file in your preferred text editor. Open the presentation/HTML file with your browser. When you make edits to the file, you then must refresh the presentation page in the broswer.
 
 #### Using Brackets
 
-Open the presentation/HTML file you wish to edit in Brackets. Click the lightning bolt icon in the upper right corner, this should open a browser window and the lighning bolt should turn from grey to yellow. As you save your presentation, the changes will be reflected in the browser dynmically.
+Open the presentation/HTML file you wish to edit in Brackets. Click the lightning bolt icon in the upper right corner, this should open a browser window and the lighning bolt should turn from grey to yellow. As you save your presentation, the changes will be reflected in the browser dynamically.
 
 #### Controlling the presentation
 
@@ -56,6 +56,6 @@ If you wish to make the presentation full screen, then press the **F** key, or l
 
 ## Tutorial
 
-In the tutorial we will do some live coding and build up a basic template. Those attending are then advised to complete the slide addition part individually. Finally a few exercises are given for those that would like a chalenge. The tutorial PDF file can be found [here]({filename}/revealJS/tutorial.pdf). Before you start working, make sure the [revealjs]({filename}/revealJS/feeg6003_revealjs.zip) folder.
+In the tutorial we will do some live coding and build up a basic template. Those attending are then advised to complete the slide addition part individually. Finally a few exercises are given for those that would like a chalenge. The tutorial PDF file can be found [here]({filename}/revealJS/tutorial.pdf). Before you start working, make sure you download the [revealjs]({filename}/revealJS/feeg6003_revealjs.zip) folder.
 
 ### Thank you!
