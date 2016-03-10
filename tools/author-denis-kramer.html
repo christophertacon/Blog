@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - Denis Kramer</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./install-pelican-git.html">Installing Pelican and Git on lubuntu</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-02-16T00:00:00+01:00">
+                Published: Tue 16 February 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+        </address>
+<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info --><p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu-2016.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have Python 2.x and the python package manager <strong>pip</strong> available. Then it should be as simple as running</p>
+<div class="highlight"><pre>pip install pelican markdown
+</pre></div>
+
+
+<p>as root or super-user. </p>
+<p>We also use Git as version control software. Please refer to the <a href="https://git-scm.com">Git webpage</a> for downloads and installation instructions for your machine. On most Linux systems, it is usually best to trust the package manager and use something like</p>
+<div class="highlight"><pre>sudo apt-get install git
+</pre></div>
+
+
+<h1>Obtain virtual machine</h1>
+<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="./virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
+<h2>Install make gcc</h2>
+<p>Make is needed for the guest installations. We also use make with pelican for convenience (more on that later)</p>
+<div class="highlight"><pre>sudo apt-get install make gcc
+</pre></div>
+
+
+<p><img alt="Installing gcc" src="./pelican-basics/images/install_gcc.png" title="Installing gcc and make" /></p>
+<p>Install Guest additions by injecting the <em>Host Additions CD</em> and run the following command in the cd subdirectory</p>
+<div class="highlight"><pre><span class="nb">cd</span> /media/feeg6003/&lt;NAME OF VBOXADDITIONS CD&gt;
+sudo ./VBoxLinuxAdditions.run
+</pre></div>
+
+
+<p><img alt="Installing guest additions" src="./pelican-basics/images/install_vbox.png" title="Installing guest additions" /></p>
+<p>This should take a minute or two. Reboot the virtual machine after installation of the guest additions.</p>
+<h1>Installing Pelican</h1>
+<p><strong>Hint:</strong> Make sure that you are <strong>not</strong> using python 3.</p>
+<p><img alt="Python version" src="./pelican-basics/images/python_version.png" title="Checking the python version" /></p>
+<p>On lubuntu 15.10, pip can be installed via apt-get</p>
+<div class="highlight"><pre>sudo apt-get install python-pip
+</pre></div>
+
+
+<p>If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining <a href="./install-pelican.html">installation of pelican with mercurial</a>.</p>
+<p>Finally, once pip is available, pelican (with markdown extension) can be installed</p>
+<div class="highlight"><pre>sudo pip install pelican markdown
+</pre></div>
+
+
+<p><img alt="Install pip" src="./pelican-basics/images/install_pelican.png" title="Installing the python package manager" /></p>
+<h1>Installing Git</h1>
+<p>We use <a href="https://git-scm.com">Git</a> as version control software for the blocks post repository.</p>
+<p>Use the linux package manager to install git and meld</p>
+<div class="highlight"><pre> sudo apt-get install git meld
+</pre></div>
+
+
+<p><a href="http://meldmerge.org">Meld</a> is a visual diff and merge tool that is useful.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./bitbucket-forge.html" rel="bookmark"
+                           title="Permalink to Forking on Bitbucket">Forking on Bitbucket</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-14T00:00:00+01:00">
+                Published: Sat 14 February 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+        </address>
+<p>In <a href="./category-forking.html">forking</a>. </p>
+<p>tags: <a href="./tag-tools.html">tools</a> <a href="./tag-bitbucket.html">bitbucket</a> <a href="./tag-versioning.html">versioning</a> <a href="./tag-repository.html">repository</a> </p>
+</footer><!-- /.post-info -->                <h1>Distributed Version Control 101</h1>
+<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="./pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
+<div class="highlight"><pre>hg clone &lt;url of remote repository&gt;
+</pre></div>
+
+
+<p>is the ...</p>
+                <a class="readmore" href="./bitbucket-forge.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./install-pelican.html" rel="bookmark"
+                           title="Permalink to Installing Pelican and Mercurial on lubuntu">Installing Pelican and Mercurial on lubuntu</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
+                Published: Thu 12 February 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+        </address>
+<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->                <p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have ...</p>
+                <a class="readmore" href="./install-pelican.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./pelican-basics.html" rel="bookmark"
+                           title="Permalink to Introduction to Pelican">Introduction to Pelican</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
+                Published: Thu 12 February 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+        </address>
+<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->                <p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png" /></p>
+<p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
+<h1>Prepare environment</h1>
+<p>The tools that we will need are</p>
+<ul>
+<li>Pelican 3.5 ...</li></ul>
+                <a class="readmore" href="./pelican-basics.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

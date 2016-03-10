@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - Ashley Setter</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./CSG.html">Introducing Constructive Solid Geometry with OpenSCAD</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-02-25T16:00:00+01:00">
+                Published: Thu 25 February 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-ashley-setter.html">Ashley Setter</a>
+                        <a class="url fn" href="./author-thorsten-wittemeier.html">Thorsten Wittemeier</a>
+        </address>
+<p>In <a href="./category-constructive-solid-geometry.html">Constructive Solid Geometry</a>. </p>
+<p>tags: <a href="./tag-csg.html">CSG</a> <a href="./tag-constructive-solid-geometry.html">Constructive Solid Geometry</a> <a href="./tag-cad.html">CAD</a> <a href="./tag-openscad.html">OpenSCAD</a> <a href="./tag-graphics.html">graphics</a> </p>
+</footer><!-- /.post-info --><hr class="docutils" />
+<div class="figure align-center">
+<img alt="OpenSCAD Logo." src="./OpenSCAD/images/OpenSCAD-logo.png" style="width: 20%;" />
+</div>
+<div class="section" id="instructions-for-using-the-virtual-machine">
+<h2>Instructions for using the Virtual Machine</h2>
+<p>A link to download the Virtual Machine with OpenSCAD installed is provided <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003Debian_OpenSCAD.ova">here</a>.</p>
+<p>The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user <strong>csg</strong> with the password <strong>csg</strong>. There is no display manager installed, so you will need to start the X window environment using the <strong>startx</strong> command. You find OpenSCAD in the <strong>Applications</strong> menu under <strong>Graphics</strong>.</p>
+<p>(Normally you will not need this, but if you want to modify this virtual machine, the <em>root</em> account has the password <em>feeg6003</em>. If you don't know what you are doing or if you wish so for your own peace of mind, you might consider running <em>apt-getinstallsudo</em> and then leaving the <em>root</em> account forever.)</p>
+<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a> and should be completable after finishing reading this blog. It may require some reading of the OpenSCAD <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> however.</p>
+</div>
+<div class="section" id="what-is-constructive-solid-geometry">
+<h2>What is Constructive Solid Geometry?</h2>
+<p>Constructive Solid Geometry (<strong>CSG</strong>) is a technique used to model solid objects. It is where you build a more complex shape out of more simple shapes called primitives.</p>
+<p>You can then use the operations: Union, difference, intersection and geometric transformations (translation and rotation) to build more complex objects/shapes.</p>
+<div class="figure align-center">
+<img alt="Shows the product of the construction, difference and intersection operators." src="./OpenSCAD/images/OpenSCAD_demo.png" style="width: 100%;" />
+<p class="caption">Demonstration of the basic operations in OpenSCAD, the first is the result of a union of the cube and a sphere, the second is the result of a difference between a cube and a sphere, the third is the result of an intersection between a cube and a sphere.</p>
+</div>
+</div>
+<div class="section" id="what-is-openscad-and-why-should-i-use-it">
+<h2>What is OpenSCAD and why should I use it?</h2>
+<p>OpenSCAD is a free software tool for creating solid 3D CAD models. The CAD models are produced using a script which is coded in a language similar to C and is compiled to render a 3D model from this script file. This means that the models are easily reproduced, distributed, and altered.</p>
+<p>The 3d model can then be exported in a number of ways. It can be exported in such a way as to create a mesh for a CFD simulation or can be exported such that the design can be 3d printed. An example of the former can be seen below in form of 3D printed speaker vessels.</p>
+<div class="figure align-center">
+<img alt="Shows a laptop running OpenSCAD with the design for the speaker housing that looks like the Deathstar from the Star Wars franchise with 2 of such speakers either side of the user's laptop." src="./OpenSCAD/images/nomoon_desk.png" style="width: 100%;" />
+<p class="caption">An example OpenSCAD design with the 3D printed results. Some 3D printed Deathstar speaker housings created with OpenSCAD. Source: <a class="reference external" href="http://www.3ders.org/articles/20150108-3d-model-generator-creates-custom-star-wars-death-star-3d-printed-speaker-cases.html">http://www.3ders.org/articles/20150108-3d-model-generator-creates-custom-star-wars-death-star-3d-printed-speaker-cases.html</a></p>
+</div>
+<p>So, why shoud you use OpenSCAD as opposed to regular CAD software?</p>
+<dl class="docutils">
+<dt>The Pros of OpenSCAD are:</dt>
+<dd><ul class="first last simple">
+<li>precise placement of object (as all objects have explicit numbered coordinates and sizes)</li>
+<li>easily modifiable design, e.g. when you want to make a wall thicker or a hole larger, and the whole design adapts to the new numbers automatically.</li>
+<li>a text-readable design, and easily recyclable components or behaviors</li>
+</ul>
+</dd>
+</dl>
+<p>However if you are attempting to create an organic looking object where the precise sizes and dimensions don't matter OpenSCAD may not be the right tool for the job. Creating complex curving organic shapes using simple primative shapes can take quite a long time and would probably be easier in typical CAD software.</p>
+</div>
+<div class="section" id="openscad-as-a-functional-programming-language">
+<h2>OpenSCAD as a functional programming language</h2>
+<p>The concept of OpenSCAD is based on a <a class="reference external" href="https://en.wikipedia.org/wiki/Functional_programming">functional programming language</a>. One of the most apparent differences to imperative programming languages like C is the fact that variables are assigned at <strong>compile time</strong>, not at run time. In this sense they are somewhat similar to constants in other languages.</p>
+<p>While iterative formulations are not supported in any way, recursive functions can be defined. Since version 2015.3 OpenSCAD also includes list comprehension, which allows for very elegant formulations of a given problem.</p>
+<div class="section" id="variables-and-data-types">
+<h3>Variables and data types</h3>
+<p>The most important <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#Values_and_Data_Types">data types</a> are</p>
+<ul class="simple">
+<li>Numbers: <em>a = 2.3</em></li>
+<li>Boolean: <em>true</em>, <em>false</em></li>
+<li>Strings: <em>s = &quot;hello world&quot;</em></li>
+<li>Ranges: <em>r = [0:2.5:20]</em></li>
+<li>Vectors: <em>vec = [1, 2, &quot;somestring&quot;, [3.5, 7]]</em></li>
+</ul>
+<p>As the vector example already suggests, matrices can be easily defined as vectors of vectors. The range is a very important data type, as iterative programming is not feasible.</p>
+<p>New OpenSCAD users have to get used to the idea that expressions like <em>x = x + 1</em> are not allowed. They will also have to understand that, even if a variable can be assigned at various positions of the code, every variable call will use only the last assigned value.</p>
+<p>The following lines of code</p>
+<ul class="simple">
+<li><em>a = 1;</em></li>
+<li><em>echo(a);</em></li>
+<li><em>a = 2;</em></li>
+<li><em>echo(a);</em></li>
+</ul>
+<p>will consequently produce this output:</p>
+<ul class="simple">
+<li><em>ECHO: 2</em></li>
+<li><em>ECHO: 2</em></li>
+</ul>
+<p>In addition to the normal data types, there are also <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/The_OpenSCAD_Language#Special_variables">special variables</a> used to control the rendering of objects. Some of the most important examples are</p>
+<ul class="simple">
+<li><em>$fn</em>, <em>$fs</em>, <em>$fa</em>: these variables control the number of facets</li>
+<li><em>$t</em>: time, which is needed for animations</li>
+</ul>
+</div>
+<div class="section" id="conditional-and-iterator-functions">
+<h3>Conditional and Iterator Functions</h3>
+<p>OpenSCAD uses concepts very similar to other programming languages, most notably <em>for</em> loops and <em>if</em> statements.</p>
+<p>Compared to imperative languages, <em>for</em> loops are different in the sense that the loop does not go through the increments of a variable, but through the elements of a <strong>range</strong> or a <strong>vector</strong>. This is why range is an important data type.</p>
+<p>The beauty of this can be seen when going through a vector of vectors, to name but one application.</p>
+<p>A nice demonstration of the power of <em>for</em> loops in OpenSCAD is the way a matrix can be flattened into a vector. Let's assume we are working with the matrix</p>
+<p><em>mat = [[1, 2], [3, 4]];</em></p>
+<p>Then the expression <em>for (i=mat) for (j=i)</em> goes through the vectors <em>[1, 2]</em> and <em>[3, 4]</em> first and then through the elements <em>1</em>, <em>2</em>, <em>3</em> and <em>4</em>.</p>
+<p>With the integration of list comprehension in version 2015.3, this idea can be brought to the next level:</p>
+<p><em>flattenedvector = [for (i=mat) for (j=i) j];</em></p>
+<p>If statements work very similar to other languages. It can also be very useful to use the conditional <em>?</em>, which uses a structure similar to the following expression:</p>
+<p><em>a =   test ? TrueValue : FalseValue ;</em></p>
+<p>So here the variable <em>a</em> is assigned depending on the boolean value <em>test</em>.</p>
+</div>
+<div class="section" id="operators-and-mathematical-functions">
+<h3>Operators and Mathematical Functions</h3>
+<p>Operators in OpenSCAD are similar to C/C++, although increments and decrements are not supported due to the non-iterative nature of OpenSCAD.</p>
+<p>Mathematical operators can easily be applied to vectors and matrices. There is also a cross product function <em>cross</em> as well as a broad range of mathematical functions which mostly operate on scalars.</p>
+<p>Vectors of uniformly distributed random numbers can be produced using the <em>rands</em> function.</p>
+</div>
+<div class="section" id="functions-modules-and-libraries">
+<h3>Functions, Modules and Libraries</h3>
+<p>Larger programs can be written making use of functions, modules and libraries.</p>
+<p><strong>Functions</strong> are definitions which return a value, for instance <em>function func0(x = 3) = 2 ∗ x + 1;</em>. They can be defined recursively, as in <em>function sumv(v,i,s = 0) = (i == s ? v[i] : v[i]+sumv(v,i −1,s));</em>.</p>
+<p><strong>Modules</strong> perform actions, but do not return values. They can be used to reuse combinations of objects, as in <em>module myshape(r, d) {union(){sphere(r); cube(d); }}</em>.</p>
+<p><strong>Library</strong> files can be <strong>executed</strong> (i.e. all the commands in the file will be performed) using the structure <em>include &lt; filename.scad &gt;</em>. If only the modules and functions of the library shall be <strong>imported</strong>, the command to use is <em>use &lt; filename.scad &gt;</em>.</p>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation</h3>
+<p>The OpenSCAD website provides an extensive and easy to understand <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a>. To get a quick overview, a <a class="reference external" href="http://www.openscad.org/cheatsheet/index.html">cheat sheet</a> is provided, which includes direct links to the documentation for the most important commands.</p>
+</div>
+</div>
+<div class="section" id="getting-started-with-openscad">
+<h2>Getting Started with OpenSCAD</h2>
+<p><a class="reference external" href="http://www.openscad.org/cheatsheet/">Click here to open the OpenSCAD CheatSheet.</a> This is a good reference to have when getting started with OpenSCAD as it shows you all the commands and links directly to the OpenSCAD documentation.</p>
+<div class="section" id="some-basic-shapes">
+<h3>Some Basic Shapes</h3>
+<p>The first primative shape we will look at is the cube.</p>
+<p>To define a simple cube with sides of length 10mm in OpenSCAD you simply write the following:</p>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+<img alt="Shows a cube" src="./OpenSCAD/images/cube10.png" style="width: 50%;" />
+<p>You could also write the following to get the same result:</p>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
+</pre></div>
+<p>To create a cuboid with sides of different lengths you could type the following (Dimensions are defined in x, y and z format):</p>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]);</span>
+</pre></div>
+<img alt="Shows a cuboid" src="./OpenSCAD/images/cube102030.png" style="width: 50%;" />
+<p>These cubes are rendered with thier corner on the origin if you wish to have them centred on the origin simply use set argument center to true like so:</p>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+<img alt="Shows a cented cuboid" src="./OpenSCAD/images/cube102030C.png" style="width: 50%;" />
+<p>The next primative shape we will look at is the sphere. A sphere is automatically centered on the origin by default.</p>
+<p>To create a sphere with radius 10mm you can do the following:</p>
+<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+<img alt="Shows a sphere" src="./OpenSCAD/images/sphere10.png" style="width: 50%;" />
+<p>You can also use arugments to specify the sizes of shapes, for example you can create a sphere by setting the radius using the argument r or a diameter by specifying the arugment d. The following codes creates the same sphere as above.</p>
+<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+
+<span class="n">sphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+<p>It is often a good idea to use the arguments to specify the measurements of shapes since it is more obvious what measurement you are specifying, e.g. diameter or radius.</p>
+<p>The last primative shape we will look at is the cylinder. By default A cylinder has it's axis centered about the z axis but has it's base at z=0.</p>
+<p>You can define a cylinder with height 20mm and radius 10mm like so:</p>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+<img alt="Shows a cylinder" src="./OpenSCAD/images/cylinder1020.png" style="width: 50%;" />
+<p>You can also create cones using this cylinder shape by specifying the arguments r1 and r2, see below:</p>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+<img alt="Shows a cone" src="./OpenSCAD/images/cone.png" style="width: 50%;" />
+</div>
+<div class="section" id="making-smooth-objects">
+<h3>Making Smooth Objects</h3>
+<p>You can specify the number of facets on a shape to smooth out shapes or to make different shapes.</p>
+<p>For example a cylinder with 3 faces produces a triangular prism, see below. The number of facets on a shape is specified with the argument $fn.</p>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fn</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+<img alt="Shows a traingular prism" src="./OpenSCAD/images/triprism.png" style="width: 50%;" />
+<p>By using 4 faces you get a cuboid, 5 and you get a pentagonal prism and so on.</p>
+<p>By using a very large number you get a shape which is closer to a real cylinder, however you should not attempt to use this to increase the resolution/smoothness of your object instead you should use the paramters/arguments defining the &quot;minimum angle&quot;, $fa, and the &quot;minimum size&quot;, $fs. These set the minumum angular size for a face and the minumum size of a side of that face. These can be set as a default value for the entire script or can be specified as an argument for a particular shape. See below for how to do this:</p>
+<p>You can set default values for $fa and $fs like so:
+.. code-block:: c</p>
+<blockquote>
+$fs = 0.5;
+$fa = 0.5;
+cylinder(r=5, h=20);</blockquote>
+<p>Or you can set them as a argument like this:</p>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="err">$</span><span class="n">fa</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+<p>These will produce the following shape</p>
+<img alt="Shows a cylinder" src="./OpenSCAD/images/Cylinder.png" style="width: 50%;" />
+<p>It is a good idea to set a particular default for your design based on what your object recuires, e.g. if you are 3D printing the object there will be a minimum size that the 3D printer can print. If you are using the object in a simulation you may need a certain resolution/smoothness of the shape to get a realistic output from your simulation. If you are not sure what is required setting values for both as 0.5, as shown above, provides a reasonable level of smoothness without slowing down the rendering of the object too much. A smoother shape with more sides will take significantly longer to render and manipulate.</p>
+</div>
+<div class="section" id="geometric-transformations">
+<h3>Geometric Transformations</h3>
+<p>The first geometric transformation we will cover is translation.</p>
+<p>Translations of objects are done by preceding the object definition with the command translation followed by a vector, see the example of a cube translated 10mm in the x axis below:</p>
+<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+<img alt="Shows a cube translated spaitally in the x axis" src="./OpenSCAD/images/transcube.png" style="width: 50%;" />
+<p>By setting the object to be centred and translating the object by a vector [x, y, z] the object can easily be centred around a generic vector postion [x, y ,z], see the example below of a cylinder centred on [x, y, z]:</p>
+<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+<p>You can also define the vector seperately and translate by that vector like so:</p>
+<div class="highlight"><pre><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">];</span>
+<span class="n">translate</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+<p>The next geometric transformation we will cover is rotation. Rotations are performed about the x, y and z axis.</p>
+<p>For example to rotate a cylinder thetaX about the x axis you perform the following operation:</p>
+<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="n">thetaX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+<p>It is recommended to perform rotation about 1 axis at a time so that the operation is easy to understand. This is because after 1 rotation the next rotation performed depends upon the first. See the example below:</p>
+<p>This first code performs 2 rotations at once, one about the x axis, one about the y axis.</p>
+<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+<p>This produces the following rendered object:</p>
+<img alt="Shows a cylinder rotated such that it's axis is parallel to the y axis." src="./OpenSCAD/images/doublerotation.png" style="width: 50%;" />
+<p>By performing the 2 rotations seperately a completely different rotation is observed. This is typically easier to visualise.</p>
+<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+<p>This produces the following rendered object:</p>
+<img alt="Shows a cylinder rotated such that it's axis is parallel to the x axis." src="./OpenSCAD/images/2rotations.png" style="width: 50%;" />
+</div>
+<div class="section" id="operations">
+<h3>Operations</h3>
+<p>There are 3 primary operations in OpenSCAD, union, difference and intersection.</p>
+<p>Union is what OpenSCAD does by default if you construct multiple objects, it 'adds' the objects such that they build up a more complex object. 3 example of unions of 2 objects are shown below:</p>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<div class="highlight"><pre><span class="k">union</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>All 3 of these render the following object:</p>
+<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/union.png" style="width: 50%;" />
+<p>Difference is the next operation that you can use in OpenSCAD, this takes the subsequent objects away from the first object. See the example below with the same component parts.</p>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>This will render the following object:</p>
+<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/difference.png" style="width: 50%;" />
+<p>Finally there is intersection which renders the volume in which all the objects stated inside the intersection block intersect with each other. See the intersection example below with the same component parts as the previous 2 operations.</p>
+<div class="highlight"><pre><span class="n">intersection</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>This will render the following object:</p>
+<img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/intersection.png" style="width: 50%;" />
+</div>
+<div class="section" id="a-common-gotcha-with-openscad-zero-thickness-surfaces">
+<h3>A common gotcha with OpenSCAD - Zero Thickness Surfaces</h3>
+<p>A common problem experienced when using OpenSCAD to design an object for simulation or fabrication is zero thickness surfaces, literally surfaces defined in the design which have a thinkness of zero and so are completely unphysical. This typically happens when using the difference operation to make a hole in an object. If you define a cylinder to make a hole in an object and the edge of that cylinder lies in the edge of the object you are differencing it from you will render a surface with 0 thickness, this can be seen in the example below when attemping to make a tube:</p>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<img alt="Shows a tube with a thin surface over the top hole." src="./OpenSCAD/images/0thickness.png" style="width: 50%;" />
+<p>You can see there appears to be a thin surface over the top of the tube. To solve this you may try to make the inner cylinder longer, which is partially the correct solution, see below:</p>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>The top of the tube now looks fine:</p>
+<img alt="Shows a tube with no thin surface over the top hole but a thin surface over the bottom hole." src="./OpenSCAD/images/0thicknesstop.png" style="width: 50%;" />
+<p>However the bottom still has this thin surface over it, since the bottoms of the tubes line up, by translating the tube slightly we can fix this and get a tube. See below:</p>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<img alt="Shows a tube." src="./OpenSCAD/images/tube.png" style="width: 50%;" />
+</div>
+<div class="section" id="for-more-see-the-documentation">
+<h3>For More see the Documentation</h3>
+<p>Using these 3 primative shapes, along with the 2 geometric transformations and the 3 operations is enough to create some quite complex shapes already but the toolkit supplied by the OpenSCAD software contains much more useful functionality, see the <a class="reference external" href="http://www.openscad.org/documentation.html">documentation</a> for the complete functionality of openSCAD.</p>
+<p>An exersize sheet of relatively simple shapes to be created using OpenSCAD is provided <a class="reference external" href="./OpenSCAD/ExerciseSheet.pdf">here</a></p>
+</div>
+</div>
+<div class="section" id="some-practical-applications-of-openscad">
+<h2>Some Practical Applications of OpenSCAD</h2>
+<div class="section" id="magnetic-simulation-with-openscad-and-femm">
+<h3>Magnetic Simulation with OpenSCAD and FEMM</h3>
+<p>An example of how to combine OpenSCAD and the simulation tool <a class="reference external" href="http://www.femm.info">FEMM</a> (Finite Element Method Magnetics) is described on the blog <a class="reference external" href="https://shanjaq.wordpress.com/2013/03/25/procedural-magnetic-simulation-with-openscad-and-femm-part-1/">The Test Chamber</a>.</p>
+<p>Starting with drawing a circle of squares and then subtracting them from a circle, a slot armature with coils is developed. The geometry is then exported in <em>DXF</em> format in order to perform a magnetic simulation.</p>
+<p>The code which is fully described on the blog also shows an efficient way of using OpenSCAD modules to create more complex geometries.</p>
+</div>
+<div class="section" id="direct-pore-scale-simulation-of-multiphase-flow">
+<h3>Direct pore-scale simulation of multiphase flow</h3>
+<p>A project presented at the <a class="reference external" href="https://workspace.imperial.ac.uk/earthscienceandengineering/Public/external/Research/PERM/Ali_NewUpload/Ali_Raeini_Pore-scaleMeeting2015.pdf">Imperial College Consortium on Pore Scale Modelling</a> (January 2015) shows how OpenSCAD can be used for Computational Fluid Dynamics with the free CFD software <a class="reference external" href="http://openfoam.org/">OpenFOAM</a>.</p>
+<p>In this case the geometry is created with OpenSCAD and then exported in the STL format. This format can be directly imported by the <em>snappyHexMesh</em> mesh generator provided by OpenFOAM. Here the mesh generator was used to generate a finite volume mesh. After setting up boundary and initial conditions, a 3D direct numerical simulation with OpenFOAM was performed.</p>
+</div>
+</div>
+<div class="section" id="libraries-for-openscad">
+<h2>Libraries for OpenSCAD</h2>
+<p>One of the huge advantages of OpenSCAD is the fact that many <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Libraries">libraries</a> are available, some of them with very specific definitions, which allow for professional results.</p>
+<p>The central project supported by OpenSCAD is the <a class="reference external" href="https://github.com/openscad/MCAD">MCAD</a> library. It offers a large variety of modules and functions like</p>
+<ul class="simple">
+<li>Common shapes: rounded boxes, polygons, polyeders etc.</li>
+<li>Gear generator</li>
+<li>Nuts, bolts, bearings, screws</li>
+<li>Material definitions for common materials</li>
+<li>Mathematical constants and curves</li>
+</ul>
+<p><a class="reference external" href="http://www.bolts-library.org">BOLTS</a> (BOLTS is an Open Library of Technical Specifications) is an open-source standard parts library that provides definitions of standard parts. Some examples are</p>
+<ul class="simple">
+<li>C-Beam profiles</li>
+<li>Bearings</li>
+<li>Nuts</li>
+<li>Batteries</li>
+<li>Washers</li>
+<li>Pipes</li>
+</ul>
+<p>Definitions of the most important standardisation bodies like ISO, EN, ANSI, DIN, IEC etc. are supported.</p>
+<p>For code development itself there are also helpful libraries available. A good example is <a class="reference external" href="https://github.com/oampo/testcard">Test Card</a>, which provides functions for unit testing. Some typical test include</p>
+<ul class="simple">
+<li>Equality / Non-equality</li>
+<li>Truthiness / Falseness</li>
+<li>Presence / Absence</li>
+</ul>
+</div>
+<div class="section" id="advanced-usage-of-openscad">
+<h2>Advanced Usage of OpenSCAD</h2>
+<p>Instead of using the graphical user interface, external text editors can be used to create <em>.scad</em> files. For various of the most common text editors like <a class="reference external" href="https://github.com/openscad/openscad/blob/master/contrib/scad-mode.el">emacs</a>, <a class="reference external" href="http://www.vim.org/scripts/script.php?script_id=3556">vim</a> or <a class="reference external" href="https://atom.io/packages/language-openscad">atom</a>, extensions with OpenSCAD features are available.</p>
+<p>OpenSCAD files can also easily be called from the <a class="reference external" href="https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment">command line</a>, thus allowing for many options specifying input and output. As variables can be assigned from the command line using the <em>-D var=val</em> option, which can be used repeatedly, automisation within a shell script is easy to achieve, which is a very attractive feature in combination with other software.</p>
+<p>If specific files are required within a more complex process, a make file can be provided for creating the missing files (like <em>STL</em> files for example).</p>
+</div>
+                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
