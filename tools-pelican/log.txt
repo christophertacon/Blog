@@ -1,2 +1,0 @@
-pelican /home/kostas/Desktop/computationalmodelling.bitbucket.org/tools-pelican/content -o /home/kostas/Desktop/computationalmodelling.bitbucket.org/tools-pelican/../tools -s /home/kostas/Desktop/computationalmodelling.bitbucket.org/tools-pelican/pelicanconf.py  -D
-Done: Processed 9 articles, 0 drafts, 0 pages and 1 hidden page in 1.00 seconds.
