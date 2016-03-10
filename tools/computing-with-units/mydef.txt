@@ -1,3 +1,0 @@
-hour = 60 * minute = h = hr
-minute = 60 * second = min
-second = [time] = s = sec
