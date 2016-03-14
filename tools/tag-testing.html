@@ -52,7 +52,7 @@
 <h2>Create your repository</h2>
 <p>Set up an account on GitHub if you don't already have one, and create a public repository called <em>continuousintegration</em>. Make sure you select the option to initialise with a README.md file. Clone this repository to your computer and change to the directory using.</p>
 <div class="highlight"><pre>git clone https://github.com/yourusername/continuousintegration.git
-<span class="nb">cd</span> continuousintegration
+<span class="nb">cd </span>continuousintegration
 </pre></div>
 
 
@@ -87,26 +87,26 @@ git push
 <h2>CircleCI Configuration</h2>
 <p>Create a file in the <em>continuousintegration</em> folder on your computer called circle.yml. This file is used to specify programmes which need to be installed, such as interpreters or compilers.</p>
 <p>Circle has many prebuilt binaries of common programming languages, to avoid using more compute time than necessary. You can see a full list of these <a href="https://circleci.com/docs/environment">here</a>. Below, you can see how we initiate a machine using the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">London timezone</a>, and Python 3.5.0.</p>
-<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">machine</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">timezone</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">Europe/London</span>
-  <span class="l l-Scalar l-Scalar-Plain">python</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3.5.0</span>
+<div class="highlight"><pre><span class="l-Scalar-Plain">machine</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">Europe/London</span>
+  <span class="l-Scalar-Plain">python</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3.5.0</span>
 </pre></div>
 
 
 <p>We now need to specify the dependencies our project needs to run. We do this with a 'dependencies' block as follows:</p>
-<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">dependencies</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">pre</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install pytest</span>
+<div class="highlight"><pre><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">pre</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pip install pytest</span>
 </pre></div>
 
 
 <p>You can install more packages as needed in your own project. If, for example you wanted to install a non-python project you could run any bash script here, pull packages from apt</p>
 <p>Finally, we need to tell Circle what to run. In the case of our example, we can just use the following to run our simple test:</p>
-<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">override</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test -v</span>
+<div class="highlight"><pre><span class="l-Scalar-Plain">test</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">override</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">py.test -v</span>
 </pre></div>
 
 
@@ -213,9 +213,9 @@ git push
 <span class="sd">    for a non-valid input (n &lt; 0 or n not integer).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be greater than zero&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;n must be greater than zero&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">round</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be a whole number&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;n must be a whole number&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
