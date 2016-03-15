@@ -45,7 +45,7 @@
 <dt><strong>Note</strong></dt>
 <dd>To be able to work through this tutorial efficiently we recommend you are running the virtual machine appliance (<tt class="docutils literal">feeg6003_TextEditors.ova</tt> file) supplied for this tutorial from <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">this repository</a>. Brief Reminder: In Virtual Box this involves clicking <em>File</em> &gt; <em>Import Appliance...</em> and select the <tt class="docutils literal">.ova</tt>, continue and check settings, then click <em>Import</em>. It is also useful to allow copy and paste between host and guest by installing guest additions through <em>Devices</em> &gt; <em>Insert Guest Additions</em>, then in a terminal window on the guest machine navigate to <tt class="docutils literal"><span class="pre">/media/feeg6003/VBOXADDITIONS...</span></tt> and enter</dd>
 </dl>
-<div class="highlight"><pre>$ sudo sh ./VBoxLinuxAdditions.run
+<div class="highlight"><pre><span class="nv">$ </span>sudo sh ./VBoxLinuxAdditions.run
 </pre></div>
 <dl class="docutils">
 <dt></dt>
@@ -54,16 +54,16 @@
 <div class="section" id="exercise-1-installing-sublime">
 <h2>Exercise 1: Installing Sublime</h2>
 <p>Sublime Text 2 offers a free and untimed trial version of the software which we will use for this tutorial - this provides full functionality, however a license should be purchased for continued use (users will be prompted with a reminder of this after a certain number of saves). To install the free version, firstly open up terminal on your machine and enter these commands (alternatively found <a class="reference external" href="http://www.ubuntuupdates.org/ppa/sublime_text_2">here</a>):</p>
-<div class="highlight"><pre>$ <span class="nb">cd</span> ~
-$ sudo add-apt-repository ppa:webupd8team/sublime-text-2
-$ sudo apt-get update
-$ sudo apt-get install sublime-text
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~
+<span class="nv">$ </span>sudo add-apt-repository ppa:webupd8team/sublime-text-2
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install sublime-text
 </pre></div>
 <p>This will download the package and install it under <tt class="docutils literal">/opt/sublime_text_2</tt>. It will also create two <em>symbolic links</em>: <tt class="docutils literal">subl</tt> and <tt class="docutils literal"><span class="pre">sublime-text</span></tt> which can be called in terminal to open ST2. If you wish to make your own you can do the following (in this case the symbolic link is set to be <tt class="docutils literal">sublime</tt>):</p>
-<div class="highlight"><pre>$ sudo ln -s /opt/sublime_text_2/sublime_text /bin/sublime
+<div class="highlight"><pre><span class="nv">$ </span>sudo ln -s /opt/sublime_text_2/sublime_text /bin/sublime
 </pre></div>
 <p>NOTE: if you try to run ST2 from the terminal a ST2 window will open and be fully functional, however this will clog up the current terminal window due to a bug within GLib (I haven't found a fix for this as of yet). To carry on using the terminal you will need to open a new terminal tab or window. The error presents itself as shown below and will keep producing errors until you hit <kbd class="light">ctrl</kbd> + <kbd class="light">c</kbd> . But, upon doing this the sublime session you opened will shut down.</p>
-<div class="highlight"><pre>$ sublime-text
+<div class="highlight"><pre><span class="nv">$ </span>sublime-text
 
 <span class="o">(</span>sublime: 6476<span class="o">)</span>: GLib-CRITICAL **<span class="p">;</span> Source ID <span class="m">1982</span> was not found when attempting to remove it.
 </pre></div>

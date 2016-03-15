@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Reveal.js Tutorial</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="../theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="../drafts/revealjs-tutorial.html" rel="bookmark"
+           title="Permalink to Reveal.js Tutorial">Reveal.js Tutorial</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-03-14T15:56:00+01:00">
+                Published: Mon 14 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author-ngcm-cdt.html">NGCM CDT</a>
+        </address>
+<p>In <a href="../category-revealjs.html">revealJS</a>. </p>
+
+</footer><!-- /.post-info -->      
+    <div class="maketitle">
+        <h2 class="titleHead">Reveal.js Tutorial</h2>
+        <div class="author"><span class="cmr-12">by Kostas and Craig</span></div><br />
+        <div class="date"><span class="cmr-12">March 14, 2016</span></div>
+   </div>
+<!--l. 34--><p class="indent">   In this tutorial we will create a presentation by constructing everything from scratch: HTML, CSS, Markdown and
+JavaScript. Before we start the tutorial it is useful to have a quickly go through the main elements of web-page
+building.
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a id="x1-10001"></a>Crash-course</h3>
+<!--l. 38--><p class="noindent">These <span class="cmti-10">cheat-sheets </span>have been built from resources available on <span class="cmti-10">CodeAcademy </span>and the <span class="cmti-10">Mozilla Developer Network </span>which
+are also recommended for more in-depth training and resources. An excellent online book is also available on
+<a href="http://eloquentjavascript.net/" class="url"><span class="cmtt-10">http://eloquentjavascript.net/</span></a>.
+</p><!--l. 40--><p class="indent">   We decided that the quickest way to approach this is to provide commented samples so we can quickly build a
+simple web-page.
+</p><!--l. 42--><p class="noindent">
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a id="x1-20001.1"></a>HTML</h4>
+<!--l. 43--><p class="noindent">HTML (<span class="cmti-10">HyperText Markup Language </span>is used by browsers to communicate with each other and display data in an
+attractive fashion. It has a tree-like structure similar to that of XML. Each branch deﬁnes a section of a web page is
+started by some text in brackets <span class="cmtt-10">&#x003C;branch&#x003E; </span>and ends with a <span class="cmbx-10">backward </span>slash and the text <span class="obeylines-h"><span class="verb"><span class="cmtt-10">&#x003C;\branch&#x003E;</span></span></span>.
+Some objects are added in self-stopping branches by using a <span class="cmbx-10">forward </span>slash before closing the bracket
+<span class="cmtt-10">&#x003C;branch/&#x003E;</span>
+</p>
+   <div class="table">
+                                                                                            
+                                                                                            
+<!--l. 45--><p class="indent">   </p><hr class="float" /><div class="float">
+                                                                                            
+                                                                                            
+<!--tex4ht:inline--><div class="tabular"> <table id="TBL-2" class="tabular" cellspacing="0" cellpadding="0"><colgroup id="TBL-2-1g"><col id="TBL-2-1" /><col id="TBL-2-2" /></colgroup><tr style="vertical-align:baseline;" id="TBL-2-1-"><td style="white-space:wrap; text-align:left;" id="TBL-2-1-1" class="td11"><!--l. 49--> <!--l. 49--><p class="noindent"><div class="lstlisting" id="listing-1"><span class="label"><a id="x1-2001r1"></a></span><span class="cmmi-10">&#x003C;</span>!<span class="cmbx-10">doctype</span> <span class="cmbx-10">html</span><span class="cmmi-10">&#x003E;</span> <br /><span class="label"><a id="x1-2002r2"></a></span><span class="cmmi-10">&#x003C;</span><span class="cmbx-10">html</span><span class="cmmi-10">&#x003E;</span>                                                                                           </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-2-1-2" class="td11">Both do the same thing. Only the ﬁrst is
+necessary in HTML v<span class="msam-10">≥ </span>4                         </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-2-"><td style="white-space:wrap; text-align:left;" id="TBL-2-2-1" class="td11"><!--l. 54--> <!--l. 54--><p class="noindent"><div class="lstlisting" id="listing-2"><span class="label"><a id="x1-2003r1"></a></span><span class="cmmi-10">&#x003C;</span><span class="cmbx-10">head</span><span class="cmmi-10">&#x003E;</span> <br /><span class="label"><a id="x1-2004r2"></a></span>        <span class="cmmi-10">&#x003C;</span><span class="cmbx-10">title</span><span class="cmmi-10">&#x003E;</span>Amazed<span class="cmmi-10">&#x003C;</span>/<span class="cmbx-10">title</span><span class="cmmi-10">&#x003E;</span><span class="cmsy-10">|</span> <br /><span class="label"><a id="x1-2005r3"></a></span>        <span class="cmmi-10">&#x003C;</span><span class="cmbx-10">link</span> <span class="cmbx-10">rel</span>=”stylesheet” <span class="cmbx-10">type</span>=”text/css” <br /><span class="label"><a id="x1-2006r4"></a></span>                 <span class="cmbx-10">href</span>=”coolStyle.css”/<span class="cmmi-10">&#x003E;</span> <br /><span class="label"><a id="x1-2007r5"></a></span>        <span class="cmmi-10">&#x003C;</span><span class="cmbx-10">script</span> <span class="cmbx-10">src</span>=path/to/.js<span class="cmmi-10">&#x003E;</span><span class="cmmi-10">&#x003C;</span>/<span class="cmbx-10">script</span><span class="cmmi-10">&#x003E;</span> <br /><span class="label"><a id="x1-2008r6"></a></span><span class="cmmi-10">&#x003C;</span>/<span class="cmbx-10">head</span><span class="cmmi-10">&#x003E;</span>   </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-2-2-2" class="td11">The branch speciﬁes information that is ﬁrst
+read by the browser to correctly display the
+page. This is where JavaScript source ﬁles
+and CSS ﬁles are conventionally imported.
+It normally contains other information such
+as  tags/titles/authors/etc  used  by  search
+engines                                                 </td>
+</tr><tr style="vertical-align:baseline;" id="TBL-2-3-"><td style="white-space:wrap; text-align:left;" id="TBL-2-3-1" class="td11"><!--l. 63--> <!--l. 63--><p class="noindent"><div class="lstlisting" id="listing-3"><span class="label"><a id="x1-2009r1"></a></span><span class="cmmi-10">&#x003C;</span><span class="cmbx-10">body</span><span class="cmmi-10">&#x003E;</span>                                                                                                                    </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-2-3-2" class="td11">This is the part where the data goes that is
+displayed to the user.                              </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-4-"><td style="white-space:wrap; text-align:left;" id="TBL-2-4-1" class="td11">  <span class="obeylines-h"><span class="verb"> <span class="cmtt-10">&#x003C;h1&#x003E;Amazing</span><span class="cmtt-10"> Presentations</span><span class="cmtt-10"> Ltd.&#x003C;/h1&#x003E;</span></span></span>               </td><td style="white-space:wrap; text-align:left;" id="TBL-2-4-2" class="td11">Display text using heading 1                    </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-5-"><td style="white-space:wrap; text-align:left;" id="TBL-2-5-1" class="td11">  <span class="obeylines-h"><span class="verb"> <span class="cmtt-10">&#x003C;div</span><span class="cmtt-10"> class=&#x0022;wow&#x0022;&#x003E;</span></span></span>                                 </td><td style="white-space:wrap; text-align:left;" id="TBL-2-5-2" class="td11">Create a page division with special display
+properties.                                            </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-6-"><td style="white-space:wrap; text-align:left;" id="TBL-2-6-1" class="td11">    <span class="obeylines-h"><span class="verb"> <span class="cmtt-10">&#x003C;h2&#x003E;Amazing</span><span class="cmtt-10"> discovery.&#x003C;/h2&#x003E;</span></span></span>                     </td><td style="white-space:wrap; text-align:left;" id="TBL-2-6-2" class="td11">                                     </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-7-"><td style="white-space:wrap; text-align:left;" id="TBL-2-7-1" class="td11">    <span class="obeylines-h"><span class="verb"> <span class="cmtt-10">&#x003C;p&#x003E;Something</span><span class="cmtt-10"> that</span><span class="cmtt-10"> changes</span><span class="cmtt-10"> the</span><span class="cmtt-10"> world.&#x003C;/p&#x003E;</span></span></span><a href="#x1-30001.2">1.2<!--tex4ht:ref: p --></a>         </td><td style="white-space:wrap; text-align:left;" id="TBL-2-7-2" class="td11">Use paragraph formatting                        </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-8-"><td style="white-space:wrap; text-align:left;" id="TBL-2-8-1" class="td11">    <span class="obeylines-h"><span class="verb"> <span class="cmtt-10">&#x003C;a</span><span class="cmtt-10"> href=&#x0022;otherPageLoc.html&#x0022;&#x003E;Lookie</span><span class="cmtt-10"> here.&#x003C;/a&#x003E;</span></span></span>    </td><td style="white-space:wrap; text-align:left;" id="TBL-2-8-2" class="td11">Create a link                                         </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-9-"><td style="white-space:wrap; text-align:left;" id="TBL-2-9-1" class="td11">  <span class="obeylines-h"><span class="verb"> <span class="cmtt-10">&#x003C;/div&#x003E;</span></span></span>                                            </td><td style="white-space:wrap; text-align:left;" id="TBL-2-9-2" class="td11">                                     </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-10-"><td style="white-space:wrap; text-align:left;" id="TBL-2-10-1" class="td11">  <span class="obeylines-h"><span class="verb"> <span class="cmtt-10">&#x003C;p</span><span class="cmtt-10"> id</span><span class="cmtt-10"> =</span><span class="cmtt-10"> &#x0022;footer&#x0022;&#x003E;&#x0026;copy;NGCM</span><span class="cmtt-10"> Ltd.&#x003C;/p&#x003E;</span></span></span>              </td><td style="white-space:wrap; text-align:left;" id="TBL-2-10-2" class="td11">                                     </td>
+</tr><tr class="vspace" style="font-size:8.61108pt"><td>&nbsp;</td><td>&nbsp;</td></tr><tr style="vertical-align:baseline;" id="TBL-2-11-"><td style="white-space:wrap; text-align:left;" id="TBL-2-11-1" class="td11"><!--l. 74--> <!--l. 74--><p class="noindent"><div class="lstlisting" id="listing-4"><span class="label"><a id="x1-2010r1"></a></span><span class="cmmi-10">&#x003C;</span><span class="cmbx-10">script</span><span class="cmmi-10">&#x003E;</span> <br /><span class="label"><a id="x1-2011r2"></a></span>document.getElementById(&#x2019;myID&#x2019;) <br /><span class="label"><a id="x1-2012r3"></a></span>        .property = fun(input <br /><span class="label"><a id="x1-2013r4"></a></span><span class="cmmi-10">&#x003C;</span>/<span class="cmbx-10">script</span><span class="cmmi-10">&#x003E;</span> <br /><span class="label"><a id="x1-2014r5"></a></span><span class="cmmi-10">&#x003C;</span>/<span class="cmbx-10">body</span><span class="cmmi-10">&#x003E;</span> <br /><span class="label"><a id="x1-2015r6"></a></span><span class="cmmi-10">&#x003C;</span>/<span class="cmbx-10">html</span><span class="cmmi-10">&#x003E;</span>   </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-2-11-2" class="td11">Usually after the body section some more
+scripts are added to process the HTML data</td>
+</tr></table></div>
+                                                                                            
+                                                                                            
+   </div><hr class="endfloat" />
+   </div>
+   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a id="x1-30001.2"></a>CSS</h4>
+<!--l. 87--><p class="noindent">CSS or Cascading Style Sheets are commonly used in web applications to standardise formatting and styles. It is also
+used in reveal.js to set-up a presentation template.
+</p>
+   <div class="table">
+                                                                                            
+                                                                                            
+<!--l. 89--><p class="indent">   </p><hr class="float" /><div class="float">
+                                                                                            
+                                                                                            
+<div class="tabular"> <table id="TBL-3" class="tabular" cellspacing="0" cellpadding="0"><colgroup id="TBL-3-1g"><col id="TBL-3-1" /><col id="TBL-3-2" /></colgroup><tr style="vertical-align:baseline;" id="TBL-3-1-"><td style="white-space:wrap; text-align:left;" id="TBL-3-1-1" class="td11"><!--l. 93--> <!--l. 93--><p class="noindent"><div class="lstlisting" id="listing-5"><span class="label"><a id="x1-3001r1"></a></span>body <span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-3002r2"></a></span>        height: 100%; <br /><span class="label"><a id="x1-3003r3"></a></span>        margin: 0; <br /><span class="label"><a id="x1-3004r4"></a></span>        text<span class="cmsy-10">−</span>align: center; <br /><span class="label"><a id="x1-3005r5"></a></span>        width: 100%; <br /><span class="label"><a id="x1-3006r6"></a></span><span class="cmsy-10">}</span>   </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-3-1-2" class="td11">Speciﬁes the general layout of the page. </td>
+</tr><tr style="vertical-align:baseline;" id="TBL-3-2-"><td style="white-space:wrap; text-align:left;" id="TBL-3-2-1" class="td11"><!--l. 101--> <!--l. 101--><p class="noindent"><div class="lstlisting" id="listing-6"><span class="label"><a id="x1-3007r1"></a></span>p <span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-3008r2"></a></span>        font<span class="cmsy-10">−</span>size: 2rem; <br /><span class="label"><a id="x1-3009r3"></a></span><span class="cmsy-10">}</span>                                           </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-3-2-2" class="td11">Set the font size of text inside <span class="obeylines-h"><span class="verb"><span class="cmtt-10">&#x003C;p&#x003E;&#x003C;/p&#x003E;</span></span></span> </td>
+</tr><tr style="vertical-align:baseline;" id="TBL-3-3-"><td style="white-space:wrap; text-align:left;" id="TBL-3-3-1" class="td11"><!--l. 106--> <!--l. 106--><p class="noindent"><div class="lstlisting" id="listing-7"><span class="label"><a id="x1-3010r1"></a></span>.wow <span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-3011r2"></a></span>  font<span class="cmsy-10">−</span>family: Helvetica, sans<span class="cmsy-10">−</span>serif; <br /><span class="label"><a id="x1-3012r3"></a></span>  background<span class="cmsy-10">−</span>image: url(”cool.jpg”); <br /><span class="label"><a id="x1-3013r4"></a></span>  background<span class="cmsy-10">−</span>size: cover; <br /><span class="label"><a id="x1-3014r5"></a></span>  color: #ffffff <br /><span class="label"><a id="x1-3015r6"></a></span><span class="cmsy-10">}</span>   </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-3-3-2" class="td11">Specify properties of a page division, i.e. a
+<span class="cmtt-10">&#x003C;div&#x003E; </span>part of a page that should have special
+properties (e.g. a background image)          </td>
+</tr><tr style="vertical-align:baseline;" id="TBL-3-4-"><td style="white-space:wrap; text-align:left;" id="TBL-3-4-1" class="td11"><!--l. 114--> <!--l. 114--><p class="noindent"><div class="lstlisting" id="listing-8"><span class="label"><a id="x1-3016r1"></a></span>.wow a <span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-3017r2"></a></span>        color: #00FFAA; <br /><span class="label"><a id="x1-3018r3"></a></span>        text<span class="cmsy-10">−</span>decoration: none; <br /><span class="label"><a id="x1-3019r4"></a></span>        font<span class="cmsy-10">−</span>size: 1.25em; <br /><span class="label"><a id="x1-3020r5"></a></span><span class="cmsy-10">}</span>   </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-3-4-2" class="td11">Inside a division it might be necessary to
+want to change the way a link is formatted
+(the <span class="cmtt-10">&#x003C;a&#x003E; </span>inside a <span class="cmtt-10">&#x003C;div&#x003E;</span>.                          </td>
+</tr><tr style="vertical-align:baseline;" id="TBL-3-5-"><td style="white-space:wrap; text-align:left;" id="TBL-3-5-1" class="td11"><!--l. 121--> <!--l. 121--><p class="noindent"><div class="lstlisting" id="listing-9"><span class="label"><a id="x1-3021r1"></a></span>#footer<span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-3022r2"></a></span>  font<span class="cmsy-10">−</span>size:0.75rem; <br /><span class="label"><a id="x1-3023r3"></a></span><span class="cmsy-10">}</span>                                         </p> </div></td><td style="white-space:wrap; text-align:left;" id="TBL-3-5-2" class="td11">If a speciﬁc paragraph&#x2019;s has to be formatted
+diﬀerently (e.g. change only the colour) you
+can give it an ID and set it up here.           </td>
+</tr><tr style="vertical-align:baseline;" id="TBL-3-6-"><td style="white-space:wrap; text-align:left;" id="TBL-3-6-1" class="td11">                                           </td></tr></table></div>
+                                                                                            
+                                                                                            
+   </div><hr class="endfloat" />
+   </div>
+   <h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a id="x1-40001.3"></a>JavaScript</h4>
+<!--l. 131--><p class="noindent">HTML contains static content and JavaScript is the way by which a web-page becomes dynamic. This is
+a scripting language that is interpreted by your browser and it is able to do what most programming
+languages do: mathematical operations, run loops, functions and create objects. The most important
+diﬀerence between JS and other languages is the way in which objects are deﬁned (<a href="#x1-4001r1">1<!--tex4ht:ref: jsobj --></a>), which is similar to the
+way in which any variable is deﬁned (<a href="#x1-4010r2">2<!--tex4ht:ref: vars --></a>). Functions are deﬁned by calling a function &#x2019;constructor&#x2019; that is
+assigned to a variable name with a set of inputs (<a href="#x1-4010r2">2<!--tex4ht:ref: vars --></a>). The <span class="cmtt-10">for-loop </span>(<a href="#x1-4026r4">4<!--tex4ht:ref: forjs --></a>) and <span class="cmtt-10">if-statement </span>(<a href="#x1-4019r3">3<!--tex4ht:ref: ifjs --></a>) syntax is
+similar to that of other languages. It is important to note that while a <span class="cmbx-10">&#x2019;;&#x2019; </span>is not necessary in normal
+program ﬂow, it is strongly recommended especially inside functions, loops and ﬂow control statements.
+</p><div class="table">
+                                                                                            
+                                                                                            
+<!--l. 132--><p class="indent">   <a id="x1-4001r1"></a><a id="x1-4010r2"></a><a id="x1-4019r3"></a><a id="x1-4026r4"></a></p><hr class="float" /><div class="float">
+                                                                                            
+                                                                                            
+<div class="tabular"> <table id="TBL-4" class="tabular" cellspacing="0" cellpadding="0" rules="groups"><colgroup id="TBL-4-1g"><col id="TBL-4-1" /></colgroup><colgroup id="TBL-4-2g"><col id="TBL-4-2" /></colgroup><tr style="vertical-align:baseline;" id="TBL-4-1-"><td style="white-space:wrap; text-align:left;" id="TBL-4-1-1" class="td11"><div class="minipage"><!--l. 135-->
+<a id="x1-4002"></a>
+<br />             <div class="caption"><span class="id">Listing 1:                     </span><span class="content">JS
+Object</span></div><!--tex4ht:label?: x1-4001r1 --><div class="lstlisting" id="listing-10"><span class="label"><a id="x1-4003r1"></a></span><span class="cmbx-10">var</span> myObj = <span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-4004r2"></a></span>        myName: <span class="cmtt-10">&#x0022;</span><span class="cmtt-10">Feeg</span><span class="cmtt-10">&#x0022;</span>, <br /><span class="label"><a id="x1-4005r3"></a></span>        myNumbers: [2,3.5], <br /><span class="label"><a id="x1-4006r4"></a></span>        myFun: <span class="cmbx-10">function</span>(someVar)<span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-4007r5"></a></span>                <span class="cmbx-10">return</span> otherVar; <br /><span class="label"><a id="x1-4008r6"></a></span>        <span class="cmsy-10">}</span> <br /><span class="label"><a id="x1-4009r7"></a></span><span class="cmsy-10">}</span>
+</div>                         </div></td><td style="white-space:wrap; text-align:left;" id="TBL-4-1-2" class="td11"><div class="minipage"><!--l. 147-->
+<a id="x1-4011"></a>
+<br />   <div class="caption"><span class="id">Listing 2:    </span><span class="content">Variables    and    function
+deﬁnition</span></div><!--tex4ht:label?: x1-4010r1 --><div class="lstlisting" id="listing-11"><span class="label"><a id="x1-4012r1"></a></span><span class="cmbx-10">var</span> myNum = 999; <br /><span class="label"><a id="x1-4013r2"></a></span><span class="cmbx-10">var</span> myBool = <span class="cmbx-10">false</span>; <br /><span class="label"><a id="x1-4014r3"></a></span><span class="cmbx-10">var</span> myStr = <span class="cmtt-10">&#x0022;</span><span class="cmtt-10">Good</span><span class="cmtt-10">!</span><span class="cmtt-10">&#x0022;</span>; <br /><span class="label"><a id="x1-4015r4"></a></span><span class="cmbx-10">var</span> myFun = <span class="cmbx-10">function</span>(input)<span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-4016r5"></a></span>        some actions on input; <br /><span class="label"><a id="x1-4017r6"></a></span>        <span class="cmbx-10">return</span> ouput; <br /><span class="label"><a id="x1-4018r7"></a></span><span class="cmsy-10">}</span>
+</div>                         </div></td>
+</tr><tr class="hline"><td><hr /></td><td><hr /></td></tr><tr style="vertical-align:baseline;" id="TBL-4-2-"><td style="white-space:wrap; text-align:left;" id="TBL-4-2-1" class="td11"><div class="minipage"><!--l. 159-->
+<a id="x1-4020"></a>
+<br />              <div class="caption"><span class="id">Listing 3:                      </span><span class="content">If
+statement</span></div><!--tex4ht:label?: x1-4019r1 --><div class="lstlisting" id="listing-12"><span class="label"><a id="x1-4021r1"></a></span><span class="cmbx-10">if</span> (1 <span class="cmbx-10">in</span> [0,2,3]) <span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-4022r2"></a></span>        compute a thing; <br /><span class="label"><a id="x1-4023r3"></a></span><span class="cmsy-10">}</span><span class="cmbx-10">else</span><span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-4024r4"></a></span>        compute nothing; <br /><span class="label"><a id="x1-4025r5"></a></span><span class="cmsy-10">}</span>
+</div>                          </div></td><td style="white-space:wrap; text-align:left;" id="TBL-4-2-2" class="td11"><div class="minipage"><!--l. 169-->
+<a id="x1-4027"></a>
+<br />             <div class="caption"><span class="id">Listing 4:                    </span><span class="content">For
+loop</span></div><!--tex4ht:label?: x1-4026r1 --><div class="lstlisting" id="listing-13"><span class="label"><a id="x1-4028r1"></a></span><span class="cmbx-10">for</span> (<span class="cmbx-10">var</span> i=0, i<span class="cmmi-10">&#x003C;</span>n, i++)<span class="cmsy-10">{</span> <br /><span class="label"><a id="x1-4029r2"></a></span>        change something; <br /><span class="label"><a id="x1-4030r3"></a></span>        compute something; <br /><span class="label"><a id="x1-4031r4"></a></span><span class="cmsy-10">}</span> <br /><span class="label"><a id="x1-4032r5"></a></span><span class="cmbx-10">for</span> i <span class="cmbx-10">in</span> [element1, element2, ...]<span class="cmsy-10">{</span>...<span class="cmsy-10">}</span>
+</div>                         </div></td>
+</tr><tr style="vertical-align:baseline;" id="TBL-4-3-"><td style="white-space:wrap; text-align:left;" id="TBL-4-3-1" class="td11">                                     </td></tr></table></div>
+                                                                                            
+                                                                                            
+   </div><hr class="endfloat" />
+   </div>
+<!--l. 180--><p class="indent">   <span class="cmr-9">JavaScript is completely diﬀerent from Java</span>
+</p>
+   <h4 class="subsectionHead"><span class="titlemark"><span class="cmr-9">1.4   </span></span> <a id="x1-50001.4"></a><span class="cmr-9">Markdown</span></h4>
+<!--l. 182--><p class="noindent"><span class="cmr-9">Markdown is very useful for writing content for web-pages books and other types of documents. The language is similar to</span>
+<span class="LATEX"><span class="cmr-9">L</span><span class="A"><span class="cmr-9">A</span></span><span class="TEX"><span class="cmr-9">T</span><span class="E"><span class="cmr-9">E</span></span><span class="cmr-9">X</span></span></span><span class="cmr-9">in the sense that it uses plain text to write the source for a nicely formatted document, but it has the advantage of</span>
+<span class="cmr-9">having very human-readable source code. The best way to write markdown is to use a specialised editor such as Atom, but in this</span>
+<span class="cmr-9">tutorial we will use Brackets with a plugin for MD live generation. Markdown is so simple that an actual tutorial is not</span>
+<span class="cmr-9">required for the basics and the cheat-sheet below should prove suﬃcient (for a step-by-step 10 minute tutorial check</span>
+<a href="http://commonmark.org/help/tutorial/" class="url"><span class="cmtt-9">http://commonmark.org/help/tutorial/</span></a> <span class="cmr-9">):</span> </p><hr class="figure" /><div class="figure">
+                                                                                            
+                                                                                            
+                                                                                            
+                                                                                            
+<!--l. 185--><p class="noindent"><img src="../revealJS/MD-Tutorial.png" alt="markdown cheat-sheet" />
+                                                                                            
+                                                                                            
+</p>
+   </div><hr class="endfigure" />
+   <h3 class="sectionHead"><span class="titlemark"><span class="cmr-9">2   </span></span> <a id="x1-60002"></a><span class="cmr-9">Tutorial</span></h3>
+<!--l. 189--><p class="noindent"><span class="cmr-9">The tutorial exercise is to create a presentation by yourself from the bottom-up.</span>
+<span class="footnote-mark"><a href="tutorial2.html#fn1x0"><sup class="textsuperscript">1</sup></a></span><a id="x1-6001f1"></a>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span class="cmr-9">Start with the basic HTML structure, i.e. the </span><span class="cmtt-9">&#x003C;html&#x003E; </span><span class="cmr-9">tags with </span><span class="cmtt-9">&#x003C;head&#x003E;</span><span class="cmr-9">, </span><span class="cmtt-9">&#x003C;body&#x003E;</span><span class="cmr-9">, etc.</span>
+     </li>
+     <li class="itemize"><span class="cmr-9">Add the reveal.js stylesheet and your own in the ¡head¿ branch.</span>
+     </li>
+     <li class="itemize"><span class="cmr-9">Add the </span><span class="cmti-9">reveal </span><span class="cmtt-9">&#x003C;div&#x003E; </span><span class="cmr-9">and inside it the </span><span class="cmti-9">slides </span><span class="cmtt-9">&#x003C;div&#x003E;</span>
+     </li>
+     <li class="itemize"><span class="cmr-9">Add about ﬁve sections inside the slides </span><span class="cmtt-9">&#x003C;div&#x003E;</span>
+     </li>
+     <li class="itemize"><span class="cmr-9">Create </span><span class="underline"><span class="cmr-9">two</span></span> <span class="cmr-9">JavaScript sections to call </span><span class="cmti-9">reveal.js </span><span class="cmr-9">and </span><span class="cmti-9">head.min.js </span><span class="cmr-9">(this is needed so that it works in all browsers),found</span>
+     <span class="cmr-9">in </span><span class="cmtt-9">./reveal.js/js/ </span><span class="cmr-9">and </span><span class="cmtt-9">./reveal.js/lib/js/</span><span class="cmr-9">, respectively.</span>
+     </li>
+     <li class="itemize"><span class="cmr-9">After the </span><span class="cmtt-9">&#x003C;slides&#x003E; </span><span class="cmr-9">section add a new </span><span class="cmtt-9">&#x003C;script&#x003E; </span><span class="cmr-9">section to initialise the presentation with the following add-ons:</span>
+     <!--l. 198-->
+     <div class="lstlisting" id="listing-14"><span class="label"><a id="x1-6002r1"></a></span><span class="cmr-9">Reveal</span><span class="cmr-9">.</span><span class="cmr-9">initialize</span><span class="cmr-9">(</span><span class="cmsy-9">{</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6003r2"></a></span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6004r3"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">controls</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmbx-9">true</span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmtt-9">//</span><span class="cmtt-9"> </span><span class="cmtt-9">Display</span><span class="cmtt-9"> </span><span class="cmtt-9">controls</span><span class="cmtt-9"> </span><span class="cmtt-9">in</span><span class="cmtt-9"> </span><span class="cmtt-9">the</span><span class="cmtt-9"> </span><span class="cmtt-9">bottom</span><span class="cmtt-9"> </span><span class="cmtt-9">right</span><span class="cmtt-9"> </span><span class="cmtt-9">corer</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6005r4"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">history</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmbx-9">true</span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmtt-9">//</span><span class="cmtt-9"> </span><span class="cmtt-9">Push</span><span class="cmtt-9"> </span><span class="cmtt-9">each</span><span class="cmtt-9"> </span><span class="cmtt-9">slide</span><span class="cmtt-9"> </span><span class="cmtt-9">change</span><span class="cmtt-9"> </span><span class="cmtt-9">to</span><span class="cmtt-9"> </span><span class="cmtt-9">the</span><span class="cmtt-9"> </span><span class="cmtt-9">browser</span><span class="cmtt-9"> </span><span class="cmtt-9">history</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6006r5"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">center</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmbx-9">true</span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmtt-9">//</span><span class="cmtt-9"> </span><span class="cmtt-9">Vertical</span><span class="cmtt-9"> </span><span class="cmtt-9">centering</span><span class="cmtt-9"> </span><span class="cmtt-9">of</span><span class="cmtt-9"> </span><span class="cmtt-9">slides</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6007r6"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">transition</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmtt-9">&#x2019;</span><span class="cmtt-9">convex</span><span class="cmtt-9">&#x2019;</span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmtt-9">//</span><span class="cmtt-9"> </span><span class="cmtt-9">none</span><span class="cmtt-9">/</span><span class="cmtt-9">fade</span><span class="cmtt-9">/</span><span class="cmtt-9">slide</span><span class="cmtt-9">/</span><span class="cmtt-9">convex</span><span class="cmtt-9">/</span><span class="cmtt-9">concave</span><span class="cmtt-9">/</span><span class="cmtt-9">zooms</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6008r7"></a></span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6009r8"></a></span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9">//</span><span class="cmtt-9"> </span><span class="cmtt-9">Optional</span><span class="cmtt-9"> </span><span class="cmtt-9">reveal</span><span class="cmtt-9">.</span><span class="cmtt-9">js</span><span class="cmtt-9"> </span><span class="cmtt-9">plugins</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6010r9"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">dependencies</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmr-9">[</span><span class="cmtt-9">//</span><span class="cmtt-9"> </span><span class="cmtt-9">Markdown</span><span class="cmtt-9"> </span><span class="cmtt-9">Support</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6011r10"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmsy-9">{</span><span class="cmr-9">src</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmtt-9">&#x2019;</span><span class="cmtt-9">./</span><span class="cmtt-9">reveal</span><span class="cmtt-9">.</span><span class="cmtt-9">js</span><span class="cmtt-9">/</span><span class="cmtt-9">plugin</span><span class="cmtt-9">/</span><span class="cmtt-9">markdown</span><span class="cmtt-9">/</span><span class="cmtt-9">marked</span><span class="cmtt-9">.</span><span class="cmtt-9">js</span><span class="cmtt-9">&#x2019;</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6012r11"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmr-9">condition</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmbx-9">function</span><span class="cmr-9"> </span><span class="cmr-9">()</span><span class="cmr-9"> </span><span class="cmsy-9">{</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6013r12"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmbx-9">return</span><span class="cmr-9"> </span><span class="cmr-9">!!</span><span class="cmr-9">document</span><span class="cmr-9">.</span><span class="cmr-9">querySelector</span><span class="cmr-9">(</span><span class="cmtt-9">&#x2019;</span><span class="cmtt-9">[</span><span class="cmtt-9">data</span><span class="cmtt-9">-</span><span class="cmtt-9">markdown</span><span class="cmtt-9">]</span><span class="cmtt-9">&#x2019;</span><span class="cmr-9">);</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6014r13"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmsy-9">}</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6015r14"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmsy-9">}</span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmsy-9">{</span><span class="cmr-9">src</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmtt-9">&#x2019;</span><span class="cmtt-9">./</span><span class="cmtt-9">reveal</span><span class="cmtt-9">.</span><span class="cmtt-9">js</span><span class="cmtt-9">/</span><span class="cmtt-9">plugin</span><span class="cmtt-9">/</span><span class="cmtt-9">markdown</span><span class="cmtt-9">/</span><span class="cmtt-9">markdown</span><span class="cmtt-9">.</span><span class="cmtt-9">js</span><span class="cmtt-9">&#x2019;</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6016r15"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmr-9">condition</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmbx-9">function</span><span class="cmr-9"> </span><span class="cmr-9">()</span><span class="cmr-9"> </span><span class="cmsy-9">{</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6017r16"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmbx-9">return</span><span class="cmr-9"> </span><span class="cmr-9">!!</span><span class="cmr-9">document</span><span class="cmr-9">.</span><span class="cmr-9">querySelector</span><span class="cmr-9">(</span><span class="cmtt-9">&#x2019;</span><span class="cmtt-9">[</span><span class="cmtt-9">data</span><span class="cmtt-9">-</span><span class="cmtt-9">markdown</span><span class="cmtt-9">]</span><span class="cmtt-9">&#x2019;</span><span class="cmr-9">);</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6018r17"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmsy-9">}</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6019r18"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmsy-9">}</span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmtt-9">//</span><span class="cmtt-9"> </span><span class="cmtt-9">Slide</span><span class="cmtt-9"> </span><span class="cmtt-9">Zooming</span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9"> </span><span class="cmtt-9">{</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6020r19"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">src</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmtt-9">&#x2019;</span><span class="cmtt-9">./</span><span class="cmtt-9">reveal</span><span class="cmtt-9">.</span><span class="cmtt-9">js</span><span class="cmtt-9">/</span><span class="cmtt-9">plugin</span><span class="cmtt-9">/</span><span class="cmtt-9">zoom</span><span class="cmtt-9">-</span><span class="cmtt-9">js</span><span class="cmtt-9">/</span><span class="cmtt-9">zoom</span><span class="cmtt-9">.</span><span class="cmtt-9">js</span><span class="cmtt-9">&#x2019;</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6021r20"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9">,</span><span class="cmr-9"> </span><span class="cmr-9">async</span><span class="cmr-9">:</span><span class="cmr-9"> </span><span class="cmbx-9">true</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6022r21"></a></span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmr-9"> </span><span class="cmsy-9">}</span><span class="cmr-9">]</span><span class="cmr-9"> </span><br /><span class="label"><a id="x1-6023r22"></a></span><span class="cmsy-9">}</span><span class="cmr-9">);</span>
+     
+     </div>
+     </li>
+     <li class="itemize"><span class="cmr-9">Now go back to the </span><span class="cmtt-9">&#x003C;slides&#x003E; </span><span class="cmr-9">branch and start adding slides:</span>
+         <ul class="itemize2">
+         <li class="itemize"><span class="cmr-9">1 HTML slide</span>
+         </li>
+         <li class="itemize"><span class="cmr-9">1 Markdown slide written in the HTML ﬁle</span>
+         </li>
+         <li class="itemize"><span class="cmr-9">1 Markdown slide that is imported from an .md slide.</span>
+         </li>
+         <li class="itemize"><span class="cmr-9">a section of slides (so you can go downwards): one with an image and one with a video</span></li></ul>
+     </li></ul>
+<!--l. 230--><p class="noindent"><span class="cmr-9">For the quick:</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span class="cmr-9">Create a slide with a table.</span>
+     </li>
+     <li class="itemize"><span class="cmr-9">Create a CSS ﬁle to look similar to the university </span><span class="cmtt-9">.ppt </span><span class="cmr-9">template.</span>
+     </li>
+     <li class="itemize"><span class="cmr-9">Include plotﬁle.js in your presentation and modify it to create a 2D parabola.</span></li></ul>
+    
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

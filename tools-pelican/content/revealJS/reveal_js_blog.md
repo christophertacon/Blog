@@ -16,7 +16,7 @@ The Reveal.js framework is built around HTML, JavaScript, and CSS. But also has 
 ## Getting Started
 
 #### Software (Own Machine)
-the necessities are a browser (*recent versions of Firefox, Chrome, Safari recommended*), and a text editor (*for web programming we recommend [Brackets](http://brackets.io/) for its live update feature*). A zipped folder with all the neccessary files is available [here]({filename}/revealJS/feeg6003_revealjs.zip), download and extract the files somewhere on your machine
+the necessities are a browser (*recent versions of Firefox, Chrome, Safari recommended*), and a text editor (*for web programming we recommend [Brackets](http://brackets.io/) for its live update feature*). A zipped folder with all the neccessary files is available [here]({filename}/revealJS/feeg6003_revealjs.zip), download and extract the files somewhere on your machine.
 
 #### Virtual Machine
 
@@ -38,13 +38,14 @@ Summary of files contained within:
 - tutorial_material/: Material for the lab
 - uos-logo.css: CSS file to include the university logo in the corner of the presentation
 
+<p/>
 ## Using Reveal.js Presentations
 
-You can view a Revel.js presentation in any JavaScript enabled browser.
+You can view a Reveal.js presentation in any JavaScript enabled browser.
 
 #### Using generic software
 
-Open the presentation/HTML file in your preferred text editor. Open the presentation/HTML file with your browser. When you make edits to the file, you then must refresh the presentation page in the broswer.
+Open the presentation/HTML file in your preferred text editor. Open the presentation/HTML file with your browser. When you make edits to the file, you then must refresh the presentation page in the broswer 
 
 #### Using Brackets
 
@@ -56,6 +57,6 @@ If you wish to make the presentation full screen, then press the **F** key, or l
 
 ## Tutorial
 
-In the tutorial we will do some live coding and build up a basic template. Those attending are then advised to complete the slide addition part individually. Finally a few exercises are given for those that would like a chalenge. The tutorial PDF file can be found [here]({filename}/revealJS/tutorial.pdf). Before you start working, make sure you download the [revealjs]({filename}/revealJS/feeg6003_revealjs.zip) folder.
+For the tutorial page click [here]({filename}/revealJS/tutorial.html), if you would like it in PDF format click [here]({filename}/revealJS/tutorial.pdf). For the tutorial files click [here]({filename}/revealJS/feeg6003_revealjs.zip)
 
 ### Thank you!
