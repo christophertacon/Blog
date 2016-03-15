@@ -515,9 +515,9 @@ Links
 
 1. **Pint** website `here <https://pint.readthedocs.org/en/0.6/>`__
 
-2. To download the LiveCoding session notebook click `here <{filename}/computing-with-units/LiveCoding.ipynb>`__. The definition file 'mydef' is `here <{filename}/computing-with-units/mydef.txt>`__
+2. To download the LiveCoding session notebook click `here <http://nbviewer.jupyter.org/url/computationalmodelling.bitbucket.org/tools/computing-with-units/computing_with_units_exercises.ipynb>`__. The definition file 'mydef' is `here <{filename}/computing-with-units/mydef.txt>`__
 
-3. To download the Exercise notebook click `here <{filename}/computing-with-units/computing_with_units_exercises.ipynb>`__. and the txt file used in the exercise is `here <{filename}/computing-with-units/data.txt>`__
+3. To download the Exercise notebook click `here <http://nbviewer.jupyter.org/url/computationalmodelling.bitbucket.org/tools/computing-with-units/computing_with_units_exercises.ipynb>`__. and the txt file used in the exercise is `here <{filename}/computing-with-units/data.txt>`__
 
 4. To download the Exercises solutions click `here <{filename}/computing-with-units/solutions.pdf>`__. **Please try to solve the exercise yourself first**.
 
