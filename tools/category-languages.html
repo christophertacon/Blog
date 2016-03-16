@@ -48,13 +48,13 @@
 <h2>Installation</h2>
 <p>For this workshop a virtual machine has been set up with Julia allready installed - the image can be found at this <a class="reference external" href="https://www.dropbox.com/s/n0fkh7p5p534t6x/Julia.ova?dl=0">link</a>. However if you wish to install Julia on your own machine their are various routes available. The easiest possible route is to follow the instructions, for your operating system, found on the <a class="reference external" href="http://julialang.org/downloads/platform.html">Julia website</a>. It may be necassary to add the Julia executable to your path in order to run the REPL from the terminal. If you would like to live on the bleeding edge of Julia development then you can install from source by following the instructions on the <a class="reference external" href="https://github.com/JuliaLang/julia">Julia Github</a> - be aware that when following this method you will have to wait a very very long time (expect upto 3 hours!!) and there will probably be various errors because of dependencies that you lack (<a class="reference external" href="http://www.cmake.org/install/">cmake</a> and <a class="reference external" href="https://www.gnu.org/software/m4/">m4</a> were needed when installing on mac).</p>
 <p>Julia can be used via the REPL or by running scripts, however an excellent working enviroment is provided by the IJulia kernal for the Jupyter (formally IPython) notebook. In order to install IJulia you will first need a version of Python, version 2.7 is recomended, along with IPython and the IPython notebook. IPython and the notebook can be installed using pip;</p>
-<div class="highlight"><pre><span class="nv">$ </span>pip install <span class="s1">&#39;ipython[notebook]&#39;</span>
+<div class="highlight"><pre>$ pip install <span class="s1">&#39;ipython[notebook]&#39;</span>
 </pre></div>
 <p>Once the Python dependencies have been installed you will need to open up a Julia REPL and use the following command;</p>
 <div class="highlight"><pre><span class="n">julia</span><span class="o">&gt;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;IJulia&quot;</span><span class="p">)</span>
 </pre></div>
 <p>The IJulia package will then be installed and should be available in Jupyter by running the following in the terminal;</p>
-<div class="highlight"><pre><span class="nv">$ </span>ipython notebook
+<div class="highlight"><pre>$ ipython notebook
 </pre></div>
 <p>A new browser window should appear in which the local file structure will be displayed, selecting new in the top right corner and then picking the julia kernal from the dropdown menu should start a new notebook file.</p>
 </div>

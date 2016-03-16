@@ -51,12 +51,12 @@
 <div class="section" id="practical-session">
 <h2>Practical Session</h2>
 <p>In order to run through this session either download the <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_fortran.ova">Lubuntu_ova_fortran</a> virtualbox image and load it to your virtual-box or simply run these commands (if you haven’t already) on your Debian operating system:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update
-<span class="nv">$ </span>sudo apt-get install python ipython gfortran python-dev python-numpy gedit
+<div class="highlight"><pre>$ sudo apt-get update
+$ sudo apt-get install python ipython gfortran python-dev python-numpy gedit
 </pre></div>
 <p>When compiling and running use:</p>
-<div class="highlight"><pre><span class="nv">$ </span>gfortran program.f90 -o program
-<span class="nv">$ </span>./program
+<div class="highlight"><pre>$ gfortran program.f90 -o program
+$ ./program
 </pre></div>
 </div>
 <div class="section" id="exercise-1-writing-your-first-fortran-program">
@@ -92,10 +92,10 @@ The solution can be found in: <a class="reference external" href="./FORTRAN/Solu
 <div class="section" id="exercise-3-making-a-python-module">
 <h2>Exercise 3: Making a python module</h2>
 <p>Take your subroutine and place it in a new file, fibonacci_sub.f90, without the main program and make sure it compiles without errors using:</p>
-<div class="highlight"><pre><span class="nv">$ </span>gfortran -Wall -c fibonacci_sub.f90
+<div class="highlight"><pre>$ gfortran -Wall -c fibonacci_sub.f90
 </pre></div>
 <p>Then compile the FORTRAN to python interface command:</p>
-<div class="highlight"><pre><span class="nv">$ </span>f2py -c fibonacci_sub.f90 -m fibonacci
+<div class="highlight"><pre>$ f2py -c fibonacci_sub.f90 -m fibonacci
 </pre></div>
 <p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
 <p>If no errors are visible then make shure that your module is correct by using the python program:</p>
