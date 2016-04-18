@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,56 +25,143 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./presenting-with-revealjs.html">Presenting with Reveal.js</a></h1>
+                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/virtualization-with-docker.html">Virtualization with Docker</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2016-03-10T00:00:00+01:00">
-                Published: Thu 10 March 2016
+        <abbr class="published" title="2016-04-18T00:00:00+02:00">
+                Published: Mon 18 April 2016
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-craig-rafter.html">Craig Rafter</a>
-                        <a class="url fn" href="./author-konstantinos-drakopoulos.html">Konstantinos Drakopoulos</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ignacio-vidal.html">Ignacio Vidal</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-abbas-sarvmeily.html">Abbas Sarvmeily</a>
         </address>
-<p>In <a href="./category-revealjs.html">revealJS</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-presentation.html">Presentation</a> <a href="./tag-web.html">Web</a> <a href="./tag-html.html">HTML</a> <a href="./tag-css.html">CSS</a> <a href="./tag-javascript.html">JavaScript</a> <a href="./tag-markdown.html">Markdown</a> </p>
-</footer><!-- /.post-info --><p align="center"><img src="./revealJS/reveal.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-docker.html">docker</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtual-machines.html">Virtual Machines</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-linux.html">Linux</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-tools.html">Tools</a> </p>
+</footer><!-- /.post-info --><p align="center"><img src="http://computationalmodelling.bitbucket.org/tools/docker/docker_logo.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
 
-<h2>Introduction</h2>
-<p><a href="https://github.com/hakimel/reveal.js/">Reveal.js</a> is a framework for easily creating beautiful presentations using HTML/Markdown. <a href="http://lab.hakim.se/reveal-js/">Check out the live demo</a>.</p>
-<p>Reveal.js comes with a broad range of features including <a href="https://github.com/hakimel/reveal.js#markup">nested slides</a>, <a href="https://github.com/hakimel/reveal.js#markdown">Markdown content</a>, <a href="https://github.com/hakimel/reveal.js#pdf-export">PDF export</a>, <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker notes</a> and a <a href="https://github.com/hakimel/reveal.js#api">JavaScript API</a>. It's best viewed in a modern browser but <a href="https://github.com/hakimel/reveal.js/wiki/Browser-Support">fall-backs</a> are available to make sure your presentation can still be viewed elsewhere.</p>
-<p>The Reveal.js framework is built around HTML, JavaScript, and CSS. But also has extensive support for Markdown. Reveal.js also supports LaTeX representation of mathematical equations using the <a href="https://www.mathjax.org/">MathJax</a> plugin, enhancing its suitability in the academic domain. Slide decks in Reveal.js are cross platform compatible requiring only a browser to run, and can even be hosted online! Reveal.js presentations are text based so its files are relatively small, and readily version controllable! Overall, Reveal.js brings the beauty of web design, and the ease of markdown to presentation creation!</p>
-<h2>Getting Started</h2>
-<h4>Software (Own Machine)</h4>
-<p>the necessities are a browser (<em>recent versions of Firefox, Chrome, Safari recommended</em>), and a text editor (<em>for web programming we recommend <a href="http://brackets.io/">Brackets</a> for its live update feature</em>). A zipped folder with all the neccessary files is available <a href="./revealJS/feeg6003_revealjs.zip">here</a>, download and extract the files somewhere on your machine.</p>
-<h4>Virtual Machine</h4>
-<p>A <a href="https://www.virtualbox.org/">VirtualBox</a> virtual machine is available <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/RevealJS-feeg6003.ova">here</a>, all the neccessary files and software are pre-loaded. Open the documents folder, enter the workshop folder and launch the presentation using brackets.</p>
-<h4>Files</h4>
-<p>Summary of files contained within:</p>
+<h1>Introduction</h1>
+<p><a href="https://en.wikipedia.org/wiki/Virtual_machine">Virtual Machines</a> have been extensively used both in <a href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private servers</a> by web services provider, as well as in scientific environments to ensure that a whole team is working with the same software, libraries and configuration. This helps to mitigate the <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> and is a step forward to ensure reproducibility in computational experiments.</p>
+<p>However, the use of virtual machines implies a high overhead, as each virtual machine has to execute a full operating systems, with its associated drivers, hardware libraries. This has a huge impact in performance that can be inadmissible in some environments.</p>
+<p>Recently, a new technology came to solve this overhead. We are talking about <a href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization">containerization</a>.</p>
+<p>In Linux systems, the reference <em>containerization</em> software is <a href="www.docker.com">docker</a>.</p>
+<h2>Docker vs Virtual Machines</h2>
+<p>A we said before, virtualizing the a whole computer just to run some software is highly inefficient. Docker and other containerization software solve this problem by communicating directly with the kernel, via <a href="https://en.wikipedia.org/wiki/LXC">LXC (Linux Containers)</a>. This way, a given application can be executed in a given environment without running the whole environment itself. This eliminates a <em>layer</em> in the virtualization process (as it can be seen in the image below).</p>
+<p><img alt="Virtual machine schema" src="http://computationalmodelling.bitbucket.org/tools/docker/vm_overhead.png" title="Virtual Machine Schema. Image from docker.com" />      <img alt="Docker schema" src="http://computationalmodelling.bitbucket.org/tools/docker/docker_is_lighter.png" title="Docker block schema. Image from docker.com" /></p>
+<p>As consequence, containerized applications have virtually the same performance as if they were running natively.</p>
+<h2>Images, containers and registry</h2>
+<p>Docker uses a certain terminology and the first thing is getting to know it.</p>
+<h3>docker daemon:</h3>
+<p>The docker daemon is a program that is executed in background. It listens to the commands issued by the docker client and is the responsible of the actual execution of the containers.</p>
+<h3>image:</h3>
+<p>An image is a collection of libraries and executables needed by a certain container to run. </p>
+<h3>container:</h3>
+<p>A container is a instance of an application from an image running by the docker system in an enclosed environment. Each container is independent from the others.</p>
+<h3>registry:</h3>
+<p>A registry is a cloud based image distribution system. Can be either private or public. The official docker registry is the <a href="https://hub.docker.com/">docker hub</a>.</p>
+<h1>Let's begin!</h1>
+<p>It's time to grab a terminal and start playing with docker. Install the software on debian based linux distributions should be as easy as typing <code>apt-get install docker.io</code>. (<strong>Warning!</strong>: do not confuse package name <code>docker</code> with <code>docker.io</code>!)</p>
+<h2>Docker commands</h2>
+<p>Interfacing the docker engine is done via commands, issued as <code>docker &lt;command&gt;</code>, where <code>&lt;command&gt;</code> can be:</p>
 <ul>
-<li>README.md: github README file to display markdown on page</li>
-<li>feeg6003_reveal_HTML.html: HTML version of the presentation</li>
-<li>feeg6003_reveal_MD.html: Markdown version of the presentation</li>
-<li>feeg6003_template_adv.html: A template with full reveal options</li>
-<li>feeg6003_template_basic.html: A template with cre reveal options</li>
-<li>img/: folder for images</li>
-<li>plotfile.js: File containing the JavaScript for the embedded plot</li>
-<li>reveal.js/: Folder containg the reveal.js files</li>
-<li>tutorial.pdf: Guide for the workshop lab</li>
-<li>tutorial_material/: Material for the lab</li>
-<li>uos-logo.css: CSS file to include the university logo in the corner of the presentation</li>
+<li><code>run</code>: runs a container from an image.</li>
+<li><code>images</code>: list available images within the host system.</li>
+<li><code>ps</code>: list containers.</li>
+<li><code>exec</code>: runs a command in a running container .</li>
+<li><code>kill</code>,<code>stop</code>,<code>start</code>,<code>restart</code>: kills, stops, starts or restarts a container.</li>
+<li>...</li>
 </ul>
-<p><p/></p>
-<h2>Using Reveal.js Presentations</h2>
-<p>You can view a Reveal.js presentation in any JavaScript enabled browser.</p>
-<h4>Using generic software</h4>
-<p>Open the presentation/HTML file in your preferred text editor. Open the presentation/HTML file with your browser. When you make edits to the file, you then must refresh the presentation page in the broswer </p>
-<h4>Using Brackets</h4>
-<p>Open the presentation/HTML file you wish to edit in Brackets. Click the lightning bolt icon in the upper right corner, this should open a browser window and the lighning bolt should turn from grey to yellow. As you save your presentation, the changes will be reflected in the browser dynamically.</p>
-<h4>Controlling the presentation</h4>
-<p>If you wish to make the presentation full screen, then press the <strong>F</strong> key, or leave the window reduced if you want to just test the presentation. With the browser in focus, the presentation can be controlled using the arrow keys or spacebar.</p>
-<h2>Tutorial</h2>
-<p>For the tutorial page click <a href="./drafts/revealjs-tutorial.html">here</a>, if you would like it in PDF format click <a href="./revealJS/tutorial.pdf">here</a>. For the tutorial files click <a href="./revealJS/feeg6003_revealjs.zip">here</a></p>
-<h3>Thank you!</h3>                </article>
+<p>Executing <code>docker</code> without arguments will print a detailed list of available commands. <code>docker &lt;command&gt; --help</code> will print help.</p>
+<h2>Hello World</h2>
+<p>We will now print a <em>dockerized</em> hello world. The command to execute is:</p>
+<div class="highlight"><pre>docker run ubuntu /bin/echo &quot;hello world&quot;
+</pre></div>
+
+
+<p>wich means: <em>Hey, docker! Grab the ubuntu image from the registry if it doesn't exits yet, create a ubuntu environment, run a container executing <code>/bin/echo "hello world"</code> and exit!</em></p>
+<p>That was a lot of work to simply print a string on the screen.</p>
+<h2>Interactive bash session</h2>
+<p>The same way we ran <code>/bin/echo</code>, we can run <code>/bin/bash</code>, so...</p>
+<div class="highlight"><pre>docker run ubuntu /bin/bash
+</pre></div>
+
+
+<p>Oh... it didn't worked. Why? Because we have to tell docker to allocate a pseudo TTY (option <code>-t</code>) and to attach the standard input to the container (option <code>-i</code>). Now</p>
+<div class="highlight"><pre>docker run ubuntu -t -i /bin/bash
+</pre></div>
+
+
+<p>greets us with a root terminal in a dockerized ubuntu. But remember! We are only running <code>bash</code>! Not the whole Ubuntu! That's precisely the point of docker: being able to run applications in a isolated and controlled environment without running the whole environment itself!  </p>
+<p>In this bash session we can run whatever command we like (including <code>apt-get</code>, of course) and access the network. You may install new software, but changes won't be permanent.</p>
+<p>If we open another terminal window on the host machine and execute <code>docker ps</code>, we will see our <code>bash</code> container running with an associated container ID (some hexadecimal number like <code>f0ef61c5fc04</code> and a human-friendly random name (<code>reverent_lumiere</code>, by example).</p>
+<p>We can stop the container (<code>docker stop reverent_lumiere</code>, which will kick you out of the terminal), start it again were it was left (<code>docker start reverent_lumiere</code>) and reattach to the terminal with <code>docker attach reverent_lumiere</code>.</p>
+<p>Note that we can give a custom name to our containers by creating it with the flag <code>-name containername</code></p>
+<h2>Daemonizing containers</h2>
+<p>Most of the useful applications in linux are not interactive. Web servers, databases and services alike run in background (daemons). If we want a container to be daemonized we simply add the <code>-d</code> switch to the docker client: <code>docker run -d ubuntu command</code>.</p>
+<h2>Creating Docker images</h2>
+<p>You may want to create a custom docker image. Maybe you are working in a team and you are using a specific version of <code>python</code> and a custom tuned <code>numpy</code> library. A great way to ensure that everyone uses the same environment is building and shipping a docker image.</p>
+<p>There are two ways of creating an image:</p>
+<h3>Incremental changes</h3>
+<p>Changes to an image done with a bash interactive session will not be persistent <em>unless</em> you commit them. You can commit changes in a git style using <code>docker commit</code>. Example:</p>
+<div class="highlight"><pre>docker commit -m &quot;Commit message&quot; -a &quot;authorname&quot; containerID user/newimagename:tag
+</pre></div>
+
+
+<h3>Using a DOCKERFILE</h3>
+<p>Running a bash session and commiting the changes may be inconvinient to manage images and deploy to a large team. Luckily we can automate the process and specify creation commands in a bash-style script: the Dockerfile.</p>
+<p>Below you can see a Dockerfile template:</p>
+<div class="highlight"><pre>################################################
+# Dockerfile template to build a simple image  #
+# Based on Ubuntu 14:04                        #
+################################################
+
+# Set the base image to Ubuntu
+FROM ubuntu:14.04
+# File Author
+MAINTAINER Maintainer&#39;s Name
+
+# Update the repository
+RUN apt-get update
+
+# Run a command. In this case, we are installing software using apt-get
+RUN apt-get install -y build-essential
+
+# Tell docker what to execute when running the image
+ENTRYPOINT /bin/bash
+</pre></div>
+
+
+<p>Alternatively, you can download it <a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">here</a>.
+In order to build the image, just type <code>docker build -t username/imagename:tag /path/to/dockerfile</code></p>
+<h2>Scientific tools for FEEG-6003</h2>
+<p>For this blog post, we put togheter a sample container with some interesting scientific tools. Check it out at:</p>
+<p><a href="https://hub.docker.com/r/feeg6003/scicomp/">Scientific tools sample container: feeg6003/scicomp:v1</a></p>
+<h2>Working with data</h2>
+<p>It is possible to share data between the container and the hosts OS:</p>
+<div class="highlight"><pre>docker run --name data -v /home/feeg6003-docker/data:/data feeg6003/scicomp:v1 /bin/bash
+</pre></div>
+
+
+<p>the switch <code>-v</code> tells docker to mount the first directory into the specified directory of the container and the switch <code>--name</code> assigns a custom name to it.</p>
+<h1>Virtual Machine</h1>
+<p>If you want to reproduce the steps in this short tutorial, you can download a very simple lubuntu 14.04 64-bits virtual machine from <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_docker.ova">here</a>. Docker.io is pre-installed, so you can inmediatly start playing around. Username: <code>feeg6003-docker</code> Password: <code>feeg6003-docker</code></p>
+<h1>Workshop related links</h1>
+<ul>
+<li><a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_docker.ova">Virtual Machine</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_exercises.pdf">Exercise sheet</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_solutions.pdf">Solutions to the exercises</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_vm.pdf">First part slides</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_workshop.pdf">Second part slides</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">Dockerfile template</a></li>
+<li><a href="https://hub.docker.com/r/feeg6003/scicomp/">feeg6003/scicomp:v1 sample container</a></li>
+</ul>
+<h1>Some other useful links</h1>
+<ul>
+<li><a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine user guide</a></li>
+<li><a href="https://docs.docker.com/linux/">Docker Hub</a></li>
+<li><a href="http://www.carlboettiger.info/assets/files/pubs/10.1145/2723872.2723882.pdf">An introduction to Docker for reproducible research. By Carl Boettige</a></li>
+<li><a href="https://www.nersc.gov/assets/Uploads/cug2015udi.pdf">Contain This, Unleashing Docker for HPC. By Douglas M. Jacobsen and Richard Shane Canon</a></li>
+<li><a href="http://blog.hypriot.com/">Docker Pirates ARMed with explosive stuff (An interesting blog about docker, IoT and ARM devices)</a></li>
+</ul>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -83,7 +170,34 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./Bibtex.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/presenting-with-revealjs.html" rel="bookmark"
+                           title="Permalink to Presenting with Reveal.js">Presenting with Reveal.js</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-03-10T00:00:00+01:00">
+                Published: Thu 10 March 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-craig-rafter.html">Craig Rafter</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-konstantinos-drakopoulos.html">Konstantinos Drakopoulos</a>
+        </address>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-revealjs.html">revealJS</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-presentation.html">Presentation</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-web.html">Web</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-html.html">HTML</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-css.html">CSS</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-javascript.html">JavaScript</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-markdown.html">Markdown</a> </p>
+</footer><!-- /.post-info -->                <p align="center"><img src="http://computationalmodelling.bitbucket.org/tools/revealJS/reveal.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+
+<h2>Introduction</h2>
+<p><a href="https://github.com/hakimel/reveal.js/">Reveal.js</a> is a framework for easily creating beautiful presentations using HTML/Markdown. <a href="http://lab.hakim.se/reveal-js/">Check out the live demo</a>.</p>
+<p>Reveal.js comes with a broad range of features including <a href="https://github.com/hakimel/reveal.js#markup">nested slides</a>, <a href="https://github.com/hakimel/reveal.js#markdown">Markdown content</a>, <a href="https://github.com/hakimel/reveal.js#pdf-export">PDF export</a>, <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker notes</a> and a <a href="https://github.com/hakimel/reveal.js#api">JavaScript API</a>. It's best viewed in a modern browser but ...</p>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/presenting-with-revealjs.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/Bibtex.html" rel="bookmark"
                            title="Permalink to Introduction to LaTeX and BibTeX">Introduction to LaTeX and BibTeX</a></h1>
                 </header>
 
@@ -94,23 +208,23 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-gabriele-boschetto.html">Gabriele Boschetto</a>
-                        <a class="url fn" href="./author-alejandra-vergara.html">Alejandra Vergara</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-gabriele-boschetto.html">Gabriele Boschetto</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-alejandra-vergara.html">Alejandra Vergara</a>
         </address>
-<p>In <a href="./category-bibtex.html">bibtex</a>. </p>
-<p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-bibtex.html">Bibtex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
-</footer><!-- /.post-info -->                <p><img alt="Latex_Bibtex" src="./bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow" /></p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-bibtex.html">bibtex</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-latex.html">Latex</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-bibtex.html">Bibtex</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-reporting.html">reporting</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-document-creation.html">document creation</a> </p>
+</footer><!-- /.post-info -->                <p><img alt="Latex_Bibtex" src="http://computationalmodelling.bitbucket.org/tools/bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow" /></p>
 <h1>Virtual Machine - How To</h1>
 <hr />
 <p>Install VirtualBox on your system (if you have not done so before); the link for the virtual machine is provided <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_bibtex.ova">here</a>. Log in as the user feeg6003 using the same password.</p>
 <p>In the virtual machine a basic LaTeX distribution has been installed, together with BibTeX, TeXstudio ...</p>
-                <a class="readmore" href="./Bibtex.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/Bibtex.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./Pint.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/Pint.html" rel="bookmark"
                            title="Permalink to Computing with Units in Python Pint">Computing with Units in Python <strong>Pint</strong></a></h1>
                 </header>
 
@@ -121,27 +235,27 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-hossam-ragheb.html">Hossam Ragheb</a>
-                        <a class="url fn" href="./author-emanuele-zappia.html">Emanuele Zappia</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-hossam-ragheb.html">Hossam Ragheb</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-emanuele-zappia.html">Emanuele Zappia</a>
         </address>
-<p>In <a href="./category-computing-with-units.html">Computing with units</a>. </p>
-<p>tags: <a href="./tag-computing-with-units.html">Computing with units</a> <a href="./tag-python.html">Python</a> <a href="./tag-pint.html">Pint</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-computing-with-units.html">Computing with units</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-computing-with-units.html">Computing with units</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-python.html">Python</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-pint.html">Pint</a> </p>
 </footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
-<img alt="**Pint** Logo" src="./computing-with-units/fig/logo-full.jpg" style="width: 30%;" />
+<img alt="**Pint** Logo" src="http://computationalmodelling.bitbucket.org/tools/computing-with-units/fig/logo-full.jpg" style="width: 30%;" />
 </div>
 <div class="section" id="how-to-use-the-virtual-machine">
 <h2>How to use the Virtual Machine?</h2>
 <p>To download the virtual machine please click <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_Prog_w_Units.ova">here</a></p>
 <p>The virtual machine has a light lubuntu distribution installed, the user name and password are 'feeg6003'.</p>
 <p>Once you are logged in press ctrl + alt + t which will open a new terminal, we modified the terminal to ...</p></div>
-                <a class="readmore" href="./Pint.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/Pint.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./CSG.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/CSG.html" rel="bookmark"
                            title="Permalink to Introducing Constructive Solid Geometry with OpenSCAD">Introducing Constructive Solid Geometry with OpenSCAD</a></h1>
                 </header>
 
@@ -152,26 +266,26 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-ashley-setter.html">Ashley Setter</a>
-                        <a class="url fn" href="./author-thorsten-wittemeier.html">Thorsten Wittemeier</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ashley-setter.html">Ashley Setter</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-thorsten-wittemeier.html">Thorsten Wittemeier</a>
         </address>
-<p>In <a href="./category-constructive-solid-geometry.html">Constructive Solid Geometry</a>. </p>
-<p>tags: <a href="./tag-csg.html">CSG</a> <a href="./tag-constructive-solid-geometry.html">Constructive Solid Geometry</a> <a href="./tag-cad.html">CAD</a> <a href="./tag-openscad.html">OpenSCAD</a> <a href="./tag-graphics.html">graphics</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-constructive-solid-geometry.html">Constructive Solid Geometry</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-csg.html">CSG</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-constructive-solid-geometry.html">Constructive Solid Geometry</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-cad.html">CAD</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-openscad.html">OpenSCAD</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-graphics.html">graphics</a> </p>
 </footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
-<img alt="OpenSCAD Logo." src="./OpenSCAD/images/OpenSCAD-logo.png" style="width: 20%;" />
+<img alt="OpenSCAD Logo." src="http://computationalmodelling.bitbucket.org/tools/OpenSCAD/images/OpenSCAD-logo.png" style="width: 20%;" />
 </div>
 <div class="section" id="instructions-for-using-the-virtual-machine">
 <h2>Instructions for using the Virtual Machine</h2>
 <p>A link to download the Virtual Machine with OpenSCAD installed is provided <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003Debian_OpenSCAD.ova">here</a>.</p>
 <p>The virtual machine provides a very basic Debian installation with OpenSCAD 2014.3. Log in as the user <strong>csg</strong> with the password <strong>csg</strong>. There is no display manager installed, so you ...</p></div>
-                <a class="readmore" href="./CSG.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/CSG.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./continuous-integration.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/continuous-integration.html" rel="bookmark"
                            title="Permalink to Continuous Integration for Scientists">Continuous Integration for Scientists</a></h1>
                 </header>
 
@@ -186,19 +300,19 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-ryan-pepper.html">Ryan Pepper</a>
-                        <a class="url fn" href="./author-alvaro-perez-diaz.html">Alvaro Perez-Diaz</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ryan-pepper.html">Ryan Pepper</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-alvaro-perez-diaz.html">Alvaro Perez-Diaz</a>
         </address>
-<p>In <a href="./category-programming.html">Programming</a>. </p>
-<p>tags: <a href="./tag-python.html">Python</a> <a href="./tag-github.html">GitHub</a> <a href="./tag-git.html">Git</a> <a href="./tag-testing.html">Testing</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming.html">Programming</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-python.html">Python</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-github.html">GitHub</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-git.html">Git</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-testing.html">Testing</a> </p>
 </footer><!-- /.post-info -->                <p>A post about Continuous Integration in GitHub</p>
-                <a class="readmore" href="./continuous-integration.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/continuous-integration.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./install-pelican-git.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/install-pelican-git.html" rel="bookmark"
                            title="Permalink to Installing Pelican and Git on lubuntu">Installing Pelican and Git on lubuntu</a></h1>
                 </header>
 
@@ -209,18 +323,18 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu-2016.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have ...</p>
-                <a class="readmore" href="./install-pelican-git.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/install-pelican-git.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./cpp.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/cpp.html" rel="bookmark"
                            title="Permalink to Introducing C++">Introducing C++</a></h1>
                 </header>
 
@@ -231,25 +345,25 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-jan-kamenik.html">Jan Kamenik</a>
-                        <a class="url fn" href="./author-shriram-sunder.html">Shriram Sunder</a>
-                        <a class="url fn" href="./author-stephen-gow.html">Stephen Gow</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-jan-kamenik.html">Jan Kamenik</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-shriram-sunder.html">Shriram Sunder</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-stephen-gow.html">Stephen Gow</a>
         </address>
-<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-efficiency.html">Efficiency</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
-<img alt="The C++ programming language" src="./C++/C++_logo.jpg" style="width: 15%;" />
+<img alt="The C++ programming language" src="http://computationalmodelling.bitbucket.org/tools/C++/C++_logo.jpg" style="width: 15%;" />
 </div>
 <p>This entry accompanies a presentation for the module 'Advanced Computational Methods Part II'; it can also be viewed as a stand-alone exercise for those not present at the workshop. The material presented here consists of tutorials and exercises designed to introduce the programming language C++.</p>
 <p>These exercises are designed for ...</p>
-                <a class="readmore" href="./cpp.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/cpp.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./HDF5.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/HDF5.html" rel="bookmark"
                            title="Permalink to HDF5">HDF5</a></h1>
                 </header>
 
@@ -260,22 +374,22 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-james-harrison.html">James Harrison</a>
-                        <a class="url fn" href="./author-rory-brown.html">Rory Brown</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-james-harrison.html">James Harrison</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-rory-brown.html">Rory Brown</a>
         </address>
-<p>In <a href="./category-file-formats.html">File Formats</a>. </p>
-<p>tags: <a href="./tag-data-storage.html">Data Storage</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-file-formats.html">File Formats</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-data-storage.html">Data Storage</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Sublime Text 2" src="./HDF5/HDF5-images/Image.png" style="width: 40%;" />
+<img alt="Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/HDF5/HDF5-images/Image.png" style="width: 40%;" />
 </div>
 <p>This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, we will cover the built-in terminal commands and some use of h5py, a HDF5 python package. You can download a VirtualBox image with required materials for the exercises from the following <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">link</a> (the ...</p>
-                <a class="readmore" href="./HDF5.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/HDF5.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./Julia.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/Julia.html" rel="bookmark"
                            title="Permalink to Julia: The Language">Julia: The Language</a></h1>
                 </header>
 
@@ -286,24 +400,24 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-josh-greenhalgh.html">Josh Greenhalgh</a>
-                        <a class="url fn" href="./author-jonothan-waters.html">Jonothan Waters</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-josh-greenhalgh.html">Josh Greenhalgh</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-jonothan-waters.html">Jonothan Waters</a>
         </address>
-<p>In <a href="./category-languages.html">Languages</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-languages.html">Languages</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-efficiency.html">Efficiency</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Julia: The Language" src="./julia-the-language/julia-images/julia.png" style="width: 15%;" />
+<img alt="Julia: The Language" src="http://computationalmodelling.bitbucket.org/tools/julia-the-language/julia-images/julia.png" style="width: 15%;" />
 </div>
 <div class="section" id="introduction">
 <h2>Introduction</h2>
 <p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low ...</p></div>
-                <a class="readmore" href="./Julia.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/Julia.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./FORTRAN.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/FORTRAN.html" rel="bookmark"
                            title="Permalink to Fortran programming language">Fortran programming language</a></h1>
                 </header>
 
@@ -314,22 +428,22 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-ioannis-begleris.html">Ioannis Begleris</a>
-                        <a class="url fn" href="./author-hao-wang.html">Hao Wang</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ioannis-begleris.html">Ioannis Begleris</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-hao-wang.html">Hao Wang</a>
         </address>
-<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
-<p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-f2pye.html">f2pye</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">outreach</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-fortran.html">FORTRAN</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
+<img alt="Programmer's first Reference Manual for Fortran" src="http://computationalmodelling.bitbucket.org/tools/FORTRAN/FORTRAN.jpg" style="width: 25%;" />
 </div>
 <p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles ...</p>
-                <a class="readmore" href="./FORTRAN.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/FORTRAN.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./vagrant.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/vagrant.html" rel="bookmark"
                            title="Permalink to Virtualisation with Vagrant">Virtualisation with Vagrant</a></h1>
                 </header>
 
@@ -340,17 +454,17 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-james-lambert.html">James Lambert</a>
-                        <a class="url fn" href="./author-noorvir-aulakh.html">Noorvir Aulakh</a>
-                        <a class="url fn" href="./author-thomas-rickard.html">Thomas Rickard</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-james-lambert.html">James Lambert</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-noorvir-aulakh.html">Noorvir Aulakh</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-thomas-rickard.html">Thomas Rickard</a>
         </address>
-<p>In <a href="./category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
-<p>tags: <a href="./tag-virtualisation.html">virtualisation</a> <a href="./tag-virtual-machines.html">virtual machines</a> <a href="./tag-vagrant.html">vagrant</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtualisation.html">virtualisation</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtual-machines.html">virtual machines</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-vagrant.html">vagrant</a> </p>
 </footer><!-- /.post-info -->                <p>Files:</p>
-<p><a href="./virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
-<a href="./virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
-<a href="./virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
-<p><img src="./virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
+<p><a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
+<a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
+<a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
+<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
 <!--<button id='image_button' type="button" onclick=delete_images()>I don't like images</button>-->
 
 <h1>Introduction</h1>
@@ -362,13 +476,13 @@
 <p></br></p>
 <h2>Virtual machine recap/overview</h2>
 <p>A virtual machine is a software implementation of a machine that executes programs like ...</p></!--<button>
-                <a class="readmore" href="./vagrant.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/vagrant.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./introduction-to-latex.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/introduction-to-latex.html" rel="bookmark"
                            title="Permalink to Introduction to Latex">Introduction to Latex</a></h1>
                 </header>
 
@@ -379,21 +493,21 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-ravish-karve.html">Ravish Karve</a>
-                        <a class="url fn" href="./author-maarten-debrouwere.html">Maarten Debrouwere</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ravish-karve.html">Ravish Karve</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-maarten-debrouwere.html">Maarten Debrouwere</a>
         </address>
-<p>In <a href="./category-latex.html">Latex</a>. </p>
-<p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
-</footer><!-- /.post-info -->                <p><img alt="Latex" src="./Latex/LaTeX_logo.png" title="Latex" /></p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-latex.html">Latex</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-latex.html">Latex</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-reporting.html">reporting</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-document-creation.html">document creation</a> </p>
+</footer><!-- /.post-info -->                <p><img alt="Latex" src="http://computationalmodelling.bitbucket.org/tools/Latex/LaTeX_logo.png" title="Latex" /></p>
 <h1>Introduction</h1>
 <p>Latex is a tool used to prepare documents. It is very useful to write scientific documents but can also be used to write a wide variety of other documents. Latex is not a <em>word processor</em> instead you concentrate on writing the content and Latex will format it for you ...</p>
-                <a class="readmore" href="./introduction-to-latex.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/introduction-to-latex.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./sublime.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/sublime.html" rel="bookmark"
                            title="Permalink to Sublime is... sublime">Sublime is... sublime</a></h1>
                 </header>
 
@@ -404,22 +518,22 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-robert-entwistle.html">Robert Entwistle</a>
-                        <a class="url fn" href="./author-paul-chambers.html">Paul Chambers</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-robert-entwistle.html">Robert Entwistle</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-paul-chambers.html">Paul Chambers</a>
         </address>
-<p>In <a href="./category-text-editors.html">text-editors</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-text-editors.html">text-editors</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-efficiency.html">Efficiency</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
+<img alt="Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
 </div>
 <p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs ...</p>
-                <a class="readmore" href="./sublime.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/sublime.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./mercurial.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/mercurial.html" rel="bookmark"
                            title="Permalink to Mercurial">Mercurial</a></h1>
                 </header>
 
@@ -430,14 +544,14 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-hans-fangohr.html">Hans Fangohr</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-hans-fangohr.html">Hans Fangohr</a>
         </address>
-<p>In <a href="./category-mercurial-basics.html">mercurial-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-reproducibility.html">Reproducibility</a> <a href="./tag-testing.html">Testing</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-mercurial-basics.html">mercurial-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-reproducibility.html">Reproducibility</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-testing.html">Testing</a> </p>
 </footer><!-- /.post-info -->                <div class="section" id="introduction-to-version-control-using-mercurial">
 <h2><a class="toc-backref" href="#id1">Introduction to version control (using Mercurial)</a></h2>
 <blockquote>
-<img alt="Mercurial logo" src="./mercurial-basics/mercurial-logo.jpeg" style="width: 20%;" />
+<img alt="Mercurial logo" src="http://computationalmodelling.bitbucket.org/tools/mercurial-basics/mercurial-logo.jpeg" style="width: 20%;" />
 </blockquote>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
@@ -453,13 +567,13 @@
 <li><a class="reference internal" href="#getting-started-with-hg" id="id9">Getting started with hg</a></li>
 <li><a class="reference internal" href="#initialise-hg-repository" id="id10">Initialise hg repository</a></li>
 <li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files ...</a></li></ul></li></ul></div></div>
-                <a class="readmore" href="./mercurial.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/mercurial.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./bitbucket-forge.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/bitbucket-forge.html" rel="bookmark"
                            title="Permalink to Forking on Bitbucket">Forking on Bitbucket</a></h1>
                 </header>
 
@@ -470,24 +584,24 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-forking.html">forking</a>. </p>
-<p>tags: <a href="./tag-tools.html">tools</a> <a href="./tag-bitbucket.html">bitbucket</a> <a href="./tag-versioning.html">versioning</a> <a href="./tag-repository.html">repository</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-forking.html">forking</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-tools.html">tools</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-bitbucket.html">bitbucket</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-versioning.html">versioning</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-repository.html">repository</a> </p>
 </footer><!-- /.post-info -->                <h1>Distributed Version Control 101</h1>
-<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="./pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
+<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
 <div class="highlight"><pre>hg clone &lt;url of remote repository&gt;
 </pre></div>
 
 
 <p>is the ...</p>
-                <a class="readmore" href="./bitbucket-forge.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/bitbucket-forge.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./install-pelican.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/install-pelican.html" rel="bookmark"
                            title="Permalink to Installing Pelican and Mercurial on lubuntu">Installing Pelican and Mercurial on lubuntu</a></h1>
                 </header>
 
@@ -498,18 +612,18 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have ...</p>
-                <a class="readmore" href="./install-pelican.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/install-pelican.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./pelican-basics.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html" rel="bookmark"
                            title="Permalink to Introduction to Pelican">Introduction to Pelican</a></h1>
                 </header>
 
@@ -520,23 +634,23 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->                <p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png" /></p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->                <p><img alt="Pelican logo" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/pelican-logo.png" /></p>
 <p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
 <h1>Prepare environment</h1>
 <p>The tools that we will need are</p>
 <ul>
 <li>Pelican 3.5 ...</li></ul>
-                <a class="readmore" href="./pelican-basics.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./virtualbox-basics.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html" rel="bookmark"
                            title="Permalink to Introduction to Virtualbox">Introduction to Virtualbox</a></h1>
                 </header>
 
@@ -547,28 +661,28 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-ian-hawke.html">Ian Hawke</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ian-hawke.html">Ian Hawke</a>
         </address>
-<p>In <a href="./category-tools.html">Tools</a>. </p>
-<p>tags: <a href="./tag-research.html">Research</a> <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-reproducibility.html">Reproducibility</a> <a href="./tag-testing.html">Testing</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-tools.html">Tools</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-research.html">Research</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-reproducibility.html">Reproducibility</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-testing.html">Testing</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-left" style="width: 10%">
-<img alt="Virtualbox logo" src="./virtualbox-basics/virtualbox-images/virtualbox-logo.png" style="width: 100%;" />
+<img alt="Virtualbox logo" src="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics/virtualbox-images/virtualbox-logo.png" style="width: 100%;" />
 </div>
 <p>What follows is the zero motivation and explanation instructions for getting the FEEG6003 base VirtualBox image (an LUbuntu 14.10 OS) up and running.</p>
 <p>First <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">download and install VirtualBox for your operating system</a>.</p>
 <div class="figure align-left" style="width: 60%">
-<img alt="Virtualbox download" src="./virtualbox-basics/virtualbox-images/VBoxDownload.png" style="width: 100%;" />
+<img alt="Virtualbox download" src="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics/virtualbox-images/VBoxDownload.png" style="width: 100%;" />
 </div>
 <p>Second <a class="reference external" href="http://www.soton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu.ova">download the feeg6003lubuntu image</a>.</p>
 <div class="figure align-left" style="width: 60%">
-<img alt="Importing the virtual machine" src="./virtualbox-basics/virtualbox-images/ImportAppliance1.png" style="width: 100%;" />
+<img alt="Importing the virtual machine" src="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics/virtualbox-images/ImportAppliance1.png" style="width: 100%;" />
 </div>
 <p>Then import the virtual machine into VirtualBox.</p>
 <div class="figure align-left" style="width: 60%">
-<img alt="Importing the virtual machine" src="./virtualbox-basics/virtualbox-images/ImportAppliance2.png" style="width: 100%;" />
+<img alt="Importing the virtual machine" src="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics/virtualbox-images/ImportAppliance2.png" style="width: 100%;" />
 </div>
 <p>To start the machine just ...</p>
-                <a class="readmore" href="./virtualbox-basics.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
