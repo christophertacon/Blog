@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Outreach</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,17 +25,17 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./install-pelican-git.html">Installing Pelican and Git on lubuntu</a></h1>
+                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/install-pelican-git.html">Installing Pelican and Git on lubuntu</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-02-16T00:00:00+01:00">
                 Published: Tue 16 February 2016
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info --><p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu-2016.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have Python 2.x and the python package manager <strong>pip</strong> available. Then it should be as simple as running</p>
 <div class="highlight"><pre>pip install pelican markdown
 </pre></div>
@@ -48,37 +48,37 @@
 
 
 <h1>Obtain virtual machine</h1>
-<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="./virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
+<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
 <h2>Install make gcc</h2>
 <p>Make is needed for the guest installations. We also use make with pelican for convenience (more on that later)</p>
 <div class="highlight"><pre>sudo apt-get install make gcc
 </pre></div>
 
 
-<p><img alt="Installing gcc" src="./pelican-basics/images/install_gcc.png" title="Installing gcc and make" /></p>
+<p><img alt="Installing gcc" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/install_gcc.png" title="Installing gcc and make" /></p>
 <p>Install Guest additions by injecting the <em>Host Additions CD</em> and run the following command in the cd subdirectory</p>
 <div class="highlight"><pre><span class="nb">cd</span> /media/feeg6003/&lt;NAME OF VBOXADDITIONS CD&gt;
 sudo ./VBoxLinuxAdditions.run
 </pre></div>
 
 
-<p><img alt="Installing guest additions" src="./pelican-basics/images/install_vbox.png" title="Installing guest additions" /></p>
+<p><img alt="Installing guest additions" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/install_vbox.png" title="Installing guest additions" /></p>
 <p>This should take a minute or two. Reboot the virtual machine after installation of the guest additions.</p>
 <h1>Installing Pelican</h1>
 <p><strong>Hint:</strong> Make sure that you are <strong>not</strong> using python 3.</p>
-<p><img alt="Python version" src="./pelican-basics/images/python_version.png" title="Checking the python version" /></p>
+<p><img alt="Python version" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/python_version.png" title="Checking the python version" /></p>
 <p>On lubuntu 15.10, pip can be installed via apt-get</p>
 <div class="highlight"><pre>sudo apt-get install python-pip
 </pre></div>
 
 
-<p>If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining <a href="./install-pelican.html">installation of pelican with mercurial</a>.</p>
+<p>If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining <a href="http://computationalmodelling.bitbucket.org/tools/install-pelican.html">installation of pelican with mercurial</a>.</p>
 <p>Finally, once pip is available, pelican (with markdown extension) can be installed</p>
 <div class="highlight"><pre>sudo pip install pelican markdown
 </pre></div>
 
 
-<p><img alt="Install pip" src="./pelican-basics/images/install_pelican.png" title="Installing the python package manager" /></p>
+<p><img alt="Install pip" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/install_pelican.png" title="Installing the python package manager" /></p>
 <h1>Installing Git</h1>
 <p>We use <a href="https://git-scm.com">Git</a> as version control software for the blocks post repository.</p>
 <p>Use the linux package manager to install git and meld</p>
@@ -95,7 +95,7 @@ sudo ./VBoxLinuxAdditions.run
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./cpp.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/cpp.html" rel="bookmark"
                            title="Permalink to Introducing C++">Introducing C++</a></h1>
                 </header>
 
@@ -106,25 +106,25 @@ sudo ./VBoxLinuxAdditions.run
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-jan-kamenik.html">Jan Kamenik</a>
-                        <a class="url fn" href="./author-shriram-sunder.html">Shriram Sunder</a>
-                        <a class="url fn" href="./author-stephen-gow.html">Stephen Gow</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-jan-kamenik.html">Jan Kamenik</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-shriram-sunder.html">Shriram Sunder</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-stephen-gow.html">Stephen Gow</a>
         </address>
-<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-efficiency.html">Efficiency</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <hr class="docutils" />
 <div class="figure align-center">
-<img alt="The C++ programming language" src="./C++/C++_logo.jpg" style="width: 15%;" />
+<img alt="The C++ programming language" src="http://computationalmodelling.bitbucket.org/tools/C++/C++_logo.jpg" style="width: 15%;" />
 </div>
 <p>This entry accompanies a presentation for the module 'Advanced Computational Methods Part II'; it can also be viewed as a stand-alone exercise for those not present at the workshop. The material presented here consists of tutorials and exercises designed to introduce the programming language C++.</p>
 <p>These exercises are designed for ...</p>
-                <a class="readmore" href="./cpp.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/cpp.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./Julia.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/Julia.html" rel="bookmark"
                            title="Permalink to Julia: The Language">Julia: The Language</a></h1>
                 </header>
 
@@ -135,24 +135,24 @@ sudo ./VBoxLinuxAdditions.run
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-josh-greenhalgh.html">Josh Greenhalgh</a>
-                        <a class="url fn" href="./author-jonothan-waters.html">Jonothan Waters</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-josh-greenhalgh.html">Josh Greenhalgh</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-jonothan-waters.html">Jonothan Waters</a>
         </address>
-<p>In <a href="./category-languages.html">Languages</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-languages.html">Languages</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-efficiency.html">Efficiency</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Julia: The Language" src="./julia-the-language/julia-images/julia.png" style="width: 15%;" />
+<img alt="Julia: The Language" src="http://computationalmodelling.bitbucket.org/tools/julia-the-language/julia-images/julia.png" style="width: 15%;" />
 </div>
 <div class="section" id="introduction">
 <h2>Introduction</h2>
 <p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low ...</p></div>
-                <a class="readmore" href="./Julia.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/Julia.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./FORTRAN.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/FORTRAN.html" rel="bookmark"
                            title="Permalink to Fortran programming language">Fortran programming language</a></h1>
                 </header>
 
@@ -163,22 +163,22 @@ sudo ./VBoxLinuxAdditions.run
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-ioannis-begleris.html">Ioannis Begleris</a>
-                        <a class="url fn" href="./author-hao-wang.html">Hao Wang</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ioannis-begleris.html">Ioannis Begleris</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-hao-wang.html">Hao Wang</a>
         </address>
-<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
-<p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-f2pye.html">f2pye</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">outreach</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-fortran.html">FORTRAN</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
+<img alt="Programmer's first Reference Manual for Fortran" src="http://computationalmodelling.bitbucket.org/tools/FORTRAN/FORTRAN.jpg" style="width: 25%;" />
 </div>
 <p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles ...</p>
-                <a class="readmore" href="./FORTRAN.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/FORTRAN.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./sublime.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/sublime.html" rel="bookmark"
                            title="Permalink to Sublime is... sublime">Sublime is... sublime</a></h1>
                 </header>
 
@@ -189,22 +189,22 @@ sudo ./VBoxLinuxAdditions.run
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-robert-entwistle.html">Robert Entwistle</a>
-                        <a class="url fn" href="./author-paul-chambers.html">Paul Chambers</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-robert-entwistle.html">Robert Entwistle</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-paul-chambers.html">Paul Chambers</a>
         </address>
-<p>In <a href="./category-text-editors.html">text-editors</a>. </p>
-<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-text-editors.html">text-editors</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-efficiency.html">Efficiency</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <div class="figure align-center">
-<img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
+<img alt="Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
 </div>
 <p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs ...</p>
-                <a class="readmore" href="./sublime.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/sublime.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./install-pelican.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/install-pelican.html" rel="bookmark"
                            title="Permalink to Installing Pelican and Mercurial on lubuntu">Installing Pelican and Mercurial on lubuntu</a></h1>
                 </header>
 
@@ -215,18 +215,18 @@ sudo ./VBoxLinuxAdditions.run
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have ...</p>
-                <a class="readmore" href="./install-pelican.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/install-pelican.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="./pelican-basics.html" rel="bookmark"
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html" rel="bookmark"
                            title="Permalink to Introduction to Pelican">Introduction to Pelican</a></h1>
                 </header>
 
@@ -237,17 +237,17 @@ sudo ./VBoxLinuxAdditions.run
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->                <p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png" /></p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->                <p><img alt="Pelican logo" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/pelican-logo.png" /></p>
 <p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
 <h1>Prepare environment</h1>
 <p>The tools that we will need are</p>
 <ul>
 <li>Pelican 3.5 ...</li></ul>
-                <a class="readmore" href="./pelican-basics.html">read more</a>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

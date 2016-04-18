@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Introduction to Pelican</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -26,7 +26,7 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="./pelican-basics.html" rel="bookmark"
+        <a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html" rel="bookmark"
            title="Permalink to Introduction to Pelican">Introduction to Pelican</a></h1>
     </header>
 
@@ -37,11 +37,11 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
-</footer><!-- /.post-info -->      <p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png" /></p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
+</footer><!-- /.post-info -->      <p><img alt="Pelican logo" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/pelican-logo.png" /></p>
 <p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
 <h1>Prepare environment</h1>
 <p>The tools that we will need are</p>
@@ -53,11 +53,11 @@
 </ul>
 <p>If you want to use Markdown, you also need to install a python library for it. It might be useful to also install a text editor that supports syntax highlighting for Markdown and/or reStructuredText.</p>
 <h2>Obtain virtual machine</h2>
-<p>We will use a virtual machine for this tutorial. Install VirtualBox on your system (if you have not done so before). Refer to <a href="./virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
+<p>We will use a virtual machine for this tutorial. Install VirtualBox on your system (if you have not done so before). Refer to <a href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
 <h2>Getting Pelican - The easy way</h2>
-<p>You can use the lubuntu image that you have already seen last week with Pelican and Mercurial preinstalled by downloading this <a href="http://gamma.kk.soton.ac.uk/feeg6003/pelican-images/feeg6003lubuntu+pelican.ova">lubuntu image</a>. You might want to install the <a href="./virtualbox-basics.html">Guest Additions</a> still. </p>
+<p>You can use the lubuntu image that you have already seen last week with Pelican and Mercurial preinstalled by downloading this <a href="http://gamma.kk.soton.ac.uk/feeg6003/pelican-images/feeg6003lubuntu+pelican.ova">lubuntu image</a>. You might want to install the <a href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html">Guest Additions</a> still. </p>
 <h2>Getting Pelican - The educational way</h2>
-<p>You can also take the clean lubuntu image as a starting point and install the needed tools yourself. It is relatively easy to install Pelican on your machine as well. A separate blog post gives you <a href="./install-pelican.html">a step-by-step guide for installing Pelican and Mercurial</a>. You might want to install the <a href="./virtualbox-basics.html">Guest Additions</a> still. </p>
+<p>You can also take the clean lubuntu image as a starting point and install the needed tools yourself. It is relatively easy to install Pelican on your machine as well. A separate blog post gives you <a href="http://computationalmodelling.bitbucket.org/tools/install-pelican.html">a step-by-step guide for installing Pelican and Mercurial</a>. You might want to install the <a href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html">Guest Additions</a> still. </p>
 <h1>Obtaining the webpage repository</h1>
 <ul>
 <li>Webpage: <a href="http://computationalmodelling.bitbucket.org">http://computationalmodelling.bitbucket.org</a></li>
@@ -76,14 +76,14 @@
 </pre></div>
 
 
-<p><img alt="repo_directories" src="./pelican-basics/images/repo_structure.png" /></p>
+<p><img alt="repo_directories" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/repo_structure.png" /></p>
 <p>There are two folders in the repository</p>
 <ul>
 <li>tools - holds the output from Pelican </li>
 <li>tools-pelican - is the folder that holds all the source data</li>
 </ul>
 <p>Change into the source folder</p>
-<div class="highlight"><pre><span class="nb">cd</span> blogs/tools-pelican
+<div class="highlight"><pre><span class="nb">cd </span>blogs/tools-pelican
 </pre></div>
 
 
@@ -92,7 +92,7 @@
 </pre></div>
 
 
-<p><img alt="repo_directories2" src="./pelican-basics/images/repo_structure2.png" /></p>
+<p><img alt="repo_directories2" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/repo_structure2.png" /></p>
 <p>The most important folder is <strong>content</strong>, which will hold the fruits of your labour. In addition, there are</p>
 <ul>
 <li>two python scripts for configuration purposes</li>
@@ -117,8 +117,8 @@ ls
 </pre></div>
 
 
-<p><img alt="content_folder" src="./pelican-basics/images/content_folder.png" /></p>
-<p>We have pre-populated the blog repository with the source files for the <a href="./virtualbox-basics.html">virtualbox-basics</a> blog and the <a href="./pelican-basics.html">pelican-basics</a> blog. You also find a folder to hold other pages like the ubiquitous "About" page. Content in the pages folder is not seen as a blog post by Pelican and converted slightly differently into HTML.</p>
+<p><img alt="content_folder" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/content_folder.png" /></p>
+<p>We have pre-populated the blog repository with the source files for the <a href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html">virtualbox-basics</a> blog and the <a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">pelican-basics</a> blog. You also find a folder to hold other pages like the ubiquitous "About" page. Content in the pages folder is not seen as a blog post by Pelican and converted slightly differently into HTML.</p>
 <p>The pelican-basics blog is written using Markdown, while the virtualbox-basics blog uses reStructuredText. Have a look at both to get a feeling for the syntax of each.</p>
 <p><strong>Its an emotional moment: time to start your own blog!</strong></p>
 <p>Create a folder within "content" to hold your files. Give it a meaningful name.</p>
@@ -198,10 +198,10 @@ ls
 </pre></div>
 
 
-<p><img alt="final blog post" src="./pelican-basics/images/final_blog.png" /> </p>
+<p><img alt="final blog post" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/final_blog.png" /> </p>
 <h1>More help and resources</h1>
 <ul>
-<li><a href="./pelican-basics/slides/slides-pelican-basics.pdf">The tutorial slides</a> (<a href="./pelican-basics/slides/slides-pelican-basics.tar.gz">TeX beamer sources</a>) </li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics/slides/slides-pelican-basics.pdf">The tutorial slides</a> (<a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics/slides/slides-pelican-basics.tar.gz">TeX beamer sources</a>) </li>
 <li><a href="http://docs.getpelican.com">The Pelican documentation</a> (also contains a good syntax section)</li>
 <li><a href="http://daringfireball.net/projects/markdown/syntax">The Markdown syntax</a></li>
 <li><a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A primer on reStructuredTex</a></li>

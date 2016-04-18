@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - Linux</title>
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/virtualization-with-docker.html">Virtualization with Docker</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-04-18T00:00:00+02:00">
+                Published: Mon 18 April 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ignacio-vidal.html">Ignacio Vidal</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-abbas-sarvmeily.html">Abbas Sarvmeily</a>
+        </address>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-docker.html">docker</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtual-machines.html">Virtual Machines</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-linux.html">Linux</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-tools.html">Tools</a> </p>
+</footer><!-- /.post-info --><p align="center"><img src="http://computationalmodelling.bitbucket.org/tools/docker/docker_logo.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+
+<h1>Introduction</h1>
+<p><a href="https://en.wikipedia.org/wiki/Virtual_machine">Virtual Machines</a> have been extensively used both in <a href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private servers</a> by web services provider, as well as in scientific environments to ensure that a whole team is working with the same software, libraries and configuration. This helps to mitigate the <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> and is a step forward to ensure reproducibility in computational experiments.</p>
+<p>However, the use of virtual machines implies a high overhead, as each virtual machine has to execute a full operating systems, with its associated drivers, hardware libraries. This has a huge impact in performance that can be inadmissible in some environments.</p>
+<p>Recently, a new technology came to solve this overhead. We are talking about <a href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization">containerization</a>.</p>
+<p>In Linux systems, the reference <em>containerization</em> software is <a href="www.docker.com">docker</a>.</p>
+<h2>Docker vs Virtual Machines</h2>
+<p>A we said before, virtualizing the a whole computer just to run some software is highly inefficient. Docker and other containerization software solve this problem by communicating directly with the kernel, via <a href="https://en.wikipedia.org/wiki/LXC">LXC (Linux Containers)</a>. This way, a given application can be executed in a given environment without running the whole environment itself. This eliminates a <em>layer</em> in the virtualization process (as it can be seen in the image below).</p>
+<p><img alt="Virtual machine schema" src="http://computationalmodelling.bitbucket.org/tools/docker/vm_overhead.png" title="Virtual Machine Schema. Image from docker.com" />      <img alt="Docker schema" src="http://computationalmodelling.bitbucket.org/tools/docker/docker_is_lighter.png" title="Docker block schema. Image from docker.com" /></p>
+<p>As consequence, containerized applications have virtually the same performance as if they were running natively.</p>
+<h2>Images, containers and registry</h2>
+<p>Docker uses a certain terminology and the first thing is getting to know it.</p>
+<h3>docker daemon:</h3>
+<p>The docker daemon is a program that is executed in background. It listens to the commands issued by the docker client and is the responsible of the actual execution of the containers.</p>
+<h3>image:</h3>
+<p>An image is a collection of libraries and executables needed by a certain container to run. </p>
+<h3>container:</h3>
+<p>A container is a instance of an application from an image running by the docker system in an enclosed environment. Each container is independent from the others.</p>
+<h3>registry:</h3>
+<p>A registry is a cloud based image distribution system. Can be either private or public. The official docker registry is the <a href="https://hub.docker.com/">docker hub</a>.</p>
+<h1>Let's begin!</h1>
+<p>It's time to grab a terminal and start playing with docker. Install the software on debian based linux distributions should be as easy as typing <code>apt-get install docker.io</code>. (<strong>Warning!</strong>: do not confuse package name <code>docker</code> with <code>docker.io</code>!)</p>
+<h2>Docker commands</h2>
+<p>Interfacing the docker engine is done via commands, issued as <code>docker &lt;command&gt;</code>, where <code>&lt;command&gt;</code> can be:</p>
+<ul>
+<li><code>run</code>: runs a container from an image.</li>
+<li><code>images</code>: list available images within the host system.</li>
+<li><code>ps</code>: list containers.</li>
+<li><code>exec</code>: runs a command in a running container .</li>
+<li><code>kill</code>,<code>stop</code>,<code>start</code>,<code>restart</code>: kills, stops, starts or restarts a container.</li>
+<li>...</li>
+</ul>
+<p>Executing <code>docker</code> without arguments will print a detailed list of available commands. <code>docker &lt;command&gt; --help</code> will print help.</p>
+<h2>Hello World</h2>
+<p>We will now print a <em>dockerized</em> hello world. The command to execute is:</p>
+<div class="highlight"><pre>docker run ubuntu /bin/echo &quot;hello world&quot;
+</pre></div>
+
+
+<p>wich means: <em>Hey, docker! Grab the ubuntu image from the registry if it doesn't exits yet, create a ubuntu environment, run a container executing <code>/bin/echo "hello world"</code> and exit!</em></p>
+<p>That was a lot of work to simply print a string on the screen.</p>
+<h2>Interactive bash session</h2>
+<p>The same way we ran <code>/bin/echo</code>, we can run <code>/bin/bash</code>, so...</p>
+<div class="highlight"><pre>docker run ubuntu /bin/bash
+</pre></div>
+
+
+<p>Oh... it didn't worked. Why? Because we have to tell docker to allocate a pseudo TTY (option <code>-t</code>) and to attach the standard input to the container (option <code>-i</code>). Now</p>
+<div class="highlight"><pre>docker run ubuntu -t -i /bin/bash
+</pre></div>
+
+
+<p>greets us with a root terminal in a dockerized ubuntu. But remember! We are only running <code>bash</code>! Not the whole Ubuntu! That's precisely the point of docker: being able to run applications in a isolated and controlled environment without running the whole environment itself!  </p>
+<p>In this bash session we can run whatever command we like (including <code>apt-get</code>, of course) and access the network. You may install new software, but changes won't be permanent.</p>
+<p>If we open another terminal window on the host machine and execute <code>docker ps</code>, we will see our <code>bash</code> container running with an associated container ID (some hexadecimal number like <code>f0ef61c5fc04</code> and a human-friendly random name (<code>reverent_lumiere</code>, by example).</p>
+<p>We can stop the container (<code>docker stop reverent_lumiere</code>, which will kick you out of the terminal), start it again were it was left (<code>docker start reverent_lumiere</code>) and reattach to the terminal with <code>docker attach reverent_lumiere</code>.</p>
+<p>Note that we can give a custom name to our containers by creating it with the flag <code>-name containername</code></p>
+<h2>Daemonizing containers</h2>
+<p>Most of the useful applications in linux are not interactive. Web servers, databases and services alike run in background (daemons). If we want a container to be daemonized we simply add the <code>-d</code> switch to the docker client: <code>docker run -d ubuntu command</code>.</p>
+<h2>Creating Docker images</h2>
+<p>You may want to create a custom docker image. Maybe you are working in a team and you are using a specific version of <code>python</code> and a custom tuned <code>numpy</code> library. A great way to ensure that everyone uses the same environment is building and shipping a docker image.</p>
+<p>There are two ways of creating an image:</p>
+<h3>Incremental changes</h3>
+<p>Changes to an image done with a bash interactive session will not be persistent <em>unless</em> you commit them. You can commit changes in a git style using <code>docker commit</code>. Example:</p>
+<div class="highlight"><pre>docker commit -m &quot;Commit message&quot; -a &quot;authorname&quot; containerID user/newimagename:tag
+</pre></div>
+
+
+<h3>Using a DOCKERFILE</h3>
+<p>Running a bash session and commiting the changes may be inconvinient to manage images and deploy to a large team. Luckily we can automate the process and specify creation commands in a bash-style script: the Dockerfile.</p>
+<p>Below you can see a Dockerfile template:</p>
+<div class="highlight"><pre>################################################
+# Dockerfile template to build a simple image  #
+# Based on Ubuntu 14:04                        #
+################################################
+
+# Set the base image to Ubuntu
+FROM ubuntu:14.04
+# File Author
+MAINTAINER Maintainer&#39;s Name
+
+# Update the repository
+RUN apt-get update
+
+# Run a command. In this case, we are installing software using apt-get
+RUN apt-get install -y build-essential
+
+# Tell docker what to execute when running the image
+ENTRYPOINT /bin/bash
+</pre></div>
+
+
+<p>Alternatively, you can download it <a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">here</a>.
+In order to build the image, just type <code>docker build -t username/imagename:tag /path/to/dockerfile</code></p>
+<h2>Scientific tools for FEEG-6003</h2>
+<p>For this blog post, we put togheter a sample container with some interesting scientific tools. Check it out at:</p>
+<p><a href="https://hub.docker.com/r/feeg6003/scicomp/">Scientific tools sample container: feeg6003/scicomp:v1</a></p>
+<h2>Working with data</h2>
+<p>It is possible to share data between the container and the hosts OS:</p>
+<div class="highlight"><pre>docker run --name data -v /home/feeg6003-docker/data:/data feeg6003/scicomp:v1 /bin/bash
+</pre></div>
+
+
+<p>the switch <code>-v</code> tells docker to mount the first directory into the specified directory of the container and the switch <code>--name</code> assigns a custom name to it.</p>
+<h1>Virtual Machine</h1>
+<p>If you want to reproduce the steps in this short tutorial, you can download a very simple lubuntu 14.04 64-bits virtual machine from <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_docker.ova">here</a>. Docker.io is pre-installed, so you can inmediatly start playing around. Username: <code>feeg6003-docker</code> Password: <code>feeg6003-docker</code></p>
+<h1>Workshop related links</h1>
+<ul>
+<li><a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_docker.ova">Virtual Machine</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_exercises.pdf">Exercise sheet</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_solutions.pdf">Solutions to the exercises</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_vm.pdf">First part slides</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_workshop.pdf">Second part slides</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">Dockerfile template</a></li>
+<li><a href="https://hub.docker.com/r/feeg6003/scicomp/">feeg6003/scicomp:v1 sample container</a></li>
+</ul>
+<h1>Some other useful links</h1>
+<ul>
+<li><a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine user guide</a></li>
+<li><a href="https://docs.docker.com/linux/">Docker Hub</a></li>
+<li><a href="http://www.carlboettiger.info/assets/files/pubs/10.1145/2723872.2723882.pdf">An introduction to Docker for reproducible research. By Carl Boettige</a></li>
+<li><a href="https://www.nersc.gov/assets/Uploads/cug2015udi.pdf">Contain This, Unleashing Docker for HPC. By Douglas M. Jacobsen and Richard Shane Canon</a></li>
+<li><a href="http://blog.hypriot.com/">Docker Pirates ARMed with explosive stuff (An interesting blog about docker, IoT and ARM devices)</a></li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

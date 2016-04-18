@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Computational Modelling Tools Workshops - virtual machines</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
+        <title>Computational Modelling Tools Workshops - Virtual Machines</title>
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,24 +25,173 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./vagrant.html">Virtualisation with Vagrant</a></h1>
+                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/virtualization-with-docker.html">Virtualization with Docker</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-04-18T00:00:00+02:00">
+                Published: Mon 18 April 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ignacio-vidal.html">Ignacio Vidal</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-abbas-sarvmeily.html">Abbas Sarvmeily</a>
+        </address>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-docker.html">docker</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtual-machines.html">Virtual Machines</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-linux.html">Linux</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-tools.html">Tools</a> </p>
+</footer><!-- /.post-info --><p align="center"><img src="http://computationalmodelling.bitbucket.org/tools/docker/docker_logo.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+
+<h1>Introduction</h1>
+<p><a href="https://en.wikipedia.org/wiki/Virtual_machine">Virtual Machines</a> have been extensively used both in <a href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private servers</a> by web services provider, as well as in scientific environments to ensure that a whole team is working with the same software, libraries and configuration. This helps to mitigate the <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> and is a step forward to ensure reproducibility in computational experiments.</p>
+<p>However, the use of virtual machines implies a high overhead, as each virtual machine has to execute a full operating systems, with its associated drivers, hardware libraries. This has a huge impact in performance that can be inadmissible in some environments.</p>
+<p>Recently, a new technology came to solve this overhead. We are talking about <a href="https://en.wikipedia.org/wiki/Operating-system-level_virtualization">containerization</a>.</p>
+<p>In Linux systems, the reference <em>containerization</em> software is <a href="www.docker.com">docker</a>.</p>
+<h2>Docker vs Virtual Machines</h2>
+<p>A we said before, virtualizing the a whole computer just to run some software is highly inefficient. Docker and other containerization software solve this problem by communicating directly with the kernel, via <a href="https://en.wikipedia.org/wiki/LXC">LXC (Linux Containers)</a>. This way, a given application can be executed in a given environment without running the whole environment itself. This eliminates a <em>layer</em> in the virtualization process (as it can be seen in the image below).</p>
+<p><img alt="Virtual machine schema" src="http://computationalmodelling.bitbucket.org/tools/docker/vm_overhead.png" title="Virtual Machine Schema. Image from docker.com" />      <img alt="Docker schema" src="http://computationalmodelling.bitbucket.org/tools/docker/docker_is_lighter.png" title="Docker block schema. Image from docker.com" /></p>
+<p>As consequence, containerized applications have virtually the same performance as if they were running natively.</p>
+<h2>Images, containers and registry</h2>
+<p>Docker uses a certain terminology and the first thing is getting to know it.</p>
+<h3>docker daemon:</h3>
+<p>The docker daemon is a program that is executed in background. It listens to the commands issued by the docker client and is the responsible of the actual execution of the containers.</p>
+<h3>image:</h3>
+<p>An image is a collection of libraries and executables needed by a certain container to run. </p>
+<h3>container:</h3>
+<p>A container is a instance of an application from an image running by the docker system in an enclosed environment. Each container is independent from the others.</p>
+<h3>registry:</h3>
+<p>A registry is a cloud based image distribution system. Can be either private or public. The official docker registry is the <a href="https://hub.docker.com/">docker hub</a>.</p>
+<h1>Let's begin!</h1>
+<p>It's time to grab a terminal and start playing with docker. Install the software on debian based linux distributions should be as easy as typing <code>apt-get install docker.io</code>. (<strong>Warning!</strong>: do not confuse package name <code>docker</code> with <code>docker.io</code>!)</p>
+<h2>Docker commands</h2>
+<p>Interfacing the docker engine is done via commands, issued as <code>docker &lt;command&gt;</code>, where <code>&lt;command&gt;</code> can be:</p>
+<ul>
+<li><code>run</code>: runs a container from an image.</li>
+<li><code>images</code>: list available images within the host system.</li>
+<li><code>ps</code>: list containers.</li>
+<li><code>exec</code>: runs a command in a running container .</li>
+<li><code>kill</code>,<code>stop</code>,<code>start</code>,<code>restart</code>: kills, stops, starts or restarts a container.</li>
+<li>...</li>
+</ul>
+<p>Executing <code>docker</code> without arguments will print a detailed list of available commands. <code>docker &lt;command&gt; --help</code> will print help.</p>
+<h2>Hello World</h2>
+<p>We will now print a <em>dockerized</em> hello world. The command to execute is:</p>
+<div class="highlight"><pre>docker run ubuntu /bin/echo &quot;hello world&quot;
+</pre></div>
+
+
+<p>wich means: <em>Hey, docker! Grab the ubuntu image from the registry if it doesn't exits yet, create a ubuntu environment, run a container executing <code>/bin/echo "hello world"</code> and exit!</em></p>
+<p>That was a lot of work to simply print a string on the screen.</p>
+<h2>Interactive bash session</h2>
+<p>The same way we ran <code>/bin/echo</code>, we can run <code>/bin/bash</code>, so...</p>
+<div class="highlight"><pre>docker run ubuntu /bin/bash
+</pre></div>
+
+
+<p>Oh... it didn't worked. Why? Because we have to tell docker to allocate a pseudo TTY (option <code>-t</code>) and to attach the standard input to the container (option <code>-i</code>). Now</p>
+<div class="highlight"><pre>docker run ubuntu -t -i /bin/bash
+</pre></div>
+
+
+<p>greets us with a root terminal in a dockerized ubuntu. But remember! We are only running <code>bash</code>! Not the whole Ubuntu! That's precisely the point of docker: being able to run applications in a isolated and controlled environment without running the whole environment itself!  </p>
+<p>In this bash session we can run whatever command we like (including <code>apt-get</code>, of course) and access the network. You may install new software, but changes won't be permanent.</p>
+<p>If we open another terminal window on the host machine and execute <code>docker ps</code>, we will see our <code>bash</code> container running with an associated container ID (some hexadecimal number like <code>f0ef61c5fc04</code> and a human-friendly random name (<code>reverent_lumiere</code>, by example).</p>
+<p>We can stop the container (<code>docker stop reverent_lumiere</code>, which will kick you out of the terminal), start it again were it was left (<code>docker start reverent_lumiere</code>) and reattach to the terminal with <code>docker attach reverent_lumiere</code>.</p>
+<p>Note that we can give a custom name to our containers by creating it with the flag <code>-name containername</code></p>
+<h2>Daemonizing containers</h2>
+<p>Most of the useful applications in linux are not interactive. Web servers, databases and services alike run in background (daemons). If we want a container to be daemonized we simply add the <code>-d</code> switch to the docker client: <code>docker run -d ubuntu command</code>.</p>
+<h2>Creating Docker images</h2>
+<p>You may want to create a custom docker image. Maybe you are working in a team and you are using a specific version of <code>python</code> and a custom tuned <code>numpy</code> library. A great way to ensure that everyone uses the same environment is building and shipping a docker image.</p>
+<p>There are two ways of creating an image:</p>
+<h3>Incremental changes</h3>
+<p>Changes to an image done with a bash interactive session will not be persistent <em>unless</em> you commit them. You can commit changes in a git style using <code>docker commit</code>. Example:</p>
+<div class="highlight"><pre>docker commit -m &quot;Commit message&quot; -a &quot;authorname&quot; containerID user/newimagename:tag
+</pre></div>
+
+
+<h3>Using a DOCKERFILE</h3>
+<p>Running a bash session and commiting the changes may be inconvinient to manage images and deploy to a large team. Luckily we can automate the process and specify creation commands in a bash-style script: the Dockerfile.</p>
+<p>Below you can see a Dockerfile template:</p>
+<div class="highlight"><pre>################################################
+# Dockerfile template to build a simple image  #
+# Based on Ubuntu 14:04                        #
+################################################
+
+# Set the base image to Ubuntu
+FROM ubuntu:14.04
+# File Author
+MAINTAINER Maintainer&#39;s Name
+
+# Update the repository
+RUN apt-get update
+
+# Run a command. In this case, we are installing software using apt-get
+RUN apt-get install -y build-essential
+
+# Tell docker what to execute when running the image
+ENTRYPOINT /bin/bash
+</pre></div>
+
+
+<p>Alternatively, you can download it <a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">here</a>.
+In order to build the image, just type <code>docker build -t username/imagename:tag /path/to/dockerfile</code></p>
+<h2>Scientific tools for FEEG-6003</h2>
+<p>For this blog post, we put togheter a sample container with some interesting scientific tools. Check it out at:</p>
+<p><a href="https://hub.docker.com/r/feeg6003/scicomp/">Scientific tools sample container: feeg6003/scicomp:v1</a></p>
+<h2>Working with data</h2>
+<p>It is possible to share data between the container and the hosts OS:</p>
+<div class="highlight"><pre>docker run --name data -v /home/feeg6003-docker/data:/data feeg6003/scicomp:v1 /bin/bash
+</pre></div>
+
+
+<p>the switch <code>-v</code> tells docker to mount the first directory into the specified directory of the container and the switch <code>--name</code> assigns a custom name to it.</p>
+<h1>Virtual Machine</h1>
+<p>If you want to reproduce the steps in this short tutorial, you can download a very simple lubuntu 14.04 64-bits virtual machine from <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_docker.ova">here</a>. Docker.io is pre-installed, so you can inmediatly start playing around. Username: <code>feeg6003-docker</code> Password: <code>feeg6003-docker</code></p>
+<h1>Workshop related links</h1>
+<ul>
+<li><a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_docker.ova">Virtual Machine</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_exercises.pdf">Exercise sheet</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_solutions.pdf">Solutions to the exercises</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_vm.pdf">First part slides</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_workshop.pdf">Second part slides</a></li>
+<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">Dockerfile template</a></li>
+<li><a href="https://hub.docker.com/r/feeg6003/scicomp/">feeg6003/scicomp:v1 sample container</a></li>
+</ul>
+<h1>Some other useful links</h1>
+<ul>
+<li><a href="https://docs.docker.com/engine/userguide/intro/">Docker Engine user guide</a></li>
+<li><a href="https://docs.docker.com/linux/">Docker Hub</a></li>
+<li><a href="http://www.carlboettiger.info/assets/files/pubs/10.1145/2723872.2723882.pdf">An introduction to Docker for reproducible research. By Carl Boettige</a></li>
+<li><a href="https://www.nersc.gov/assets/Uploads/cug2015udi.pdf">Contain This, Unleashing Docker for HPC. By Douglas M. Jacobsen and Richard Shane Canon</a></li>
+<li><a href="http://blog.hypriot.com/">Docker Pirates ARMed with explosive stuff (An interesting blog about docker, IoT and ARM devices)</a></li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/vagrant.html" rel="bookmark"
+                           title="Permalink to Virtualisation with Vagrant">Virtualisation with Vagrant</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-04-23T00:00:00+02:00">
                 Published: Thu 23 April 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="./author-james-lambert.html">James Lambert</a>
-                        <a class="url fn" href="./author-noorvir-aulakh.html">Noorvir Aulakh</a>
-                        <a class="url fn" href="./author-thomas-rickard.html">Thomas Rickard</a>
+                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-james-lambert.html">James Lambert</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-noorvir-aulakh.html">Noorvir Aulakh</a>
+                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-thomas-rickard.html">Thomas Rickard</a>
         </address>
-<p>In <a href="./category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
-<p>tags: <a href="./tag-virtualisation.html">virtualisation</a> <a href="./tag-virtual-machines.html">virtual machines</a> <a href="./tag-vagrant.html">vagrant</a> </p>
-</footer><!-- /.post-info --><p>Files:</p>
-<p><a href="./virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
-<a href="./virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
-<a href="./virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
-<p><img src="./virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
+<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
+<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtualisation.html">virtualisation</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtual-machines.html">virtual machines</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-vagrant.html">vagrant</a> </p>
+</footer><!-- /.post-info -->                <p>Files:</p>
+<p><a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
+<a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
+<a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
+<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
 <!--<button id='image_button' type="button" onclick=delete_images()>I don't like images</button>-->
 
 <h1>Introduction</h1>
@@ -53,260 +202,12 @@
 </ol>
 <p></br></p>
 <h2>Virtual machine recap/overview</h2>
-<p>A virtual machine is a software implementation of a machine that executes programs like a physical machine. It essentially emulates a particular computer system. There are two main types of virtual machines, <strong>system virutal machines</strong> and <strong>process virtual machines</strong>. </p>
-<h3>System virtual machines</h3>
-<p>A system virtual machine allows the execution of a complete operating system. Important points include:</p>
-<ol>
-<li>Multiple virtual machines can co-exist on the same primary hard drive.</li>
-<li>Can provide emulated hardware environments, different from the host instruction set.</li>
-<li>Less efficient that actual machine.</li>
-</ol>
-<h3>Process virtual machines</h3>
-<p>Process virtual machines are designed to run a single program and therefore support a single process. They are generally used to provide portability for programming languages. Some important points inlcude: </p>
-<ol>
-<li>Can provide a platform independent programming environment</li>
-<li>A common example is the Java VIrtual Machine used for the Java Programming Language.</li>
-<li>Another example is the .NET framework which runs on Common Language Runtime.</li>
-</ol>
-<h3>Virtualisation on raw hardware (full virtualisation)</h3>
-<p>Full virtualisation of the hardware can be achieved using either a type 1 or type 2 hypervisor. A type 1 hypervisor runs directly on the hardware and a type 2 hypervisor runs on another operating system e.g. linux. Some common hypervisors include Xen, KVM (used by Amazon Web Services), VMware and Virtualbox. </p>
-<p>Full optimisation is particularly in operating system development. It allows experimental code to be run at the same time as older more stable code, each in separate machines. Clusters of machines can aso be combined and access as a single virtual machine with shared memory.</p>
-<h3>Virtualisation at operating system level</h3>
-<p>Here the virtualisation takes place on the operating system (kernel) layer. It can be thought of a slicing a single server into multiple small  partitions called virtual environments (VEs). This approaches has very little overhead due to the lack of multiple kernels (they must use the same kernel) unlike KVM or XEN hypervisors. This is in itself also a limitations as all the VEs are limited to same kernel. Generally operating system level virtualisation can run a much higher density of VEs than fully virtualised hardware. </p>
-<h2>Vagrant</h2>
-<h3>What is it?</h3>
-<p><strong>Vagrant</strong> is software for easily creating and configuring virtual development environments. Essentially it is a wrapper around other virtualisation software such as <strong>Virtualbox</strong>, <strong>VMware</strong> and around configuration management software such as <strong>Ansible</strong>, <strong>Puppet</strong>, <strong>Chef</strong> and <strong>salt</strong>. It also supports <strong>Docker</strong>, which is an operating system level virtualisation. Today we will be using basic vagrant commands as well as puppet for setting up our virtual environment.</p>
-<p>Vagrant is configured using the <strong>Vagrantfile</strong> which contains information stored in plain text. A Vagrantfile can be used to configure a single machine or multiple machines. When vagrant commands are run, vagrant looks in it's current directory for a Vagrantfile. There must be only one Vagrantfile in a folder. </p>
-<h3>Why use vagrant? (instead of virtualbox or other virtualisation software)</h3>
-<ol>
-<li>Allows the set up multiple virtual machines with ease</li>
-<li>It is highly portable</li>
-<li>Can use source control on setup files</li>
-<li>Can try a large number of various platforms quickly</li>
-</ol>
-<h3>Common workflow</h3>
-<p><img src="./virtualisation-vagrant/images/vagrant_workflow_landscape.jpg"  style="width: 600px;"/></p>
-<h3>What is puppet?</h3>
-<p>Puppet is a configuration management tool for unix-like and windows systems. Essentially, the desired system configuration is placed in a <strong>manifest</strong> (a file written in Puppet's declaritive language). This manifest is then converted into a system of resources and dependencies that are used to configure the system. It makes it easy to install and setup software in an automated way. A manifest can be included in the Vagrantfile and used to configure the virtual machine, an example of this is shown further down.</p>
-<h3>Getting started cheat sheet</h3>
-<p><a href="./virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"><img src="./virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"  style="width: 600px"/></a></p>
-<h1>Tutorial</h1>
-<p>1) Installing Vagrant</p>
-<p>Linux:</p>
-<div class="highlight"><pre>sudo apt-get install vagrant
-</pre></div>
-
-
-<p>Windows/OSX:</p>
-<p>Go to <a href="http://www.vagrantup.com">vagrant website</a> and download the appropriate install file for Windows or OSX. You can then proceed to install it like a standard program.</p>
-<p>2) Setting up our folder</p>
-<div class="highlight"><pre>mkdir vagrant
-</pre></div>
-
-
-<p>Vagrant works on the basis of project folders. Each folder that you set-up vagrant in, starts a new project that is seperate from any other vagrant setups on the host machine.</p>
-<p>3) Adding a box </p>
-<div class="highlight"><pre>vagrant box add &lt;BOX_NAME&gt;
-</pre></div>
-
-
-<p>We have two boxes that we want to set-up today as part of this exercise. To begin with, we are setting up a 32bit Ubuntu box called 'hashicorp/precise32'. This is pulled from the default box provider in vagrant. </p>
-<p>4) Initialising Vagrant</p>
-<div class="highlight"><pre>vagrant init hashicorp/precise32
-</pre></div>
-
-
-<p>This stage unpacks our downloaded box into the virtualisation software it was setup with and prepares it for launch.</p>
-<p>5) Provisioning with puppet</p>
-<p>This is where vagrant gets very useful, using a provisioning system such as puppet we can automate tasks and commands to be run
-at the provisioning stage (when the machine is initially setup). This allows for the easy setup of multiple machines for testing purposes.</p>
-<p>There is a set folder structure that needs to be used with the puppet files in our project folder.</p>
-<p>The first created folder needs to be called 'puppet'. In this folder, we make our default 'manifests' file, and create a default puppet file called 'default.pp'</p>
-<p>ie.
-    /home/feeg6003/puppet/manifests/default.pp</p>
-<p>An example puppet file can be seen here for the system-update module:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">system-update</span>{
-<span class="n">exec</span>{<span class="s">&#39;apt-get update&#39;</span>:
-<span class="n">command</span> =&gt; <span class="s">&#39;apt-get update&#39;</span>,
-}
-
-<span class="nv">$sysPackages</span> = [<span class="s">&quot;build-essential&quot;</span>]
-<span class="k">package</span>{<span class="nv">$sysPackages:</span>
-<span class="n">ensure</span>=&gt; <span class="s">&quot;installed&quot;</span>,
-<span class="k">require</span>=&gt;<span class="n">Exec</span>[<span class="s">&#39;qpt-get update&#39;</span>],
-}
-}
-</pre></div>
-
-
-<p>To setup modules for puppet we need to create a folder in the puppet root folder named 'modules'. The structure for our modules are that the name of a folder created in 'modules' is the name of the module.</p>
-<p>Inside the module's folder we have a similar structure to our root puppet folder, with a manifests folder but this time the file in this folder is named 'init.pp'</p>
-<p>To run the module, the default puppet file needs to be written. For example here we have a complete puppet file that will run the modules 'gcc' and 'system-update'</p>
-<div class="highlight"><pre>Exec { path =&gt; [ &quot;/bin/&quot;, &quot;/sbin/&quot; , &quot;/usr/bin/&quot;, &quot;/usr/sbin/&quot; ] }
-
-include gcc
-include system-update
-</pre></div>
-
-
-<p>6) Integrating puppet with vagrant and editing the Vagrantfile</p>
-<p>There are many variables that can be changed in the Vagrantfile, however most of these settings are present by default and can be commented out to exclude.  </p>
-<p>The most important ones needed to start a virtual machine are:</p>
-<div class="highlight"><pre>  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
-</pre></div>
-
-
-<p>This makes it possible to ssh into the virtual machine in vagrant and for it to support your connection to the terminal.</p>
-<div class="highlight"><pre>  config.vm.synced_folder &quot;./&quot;, &quot;/vagrant_check&quot;
-</pre></div>
-
-
-<p>This gives us the vagrant project folder and a folder in it named 'vagrant_check' that are synced.</p>
-<p>Finally we need to activate our puppet scripts to run correctly. We do this by enabling provisioning with a shell script at the end of the file using the following code:</p>
-<div class="highlight"><pre>config.vm.provision :puppet do |puppet|
-puppet.manifests_path = &quot;puppet/manifests&quot;
-puppet.options = [&#39;--verbose&#39;]
-puppet.module_path = &quot;puppet/modules&quot;
-end
-</pre></div>
-
-
-<p>All of these can be seen below:</p>
-<p><img src="./virtualisation-vagrant/images/vagrantfile.png"  style="width: 600px"/></p>
-<p>7) Running the virtual machine</p>
-<p>To run a virtual machine we need to tell vagrant to start the box, we do this with the command </p>
-<div class="highlight"><pre>vagrant up
-</pre></div>
-
-
-<p>8) Terminal control</p>
-<p>To connect to the virtual machine and control it from the terminal we can <code>ssh</code> in using:</p>
-<div class="highlight"><pre>vagrant ssh
-</pre></div>
-
-
-<h1>Exercise 1 - Setting up a virtual machine</h1>
-<p>For this first excercise, setup a virtual machine using the precise32 box employing all of the knowledge covered in this presentation so far. Write 2 puppet files to update the system and install gcc.</p>
-<h1>Tutorial 2 - Configuring multiple machines</h1>
-<p>To setup multiple virtual machines in vagrant we need to add an additional box. This is done in the same way as the tutorial 1, except this time add the box 'chef/centos-6.5-i386'.</p>
-<p>Now we need to edit our Vagrantfile so that it will run both virtual machines and not just our original one.</p>
-<div class="highlight"><pre>Vagrant.configure(&quot;2&quot;) do |config|
-config.vm.provision &quot;shell&quot;, inline: &quot;echo Hello&quot;
-
-config.vm.define &quot;ubuntu&quot; do |web|
-ubuntu.vm.box = &quot;hashicorp/precise32&quot;
-end
-
-config.vm.define &quot;centos&quot; do |db|
-centos.vm.box = &quot;chef/centos-6.5-i386&quot;
-end
-end
-</pre></div>
-
-
-<p>This replaces our current machine selection shown in the default Vagrantfile below</p>
-<div class="highlight"><pre>Every Vagrant development environment requires a box. You can search for
-boxes at https://atlas.hashicorp.com/search.
-config.vm.box = &quot;hashicorp/precise32&quot;
-</pre></div>
-
-
-<p>The first two lines of this will be commented out.</p>
-<p>Now that we have multiple machines we can choose which ones we want to launch, if we use</p>
-<div class="highlight"><pre>vagrant up
-</pre></div>
-
-
-<p>as before all of the virtual machines will run at once, however we can also use</p>
-<div class="highlight"><pre>vagrant up &lt;vm name&gt;
-</pre></div>
-
-
-<p>to just run one of the virtual machines.</p>
-<p>This also effects the way we have to ssh into our machines, now we have to use</p>
-<div class="highlight"><pre>vagrant ssh &lt;vm name&gt;
-</pre></div>
-
-
-<p>to tell vagrant which one we want to connect to.</p>
-<h1>Real world demo - Setting up an openmpi environment to test code</h1>
-<p>A useful work-case for vagrant is that is allows you to remotely test your application on a personalised and specificly configured environment. This allows you to mimic an evironment you might want to deploy your finalised application on (a supercomputer for instance). </p>
-<p>Here, we use a shell script provisioner to set-up our environment to run OpenMPI code. </p>
-<p>(Note: You could use puppet, but it is a lot harder as we are compiling our code from source since there is no up to date package for OpenMPI.)</p>
-<h2>Setting up the vagrant machine</h2>
-<p>Before we deploy our code we need to set up a virtual machine with the required OpenMPI packages to run it. As before, we initialise a new vagrant machine using <em>vagrant init</em> </p>
-<div class="highlight"><pre>vagrant init
-</pre></div>
-
-
-<p>This creates a Vagrantfile where we can specify the provisioning instructions. Before we do this, we create the provisioning shell script. </p>
-<h3>Creating the shell script</h3>
-<p>Update the system and install <code>build essentials</code> and <code>make</code>, as the box we are using does not come pre-installed with these</p>
-<div class="highlight"><pre>sudo apt-get update -y
-sudo apt-get install build-essential make -y
-</pre></div>
-
-
-<p>Next download the source code for builing OpenMPI using <code>wget</code> with the <code>--no-check-certificate</code> to stop it prompting you to confirm the connection.</p>
-<div class="highlight"><pre>wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.3.tar.gz --no-check-certificate
-tar -xvf openmpi-1.8.3.tar.gz
-</pre></div>
-
-
-<p>Configure and install OpenMPI in a new directory </p>
-<div class="highlight"><pre>mkdir /home/vagrant/openmpi
-cd openmpi-1.8.3
-./configure --prefix=&quot;/home/vagrant/openmpi&quot;
-
-
-make
-echo &quot;sudo making&quot;
-sudo make install
-</pre></div>
-
-
-<p>Export the OpenMPI package path to the bash settings file</p>
-<div class="highlight"><pre><span class="x">echo export PATH=&quot;</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.bashrc</span>
-<span class="x">echo export LD_LIBRARY_PATH=&quot;</span><span class="p">$</span><span class="nv">LD_LIBRARY_PATH</span><span class="x">:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.bashrc</span>
-</pre></div>
-
-
-<p>This makes Open MPI available when running through an interactive shell. To use it through <code>ssh</code>, add </p>
-<div class="highlight"><pre><span class="x">echo export PATH=&quot;</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.profile</span>
-<span class="x">echo export LD_LIBRARY_PATH=&quot;</span><span class="p">$</span><span class="nv">LD_LIBRARY_PATH</span><span class="x">:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.profile</span>
-</pre></div>
-
-
-<h3>Vagrantfile file settings</h3>
-<p>We can now modify the Vagrantfile to run our script when provisioning the vagrant machine. To do this, add the following lines to your vagrant file</p>
-<div class="highlight"><pre>config.vm.provision :shell, :path =&gt; &quot;provision.sh&quot;
-</pre></div>
-
-
-<p>We are now ready to <code>vagrant up</code>. </p>
-<p>(Tip: You might want to take a tea break at this point as this takes between 5-15 minutes to complete)</p>
-<h3>Saving into the /vagrant shared area</h3>
-<p>We can now save a piece of code that we wish to test in the vagrant shared folder and use <code>vagrant ssh</code> to compile and run it on the vagrant machine. This allows you to develop and edit your program in your host environment and deploy it for testing in your specially configured vagrant box. A simple OpenMPI test code is shown below</p>
-<p><img src="./virtualisation-vagrant/images/hello_c.png"  style="width: 400px"/></p>
-<p>Here we use a simple shell script shown below to deploy the <code>hello.c</code> program</p>
-<p><img src="./virtualisation-vagrant/images/run_script.png"  style="width: 400px"/></p>
-<p>Executing the following command runs the script to compile and run hello.c</p>
-<div class="highlight"><pre>vagrant ssh -c &quot;bash /vagrant/run_mpi.sh&quot;
-</pre></div>
-
-
-<p><img src="./virtualisation-vagrant/images/compile_run.jpg"  style="width: 400px"/></p>
-<h1>Links</h1>
-<p><a href="https://docs.vagrantup.com/v2/">Vagrant Documentation</a></br>
-<a href="https://docs.puppetlabs.com/#">Puppet Documentation</a></p>
-<script type = 'text/javascript'>
-
-function delete_images(){
-for (var i= document.images.length; i-->0;)
-    document.images[i].parentNode.removeChild(document.images[i]);
-}
-</script>                </article>
-            </aside><!-- /#featured -->
+<p>A virtual machine is a software implementation of a machine that executes programs like ...</p></!--<button>
+                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/vagrant.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
