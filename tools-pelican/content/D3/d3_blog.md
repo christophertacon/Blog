@@ -2,7 +2,7 @@ title: D3 Data-driven Document
 authors: Bruno Soriano, Markus Zauner
 date: 21 April 2016
 tags: D3, javascript, plot
-slug: bla
+slug: D3-blog
 
 
 D3.js is a JavaScript library for manipulating documents based on data. It helps you bring data to life using HTML, SVG, and CSS. D3's emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to Document Object Model (DOM) manipulation. 
@@ -34,7 +34,7 @@ D3 embraces declarative programming, and we can see that here: we're able to set
 
     <script src="http://d3.v3.min.js" charset="utf-8"></script>
 
-The D3 library does not work only with web page development, it can be used, for example, with Python. In this context, several D3 packages are available, such as, <a href="http://mpld3.github.io/"> MPLD3</a>, <a href="http://bokeh.pydata.org/en/latest/"> Bokeh</a>  and <a href="https://plot.ly/"> Plotly</a>. 
+The D3 library does not work only with webpage development, it can be used, for example, with Python. In this context, several D3 packages are available, such as, <a href="http://mpld3.github.io/"> MPLD3</a>, <a href="http://bokeh.pydata.org/en/latest/"> Bokeh</a>  and <a href="https://plot.ly/"> Plotly</a>. 
 The <b>MPLD3</b> package is extremely easy to use: you can simply take any script generating a Matplotlib plot, run it through one of MPLD3's convenience routines, and embed the result in a web page. For those who are already using the Matplolib the additional code necessary to save a simple and interactive html plot is the following:
 
     mpld3.save_html(fig_name,"filename")
@@ -43,7 +43,7 @@ The <b>MPLD3</b> package is extremely easy to use: you can simply take any scrip
 
 
 <h1>Tutorial</h1>
-In this tutorial, we will generate a exemplary scatter-plot for introducing the d3.js-package Bokeh in Python.
+In this tutorial, we will generate a exemplary scatter-plot for introducing the d3.js-package Bokeh in Python. You can download the tutorial instructions <a href="https://bitbucket.org/Bruno_Soriano/computationalmodelling.bitbucket.org/raw/401bc9b95d32558f0841edb649e82d69ad811a0e/tools-pelican/content/D3/handout.pdf"> here</a>.
 
 For doing the tutorial, you need to download and import the appliance for a virtual machine (ubuntu). After starting, you can login with:
 
