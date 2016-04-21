@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Installing Pelican and Git on lubuntu</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -26,7 +26,7 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="http://computationalmodelling.bitbucket.org/tools/install-pelican-git.html" rel="bookmark"
+        <a href="./install-pelican-git.html" rel="bookmark"
            title="Permalink to Installing Pelican and Git on lubuntu">Installing Pelican and Git on lubuntu</a></h1>
     </header>
 
@@ -37,10 +37,10 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-pelican-basics.html">pelican-basics</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-infrastructure.html">Infrastructure</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
+<p>In <a href="./category-pelican-basics.html">pelican-basics</a>. </p>
+<p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->      <p>This post provides a step-by-step guide to manually install Pelican on <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu-2016.ova">the bare VirtualBox lubuntu image</a>. You probably want to install it on your own machine as well for any serious work. In most cases, this should be easier than for lubuntu. The key is to make sure you have Python 2.x and the python package manager <strong>pip</strong> available. Then it should be as simple as running</p>
 <div class="highlight"><pre>pip install pelican markdown
 </pre></div>
@@ -53,37 +53,37 @@
 
 
 <h1>Obtain virtual machine</h1>
-<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="http://computationalmodelling.bitbucket.org/tools/virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
+<p>Install VirtualBox on your system (if you have not done so before), download the <a href="http://gamma.kk.soton.ac.uk/feeg6003/virtualbox-images/feeg6003lubuntu.ova">lubuntu image</a>, and add to VirtualBox. Refer to <a href="./virtualbox-basics.html">the VirtualBox post</a> for further guidance on how to setup VirtualBox.</p>
 <h2>Install make gcc</h2>
 <p>Make is needed for the guest installations. We also use make with pelican for convenience (more on that later)</p>
 <div class="highlight"><pre>sudo apt-get install make gcc
 </pre></div>
 
 
-<p><img alt="Installing gcc" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/install_gcc.png" title="Installing gcc and make" /></p>
+<p><img alt="Installing gcc" src="./pelican-basics/images/install_gcc.png" title="Installing gcc and make" /></p>
 <p>Install Guest additions by injecting the <em>Host Additions CD</em> and run the following command in the cd subdirectory</p>
 <div class="highlight"><pre><span class="nb">cd</span> /media/feeg6003/&lt;NAME OF VBOXADDITIONS CD&gt;
 sudo ./VBoxLinuxAdditions.run
 </pre></div>
 
 
-<p><img alt="Installing guest additions" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/install_vbox.png" title="Installing guest additions" /></p>
+<p><img alt="Installing guest additions" src="./pelican-basics/images/install_vbox.png" title="Installing guest additions" /></p>
 <p>This should take a minute or two. Reboot the virtual machine after installation of the guest additions.</p>
 <h1>Installing Pelican</h1>
 <p><strong>Hint:</strong> Make sure that you are <strong>not</strong> using python 3.</p>
-<p><img alt="Python version" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/python_version.png" title="Checking the python version" /></p>
+<p><img alt="Python version" src="./pelican-basics/images/python_version.png" title="Checking the python version" /></p>
 <p>On lubuntu 15.10, pip can be installed via apt-get</p>
 <div class="highlight"><pre>sudo apt-get install python-pip
 </pre></div>
 
 
-<p>If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining <a href="http://computationalmodelling.bitbucket.org/tools/install-pelican.html">installation of pelican with mercurial</a>.</p>
+<p>If this fails, you probably have an older operating system. You can find instructions to install pip manually on the blog explaining <a href="./install-pelican.html">installation of pelican with mercurial</a>.</p>
 <p>Finally, once pip is available, pelican (with markdown extension) can be installed</p>
 <div class="highlight"><pre>sudo pip install pelican markdown
 </pre></div>
 
 
-<p><img alt="Install pip" src="http://computationalmodelling.bitbucket.org/tools/pelican-basics/images/install_pelican.png" title="Installing the python package manager" /></p>
+<p><img alt="Install pip" src="./pelican-basics/images/install_pelican.png" title="Installing the python package manager" /></p>
 <h1>Installing Git</h1>
 <p>We use <a href="https://git-scm.com">Git</a> as version control software for the blocks post repository.</p>
 <p>Use the linux package manager to install git and meld</p>

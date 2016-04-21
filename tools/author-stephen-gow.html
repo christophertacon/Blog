@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Stephen Gow</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,22 +25,22 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/cpp.html">Introducing C++</a></h1>
+                    <h1 class="entry-title"><a href="./cpp.html">Introducing C++</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-05-14T16:00:00+02:00">
                 Published: Thu 14 May 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-jan-kamenik.html">Jan Kamenik</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-shriram-sunder.html">Shriram Sunder</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-stephen-gow.html">Stephen Gow</a>
+                By                         <a class="url fn" href="./author-jan-kamenik.html">Jan Kamenik</a>
+                        <a class="url fn" href="./author-shriram-sunder.html">Shriram Sunder</a>
+                        <a class="url fn" href="./author-stephen-gow.html">Stephen Gow</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming-languages.html">Programming-languages</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-efficiency.html">Efficiency</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">Outreach</a> </p>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-efficiency.html">Efficiency</a> <a href="./tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info --><hr class="docutils" />
 <div class="figure align-center">
-<img alt="The C++ programming language" src="http://computationalmodelling.bitbucket.org/tools/C++/C++_logo.jpg" style="width: 15%;" />
+<img alt="The C++ programming language" src="./C++/C++_logo.jpg" style="width: 15%;" />
 </div>
 <p>This entry accompanies a presentation for the module 'Advanced Computational Methods Part II'; it can also be viewed as a stand-alone exercise for those not present at the workshop. The material presented here consists of tutorials and exercises designed to introduce the programming language C++.</p>
 <p>These exercises are designed for use on the virtual machine provided for this tutorial. To download this machine image, <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_C++.ova">click here</a>. The presentation slides associated with this tutorial can be found on <a class="reference external" href="https://github.com/jankamenik/Cplusplus-presentation/blob/master/presentation.pdf">Github</a>.</p>
@@ -49,7 +49,7 @@
 <p>The virtual machine contains the text editor Sublime Text 3. For all of these exercises and examples, code should be written and run in this editor. When you are ready to run the code you have written, simply press Ctrl-B and the program will compile using the in-built C++ build system.</p>
 <p>Pre-written source files providing examples of some of the concepts discussed can be found in the 'C++' folder located on the desktop. A small number of these examples run using the newer C++11 system; in order to build these examples, you will need to select Tools&gt;Build&gt;C++11 from the Sublime Text 3 toolbar.</p>
 <p>In order to make your code run correctly, include these lines at the top of each new program:</p>
-<div class="highlight"><pre><span class="cp">#include&lt;iostream&gt;</span>
+<div class="highlight"><pre><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </pre></div>
 </div>

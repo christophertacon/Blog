@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Programming</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,7 +25,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/continuous-integration.html">Continuous Integration for Scientists</a></h1>
+                    <h1 class="entry-title"><a href="./continuous-integration.html">Continuous Integration for Scientists</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-02-21T16:00:00+01:00">
                 Published: Sun 21 February 2016
@@ -36,11 +36,11 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ryan-pepper.html">Ryan Pepper</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-alvaro-perez-diaz.html">Alvaro Perez-Diaz</a>
+                By                         <a class="url fn" href="./author-ryan-pepper.html">Ryan Pepper</a>
+                        <a class="url fn" href="./author-alvaro-perez-diaz.html">Alvaro Perez-Diaz</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming.html">Programming</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-python.html">Python</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-github.html">GitHub</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-git.html">Git</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-testing.html">Testing</a> </p>
+<p>In <a href="./category-programming.html">Programming</a>. </p>
+<p>tags: <a href="./tag-python.html">Python</a> <a href="./tag-github.html">GitHub</a> <a href="./tag-git.html">Git</a> <a href="./tag-testing.html">Testing</a> </p>
 </footer><!-- /.post-info --><p>This blog entry accompanies a workshop delivered on 22/02/2016 as part of Advanced Computational Methods II. It can also be used as standalone exercise.</p>
 <h1>Continuous Integration - What is the point?</h1>
 <p>Continuous integration (CI) is a method for automatically testing software whenever you reach a milestone in the development process. These milestones should be small; the addition of a new function, for example. Using version control (as all good programmers should!) and CI allows you to see immediately when a new feature has broken something, which leads to cleaner code, a faster development process and considerably less bug hunting.</p>
@@ -52,7 +52,7 @@
 <h2>Create your repository</h2>
 <p>Set up an account on GitHub if you don't already have one, and create a public repository called <em>continuousintegration</em>. Make sure you select the option to initialise with a README.md file. Clone this repository to your computer and change to the directory using.</p>
 <div class="highlight"><pre>git clone https://github.com/yourusername/continuousintegration.git
-<span class="nb">cd </span>continuousintegration
+<span class="nb">cd</span> continuousintegration
 </pre></div>
 
 
@@ -82,31 +82,31 @@ git push
 
 <p>Now, we clearly haven't written the function Fibonacci yet, but we'll show how to set up CircleCI so that you <em>know</em> you haven't written the function yet.</p>
 <p>Go to <a href="http://www.circleci.com">CircleCI</a>, and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository <em>continuousintegration</em>, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."</p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/no_tests.png" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/no_tests.png" /></p>
 <p>The next step is therefore to set the build environment up so that the virtual machine will run tests when we then push a commit. </p>
 <h2>CircleCI Configuration</h2>
 <p>Create a file in the <em>continuousintegration</em> folder on your computer called circle.yml. This file is used to specify programmes which need to be installed, such as interpreters or compilers.</p>
 <p>Circle has many prebuilt binaries of common programming languages, to avoid using more compute time than necessary. You can see a full list of these <a href="https://circleci.com/docs/environment">here</a>. Below, you can see how we initiate a machine using the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">London timezone</a>, and Python 3.5.0.</p>
-<div class="highlight"><pre><span class="l-Scalar-Plain">machine</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">timezone</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">Europe/London</span>
-  <span class="l-Scalar-Plain">python</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3.5.0</span>
+<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">machine</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">timezone</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Europe/London</span>
+  <span class="l l-Scalar l-Scalar-Plain">python</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3.5.0</span>
 </pre></div>
 
 
 <p>We now need to specify the dependencies our project needs to run. We do this with a 'dependencies' block as follows:</p>
-<div class="highlight"><pre><span class="l-Scalar-Plain">dependencies</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">pre</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">pip install pytest</span>
+<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">dependencies</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">pre</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install pytest</span>
 </pre></div>
 
 
 <p>You can install more packages as needed in your own project. If, for example you wanted to install a non-python project you could run any bash script here, pull packages from apt</p>
 <p>Finally, we need to tell Circle what to run. In the case of our example, we can just use the following to run our simple test:</p>
-<div class="highlight"><pre><span class="l-Scalar-Plain">test</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">override</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">py.test -v</span>
+<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">override</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test -v</span>
 </pre></div>
 
 
@@ -118,8 +118,8 @@ git push
 
 
 <p>Then we can go back to the CicleCI website and wait for the tests to run. The test runs and fails as the function we are testing doesn't exist (yet).</p>
-<p><img alt="Tests failed!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/failed.png" /></p>
-<p><img alt="No module Fibonacci!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/no_module_fibonacci.png" /></p>
+<p><img alt="Tests failed!" src="./continuous-integration/image/failed.png" /></p>
+<p><img alt="No module Fibonacci!" src="./continuous-integration/image/no_module_fibonacci.png" /></p>
 <h2>Add the CircleCI status badge to your GitHub repository (very handy!)</h2>
 <p>Just add the following code to the README.md file in your repository, make sure you change <em>yourusername</em> by your actual username:</p>
 <div class="highlight"><pre><span class="p">[</span><span class="o">!</span><span class="p">[</span><span class="n">Circle</span> <span class="n">CI</span><span class="p">](</span><span class="nl">https</span><span class="p">:</span><span class="c1">//circleci.com/gh/yourusername/continuousintegration.svg?style=svg)](https://circleci.com/gh/yourusername/continuousintegration)</span>
@@ -134,7 +134,7 @@ git push
 
 
 <p>Now, when you go to your GitHub repository you should see a red badge saying "Failed":</p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/badge_failed.png" title="| width=100" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/badge_failed.png" title="| width=100" /></p>
 <p>We will turn it to green in the next step!</p>
 <h2>Write the actual code and pass the tests!</h2>
 <p>Let's now write the actual Fibonacci function we wish to test: create a file fibonacci.py and type the following naïve code:</p>
@@ -160,11 +160,11 @@ git push
 
 
 <p>and get our first green light message!</p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/passed.png" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/passed.png" /></p>
 <p>We can check that indeed, our test has passed successfully:</p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/test_passed.png" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/test_passed.png" /></p>
 <p>and we have a green badge in our GitHub account:</p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/badge_passed.png" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/badge_passed.png" /></p>
 <h2>Add more tests</h2>
 <p>Say that we want to test that our function does something sensible with an invalid input - the Pythonic way of handling an invalid value is to throw an exception. We can modify our test to check that exceptions are thrown by the function for cases such as:</p>
 <ul>
@@ -213,9 +213,9 @@ git push
 <span class="sd">    for a non-valid input (n &lt; 0 or n not integer).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;n must be greater than zero&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be greater than zero&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">round</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;n must be a whole number&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be a whole number&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -230,11 +230,11 @@ git push
 <p>It's possible to add compilers, programs and your own code to CircleCI just by adding additional dependencies to the circle.yml file. It may be that you're not sure that it something will compile, or it's possible that a dependency is not present in the Ubuntu apt package manager. You may want to see specifically why a test failed, and check a modified version of the code works. If this is the case, it is possible to use SSH to log into a build box and check! </p>
 <p>In order to do this, you must first set up SSH access with your GitHub account. If you do not already have this set up, following <a href="https://help.github.com/articles/generating-an-ssh-key/">these instructions on the GitHub site</a></p>
 <p>Now, navigate to the CircleCI page for your repository. In the latest build, you can see a <em>Rebuild</em> menu - click the arrow to expand the list, and select <em>Rebuid with SSH</em>. </p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/ssh-menu.png" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh-menu.png" /></p>
 <p>The build will then start, and you can then see a list of Containers, and the associated commands needed to login. For our simple case, we should see only something like the following, with a single Container:</p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/ssh-address.png" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh-address.png" /></p>
 <p>If you then copy the highlighted text, and execute it in a terminal, you can log into the box and do whatever you like. As a warning - if you are disconnected, it may mean that you are using too much memory in the remote box.</p>
-<p><img alt="No tests!" src="http://computationalmodelling.bitbucket.org/tools/continuous-integration/image/ssh.png" /></p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh.png" /></p>
 <h1>Where to from here?</h1>
 <p>We've shown you some very brief and easy things to do with CircleCI. Some more advanced features that you may like to try out are:</p>
 <ul>

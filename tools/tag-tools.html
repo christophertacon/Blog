@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Tools</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,19 +25,19 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/virtualization-with-docker.html">Virtualization with Docker</a></h1>
+                    <h1 class="entry-title"><a href="./virtualization-with-docker.html">Virtualization with Docker</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-04-18T00:00:00+02:00">
                 Published: Mon 18 April 2016
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ignacio-vidal.html">Ignacio Vidal</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-abbas-sarvmeily.html">Abbas Sarvmeily</a>
+                By                         <a class="url fn" href="./author-ignacio-vidal.html">Ignacio Vidal</a>
+                        <a class="url fn" href="./author-abbas-sarvmeily.html">Abbas Sarvmeily</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-docker.html">docker</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtual-machines.html">Virtual Machines</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-linux.html">Linux</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-tools.html">Tools</a> </p>
-</footer><!-- /.post-info --><p align="center"><img src="http://computationalmodelling.bitbucket.org/tools/docker/docker_logo.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+<p>In <a href="./category-docker.html">docker</a>. </p>
+<p>tags: <a href="./tag-virtual-machines.html">Virtual Machines</a> <a href="./tag-linux.html">Linux</a> <a href="./tag-tools.html">Tools</a> </p>
+</footer><!-- /.post-info --><p align="center"><img src="./docker/docker_logo.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
 
 <h1>Introduction</h1>
 <p><a href="https://en.wikipedia.org/wiki/Virtual_machine">Virtual Machines</a> have been extensively used both in <a href="https://en.wikipedia.org/wiki/Virtual_private_server">virtual private servers</a> by web services provider, as well as in scientific environments to ensure that a whole team is working with the same software, libraries and configuration. This helps to mitigate the <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a> and is a step forward to ensure reproducibility in computational experiments.</p>
@@ -46,7 +46,7 @@
 <p>In Linux systems, the reference <em>containerization</em> software is <a href="www.docker.com">docker</a>.</p>
 <h2>Docker vs Virtual Machines</h2>
 <p>A we said before, virtualizing the a whole computer just to run some software is highly inefficient. Docker and other containerization software solve this problem by communicating directly with the kernel, via <a href="https://en.wikipedia.org/wiki/LXC">LXC (Linux Containers)</a>. This way, a given application can be executed in a given environment without running the whole environment itself. This eliminates a <em>layer</em> in the virtualization process (as it can be seen in the image below).</p>
-<p><img alt="Virtual machine schema" src="http://computationalmodelling.bitbucket.org/tools/docker/vm_overhead.png" title="Virtual Machine Schema. Image from docker.com" />      <img alt="Docker schema" src="http://computationalmodelling.bitbucket.org/tools/docker/docker_is_lighter.png" title="Docker block schema. Image from docker.com" /></p>
+<p><img alt="Virtual machine schema" src="./docker/vm_overhead.png" title="Virtual Machine Schema. Image from docker.com" />      <img alt="Docker schema" src="./docker/docker_is_lighter.png" title="Docker block schema. Image from docker.com" /></p>
 <p>As consequence, containerized applications have virtually the same performance as if they were running natively.</p>
 <h2>Images, containers and registry</h2>
 <p>Docker uses a certain terminology and the first thing is getting to know it.</p>
@@ -130,7 +130,7 @@ ENTRYPOINT /bin/bash
 </pre></div>
 
 
-<p>Alternatively, you can download it <a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">here</a>.
+<p>Alternatively, you can download it <a href="./docker/Dockerfile">here</a>.
 In order to build the image, just type <code>docker build -t username/imagename:tag /path/to/dockerfile</code></p>
 <h2>Scientific tools for FEEG-6003</h2>
 <p>For this blog post, we put togheter a sample container with some interesting scientific tools. Check it out at:</p>
@@ -147,11 +147,11 @@ In order to build the image, just type <code>docker build -t username/imagename:
 <h1>Workshop related links</h1>
 <ul>
 <li><a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_docker.ova">Virtual Machine</a></li>
-<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_exercises.pdf">Exercise sheet</a></li>
-<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_solutions.pdf">Solutions to the exercises</a></li>
-<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_vm.pdf">First part slides</a></li>
-<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/docker_workshop.pdf">Second part slides</a></li>
-<li><a href="http://computationalmodelling.bitbucket.org/tools/docker/Dockerfile">Dockerfile template</a></li>
+<li><a href="./docker/docker_exercises.pdf">Exercise sheet</a></li>
+<li><a href="./docker/docker_solutions.pdf">Solutions to the exercises</a></li>
+<li><a href="./docker/docker_vm.pdf">First part slides</a></li>
+<li><a href="./docker/docker_workshop.pdf">Second part slides</a></li>
+<li><a href="./docker/Dockerfile">Dockerfile template</a></li>
 <li><a href="https://hub.docker.com/r/feeg6003/scicomp/">feeg6003/scicomp:v1 sample container</a></li>
 </ul>
 <h1>Some other useful links</h1>
@@ -170,7 +170,7 @@ In order to build the image, just type <code>docker build -t username/imagename:
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="http://computationalmodelling.bitbucket.org/tools/bitbucket-forge.html" rel="bookmark"
+                    <h1><a href="./bitbucket-forge.html" rel="bookmark"
                            title="Permalink to Forking on Bitbucket">Forking on Bitbucket</a></h1>
                 </header>
 
@@ -181,18 +181,18 @@ In order to build the image, just type <code>docker build -t username/imagename:
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-forking.html">forking</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-tools.html">tools</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-bitbucket.html">bitbucket</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-versioning.html">versioning</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-repository.html">repository</a> </p>
+<p>In <a href="./category-forking.html">forking</a>. </p>
+<p>tags: <a href="./tag-tools.html">tools</a> <a href="./tag-bitbucket.html">bitbucket</a> <a href="./tag-versioning.html">versioning</a> <a href="./tag-repository.html">repository</a> </p>
 </footer><!-- /.post-info -->                <h1>Distributed Version Control 101</h1>
-<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
+<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="./pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
 <div class="highlight"><pre>hg clone &lt;url of remote repository&gt;
 </pre></div>
 
 
 <p>is the ...</p>
-                <a class="readmore" href="http://computationalmodelling.bitbucket.org/tools/bitbucket-forge.html">read more</a>
+                <a class="readmore" href="./bitbucket-forge.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->

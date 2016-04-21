@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - File Formats</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,25 +25,25 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/HDF5.html">HDF5</a></h1>
+                    <h1 class="entry-title"><a href="./HDF5.html">HDF5</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-05-11T14:00:00+02:00">
                 Published: Mon 11 May 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-james-harrison.html">James Harrison</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-rory-brown.html">Rory Brown</a>
+                By                         <a class="url fn" href="./author-james-harrison.html">James Harrison</a>
+                        <a class="url fn" href="./author-rory-brown.html">Rory Brown</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-file-formats.html">File Formats</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-data-storage.html">Data Storage</a> </p>
+<p>In <a href="./category-file-formats.html">File Formats</a>. </p>
+<p>tags: <a href="./tag-data-storage.html">Data Storage</a> </p>
 </footer><!-- /.post-info --><div class="figure align-center">
-<img alt="Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/HDF5/HDF5-images/Image.png" style="width: 40%;" />
+<img alt="Sublime Text 2" src="./HDF5/HDF5-images/Image.png" style="width: 40%;" />
 </div>
 <p>This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, we will cover the built-in terminal commands and some use of h5py, a HDF5 python package. You can download a VirtualBox image with required materials for the exercises from the following <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">link</a> (the username and password are both feeg6003).</p>
-<p>Also, you can find the presentation slides <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/HDF5/slides/HDF5_presentation.pdf">here</a>.</p>
+<p>Also, you can find the presentation slides <a class="reference external" href="./HDF5/slides/HDF5_presentation.pdf">here</a>.</p>
 <p>If you do not currently have access to HDF5 you can download it for free using macports or from their website. Acquiring the h5py module is very straightforward if you have an anaconda distribution installed, and we would recommend installing it using this method.</p>
-<div class="highlight"><pre><span class="nv">$ </span>conda install h5py
+<div class="highlight"><pre>$ conda install h5py
 </pre></div>
 <p>Note that this installs the h5py module and the HDF5 tools at the same time.</p>
 <div class="section" id="what-is-hdf5">
@@ -55,21 +55,21 @@
 <h2>Part 1: HDF5 Command Line Tools</h2>
 <p>The HDF5 package comes with some helpful command line tools for use in viewing the files in the terminal. The first of these commands that we will mention is h5ls, which is a method very similar to the ls which is used in a terminal to look at the contents of a directory. The flags for this command are shown below.</p>
 <div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/HDF5/HDF5-images/h5ls.png" style="width: 50%;" />
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5ls.png" style="width: 50%;" />
 </div>
 <p>In addition to a filename, you may also provide h5ls with a path inside the file i.e.</p>
-<div class="highlight"><pre><span class="nv">$ </span>h5ls file.h5/path
+<div class="highlight"><pre>$ h5ls file.h5/path
 </pre></div>
 <p>The second tool we will explain a bit about is the h5dump command. This is also a viewing tool but without using any flags is quite different to the aforementioned h5ls. It is a lot more verbose in its standard output, providing details of all data and even attributes and it is therefore recommended to initially surpress some of these details using flags if observing large HDF5 files.</p>
 <div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/HDF5/HDF5-images/h5dump1.png" style="width: 50%;" />
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5dump1.png" style="width: 50%;" />
 </div>
 <div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/HDF5/HDF5-images/h5dump2.png" style="width: 50%;" />
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5dump2.png" style="width: 50%;" />
 </div>
 <p>The final command line tool that will be covered in this blog is h5copy, which allows a user to copy datasets from one file to another or within a file.</p>
 <div class="figure align-center">
-<img alt="First view of Sublime Text 2" src="http://computationalmodelling.bitbucket.org/tools/HDF5/HDF5-images/h5copy.png" style="width: 50%;" />
+<img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5copy.png" style="width: 50%;" />
 </div>
 <div class="section" id="exercise-1-find-the-code">
 <h3>Exercise 1: Find the Code</h3>
@@ -84,8 +84,8 @@
 <div class="section" id="exercise-2-create-your-own-file">
 <h3>Exercise 2: Create your own file!</h3>
 <p>In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file. In /Documents/ inside the VirtualBox image, you will find an IPython Notebook. Open this notebook through terminal using the command</p>
-<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/Documents/
-<span class="nv">$ </span>ipython notebook exercise2.ipynb
+<div class="highlight"><pre>$ <span class="nb">cd</span> ~/Documents/
+$ ipython notebook exercise2.ipynb
 </pre></div>
 <p>Run through the exercises found in this file.</p>
 </div>
@@ -93,7 +93,7 @@
 <div class="section" id="resources">
 <h2>Resources</h2>
 <ul class="simple">
-<li><a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/HDF5/slides/HDF5_presentation.pdf">The presentation slides (.pdf)</a></li>
+<li><a class="reference external" href="./HDF5/slides/HDF5_presentation.pdf">The presentation slides (.pdf)</a></li>
 <li><a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">Link to the feeg6003lubuntu_HDF5.ova file</a></li>
 <li><a class="reference external" href="http://docs.h5py.org/en/latest/">Link to the h5py documentation</a></li>
 <li><a class="reference external" href="https://www.hdfgroup.org/HDF5/">Link to the HDF Group website</a></li>

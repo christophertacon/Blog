@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - James Lambert</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,24 +25,24 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/vagrant.html">Virtualisation with Vagrant</a></h1>
+                    <h1 class="entry-title"><a href="./vagrant.html">Virtualisation with Vagrant</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-04-23T00:00:00+02:00">
                 Published: Thu 23 April 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-james-lambert.html">James Lambert</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-noorvir-aulakh.html">Noorvir Aulakh</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-thomas-rickard.html">Thomas Rickard</a>
+                By                         <a class="url fn" href="./author-james-lambert.html">James Lambert</a>
+                        <a class="url fn" href="./author-noorvir-aulakh.html">Noorvir Aulakh</a>
+                        <a class="url fn" href="./author-thomas-rickard.html">Thomas Rickard</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtualisation.html">virtualisation</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-virtual-machines.html">virtual machines</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-vagrant.html">vagrant</a> </p>
+<p>In <a href="./category-virtualisation-vagrant.html">virtualisation-vagrant</a>. </p>
+<p>tags: <a href="./tag-virtualisation.html">virtualisation</a> <a href="./tag-virtual-machines.html">virtual machines</a> <a href="./tag-vagrant.html">vagrant</a> </p>
 </footer><!-- /.post-info --><p>Files:</p>
-<p><a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
-<a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
-<a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
-<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
+<p><a href="./virtualisation-vagrant/files/Presentation.pdf">Presentation</a></br>
+<a href="./virtualisation-vagrant/files/exercise-solution.zip">Exercise Solution</a></br>
+<a href="./virtualisation-vagrant/files/real_world_demo.zip">Real World Demo</a></p>
+<p><img src="./virtualisation-vagrant/images/vagrant_logo.png"  style="width: 200px;"/></p>
 <!--<button id='image_button' type="button" onclick=delete_images()>I don't like images</button>-->
 
 <h1>Introduction</h1>
@@ -85,11 +85,11 @@
 <li>Can try a large number of various platforms quickly</li>
 </ol>
 <h3>Common workflow</h3>
-<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/vagrant_workflow_landscape.jpg"  style="width: 600px;"/></p>
+<p><img src="./virtualisation-vagrant/images/vagrant_workflow_landscape.jpg"  style="width: 600px;"/></p>
 <h3>What is puppet?</h3>
 <p>Puppet is a configuration management tool for unix-like and windows systems. Essentially, the desired system configuration is placed in a <strong>manifest</strong> (a file written in Puppet's declaritive language). This manifest is then converted into a system of resources and dependencies that are used to configure the system. It makes it easy to install and setup software in an automated way. A manifest can be included in the Vagrantfile and used to configure the virtual machine, an example of this is shown further down.</p>
 <h3>Getting started cheat sheet</h3>
-<p><a href="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"  style="width: 600px"/></a></p>
+<p><a href="./virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"><img src="./virtualisation-vagrant/images/vagrant_cheat_sheet.jpg"  style="width: 600px"/></a></p>
 <h1>Tutorial</h1>
 <p>1) Installing Vagrant</p>
 <p>Linux:</p>
@@ -172,7 +172,7 @@ end
 
 
 <p>All of these can be seen below:</p>
-<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/vagrantfile.png"  style="width: 600px"/></p>
+<p><img src="./virtualisation-vagrant/images/vagrantfile.png"  style="width: 600px"/></p>
 <p>7) Running the virtual machine</p>
 <p>To run a virtual machine we need to tell vagrant to start the box, we do this with the command </p>
 <div class="highlight"><pre>vagrant up
@@ -287,15 +287,15 @@ sudo make install
 <p>(Tip: You might want to take a tea break at this point as this takes between 5-15 minutes to complete)</p>
 <h3>Saving into the /vagrant shared area</h3>
 <p>We can now save a piece of code that we wish to test in the vagrant shared folder and use <code>vagrant ssh</code> to compile and run it on the vagrant machine. This allows you to develop and edit your program in your host environment and deploy it for testing in your specially configured vagrant box. A simple OpenMPI test code is shown below</p>
-<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/hello_c.png"  style="width: 400px"/></p>
+<p><img src="./virtualisation-vagrant/images/hello_c.png"  style="width: 400px"/></p>
 <p>Here we use a simple shell script shown below to deploy the <code>hello.c</code> program</p>
-<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/run_script.png"  style="width: 400px"/></p>
+<p><img src="./virtualisation-vagrant/images/run_script.png"  style="width: 400px"/></p>
 <p>Executing the following command runs the script to compile and run hello.c</p>
 <div class="highlight"><pre>vagrant ssh -c &quot;bash /vagrant/run_mpi.sh&quot;
 </pre></div>
 
 
-<p><img src="http://computationalmodelling.bitbucket.org/tools/virtualisation-vagrant/images/compile_run.jpg"  style="width: 400px"/></p>
+<p><img src="./virtualisation-vagrant/images/compile_run.jpg"  style="width: 400px"/></p>
 <h1>Links</h1>
 <p><a href="https://docs.vagrantup.com/v2/">Vagrant Documentation</a></br>
 <a href="https://docs.puppetlabs.com/#">Puppet Documentation</a></p>

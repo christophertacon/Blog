@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Hao Wang</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,33 +25,33 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/FORTRAN.html">Fortran programming language</a></h1>
+                    <h1 class="entry-title"><a href="./FORTRAN.html">Fortran programming language</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-04-30T16:00:00+02:00">
                 Published: Thu 30 April 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ioannis-begleris.html">Ioannis Begleris</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-hao-wang.html">Hao Wang</a>
+                By                         <a class="url fn" href="./author-ioannis-begleris.html">Ioannis Begleris</a>
+                        <a class="url fn" href="./author-hao-wang.html">Hao Wang</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-programming-languages.html">Programming-languages</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-f2pye.html">f2pye</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-outreach.html">outreach</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-fortran.html">FORTRAN</a> </p>
+<p>In <a href="./category-programming-languages.html">Programming-languages</a>. </p>
+<p>tags: <a href="./tag-f2pye.html">f2pye</a> <a href="./tag-outreach.html">outreach</a> <a href="./tag-fortran.html">FORTRAN</a> </p>
 </footer><!-- /.post-info --><div class="figure align-center">
-<img alt="Programmer's first Reference Manual for Fortran" src="http://computationalmodelling.bitbucket.org/tools/FORTRAN/FORTRAN.jpg" style="width: 25%;" />
+<img alt="Programmer's first Reference Manual for Fortran" src="./FORTRAN/FORTRAN.jpg" style="width: 25%;" />
 </div>
 <p>FORTRAN (or FORmula TRANslator) can be considered the first widely used programming language. With the first compiler released in 1957, FORTRAN has been around and still going for almost 60 years with the next release expected in 2015. The purpose for this session is to firstly present the basic principles needed to read and write FORTRAN codes in scientific computing, and secondly introduce the Fortran to Python interface (f2py) that allows the creation of Python modules from FORTRAN.</p>
-<p>Detailed slides of the workshop can be found at: <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/FORTRAN/FORTAN_beamer.pdf">presentation slides.pdf</a></p>
+<p>Detailed slides of the workshop can be found at: <a class="reference external" href="./FORTRAN/FORTAN_beamer.pdf">presentation slides.pdf</a></p>
 <p>Further reading about f2py and a FORTRAN manual can be found in the resources section.</p>
 <div class="section" id="practical-session">
 <h2>Practical Session</h2>
 <p>In order to run through this session either download the <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_fortran.ova">Lubuntu_ova_fortran</a> virtualbox image and load it to your virtual-box or simply run these commands (if you haven’t already) on your Debian operating system:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update
-<span class="nv">$ </span>sudo apt-get install python ipython gfortran python-dev python-numpy gedit
+<div class="highlight"><pre>$ sudo apt-get update
+$ sudo apt-get install python ipython gfortran python-dev python-numpy gedit
 </pre></div>
 <p>When compiling and running use:</p>
-<div class="highlight"><pre><span class="nv">$ </span>gfortran program.f90 -o program
-<span class="nv">$ </span>./program
+<div class="highlight"><pre>$ gfortran program.f90 -o program
+$ ./program
 </pre></div>
 </div>
 <div class="section" id="exercise-1-writing-your-first-fortran-program">
@@ -70,7 +70,7 @@
 integer, parameter :: N=9</blockquote>
 <p>When running ignore the floating point errors that arise for high N.
 Note you are advised to use the lecture slides as reference.
-The solution can be found in: <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/FORTRAN/Solution1.f90">Exercise1.f90</a></p>
+The solution can be found in: <a class="reference external" href="./FORTRAN/Solution1.f90">Exercise1.f90</a></p>
 </div>
 <div class="section" id="exercise-2-converting-to-a-subprogram">
 <h2>Exercise 2: Converting to a subprogram</h2>
@@ -82,17 +82,17 @@ The solution can be found in: <a class="reference external" href="http://computa
 <li>The subroutine should then do the calculation previously done in exercise 1</li>
 <li>The main program then prints them to a file as done in exercise 1</li>
 </ul>
-<p>Solutions are found in: <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/FORTRAN/solution2.f90">Exercise2.f90</a></p>
+<p>Solutions are found in: <a class="reference external" href="./FORTRAN/solution2.f90">Exercise2.f90</a></p>
 </div>
 <div class="section" id="exercise-3-making-a-python-module">
 <h2>Exercise 3: Making a python module</h2>
 <p>Take your subroutine and place it in a new file, fibonacci_sub.f90, without the main program and make sure it compiles without errors using:</p>
-<div class="highlight"><pre><span class="nv">$ </span>gfortran -Wall -c fibonacci_sub.f90
+<div class="highlight"><pre>$ gfortran -Wall -c fibonacci_sub.f90
 </pre></div>
 <p>Then compile the FORTRAN to python interface command:</p>
-<div class="highlight"><pre><span class="nv">$ </span>f2py -c fibonacci_sub.f90 -m fibonacci
+<div class="highlight"><pre>$ f2py -c fibonacci_sub.f90 -m fibonacci
 </pre></div>
-<p>A file containing the subroutine can be found: <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
+<p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
 <p>If no errors are visible then make shure that your module is correct by using the python program:</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">fibpnacci_sub</span>

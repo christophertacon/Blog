@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - versioning</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,25 +25,25 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/bitbucket-forge.html">Forking on Bitbucket</a></h1>
+                    <h1 class="entry-title"><a href="./bitbucket-forge.html">Forking on Bitbucket</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-02-14T00:00:00+01:00">
                 Published: Sat 14 February 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-denis-kramer.html">Denis Kramer</a>
+                By                         <a class="url fn" href="./author-denis-kramer.html">Denis Kramer</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-forking.html">forking</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-tools.html">tools</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-bitbucket.html">bitbucket</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-versioning.html">versioning</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-repository.html">repository</a> </p>
+<p>In <a href="./category-forking.html">forking</a>. </p>
+<p>tags: <a href="./tag-tools.html">tools</a> <a href="./tag-bitbucket.html">bitbucket</a> <a href="./tag-versioning.html">versioning</a> <a href="./tag-repository.html">repository</a> </p>
 </footer><!-- /.post-info --><h1>Distributed Version Control 101</h1>
-<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="http://computationalmodelling.bitbucket.org/tools/pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
+<p>We have touched upon version control when discussing the issue of accessing the blog repository whilst working with <a href="./pelican-basics.html">Pelican</a>. You <strong>cloned</strong> the blog repository onto your local disc. The fact that you copy the <strong>entire</strong> repository when issuing</p>
 <div class="highlight"><pre>hg clone &lt;url of remote repository&gt;
 </pre></div>
 
 
 <p>is the essence of distributed version control. This is markedly different from version control tools like SVN or CVS (if you are old enough to remember that), where the working copy is directly obtained from a central repository. The distributed character adds complexity and a slew of terms that is best explained with this figure.</p>
-<p><img alt="Distributed_Versioning" src="http://computationalmodelling.bitbucket.org/tools/forking/distributed_versioning.png" /></p>
+<p><img alt="Distributed_Versioning" src="./forking/distributed_versioning.png" /></p>
 <p>Change-sets are <strong>pulled</strong> into the local repository and <strong>pushed</strong> back to the remote repository. Your changes to the working copy are <strong>committed</strong> to the local repository, and an <strong>update</strong> is needed for the latest changes to be reflected in  your working copy. </p>
 <p>Maintaining a local repository as an intermediary might appear superfluous and overly complex. It, however, brings two advantages:</p>
 <ul>
@@ -60,7 +60,7 @@
 <p>If you are denied write access, you can only hope that the maintainer of the remote repository accepts your request to pull your changes into the remote repository. </p>
 <h2>Forks</h2>
 <p>Forks are not a concept of mercurial or git. They are part of mercurial/git hosting services. You can <strong>fork</strong> a publicly hosted repository on bitbucket, which will create a copy of the remote repository in your account. </p>
-<p><img alt="forks" src="http://computationalmodelling.bitbucket.org/tools/forking/forked_repo.png" /></p>
+<p><img alt="forks" src="./forking/forked_repo.png" /></p>
 <p>Having full control over the forked repository, you can push into it and share it with a team. The forked repository is independent of the repository it was forked from. Particularly, changes to the parent repository are not automatically propagated. </p>
 <p>Once you wish your changes to be accepted in the parent repository, you send a <strong>pull request</strong> to the maintainer. The maintainer of the parent repository will review your changes and then accept/reject your request.</p>
 <h1>Forking the blogs repository</h1>
@@ -73,22 +73,22 @@
 <p>Select <strong>Fork</strong> from the menu hidden behind the three horizontal dots at the top left</p>
 </li>
 </ul>
-<p><img alt="fork_menu" src="http://computationalmodelling.bitbucket.org/tools/forking/forking_menu.png" /></p>
+<p><img alt="fork_menu" src="./forking/forking_menu.png" /></p>
 <ul>
 <li>The following dialog allows to give the forked repository a name and description; it also allows to declare the forked repository as private if you want.</li>
 </ul>
-<p><img alt="forked_repo_dialog" src="http://computationalmodelling.bitbucket.org/tools/forking/forked_repo_dialog.png" /></p>
+<p><img alt="forked_repo_dialog" src="./forking/forked_repo_dialog.png" /></p>
 <p>You now have a repository that is completely independent of the parent repository. You have full control over access rights etc. </p>
 <h1>Sending your changes back to the blogs repository</h1>
 <p>Once you are finished with your blog and have updated your forked repository, you can ask us to accept your blog into the blogs repository by sending a <strong>pull request</strong>.</p>
 <ul>
 <li>Click on <strong>pull request</strong> in the sidebar to open the pull request dialog</li>
 </ul>
-<p><img alt="pull request" src="http://computationalmodelling.bitbucket.org/tools/forking/pull_request.png" /></p>
+<p><img alt="pull request" src="./forking/pull_request.png" /></p>
 <ul>
 <li>The displayed webpage gives you a quick intro into forking and pull requests. To generate a pull request, you need to press the rather subtile button in the top right corner.</li>
 </ul>
-<p><img alt="pull request" src="http://computationalmodelling.bitbucket.org/tools/forking/pull_request2.png" /></p>
+<p><img alt="pull request" src="./forking/pull_request2.png" /></p>
 <ul>
 <li>The upcoming dialog allows you to give the pull request a title and description. You can also decide if you want to close the repository once it has been merged back into the parent repository. To send your work off, press the “Create Pull Request” button and wait for us to approve or discuss your request.</li>
 </ul>                </article>

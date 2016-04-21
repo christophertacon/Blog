@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Hossam Ragheb</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,21 +25,21 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/Pint.html">Computing with Units in Python <strong>Pint</strong></a></h1>
+                    <h1 class="entry-title"><a href="./Pint.html">Computing with Units in Python <strong>Pint</strong></a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-02-29T16:00:00+01:00">
                 Published: Mon 29 February 2016
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-hossam-ragheb.html">Hossam Ragheb</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-emanuele-zappia.html">Emanuele Zappia</a>
+                By                         <a class="url fn" href="./author-hossam-ragheb.html">Hossam Ragheb</a>
+                        <a class="url fn" href="./author-emanuele-zappia.html">Emanuele Zappia</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-computing-with-units.html">Computing with units</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-computing-with-units.html">Computing with units</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-python.html">Python</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-pint.html">Pint</a> </p>
+<p>In <a href="./category-computing-with-units.html">Computing with units</a>. </p>
+<p>tags: <a href="./tag-computing-with-units.html">Computing with units</a> <a href="./tag-python.html">Python</a> <a href="./tag-pint.html">Pint</a> </p>
 </footer><!-- /.post-info --><hr class="docutils" />
 <div class="figure align-center">
-<img alt="**Pint** Logo" src="http://computationalmodelling.bitbucket.org/tools/computing-with-units/fig/logo-full.jpg" style="width: 30%;" />
+<img alt="**Pint** Logo" src="./computing-with-units/fig/logo-full.jpg" style="width: 30%;" />
 </div>
 <div class="section" id="how-to-use-the-virtual-machine">
 <h2>How to use the Virtual Machine?</h2>
@@ -60,7 +60,7 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <p>International collaboration in research is essential, however In reality countries uses different standards and units such as metric, empirical,..etc. The interface between international companies is a critical part of the project, which needs to be handled with extra care otherwise international collaboration would be a source of risk to the project, finances and even lives.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Mars_Climate_Orbiter">Mars Climate Orbiter</a> disaster in 1999 is a well known example of interface failure. <a class="reference external" href="https://en.wikipedia.org/wiki/NASA">NASA</a> / <a class="reference external" href="https://en.wikipedia.org/wiki/Lockheed_Martin">Lockheed</a> lost the mars climate orbiter because part of the project staff used <a class="reference external" href="https://en.wikipedia.org/wiki/United_States_customary_units">United States customary units</a> and the other metric units. 125 million dollars was lost and the reason was that computer codes didn't account for different UNITS interface.</p>
 <div class="figure align-center">
-<img alt="Mars Orbiter artist impression." src="http://computationalmodelling.bitbucket.org/tools/computing-with-units/fig/orbiter.png" style="width: 30%;" />
+<img alt="Mars Orbiter artist impression." src="./computing-with-units/fig/orbiter.png" style="width: 30%;" />
 </div>
 </div>
 <hr class="docutils" />
@@ -191,7 +191,7 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 </pre></div>
 <p><strong>Pint</strong> produces the following error.</p>
 <div class="figure align-center">
-<img alt="Dimensionality error" src="http://computationalmodelling.bitbucket.org/tools/computing-with-units/fig/error.png" style="width: 90%;" />
+<img alt="Dimensionality error" src="./computing-with-units/fig/error.png" style="width: 90%;" />
 </div>
 <p><strong>Pint</strong> base units is metric system and can be called as follows:</p>
 <div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">())</span>
@@ -209,7 +209,7 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <p>So far we assigned units to quantities by using object constructor but What if we have a .txt or .csv file with data and want to import these data with it's units?</p>
 <p>Assume we have a text file with magnitudes and units of some physical qunatities, and somehowe we managed to import these to python. we can assign these units to the magnitudes and use them in the program.</p>
 <div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">=</span> <span class="mf">3.0</span>
-<span class="n">Unit</span> <span class="o">=</span> <span class="s">&#39;inch&#39;</span>
+<span class="n">Unit</span> <span class="o">=</span> <span class="s1">&#39;inch&#39;</span>
 </pre></div>
 <p>Three ways of defining the units using the data imported:</p>
 <ol class="loweralpha simple">
@@ -233,11 +233,11 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 </pre></div>
 <p>Remember that this is how <strong>Pint</strong> stores the physical qunatities, as can we see below <strong>Pint</strong> build the units using Quantity constructor. If we call the representation of the 'Ftotal' variable it will show us that it's stored as Quantity:</p>
 <div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="nb">repr</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
-<span class="s">&quot;&lt;Quantity(102854803.08708139, &#39;gram * meter / second ** 2&#39;)&gt;&quot;</span>
+<span class="s2">&quot;&lt;Quantity(102854803.08708139, &#39;gram * meter / second ** 2&#39;)&gt;&quot;</span>
 </pre></div>
 <p>Websites such as google is using similar method to convert units if typed in the search bar. assume that we built a searchh engine and imported the text typed in the search bar we can return the converted units using a very simple 2 lines code which is fast to execute.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span><span class="n">Typedtext</span> <span class="o">=</span> <span class="s">&#39;3.0 * meter to inch&#39;</span>
-<span class="n">conv</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="n">Typedtext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;to&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span><span class="n">Typedtext</span> <span class="o">=</span> <span class="s1">&#39;3.0 * meter to inch&#39;</span>
+<span class="n">conv</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="n">Typedtext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;to&#39;</span><span class="p">)</span>
 <span class="n">Q</span><span class="p">(</span><span class="n">conv</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">)</span>
 
 <span class="mf">118.11023622047242</span> <span class="n">inch</span>
@@ -246,17 +246,17 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <div class="section" id="formatting">
 <h3>5. Formatting</h3>
 <p><strong>Pint</strong> allows to present the units in many useful formats such as LateX, short abbreviated and HTML.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="s">&#39;the latex formatting is {:L}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;appreviated formating is {:~}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;the HTML formatting is {:H}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the latex formatting is {:L}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;appreviated formating is {:~}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;the HTML formatting is {:H}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
 
 <span class="n">the</span> <span class="n">latex</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> \<span class="n">frac</span><span class="p">{</span><span class="n">gram</span> \<span class="n">cdot</span> <span class="n">meter</span><span class="p">}{</span><span class="n">second</span><span class="o">^</span><span class="p">{</span><span class="mi">2</span><span class="p">}}</span>
 <span class="n">appreviated</span> <span class="n">formating</span> <span class="ow">is</span> <span class="mf">102854.80308708138</span> <span class="n">N</span>
 <span class="n">the</span> <span class="n">HTML</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="o">&lt;</span><span class="n">sup</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">sup</span><span class="o">&gt;</span>
 </pre></div>
 <p>Set a specific format as the default formating:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">ureg</span><span class="o">.</span><span class="n">default_format</span><span class="o">=</span><span class="s">&#39;P&#39;</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;the defualt formatting is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">ureg</span><span class="o">.</span><span class="n">default_format</span><span class="o">=</span><span class="s1">&#39;P&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;the defualt formatting is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
 <span class="n">the</span> <span class="n">defualt</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span><span class="err">·</span><span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="err">²</span>
 </pre></div>
 </div>
@@ -287,7 +287,7 @@ example:</p>
 <li>txt file:</li>
 </ol>
 <p>Create a file lets say has a name 'mydef.txt' in the same folder of your code and add the previous definitions in the file.it can be imported and used in <strong>Pint</strong> as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">ureg2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">(</span><span class="s">&#39;mydef.txt&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">ureg2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">(</span><span class="s1">&#39;mydef.txt&#39;</span><span class="p">)</span>
 </pre></div>
 <p>And we can check the dimensionality of the defined unit 'second' which we assigned [time] to it as it's dimension.</p>
 <div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">ureg2</span><span class="o">.</span><span class="n">second</span><span class="o">.</span><span class="n">dimensionality</span>
@@ -299,9 +299,9 @@ example:</p>
 <div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">]:</span> <span class="kn">from</span> <span class="o">**</span><span class="n">Pint</span><span class="o">**</span> <span class="kn">import</span> <span class="nn">UnitRegistry</span>
 <span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
 <span class="n">Q2</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
-<span class="n">ureg</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="s">&#39;ACM_time = 90 * minute = ACMtime&#39;</span><span class="p">)</span>
-<span class="n">your_Age</span> <span class="o">=</span> <span class="n">Q2</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s">&#39;year&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">your_Age</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s">&#39;ACMtime&#39;</span><span class="p">))</span>
+<span class="n">ureg</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="s1">&#39;ACM_time = 90 * minute = ACMtime&#39;</span><span class="p">)</span>
+<span class="n">your_Age</span> <span class="o">=</span> <span class="n">Q2</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">your_Age</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;ACMtime&#39;</span><span class="p">))</span>
 
 <span class="mf">175316.25541500002</span> <span class="n">ACM_time</span>
 </pre></div>
@@ -332,7 +332,7 @@ example:</p>
 <ol class="arabic simple" start="3">
 <li>and then construct the qunatities as following:</li>
 </ol>
-<div class="highlight"><pre><span class="n">side</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;meter&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">side</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;meter&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -354,15 +354,15 @@ example:</p>
 </ul>
 <p>So, as <span class="formula"><i>p</i> = 6 − 3 = 3</span> we can express our equation with one dimensionless number <span class="formula">Π.</span></p>
 <p><span class="formula"><i>p</i></span> dimensionless numbers.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">Pi</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">pi_theorem</span><span class="p">({</span>  <span class="s">&#39;L&#39;</span><span class="p">:</span> <span class="s">&#39;[length]&#39;</span><span class="p">,</span>
-                                <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="s">&#39;[length]&#39;</span><span class="p">,</span>
-                                <span class="s">&#39;ro&#39;</span><span class="p">:</span> <span class="s">&#39;[mass]/[volume]&#39;</span><span class="p">,</span>
-                                <span class="s">&#39;mi&#39;</span><span class="p">:</span> <span class="s">&#39;[viscosity]&#39;</span><span class="p">,</span>
-                                <span class="s">&#39;v&#39;</span><span class="p">:</span> <span class="s">&#39;[speed]&#39;</span><span class="p">})</span>
+<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">Pi</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">pi_theorem</span><span class="p">({</span>  <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="s1">&#39;[mass]/[volume]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="s1">&#39;[viscosity]&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;[speed]&#39;</span><span class="p">})</span>
 </pre></div>
 <p>If you look at the second number generated by the <cite>ureg.pi_theorem</cite> command:</p>
 <div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="n">Pi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="p">{</span><span class="s">&#39;L&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;mi&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;ro&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s">&#39;v&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
 </pre></div>
 <p>This quantity is:</p>
 <p><span class="formula">Π<sub>1</sub> = <i>Re</i> = <span class="fraction"><span class="ignored">(</span><span class="numerator"><i>v</i><i>μ</i><i>L</i></span><span class="ignored">)/(</span><span class="denominator"><i>μ</i></span><span class="ignored">)</span></span> = <span class="fraction"><span class="ignored">(</span><span class="numerator"><span class="text">inertial forces</span></span><span class="ignored">)/(</span><span class="denominator"><span class="text">viscous forces</span></span><span class="ignored">)</span></span></span></p>
@@ -383,10 +383,10 @@ example:</p>
 <h2>Links</h2>
 <ol class="arabic simple">
 <li><strong>Pint</strong> website <a class="reference external" href="https://pint.readthedocs.org/en/0.6/">here</a></li>
-<li>To download the LiveCoding session notebook click <a class="reference external" href="http://nbviewer.jupyter.org/url/computationalmodelling.bitbucket.org/tools/computing-with-units/computing_with_units_exercises.ipynb">here</a>. The definition file 'mydef' is <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/computing-with-units/mydef.txt">here</a></li>
-<li>To download the Exercise notebook click <a class="reference external" href="http://nbviewer.jupyter.org/url/computationalmodelling.bitbucket.org/tools/computing-with-units/computing_with_units_exercises.ipynb">here</a>. and the txt file used in the exercise is <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/computing-with-units/data.txt">here</a></li>
-<li>To download the Exercises solutions click <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/computing-with-units/solutions.pdf">here</a>. <strong>Please try to solve the exercise yourself first</strong>.</li>
-<li>The presentation slides are <a class="reference external" href="http://computationalmodelling.bitbucket.org/tools/computing-with-units/Computing_with_units.ppt">here</a></li>
+<li>To download the LiveCoding session notebook click <a class="reference external" href="http://nbviewer.jupyter.org/url/computationalmodelling.bitbucket.org/tools/computing-with-units/computing_with_units_exercises.ipynb">here</a>. The definition file 'mydef' is <a class="reference external" href="./computing-with-units/mydef.txt">here</a></li>
+<li>To download the Exercise notebook click <a class="reference external" href="http://nbviewer.jupyter.org/url/computationalmodelling.bitbucket.org/tools/computing-with-units/computing_with_units_exercises.ipynb">here</a>. and the txt file used in the exercise is <a class="reference external" href="./computing-with-units/data.txt">here</a></li>
+<li>To download the Exercises solutions click <a class="reference external" href="./computing-with-units/solutions.pdf">here</a>. <strong>Please try to solve the exercise yourself first</strong>.</li>
+<li>The presentation slides are <a class="reference external" href="./computing-with-units/Computing_with_units.ppt">here</a></li>
 </ol>
 </div>
 <hr class="docutils" />
