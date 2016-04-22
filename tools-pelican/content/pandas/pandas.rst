@@ -1,0 +1,28 @@
+Pandas
+#######################################
+
+:date: 2016-04-25 16:00
+:tags: Python, pandas
+:category: Pandas
+:authors: Kieran Selvon, David Lusher
+:slug: **Pandas**
+
+.. ------------------------------------------
+
+Python is a becoming an increasingly common high level programming language, excelling in easy implementation of scientific programming tasks. For stati\
+stical analysis however, environments such as R or Stata remain the first choice of most.
+
+Pandas the Python Data Analysis Library, is an open source python library which allows advance data analysis to be performed in the python environment.
+
+
+NOTE: If your device has Python, the Ipython notebook and pandas installed there is no need to download the virtual machine, the exercises can be comple\
+ted using these tools alone. Simply follow the dropbox link below to download the workshop content, further instructions will then be given during the w\
+orkshop.
+
+Virtual Machine instructions:
+To download the virtual machine please click `here <http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_pandas.ova>`__
+
+This can then be run using virtualbox.
+
+The virtual machine has a light lubuntu distribution installed, the user name and password are 'feeg6003'.Open firefox and go to the following dropbox l\
+ink [LINK TO BE INSERTED NEARER THE WORKSHOP] and download the contents onto the desktop. From the desktop now press ctrl + alt + t to open a terminal, A Jupyter Notebook will open automatically. Further instructions will follow during the workshop.
