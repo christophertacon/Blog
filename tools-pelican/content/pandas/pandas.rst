@@ -16,13 +16,13 @@ Pandas the Python Data Analysis Library, is an open source python library which 
 
 
 NOTE: If your device has Python, the Ipython notebook and pandas installed there is no need to download the virtual machine, the exercises can be comple\
-ted using these tools alone. Simply follow the dropbox link below to download the workshop content, further instructions will then be given during the w\
-orkshop.
+ted using these tools alone. Simply follow the dropbox link below to download the workshop content to your desired directory, then open a python Jupyter notebook from the same directory. Further instructions will follow during the workshop. 
 
 Virtual Machine instructions:
 To download the virtual machine please click `here <http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_pandas.ova>`__
 
 This can then be run using virtualbox.
-
 The virtual machine has a light lubuntu distribution installed, the user name and password are 'feeg6003'.Open firefox and go to the following dropbox l\
-ink [LINK TO BE INSERTED NEARER THE WORKSHOP] and download the contents onto the desktop. From the desktop now press ctrl + alt + t to open a terminal, A Jupyter Notebook will open automatically. Further instructions will follow during the workshop.
+ink: `Teaching Material <https://www.dropbox.com/s/vnfn7z13m0g75nr/feeg6003_pandas_material.zip?dl=0>`__
+
+and download the contents onto the desktop. From the desktop now press ctrl + alt + t to open a terminal, A Jupyter Notebook will open automatically. Further instructions will follow during the workshop.
