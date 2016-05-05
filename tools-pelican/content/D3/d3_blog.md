@@ -50,7 +50,7 @@ For doing the tutorial, you need to download and import the appliance for a virt
     username: acm2
     password: acm2
 
-To launch the Jupyter Notebook (Python) containing the trainings-material, you just have to open a terminal and type in following command:
+To launch the Jupyter Notebook (Python) containing the trainings-material (available <a href="https://bitbucket.org/Bruno_Soriano/computationalmodelling.bitbucket.org/raw/401bc9b95d32558f0841edb649e82d69ad811a0e/tools-pelican/content/D3/Tutorial.ipynb"> here</a>), you just have to open a terminal and type in following command:
     
     jupyter notebook
     
