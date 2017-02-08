@@ -46,18 +46,18 @@
 <div class="section" id="practical-session">
 <h2>Practical Session</h2>
 <p>In order to run through this session either download the <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu_fortran.ova">Lubuntu_ova_fortran</a> virtualbox image and load it to your virtual-box or simply run these commands (if you haven’t already) on your Debian operating system:</p>
-<div class="highlight"><pre>$ sudo apt-get update
+<div class="highlight"><pre><span></span>$ sudo apt-get update
 $ sudo apt-get install python ipython gfortran python-dev python-numpy gedit
 </pre></div>
 <p>When compiling and running use:</p>
-<div class="highlight"><pre>$ gfortran program.f90 -o program
+<div class="highlight"><pre><span></span>$ gfortran program.f90 -o program
 $ ./program
 </pre></div>
 </div>
 <div class="section" id="exercise-1-writing-your-first-fortran-program">
 <h2>Exercise 1: Writing your first FORTRAN program</h2>
 <p>Write a FORTRAN program &quot;<em>Fibonacci</em>&quot; that dynamically calculates a given number (N) of the Fibonacci numbers and stores them in a real vector of size N. The program should then write the elements of the array in a dat file using the default format. You can use the Python code provided as guidance.</p>
-<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
                 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mf">0.</span>
         <span class="k">elif</span> <span class="n">i</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
@@ -87,14 +87,14 @@ The solution can be found in: <a class="reference external" href="./FORTRAN/Solu
 <div class="section" id="exercise-3-making-a-python-module">
 <h2>Exercise 3: Making a python module</h2>
 <p>Take your subroutine and place it in a new file, fibonacci_sub.f90, without the main program and make sure it compiles without errors using:</p>
-<div class="highlight"><pre>$ gfortran -Wall -c fibonacci_sub.f90
+<div class="highlight"><pre><span></span>$ gfortran -Wall -c fibonacci_sub.f90
 </pre></div>
 <p>Then compile the FORTRAN to python interface command:</p>
-<div class="highlight"><pre>$ f2py -c fibonacci_sub.f90 -m fibonacci
+<div class="highlight"><pre><span></span>$ f2py -c fibonacci_sub.f90 -m fibonacci
 </pre></div>
 <p>A file containing the subroutine can be found: <a class="reference external" href="./FORTRAN/subroutine.f90">fibonacci_sub.f90</a></p>
 <p>If no errors are visible then make shure that your module is correct by using the python program:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">fibpnacci_sub</span>
 <span class="n">a</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">fibpnacci_sub</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
