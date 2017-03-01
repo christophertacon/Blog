@@ -25,7 +25,56 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./gtd.html">Getting Things Done</a></h1>
+                    <h1 class="entry-title"><a href="./jupyter-notebooks.html">Jupyter Notebooks</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-03-13T00:00:00+01:00">
+                Published: Mon 13 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-james-bailey.html">James Bailey</a>
+                        <a class="url fn" href="./author-marian-daogaru.html">Marian Daogaru</a>
+        </address>
+<p>In <a href="./category-jupyternotebooks.html">JupyterNotebooks</a>. </p>
+<p>tags: <a href="./tag-jupyter.html">Jupyter</a> <a href="./tag-jupyter-notebook.html">Jupyter Notebook</a> <a href="./tag-nbdime.html">nbdime</a> <a href="./tag-nbval.html">nbval</a> <a href="./tag-nbconvert.html">nbconvert</a> <a href="./tag-python-python3.html">Python Python3</a> <a href="./tag-pytest.html">pytest</a> </p>
+</footer><!-- /.post-info --><h2>Introduction</h2>
+<p>Jupyter Notebooks are a web based application that enables users to create and share documents containing code, data visualisations, text, etc, in different programming languages. This workshop presents an introduction to Jupyter Notebooks and three packages which extend their functionality:
+- <strong>nbconvert</strong>
+- <strong>nbdime</strong>
+- <strong>nbval</strong></p>
+<p><a href="https://nbconvert.readthedocs.io/en/latest/"><strong>nbconvert</strong></a> allows the user to convert a Jupyter Notebook into different formats, such as PDF, LaTeX and many more. <a href="https://nbdime.readthedocs.io/en/latest/"><strong>nbdime</strong></a> is a tool used to see the differences between two notebooks (diffing) or to merge two notebooks. Lastly, <a href="https://github.com/computationalmodelling/nbval"><strong>nbval</strong></a> is a plugin for pytest which validates the execution of the Notebook by checking that the output has not changed. </p>
+<p>For this workshop, Python3 will be used. No previous knowledge of Jupyter Notebooks is required, however coding skills are a plus.</p>
+<h2>Pre-Requisites</h2>
+<h3>Installation on own machine</h3>
+<p>For working on your own machine, you will need:
+- Python
+- Jupyter Notebook
+- nbconvert
+- nbdime
+- nbval (version &gt;= 0.5.0)</p>
+<p>See <a href="{filename}/Installation_Instructions.html">here</a> for installation instructions. You should also download all of the learning material, exercises and supporting material from <a href="{filename}/Learning_Material.zip">here</a>.</p>
+<h3>Virtual Machine</h3>
+<p>We have also created a virtual machine which contains all of the necessary software and material for the workshop. If you prefer you can use VirtualBox and download the virtual machine labelled feeg6003_jupyternotebook from <a href="www.soton.ac.uk/~ngcmbits/virtualmachines">here</a> to complete the workshop.</p>
+<h2>Tutorial</h2>
+<h3>Learning Material and Exercises</h3>
+<p>All of the material created for this session is contained in Jupyter Notebooks. There is a main notebook which contains all of the learning material and exercises. This will guide you through using Jupyter Notebooks and the three packages listed above, ending with the exercises to practise what you have learnt.</p>
+<h3>Supporting Material</h3>
+<p>A number of notebooks have been created to demonstrate the functionality of the three packages covered and will be referenced in the learning material.</p>
+<h3>Download</h3>
+<p>You can download all of this material from <a href="{filename}/Learning_Material.zip">here</a> and starting working through it.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./gtd.html" rel="bookmark"
+                           title="Permalink to Getting Things Done">Getting Things Done</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-02-07T00:00:00+01:00">
                 Published: Tue 07 February 2017
@@ -36,7 +85,7 @@
         </address>
 <p>In <a href="./category-gtd.html">GTD</a>. </p>
 <p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-organisation.html">Organisation</a> </p>
-</footer><!-- /.post-info --><h1>Self-organisation for stress-free productivity</h1>
+</footer><!-- /.post-info -->                <h1>Self-organisation for stress-free productivity</h1>
 <p>Getting Things Done (GTD) is a method aimed at knowledge-workers that have to </p>
 <ul>
 <li>balance multiple requests, projects, concerns, and at the same time</li>
@@ -45,26 +94,10 @@
 <p>GTD is based on five basic paradigms:</p>
 <ul>
 <li><strong>Capture</strong> everything that has your attention. Little, big, personal 
-  and professional—all your to-do’s, projects, things to handle or finish.</li>
-<li><strong>Clarify</strong> the appropriate action: trash, delegate, file, do, ...</li>
-<li><strong>Organise</strong> actions into context-related to-do lists</li>
-<li><strong>Reflect</strong> on items on your various to-do lists</li>
-<li><strong>Engage</strong> with the items on your to-do list and <em>DO</em> them</li>
-</ul>
-<p><img alt="GTD workflow" src="./GTD/gtd_workflow.png"> </p>
-<p>You can find more guidance and tips on <a href="http://www.southampton.ac.uk/~fangohr/training/Getting-Things-Done-Introduction-Hans-Fangohr.pdf">Hans' summary slides</a>.</p>
-<h1>Useful resources</h1>
-<ul>
-<li><a href="http://gettingthingsdone.com">GTD webpage</a></li>
-<li><a href="http://ais.informatik.uni-freiburg.de/ teaching/ws10/praktikum/gtd-basics.pdf">Summary slides Cyrill Stachniss: The basics of getting things done, Uni Freiburg</a></li>
-<li><a href="https://www.omnigroup.com/omnifocus/">OmniFocus</a></li>
-<li><a href="https://culturedcode.com/things/">Things</a></li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+  and …</li></ul>
+                <a class="readmore" href="./gtd.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -637,8 +670,10 @@
 <p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->                <p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png"></p>
 <p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
-<p>This is an inset. Maybe we should add something here.</p>
-<h1>Prepare environment …</h1>
+<h1>Prepare environment</h1>
+<p>The tools that we will need are</p>
+<ul>
+<li>Pelican 3.5 …</li></ul>
                 <a class="readmore" href="./pelican-basics.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>

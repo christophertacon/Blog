@@ -43,7 +43,6 @@
 <p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-outreach.html">Outreach</a> </p>
 </footer><!-- /.post-info -->      <p><img alt="Pelican logo" src="./pelican-basics/images/pelican-logo.png"></p>
 <p><a href="http://docs.getpelican.com">Pelican</a> is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.</p>
-<p>This is an inset. Maybe we should add something here.</p>
 <h1>Prepare environment</h1>
 <p>The tools that we will need are</p>
 <ul>
@@ -149,11 +148,11 @@ ls
 <li>a number of tags to sort the post into categories.</li>
 </ul>
 <p>A metadata block could look like</p>
-<div class="highlight"><pre><span></span>title: My amazing first blog
-authors: You know who
-date: 2015-02-12
-tags: demo, training
-slug: demo-post
+<div class="highlight"><pre><span></span><span class="n">title</span><span class="o">:</span> <span class="n">My</span> <span class="n">amazing</span> <span class="n">first</span> <span class="n">blog</span>
+<span class="n">authors</span><span class="o">:</span> <span class="n">You</span> <span class="n">know</span> <span class="n">who</span>
+<span class="n">date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">12</span>
+<span class="n">tags</span><span class="o">:</span> <span class="n">demo</span><span class="o">,</span> <span class="n">training</span>
+<span class="n">slug</span><span class="o">:</span> <span class="n">demo</span><span class="o">-</span><span class="n">post</span>
 </pre></div>
 
 
@@ -169,7 +168,7 @@ slug: demo-post
 <p>if you use reStructuredText. Note the <strong>slug</strong> attribute, which will be used by Pelican to build the URL. </p>
 <h2>Linking to internal files</h2>
 <p>You most likely want to link to other files in the repository. Pelican provides the <strong>{filename}</strong> variable for this purpose, which points to the content folder. You should always refer to the source file, not the generated file in the output folder. Pelican is smart enough to translate this for you. So if you want to reference this blog post for instance, you would write</p>
-<div class="highlight"><pre><span></span>I learned how to use Pelican for blogging [<span class="nt">here</span>](<span class="na">{filename/pelican-basics/pelican-basics.md}</span>)
+<div class="highlight"><pre><span></span>I learned how to use Pelican for blogging [here]({filename/pelican-basics/pelican-basics.md})
 </pre></div>
 
 
