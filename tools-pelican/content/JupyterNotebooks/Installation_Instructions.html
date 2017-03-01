@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>nbval_example_51</title>
+<title>Installation_Instructions</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,16 +11751,19 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="nbval-Example-5">nbval Example 5<a class="anchor-link" href="#nbval-Example-5">&#182;</a></h1>
+<h1 id="Jupyter-Notebooks-workshop---Installation-Instructions">Jupyter Notebooks workshop - Installation Instructions<a class="anchor-link" href="#Jupyter-Notebooks-workshop---Installation-Instructions">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Execute this cell to update the styling of the Notebook</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">css_file</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/ngcm/training-public/master/ipython_notebook_styles/ngcmstyle.css&#39;</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">css_file</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11771,11 +11774,151 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+<style>
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
+
+#notebook_panel { /* main background */
+    background: rgb(245,245,245);
+}
+
+div.cell { /* set cell width */
+    width: 1000px;
+}
+
+div #notebook { /* centre the content */
+    background: #fff; /* white background for content */
+    width: 1200px;
+    margin: auto;
+    padding-left: 0em;
+}
+
+#notebook li { /* More space between bullet points */
+margin-top:0.8em;
+}
+
+/* draw border around running cells */
+div.cell.border-box-sizing.code_cell.running { 
+    border: 1px solid #111;
+}
+
+/* Put a solid color box around each cell and its output, visually linking them*/
+div.cell.code_cell {
+    background-color: rgb(256,256,256); 
+    border-radius: 0px; 
+    padding: 0.5em;
+    margin-left:1em;
+    margin-top: 1em;
+}
+
+div.text_cell_render{
+    font-family: 'Open Sans' sans-serif;
+    line-height: 140%;
+    font-size: 125%;
+    font-weight: 400;
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
+/* Formatting for header cells */
+.text_cell_render h1 {
+    font-family: 'Arvo', serif;
+    font-style:regular;
+    font-weight: 400;    
+    font-size: 45pt;
+    line-height: 100%;
+    color: rgb(0,51,102);
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    display: block;
+}	
+.text_cell_render h2 {
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+    font-size: 30pt;
+    line-height: 100%;
+    color: rgb(0,51,102);
+    margin-bottom: 0.1em;
+    margin-top: 0.3em;
+    display: block;
+}	
+
+.text_cell_render h3 {
+    font-family: 'Arvo', serif;
+    margin-top:16px;
+	font-size: 22pt;
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-style: regular;
+    color: rgb(102,102,0);
+}
+
+.text_cell_render h4 {    /*Use this for captions*/
+    font-family: 'Arvo', serif;
+    font-size: 14pt;
+    text-align: center;
+    margin-top: 0em;
+    margin-bottom: 2em;
+    font-style: regular;
+}
+
+.text_cell_render h5 {  /*Use this for small titles*/
+    font-family: 'Arvo', sans-serif;
+    font-weight: 400;
+    font-size: 16pt;
+    color: rgb(163,0,0);
+    font-style: italic;
+    margin-bottom: .1em;
+    margin-top: 0.8em;
+    display: block;
+}
+
+.text_cell_render h6 { /*use this for copyright note*/
+    font-family: 'PT Mono', sans-serif;
+    font-weight: 300;
+    font-size: 9pt;
+    line-height: 100%;
+    color: grey;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}
+
+.CodeMirror{
+        font-family: "PT Mono";
+        font-size: 90%;
+}
+
+</style>
+<script>
+    MathJax.Hub.Config({
+                        TeX: {
+                           extensions: ["AMSmath.js"],
+                           equationNumbers: { autoNumber: "AMS", useLabelIds: true}
+                           },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+                },
+                displayAlign: 'center', // Change this to 'center' to center equations.
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 4}}
+                }
+        });
+</script>
+
 </div>
 
 </div>
@@ -11784,71 +11927,164 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
-<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For this workshop you will need:</p>
+<ul>
+<li>Python</li>
+<li>Jupyter Notebook</li>
+<li>nbconvert</li>
+<li>nbdime</li>
+<li>nbval (version &gt;= 0.5.0)</li>
+</ul>
 
 </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_RAISES_EXCEPTION</span>
-<span class="c1"># NBVAL_CHECK_OUTPUT</span>
-<span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not this error&quot;</span><span class="p">))</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python">Python<a class="anchor-link" href="#Python">&#182;</a></h3><p>We would recommend installing Python using Anaconda. This gives you access to Python, a range of standard packages and pip (for installing further Python packages). If you do not want to install the full Anaconda distribution then you can use Miniconda which will install only a few basic packages to get you started.</p>
 
 </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-2-1e4754d33c5f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># NBVAL_RAISES_EXCEPTION</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># NBVAL_CHECK_OUTPUT</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span><span class="ansi-blue-fg">(</span>ValueError<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: </pre>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
-</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Jupyter-Notebook">Jupyter Notebook<a class="anchor-link" href="#Jupyter-Notebook">&#182;</a></h3><ul>
+<li><strong>Anaconda</strong> - Jupyter Notebook comes as part of the Anaconda distribution</li>
+<li><strong>pip</strong> - there is a metapackage called Jupyter which will install all of the necessary Jupyter packages
+<pre><code>pip install jupyter</code></pre>
+</li>
+</ul>
+<p>See <a href="http://jupyter.readthedocs.io/en/latest/install.html#new-to-python-and-jupyter">here</a> for further information on installing Jupyter.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="nbconvert">nbconvert<a class="anchor-link" href="#nbconvert">&#182;</a></h3><ul>
+<li><p>In command line run:</p>
 
+<pre><code>pip install nbconvert</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="nbdime">nbdime<a class="anchor-link" href="#nbdime">&#182;</a></h3><ul>
+<li><p>run the following lines in command line.</p>
+
+<pre><code>pip install --upgrade nbdime</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="nbval">nbval<a class="anchor-link" href="#nbval">&#182;</a></h3><ul>
+<li><strong>pip</strong> - nbval can be installed through pip:
+<pre><code>pip install nbval</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Checking-you're-ready">Checking you're ready<a class="anchor-link" href="#Checking-you're-ready">&#182;</a></h2><p>The following steps allow you to check that you have Jupyter Notebook installed correctly and have the additional packages we are going to show you.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Opening-Jupyter-Notebook">Opening Jupyter Notebook<a class="anchor-link" href="#Opening-Jupyter-Notebook">&#182;</a></h3><p>In a terminal window:</p>
+
+<pre><code>jupyter notebook
+
+</code></pre>
+<p>This should open an instance of Jupyter Notebook which usually open automatically in your browser. The Jupyter Notebook instance has the default address <code>http://localhost:8888/</code> so by typing this into your browser you should also be able to access a running Jupyter Notebook.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="nbconvert">nbconvert<a class="anchor-link" href="#nbconvert">&#182;</a></h3><p>If you installed nbconvert using command line, run the following lines to download and run the official tests.</p>
+
+<pre><code>pip install nbconvert[test]
+py.test --pyargs nbconvert
+
+</code></pre>
+<p>Most of the tests shoud pass, with some few skipped and several warnings. It can be read by the warning messages that the tests are deprecated, and will be eliminated in the next version.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="nbdime">nbdime<a class="anchor-link" href="#nbdime">&#182;</a></h3><p>If you installed nbdime using command line, run the following lines to download and run the official tests.</p>
+
+<pre><code>pip install nbdime[test]
+py.test --pyargs nbdime
+
+</code></pre>
+<p>Most of the tests should pass, with some failing due to some libraries not being installed properly. Ignore this for now, as they do not affect the functionality.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="nbval">nbval<a class="anchor-link" href="#nbval">&#182;</a></h3><p>For the functionality included in this workshop we need version 0.5.0 or greater. You can check your current version using:</p>
+
+<pre><code>pip show nbval
+
+</code></pre>
+<p>If you have version 0.5.0 of greater then you have what you need.</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
