@@ -11832,6 +11832,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>!!! The following installation steps only apply to UNIX environments. Please use appropriate commands for other environments.</strong></p>
+<p><strong>However, pip should work in all environments.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="1.2-Installation-Instructions">1.2 Installation Instructions<a class="anchor-link" href="#1.2-Installation-Instructions">&#182;</a></h3><p>If you already have the required packages installed or are using the pre-installed virtual machine you can skip these steps.</p>
 <h4 id="Jupyter-Notebook">Jupyter Notebook<a class="anchor-link" href="#Jupyter-Notebook">&#182;</a></h4><ul>
 <li><strong>Anaconda</strong> - Jupyter Notebook comes as part of the Anaconda distribution</li>
@@ -12027,7 +12038,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use this cell to print &quot;Hello World&quot;</span>
@@ -12102,7 +12113,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Functionality">Functionality<a class="anchor-link" href="#Functionality">&#182;</a></h3>
+<h2 id="Functionality">Functionality<a class="anchor-link" href="#Functionality">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12140,7 +12151,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Use-cases">Use cases<a class="anchor-link" href="#Use-cases">&#182;</a></h3>
+<h2 id="Use-cases">Use cases<a class="anchor-link" href="#Use-cases">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12171,7 +12182,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Using-nbconvert">Using nbconvert<a class="anchor-link" href="#Using-nbconvert">&#182;</a></h3>
+<h2 id="Using-nbconvert">Using nbconvert<a class="anchor-link" href="#Using-nbconvert">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12180,7 +12191,11 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are <strong>two</strong> main ways to use <strong>nbconvert</strong>: either directly from notebook, or using command line.</p>
+<p>There are <strong>two</strong> main ways to use <strong>nbconvert</strong>:</p>
+<ul>
+<li>directly from notebook</li>
+<li>using command line. </li>
+</ul>
 
 </div>
 </div>
@@ -12190,18 +12205,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="nbconvert-from-notebook">nbconvert from notebook<a class="anchor-link" href="#nbconvert-from-notebook">&#182;</a></h4>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The easiest way to use <strong>nbconvert</strong> is directly from the notebook. 
-This can be done by clicking on the <em>File</em> in the top-left corner. The click on <em>Download as</em>, followed by which format you desire.</p>
-
+<h2 id="nbconvert-from-notebook">nbconvert from notebook<a class="anchor-link" href="#nbconvert-from-notebook">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12230,7 +12234,7 @@ This can be done by clicking on the <em>File</em> in the top-left corner. The cl
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="nbconvert-from-command-line">nbconvert from command line<a class="anchor-link" href="#nbconvert-from-command-line">&#182;</a></h4>
+<h2 id="nbconvert-from-command-line">nbconvert from command line<a class="anchor-link" href="#nbconvert-from-command-line">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12249,18 +12253,10 @@ This can be done by clicking on the <em>File</em> in the top-left corner. The cl
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>jupyter nbconvert --to FORMAT --template=NAME notebook.ipynb
-</code></pre>
+<p><strong><code>jupyter nbconvert --to FORMAT --template=NAME notebook.ipynb</code></strong></p>
 <p><code>--to FORMAT</code> argument represents the type of file you want. <code>FORMAT</code> takes the values:</p>
 <ul>
-<li>python</li>
-<li>html</li>
-<li>latex</li>
-<li>pdf</li>
-<li>markdown</li>
-<li>rst</li>
-<li>slides</li>
+<li>python, html, latex, pdf, markdown, rst, slides</li>
 </ul>
 <p>Additional formats can be installed.</p>
 
@@ -12272,7 +12268,56 @@ This can be done by clicking on the <em>File</em> in the top-left corner. The cl
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html JupyterNotebooks_forpresentation_formatted.ipynb
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img width="1000px" height="1000px" src="Teaching_material/img/save2.png"> </img></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="nbmerge-/-nbmerge-web">nbmerge / nbmerge-web<a class="anchor-link" href="#nbmerge-/-nbmerge-web">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Commands similar to <strong>nbdiff</strong>:</p>
+<ul>
+<li><code>nbmerge base.ipynb local.ipynb remote.ipynb -o OUTPUT.ipynb</code></li>
+</ul>
+<p><strong>or</strong></p>
+<ul>
+<li><code>nbdime merge-web base.ipynb local.ipynb remote.ipynb</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbmerge Teaching_material/Class_examples/nbdime_ce_1.ipynb Teaching_material/Class_examples/nbdime_ce_2.ipynb Teaching_material/Class_examples/nbdime_ce_3.ipynb -o Teaching_material/Class_examples/nbdime_ce_4.ipynb
 </pre></div>
 
 </div>
@@ -12285,7 +12330,7 @@ This can be done by clicking on the <em>File</em> in the top-left corner. The cl
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbmerge-web Teaching_material/Class_examples/nbdime_ce_1.ipynb Teaching_material/Class_examples/nbdime_ce_2.ipynb Teaching_material/Class_examples/nbdime_ce_3.ipynb
 </pre></div>
 
 </div>
@@ -12293,31 +12338,15 @@ This can be done by clicking on the <em>File</em> in the top-left corner. The cl
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="Teaching_material/img/nbmerge.png" alt="nbmerge"></p>
 
 </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12337,6 +12366,236 @@ This can be done by clicking on the <em>File</em> in the top-left corner. The cl
 <h1 id="nbdime">nbdime<a class="anchor-link" href="#nbdime">&#182;</a></h1>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this section, <strong>nbdime</strong> shall be presented. In addition, examples can be found in the <em>Example_notebooks</em> folder.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Functionality">Functionality<a class="anchor-link" href="#Functionality">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>diffing between 2 notebooks</li>
+<li>merging of 3 notebooks</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Use-cases">Use cases<a class="anchor-link" href="#Use-cases">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>display the difference between versions of a notebook</li>
+<li>allows the implementation of different functions to obtain the same results, and compare the methods</li>
+<li>merge different versions of the same notebook</li>
+<li>enables merging of different notebooks for expanding capabilities </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Operating-modes">Operating modes<a class="anchor-link" href="#Operating-modes">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>terminal</li>
+<li>browser</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Terminal</strong></p>
+<ul>
+<li><code>nbdiff</code></li>
+<li><code>nbmerge</code></li>
+</ul>
+<p><strong>Browser</strong></p>
+<ul>
+<li><code>nbdiff-web</code></li>
+<li><code>nbmerge-web</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Command in terminal</p>
+<ul>
+<li><code>nbdiff</code></li>
+<li><code>nbmerge</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Browser">Browser<a class="anchor-link" href="#Browser">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Command in terminal:</p>
+<ul>
+<li><code>nbdiff-web</code></li>
+<li><code>nbmerge-web</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Using-nbdime">Using nbdime<a class="anchor-link" href="#Using-nbdime">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="nbdiff-/-nbdiff-web">nbdiff / nbdiff-web<a class="anchor-link" href="#nbdiff-/-nbdiff-web">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The command has the structure:</p>
+<ul>
+<li><code>nbdiff Notebook1.ipynb Notebook2.ipynb</code></li>
+<li><code>nbdiff-web Notebook1.ipynb Notebook2.ipynb</code></li>
+</ul>
+<p><strong>or</strong></p>
+<ul>
+<li><code>nbdime diff Notebook1.ipynb Notebook2.ipynb</code></li>
+<li><code>nbdime diff-web Notebook1.ipynb Notebook2.ipynb</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbdiff Teaching_material/Class_examples/nbdime_ce_1.ipynb Teaching_material/Class_examples/nbdime_ce_2.ipynb
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="Teaching_material/img/nbdiff_1.png" alt="nbdiff 1"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbdiff-web Teaching_material/Class_examples/nbdime_ce_1.ipynb Teaching_material/Class_examples/nbdime_ce_2.ipynb
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="Teaching_material/img/nbdiff_2.png" alt="nbdiff web"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12819,7 +13078,15 @@ raise(ValueError)
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span>
 </pre></div>
 
 </div>
@@ -12832,22 +13099,70 @@ raise(ValueError)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> Task 1 </strong></p>
+<ul>
+<li>save this notebook as a .html, .python, .pdf </li>
+<li>open the outputs and see if they match the notebook</li>
+</ul>
+<p><strong>Task 2</strong></p>
+<ul>
+<li>create a notebook that will have the same output as : nbconvert_example_1.python</li>
+<li>create a notebook that will have the same output as : nbconvert_example_2.pdf</li>
+<li>create a notebook that will have the same output as : nbconvert_example_3.html</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="nbdime">nbdime<a class="anchor-link" href="#nbdime">&#182;</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We shall use notebooks found in "Example_Notebooks" for these taks.</p>
+<p><strong>Task 1 nbdiff</strong></p>
+<ul>
+<li>using command line, explore the differences between <em>nbdime_example_1</em> and <em>nbdime_example_2</em> using "nbdiff"</li>
+<li>using command line, observe the differences between the above notebooks in a browser environment</li>
+<li>while in broswer, change the notebooks you want to investigate and see the differences</li>
+<li>do the results match the class description? </li>
+</ul>
+<p><strong>Task 2 nbdiff - Additional</strong></p>
+<ul>
+<li>create your own notebooks</li>
+<li>check the differences between the 2 notebooks using nbdiff &amp; nbdiff-web</li>
+</ul>
+<p><strong>Task 3 nbmerge</strong></p>
+<ul>
+<li>using the command line, merge the 3 nbdime_example notebooks.</li>
+<li>use both the nbmerge &amp; nbmerge-web</li>
+<li>save the new merge in both cases</li>
+<li>for additional challenge, try to solve merge conflicts by specifing merge rules</li>
+</ul>
+<p><strong>Task 4 nbmerge - Additional</strong></p>
+<ul>
+<li>create your own notebooks</li>
+<li>merge them</li>
+<li>can you answer the questions:<ul>
+<li>What happens when base, local &amp; remote are different?</li>
+<li>But when base &amp; local are the same, but remote is differnet? </li>
+<li>What if base &amp; remote are the same, yet local is different?</li>
+<li>lastly, if base is different, and local &amp; remote are the same?</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12993,7 +13308,7 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
@@ -13007,29 +13322,13 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13058,7 +13357,7 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pytst</span>
@@ -13072,29 +13371,13 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13123,7 +13406,7 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_SKIP</span>
@@ -13132,22 +13415,6 @@ raise(ValueError)
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.4965704858214198</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13176,7 +13443,7 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_IGNORE_OUTPUT</span>
@@ -13186,20 +13453,6 @@ raise(ValueError)
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.9247999904513298
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13228,32 +13481,13 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-6-763ba2c4c930&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span><span class="ansi-blue-fg">(</span>ValueError<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: </pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13282,7 +13516,7 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_RAISES_EXCEPTION</span>
@@ -13290,26 +13524,6 @@ raise(ValueError)
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-2afa1b523be6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># NBVAL_RAISES_EXCEPTION</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span><span class="ansi-blue-fg">(</span>ValueError<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: </pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13338,7 +13552,7 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_RAISES_EXCEPTION</span>
@@ -13346,26 +13560,6 @@ raise(ValueError)
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-2afa1b523be6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># NBVAL_RAISES_EXCEPTION</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span><span class="ansi-blue-fg">(</span>ValueError<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: </pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13394,7 +13588,7 @@ raise(ValueError)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
@@ -13404,26 +13598,10 @@ raise(ValueError)
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
@@ -13434,26 +13612,10 @@ raise(ValueError)
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NBVAL_RAISES_EXCEPTION</span>
@@ -13462,27 +13624,6 @@ raise(ValueError)
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-12-1e4754d33c5f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># NBVAL_RAISES_EXCEPTION</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># NBVAL_CHECK_OUTPUT</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">raise</span><span class="ansi-blue-fg">(</span>ValueError<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">ValueError</span>: </pre>
-</div>
-</div>
-
 </div>
 </div>
 
