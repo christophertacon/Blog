@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - Nicholas McCaw</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./Emacs.html">Introduction to Emacs</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-05-06T00:00:00+02:00">
+                Published: Sat 06 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-jamie-caldwell.html">Jamie Caldwell</a>
+                        <a class="url fn" href="./author-nicholas-mccaw.html">Nicholas McCaw</a>
+                        <a class="url fn" href="./author-daniel-powell.html">Daniel Powell</a>
+        </address>
+<p>In <a href="./category-emacs.html">Emacs</a>. </p>
+<p>tags: <a href="./tag-emacs.html">Emacs</a> <a href="./tag-ngcm.html">NGCM</a> <a href="./tag-virtualbox.html">VirtualBox</a> </p>
+</footer><!-- /.post-info --><p align="center"><img src="./Emacs/emacs_logo.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+
+<h1>Emacs</h1>
+<p>Emacs is a customisable, self-documenting and fully extensible text editor. Emacs is freely available under the GNU license and is generally distributed with Linux operating systems. It has a Graphical and Terminal mode of operation and therefore makes it particularly appealing for HPC where remote editing of files is common.</p>
+<h1>The Workshop</h1>
+<p>The aim of the workshop is to introduce the fundamental concepts and basic navigation for using Emacs. With Emacs being such a flexible and powerful editor the learning curve can be initially steep. As such, the workshop will contain live-demonstrations and exercises (text-editing and programming in c) to familiarise the user with using Emacs. After the workshop the user should have an understanding of the concepts behind Emacs and comfortable exploring more complex and powerful concepts within Emacs.</p>
+<p>The workshop will consist of a presentation, live-demonstrations and exercises.</p>
+<h2>Prerequisites</h2>
+<p>This workshop will require no previous knowledge of using Emacs. One exercise assumes knowledge of programming and compiling in C.</p>
+<p>A virtual machine is available which contains Emacs and gcc installed along with the documents to complete the exercises. This can be downloaded from <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/Emacs_Intro.ova">here</a>. If you have not installed or used a Virtual Machine before then please refer to the <a href="./virtualbox-basics.html">VirtualBox blog post</a> for further guidance on how to setup VirtualBox.</p>
+<p>The login username and password is <strong>feeg6003</strong> and the task documents are stored in <strong>/home/feeg6003/Intro_to_Emacs</strong>.</p>
+<p>Alternatively, you can download Emacs and a c compiler and simply download the tutorial documents from <a href="./Emacs/Emacs_Tasks.tar">here.</a>. It is recommended that you go through the slides before going thought the workshop tasks.</p>
+<h2>Presentation Slides</h2>
+<p>The presentation slides that were used for the workshop can be downloaded from <a href="./Emacs/Introduction_to_EMACS.ppt">here</a> and provide an overview of the fundamental concepts involved with Emacs.</p>
+<h2>Task: Basic Navigation and Use</h2>
+<p>For the first task, we introduce you to the basic navigation and use of Emacs by manipulating some example files.</p>
+<h3>Basic Navigation</h3>
+<p>Begin by opening emacs. Do this by opening a terminal on the virtual machine by pressing <strong>ctrl-alt-t</strong>, then type <strong>emacs &amp;</strong> and press enter.</p>
+<p>Once in emacs open the file named <strong>'emacs_tutorial.txt'</strong>. The emacs mini-buffer acts like a terminal therefore you need to enter the file path and file name. You can also use tab complete.</p>
+<p>The emacs_tutorial.txt file contains a list of commands for basic navigation of the buffers. It also contains instructions to create new buffers, move between buffers and delete buffers. It is recommended that the user goes through the commands in order as presented to familiarise themselves with the basics commands and controls before moving on to the task below.</p>
+<h3>Theme Changing</h3>
+<p>The theme of emacs can be changed to suit the users preferences. This is done by using <strong>alt-x load-theme</strong>. The options can be viewed by pressing tab. Select favoured theme then press enter.</p>
+<h3>Calendar</h3>
+<p>A useful function of emacs is the built in calendar. To access the calendar type <strong>alt-x calendar</strong>. This will display the calendar in a new buffer. The calendar is read only however events can be added. To do this, move to the date you wish to create an event. Press <strong>i d</strong> to add event to that day, <strong>i w</strong> creates a weekly event and <strong>i y</strong> creates a yearly event. Ensure the buffer is saved. The event is saved to the buffer named 'diary', which is stored within the emacs directories.</p>
+<p>Once the event has been created the user can then view the events of the day by typing <strong>alt-x diary</strong> whilst working on another buffer.</p>
+<h3>Tasks</h3>
+<p>A series of short tasks has been created to get the user to use emacs and learn the initial commands</p>
+<div class="highlight"><pre><span></span> 1. Create new file
+ 2. Import the âsample.txtâ file
+ 3. Navigate through it
+ 4. Add something at the end
+ 5. Save
+ 6. Add event to todays date
+ 7. Go back to the file
+ 8. Check what events are on today
+ 9. Close the event buffer
+</pre></div>
+
+
+<h4>Solutions</h4>
+<div class="highlight"><pre><span></span> 1. C-x C-f then type the name of the file you want to create
+ 2. C-x i then find the file named &#39;sample.txt&#39;
+ 3. Get used to the C-f C-b etc commands from the tutorial
+ 4. Make an addition to the buffer
+ 5. C-x C-s
+ 6. M-x calendar, go to todays date, i d to insert an event to that date. Ensure the buffer is saved before exiting
+ 7. C-x C-f find the file.
+ 8. M-x diary whilst in the created file buffer.
+ 9. C-o to go to the event buffer, C-x 0 to close the buffer.
+</pre></div>
+
+
+<h2>Task: Using Emacs for Programming in C</h2>
+<p>Emacs can be used to program in a variety of programming languages including C. In this section we will apply what we have learnt in the previous Emacs task to a some basic C programming and use of the terminal (All taught in Advanced Computational Methods I).</p>
+<h3>Task 1</h3>
+<p>This task gives the user a taste of opening, editing and saving a C file and then using the terminal to compile it.</p>
+<p>Open the C file "file01.c" (using <strong>C-x C-f</strong>)</p>
+<p>The contents of the file should be displayed on the screen. Notice the syntax highlighting from Emacs switching to the C major mode (no music puns here). The file is riddled with errors and should be corrected and then saved (<strong>C-x C-s</strong>).</p>
+<p>Once this is done, open the terminal in Ubuntu (<strong>Ctrl + Alt + t</strong>) and navigate to the working directory where <strong>"file01.c"</strong> resides. Compile the file using GCC to the same standards that we applied in ACM1 and name the file <strong>"file01".</strong></p>
+<div class="highlight"><pre><span></span> gcc -ansi -Wall -pedantic -o file01 file01.c
+</pre></div>
+
+
+<p>Once this successfully compiles without errors, run the compiled code from the terminal</p>
+<div class="highlight"><pre><span></span> ./file01
+</pre></div>
+
+
+<p>Then ensure the output is exactly</p>
+<div class="highlight"><pre><span></span> Number 0.
+ Number 1.
+ Number 2.
+ Number 3.
+ Number 4.
+ Number 5.
+ Number 6.
+ Number 7.
+ Number 8.
+ Number 9.
+</pre></div>
+
+
+<h3>Task 2a</h3>
+<p>Save the corrected file <strong>"file01.c"</strong> as <strong>"file02.c"</strong> (<strong>C-x C-w</strong>, NOT <strong>C-x C-s</strong>)</p>
+<p>Edit file in Emacs so the final printed value is "Number 99."</p>
+<p>Compile <strong>"file02.c</strong>" in the same way as <strong>"file01.c"</strong> and call the output file <strong>"file02".</strong></p>
+<p>Check the output looks correct and then pipe the output of the file into a text file called <strong>"text02.txt".</strong></p>
+<div class="highlight"><pre><span></span>  ./file02 &gt; text02.txt
+</pre></div>
+
+
+<p>Open the text file <strong>"text02.txt"</strong> in Emacs in a second window.</p>
+<h3>Task 2b</h3>
+<p>Revert the for loop in <strong>"file02.c"</strong> to its previous value.</p>
+<p>Save the file, recompile and pipe the output back to <strong>"text02.txt".</strong></p>
+<p>You should notice that although you have now changed the contents of the file, Emacs is still displaying the old contents...</p>
+<p>Open the file <strong>"text02.txt"</strong> again in another frame to confirm that the file has indeed changed.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
