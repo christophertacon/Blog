@@ -4,23 +4,19 @@ authors: James Bailey, Marian Daogaru
 tags: Jupyter, Jupyter Notebook, nbdime, nbval, nbconvert, Python, Python3, pytest
 
 ## Introduction
-Jupyter Notebooks are a web based application that enables users to create and share documents containing code, data visualisations and text in different programming languages. The structure of the notebook makes them useful for describing and record keeping of code execution and figures, helping maintain the reproducibility of the software. This format also suits the production of documentation and teaching, combining text and code within one document.
-
-This workshop presents an introduction to Jupyter Notebooks and three packages which extend their functionality:
+Jupyter Notebooks are a web based application that enables users to create and share documents containing code, data visualisations and text in different programming languages. This workshop presents an introduction to Jupyter Notebooks and three packages which extend their functionality:
 
 - **nbconvert**
 - **nbdime**
 - **nbval**
 
-These packages were chosen for their relevance to scientific computing: for the sharing of outputs, allowing version control and validation of documentation produced using the notebook. [**nbconvert**](https://nbconvert.readthedocs.io/en/latest/) allows the user to convert a Jupyter Notebook into different formats, such as PDF, LaTeX and many more. [**nbdime**](https://nbdime.readthedocs.io/en/latest/) is a tool used to see the differences between two notebooks (diffing) or to merge two notebooks. Lastly, [**nbval**](https://github.com/computationalmodelling/nbval) is a plugin for pytest which validates the execution of the notebook by checking the output. 
-
-**nbconvert** and **nbdime** are the main tools for the conversion of notebooks into different formats, and diffing and merging. **nbval** is one of a number of tools which give the ability to test notebooks. **pytest-ipynb** allows cells to be defined as tests, which can then be executed using the standard pytest procedure. **ipython_nose** is a similar extension which allows the execution of Nose tests using the notebook. **nbval** will be presented here as it fits into the use of notebooks for documentation.
+These packages were chosen for their relevance to scientific computing: for version control, testing of code within the notebook and validation of documentation produced using it.  [**nbconvert**](https://nbconvert.readthedocs.io/en/latest/) allows the user to convert a Jupyter Notebook into different formats, such as PDF, LaTeX and many more. [**nbdime**](https://nbdime.readthedocs.io/en/latest/) is a tool used to see the differences between two notebooks (diffing) or to merge two notebooks. Lastly, [**nbval**](https://github.com/computationalmodelling/nbval) is a plugin for pytest which validates the execution of the Notebook by checking that the output has not changed. 
 
 For this workshop, Python3 will be used. No previous knowledge of Jupyter Notebooks is required, however coding skills are a plus.
 
 ## Tutorial
 ### Learning Material and Exercises
-All of the material created for this session is contained in Jupyter Notebooks. There is a main notebook which contains all of the learning material and exercises. This will guide you through using Jupyter Notebooks and the three packages listed above, ending with the exercises to practise what you have learnt. You can view that material [here](./JupyterNotebooks/Teaching_Material/JupyterNotebooks_Manual.html) or see the download section below.
+All of the material created for this session is contained in Jupyter Notebooks. There is a main notebook which contains all of the learning material and exercises. This will guide you through using Jupyter Notebooks and the three packages listed above, ending with the exercises to practise what you have learnt.
 
 ### Supporting Material
 A number of notebooks have been created to demonstrate the functionality of the three packages covered and will be referenced in the learning material.
