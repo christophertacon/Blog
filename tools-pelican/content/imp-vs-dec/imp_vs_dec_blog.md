@@ -12,6 +12,11 @@ In this workshop we will attempt to clarify, by way of comparison, the differenc
 
 The exercises in this workshop require [Python](https://www.python.org/) & [Haskell](https://www.haskell.org/) environments and [GNUSim8085](https://gnusim8085.github.io/), an assembler simulator and debugger.
 
+To check everything is working correctly;
+* Start the VM, login and password are the same.
+* Open a terminal (shortcut on the desktop) and call `$ jupyter notebook`. This should open a Firefox with the Jupyter notebook working. Check you can create `New` Python 3 and Haskell notebooks.
+* Try to run GNUSim8085 (shortcut on the desktop).
+
 ## The VM image (Recommended)
 
 A virtual machine image, with the required applications pre-installed, can be found here;  [part1](http://www.southampton.ac.uk/~gmd1n15/LubuntuJupyterHaskellGNUSim.part1.rar), [part2](http://www.southampton.ac.uk/~gmd1n15/LubuntuJupyterHaskellGNUSim.part2.rar) (`right-click` and `Save Link As...`).  Download both parts and unrar into a single `.ova` file. Then import the `.ova` image in VirtualBox (instructions for how to get started can be found in an earlier [VirtualBox workshop blog post](https://computationalmodelling.bitbucket.io/tools/virtualbox-basics.html)).
