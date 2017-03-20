@@ -1,6 +1,6 @@
 title: Introduction to LaTeX using LyX
 authors: Jack Saywell, Juraj Mihalik
-date: 2017-03-06
+date: 2017-03-16
 tags: Lyx, Latex, document creation
 
 ![LyX]( {filename}/latex-with-lyx/lyx.png "LyX")
@@ -46,7 +46,7 @@ Both LyX and LaTeX require a TeX distribution is installed on your machine. Popu
 * [TeXLive](https://www.tug.org/texlive/)
 * [MiKTeX](https://miktex.org/)
 
-The beauty of LyX lies in its ease of use. Instead of writing LaTeX commands to insert tables/titles/sections/etc, one simply selects from drop down menus. LyX also has a user-friendly equation editor. 
+The beauty of LyX lies in its ease of use. Instead of writing LaTeX commands to insert tables/titles/sections/etc, one simply selects from drop down menus. LyX also has a user-friendly equation editor.
 
 After you've played around with LyX and written a document, you can view the resulting pdf by clicking on the 'eyes' icon in the toolbar. If you make further changes to your document, clicking the 'cyclic arrows' icon button just to the right of the 'eyes' icon updates the pdf with any changes.
 
@@ -106,7 +106,7 @@ Just like LyX we have sections and subsections. Unlike LyX, we define them using
 \section{Calculus}
 \subsection{Differentiation}
 \section*{Integration}        (this will be unnumbered)
-\section{Calculus}\label{sec:Calculus} 
+\section{Calculus}\label{sec:Calculus}
 ```
 
 We can then refer to the *'Calculus'* section by using the following command within text:
@@ -126,7 +126,7 @@ The alternative is to use the equation environment:
 ```tex
 \begin{equation}
   y = x_0 + \frac{1}{\displaystyle x_1
-          + \frac{1}{\displaystyle x_2 
+          + \frac{1}{\displaystyle x_2
           + \frac{1}{\displaystyle x_3 + x_4}}} \nonumber
 \end{equation}
 ```
@@ -148,13 +148,13 @@ If you have a small number of references you can use LaTeX's bibliography enviro
 ```tex
 \begin{thebibliography}{99}
 
-\bibitem{ref1} Person A, Person A's Paper, 
+\bibitem{ref1} Person A, Person A's Paper,
 Journal A (Date A).
 
-\bibitem{ref2} Person B, 
+\bibitem{ref2} Person B,
 Person B's Book, Publisher B (Date B).
- 
-\end{thebibliography} 
+
+\end{thebibliography}
 ```
 
 Items are added using the '\bibitem{label}' command. You can use the '\cite{}' command in text to refer to particular entries in the bibliography.
@@ -167,7 +167,7 @@ For instructions on how to use BibTeX for referencing, we refer to the excellent
 * [Introduction to LaTeX](https://computationalmodelling.bitbucket.io/tools/introduction-to-latex.html)
 * [Latex Wiki](http://en.wikibooks.org/wiki/LaTeX)
 * [The Not So Short Introduction to Latex](https://tobi.oetiker.ch/lshort/lshort.pdf)
- 
+
 #Exercise
 
 Try to recreate the following pdf as close as you can, you can use either LyX or, if you are more comfortable, LaTeX to do this. Feel free to be creative, there's no need to laboriously recreate the exercise pdf exactly, as long as you can demonstrate the main features.
