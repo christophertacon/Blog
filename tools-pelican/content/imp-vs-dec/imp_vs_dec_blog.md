@@ -25,6 +25,8 @@ A virtual machine image, with the required applications pre-installed, can be fo
 
 ### Python 3
 
+![Python]( {filename}/imp-vs-dec/python.png "Python")
+
 For the Python exercises, we recommend the [Jupyter Notebook](https://ipython.org/notebook.html):
 
 * *Option 1*: You can [try Jupyter Notebook in your browser](https://try.jupyter.org/).
@@ -32,6 +34,8 @@ For the Python exercises, we recommend the [Jupyter Notebook](https://ipython.or
 * *Option 3*: Most Linux and Mac OS installations come with Python pre-installed. Simply execute `$ python` in the command line (N.b. that these pre-installed versions are normally an older version and do not provide an editor, just a command line parser).
 
 ### Haskell
+
+![Haskell]( {filename}/imp-vs-dec/haskell.png "Haskell")
 
 In the Haskell exercises, we will be again using Jupyter Notebook, but this time with the [IHaskell kernel](https://github.com/gibiansky/IHaskell):
 
@@ -54,6 +58,8 @@ In the Haskell exercises, we will be again using Jupyter Notebook, but this time
 * *Option 3*: You can use the GHC compiler from the command line. Just install GHC as in *Option 2*, then execute `$ ghci`. This will give you a command line interface similar to the Python one.
 
 ### GNUSim8085
+
+![GNUSim8085]( {filename}/imp-vs-dec/gnusim.png "GNUSim8085")
 
 The Assembler exercises will use GNUSim8085:
 
