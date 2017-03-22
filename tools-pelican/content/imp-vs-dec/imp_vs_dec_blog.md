@@ -1,5 +1,5 @@
 title: Imperative vs. Declarative Programming - Installation Instructions
-authors: Gary Downing, Mohammed el Kout, Andres Gutierrez Robledo
+authors: Gary Downing, Mohammed El Kout, Andres Gutierrez Robledo
 date: 2017-03-23
 tags: Imperative, Declarative, Python, Assembly, Haskell
 slug: imp-vs-dec-install
@@ -14,7 +14,7 @@ The exercises in this workshop require [Python](https://www.python.org/) & [Hask
 
 ## The VM Image (Recommended)
 
-[Download the virtual machine image with the required applications pre-installed](http://www.southampton.ac.uk/~gmd1n15/LubuntuJupyterHaskellGNUSim.ova). Then import the `.ova` image in VirtualBox (instructions for how to this can be found in an earlier [VirtualBox workshop blog post](https://computationalmodelling.bitbucket.io/tools/virtualbox-basics.html)).
+[Download the virtual machine image with the required applications pre-installed](http://www.southampton.ac.uk/~gmd1n15/LubuntuJupyterHaskellGNUSim.ova) (or [here](http://www.southampton.ac.uk/~ngcmbits/virtualmachines/LubuntuJupyterHaskellGNUSim.ova) if the first link isn't available). Then import the `.ova` image in VirtualBox (instructions for how to this can be found in an earlier [VirtualBox workshop blog post](https://computationalmodelling.bitbucket.io/tools/virtualbox-basics.html)).
 
 To check everything is working correctly;
 
@@ -23,7 +23,11 @@ To check everything is working correctly;
 * Try to run GNUSim8085 (shortcut on the desktop).
 
 #
-## Alternative Methods
+## Teaching Materials
+
+The VM contains all the teaching materials for this workshop. They can also be downloaded separately [here]({filename}/imp-vs-dec/imp-vs-dec-teaching-materials.zip).
+
+## Alternative Install Methods
 
 ![Python]( {filename}/imp-vs-dec/python.png "Python")
 ### Python 3
