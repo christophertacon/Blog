@@ -8,8 +8,6 @@ slug: pelican-basics
 
 [Pelican](http://docs.getpelican.com) is a static web site generator implemented in Python. It rgenerates HTML pages and blog posts from  Markdown or reStructuredText source files. Pelican is very lightweight, uses the Jinja2 templating engine to generate HTML, and supports themes.
 
-This is an inset. Maybe we should add something here.
-
 # Prepare environment
 
 The tools that we will need are
