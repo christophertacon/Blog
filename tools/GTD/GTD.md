@@ -1,5 +1,5 @@
 title: Getting Things Done
-date: 2015-02-07
+date: 2017-02-07
 authors: Denis Kramer
 tags: Productivity, Organisation
 slug: gtd
@@ -20,7 +20,7 @@ GTD is based on five basic paradigms:
 * **Reflect** on items on your various to-do lists
 * **Engage** with the items on your to-do list and *DO* them
 
-![GTD workflow]({filename}/gtd/gtd_workflow.png)	
+![GTD workflow]({filename}gtd_workflow.png)	
 
 You can find more guidance and tips on [Hans' summary slides](http://www.southampton.ac.uk/~fangohr/training/Getting-Things-Done-Introduction-Hans-Fangohr.pdf).
 
