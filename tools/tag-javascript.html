@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Computational Modelling Tools Workshops - JavaScript</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <title>Computational Modelling Tools Workshops - javascript</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,57 +25,101 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/presenting-with-revealjs.html">Presenting with Reveal.js</a></h1>
+                    <h1 class="entry-title"><a href="./D3-blog.html">D3 Data-driven Document</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-04-21T00:00:00+02:00">
+                Published: Thu 21 April 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-bruno-soriano.html">Bruno Soriano</a>
+                        <a class="url fn" href="./author-markus-zauner.html">Markus Zauner</a>
+        </address>
+<p>In <a href="./category-d3.html">D3</a>. </p>
+<p>tags: <a href="./tag-d3.html">D3</a> <a href="./tag-javascript.html">javascript</a> <a href="./tag-plot.html">plot</a> </p>
+</footer><!-- /.post-info --><p>D3.js is a JavaScript library for manipulating documents based on data. It helps you bring data to life using HTML, SVG, and CSS. D3's emphasis on web standards gives you the full capabilities of modern browsers without tying yourself to a proprietary framework, combining powerful visualization components and a data-driven approach to Document Object Model (DOM) manipulation. </p>
+<p><img src="http://www.optisolbusiness.com/wp-content/themes/optisol/images/innerpages/data%20driven%20document.png" alt="d3_logo"  style="width:256px;height:256px;align:" align="right">  </p>
+<p>D3 allows you to bind arbitrary data to a DOM, and then apply data-driven transformations to the document. For example, you can use D3 to generate an HTML table from an array of numbers. Or, use the same data to create an interactive SVG bar chart with smooth transitions and interaction. </p>
+<p>D3 is not a monolithic framework that seeks to provide every conceivable feature. Instead, it solves the crux of the problem: efficient manipulation of documents based on data. This avoids proprietary representation and affords extraordinary flexibility, exposing the full capabilities of web standards such as HTML, SVG, and CSS. With minimal overhead, D3 is extremely fast, supporting large datasets and dynamic behaviours for interaction and animation.</p>
+<p>For example, if we were to set the heights of some hypothetical bars in an HTML document with vanilla JavaScript, it'd look something like this: </p>
+<div class="highlight"><pre><span></span>var nums = [80, 53, 125, 200, 28, 97];
+
+var bars = document.getElementsByTagName(&quot;rect&quot;); 
+    for (var i = 0; i &lt; bars.length; i++) { 
+        var bar = bars.item(i); 
+        bar.setAttribute(&quot;height&quot;, nums[i]); 
+    }
+</pre></div>
+
+
+<p>With D3, it's </p>
+<div class="highlight"><pre><span></span>d3.selectAll(&#39;rect&#39;) 
+ .attr(&#39;height&#39;, function(d, i) {return nums[i];});
+</pre></div>
+
+
+<p>D3 embraces declarative programming, and we can see that here: we're able to set the height of all elements in the collection using .attr, rather than having to set them individually using a for loop. Declarative code abstracts away implementation details, making complicated transformations easier to reason about. The library can be downloaded from <a href="https://github.com/mbostock/d3/releases/download/v3.5.16/d3.zip"> here</a> or can be linked directly to the latest version. HTML projects can be linked to the library by writing the following command</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;http://d3.v3.min.js&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+
+<p>The D3 library does not work only with webpage development, it can be used, for example, with Python. In this context, several D3 packages are available, such as, <a href="http://mpld3.github.io/"> MPLD3</a>, <a href="http://bokeh.pydata.org/en/latest/"> Bokeh</a>  and <a href="https://plot.ly/"> Plotly</a>. 
+The <b>MPLD3</b> package is extremely easy to use: you can simply take any script generating a Matplotlib plot, run it through one of MPLD3's convenience routines, and embed the result in a web page. For those who are already using the Matplolib the additional code necessary to save a simple and interactive html plot is the following:</p>
+<div class="highlight"><pre><span></span>mpld3.save_html(fig_name,&quot;filename&quot;)
+</pre></div>
+
+
+<p><b>Bokeh</b> is a Python interactive visualization library that targets modern web browsers for presentation. Its goal is to provide elegant, concise construction of novel graphics in the style of D3.js, and to extend this capability with high-performance interactivity over very large or streaming datasets. This library will be used in the tutorial section.</p>
+<h1>Tutorial</h1>
+
+<p>In this tutorial, we will generate a exemplary scatter-plot for introducing the d3.js-package Bokeh in Python. You can download the tutorial instructions <a href="https://bitbucket.org/Bruno_Soriano/computationalmodelling.bitbucket.org/raw/401bc9b95d32558f0841edb649e82d69ad811a0e/tools-pelican/content/D3/handout.pdf"> here</a>.</p>
+<p>For doing the tutorial, you need to download and import the appliance for a virtual machine (ubuntu). After starting, you can login with:</p>
+<div class="highlight"><pre><span></span><span class="n">username</span><span class="o">:</span> <span class="n">acm2</span>
+<span class="n">password</span><span class="o">:</span> <span class="n">acm2</span>
+</pre></div>
+
+
+<p>To launch the Jupyter Notebook (Python) containing the trainings-material, you just have to open a terminal and type in following command:</p>
+<div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+
+
+<p>A tab in the browser will open automatically. If you navigate to the 'D3_Tutorial' folder in the home directory, you will find a Tutorial.ipynb file to start with.  A click on it will open a new tab in the browser.</p>
+<p>The tutorial is devided in subsections. Each section can be run separately.  The first cell contains all used packages that are used.  The next cell contains some arbitrary generated data for generating later a scatter-plot followed by a cell where we need to define the tools, we want to provide in our plot.  Now we generate a simple scatter-plot without using any tools.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./presenting-with-revealjs.html" rel="bookmark"
+                           title="Permalink to Presenting with Reveal.js">Presenting with Reveal.js</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-03-10T00:00:00+01:00">
                 Published: Thu 10 March 2016
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-craig-rafter.html">Craig Rafter</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-konstantinos-drakopoulos.html">Konstantinos Drakopoulos</a>
+                By                         <a class="url fn" href="./author-craig-rafter.html">Craig Rafter</a>
+                        <a class="url fn" href="./author-konstantinos-drakopoulos.html">Konstantinos Drakopoulos</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-revealjs.html">revealJS</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-presentation.html">Presentation</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-web.html">Web</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-html.html">HTML</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-css.html">CSS</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-javascript.html">JavaScript</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-markdown.html">Markdown</a> </p>
-</footer><!-- /.post-info --><p align="center"><img src="http://computationalmodelling.bitbucket.org/tools/revealJS/reveal.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+<p>In <a href="./category-revealjs.html">revealJS</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-presentation.html">Presentation</a> <a href="./tag-web.html">Web</a> <a href="./tag-html.html">HTML</a> <a href="./tag-css.html">CSS</a> <a href="./tag-javascript.html">JavaScript</a> <a href="./tag-markdown.html">Markdown</a> </p>
+</footer><!-- /.post-info -->                <p align="center"><img src="./revealJS/reveal.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
 
 <h2>Introduction</h2>
 <p><a href="https://github.com/hakimel/reveal.js/">Reveal.js</a> is a framework for easily creating beautiful presentations using HTML/Markdown. <a href="http://lab.hakim.se/reveal-js/">Check out the live demo</a>.</p>
-<p>Reveal.js comes with a broad range of features including <a href="https://github.com/hakimel/reveal.js#markup">nested slides</a>, <a href="https://github.com/hakimel/reveal.js#markdown">Markdown content</a>, <a href="https://github.com/hakimel/reveal.js#pdf-export">PDF export</a>, <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker notes</a> and a <a href="https://github.com/hakimel/reveal.js#api">JavaScript API</a>. It's best viewed in a modern browser but <a href="https://github.com/hakimel/reveal.js/wiki/Browser-Support">fall-backs</a> are available to make sure your presentation can still be viewed elsewhere.</p>
-<p>The Reveal.js framework is built around HTML, JavaScript, and CSS. But also has extensive support for Markdown. Reveal.js also supports LaTeX representation of mathematical equations using the <a href="https://www.mathjax.org/">MathJax</a> plugin, enhancing its suitability in the academic domain. Slide decks in Reveal.js are cross platform compatible requiring only a browser to run, and can even be hosted online! Reveal.js presentations are text based so its files are relatively small, and readily version controllable! Overall, Reveal.js brings the beauty of web design, and the ease of markdown to presentation creation!</p>
-<h2>Getting Started</h2>
-<h4>Software (Own Machine)</h4>
-<p>the necessities are a browser (<em>recent versions of Firefox, Chrome, Safari recommended</em>), and a text editor (<em>for web programming we recommend <a href="http://brackets.io/">Brackets</a> for its live update feature</em>). A zipped folder with all the neccessary files is available <a href="http://computationalmodelling.bitbucket.org/tools/revealJS/feeg6003_revealjs.zip">here</a>, download and extract the files somewhere on your machine.</p>
-<h4>Virtual Machine</h4>
-<p>A <a href="https://www.virtualbox.org/">VirtualBox</a> virtual machine is available <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/RevealJS-feeg6003.ova">here</a>, all the neccessary files and software are pre-loaded. Open the documents folder, enter the workshop folder and launch the presentation using brackets.</p>
-<h4>Files</h4>
-<p>Summary of files contained within:</p>
-<ul>
-<li>README.md: github README file to display markdown on page</li>
-<li>feeg6003_reveal_HTML.html: HTML version of the presentation</li>
-<li>feeg6003_reveal_MD.html: Markdown version of the presentation</li>
-<li>feeg6003_template_adv.html: A template with full reveal options</li>
-<li>feeg6003_template_basic.html: A template with cre reveal options</li>
-<li>img/: folder for images</li>
-<li>plotfile.js: File containing the JavaScript for the embedded plot</li>
-<li>reveal.js/: Folder containg the reveal.js files</li>
-<li>tutorial.pdf: Guide for the workshop lab</li>
-<li>tutorial_material/: Material for the lab</li>
-<li>uos-logo.css: CSS file to include the university logo in the corner of the presentation</li>
-</ul>
-<p><p/></p>
-<h2>Using Reveal.js Presentations</h2>
-<p>You can view a Reveal.js presentation in any JavaScript enabled browser.</p>
-<h4>Using generic software</h4>
-<p>Open the presentation/HTML file in your preferred text editor. Open the presentation/HTML file with your browser. When you make edits to the file, you then must refresh the presentation page in the broswer </p>
-<h4>Using Brackets</h4>
-<p>Open the presentation/HTML file you wish to edit in Brackets. Click the lightning bolt icon in the upper right corner, this should open a browser window and the lighning bolt should turn from grey to yellow. As you save your presentation, the changes will be reflected in the browser dynamically.</p>
-<h4>Controlling the presentation</h4>
-<p>If you wish to make the presentation full screen, then press the <strong>F</strong> key, or leave the window reduced if you want to just test the presentation. With the browser in focus, the presentation can be controlled using the arrow keys or spacebar.</p>
-<h2>Tutorial</h2>
-<p>For the tutorial page click <a href="{filename}/revealJS/tutorial.html">here</a>, if you would like it in PDF format click <a href="http://computationalmodelling.bitbucket.org/tools/revealJS/tutorial.pdf">here</a>. For the tutorial files click <a href="http://computationalmodelling.bitbucket.org/tools/revealJS/feeg6003_revealjs.zip">here</a></p>
-<h3>Thank you!</h3>                </article>
-            </aside><!-- /#featured -->
+<p>Reveal.js comes with a broad range of features including <a href="https://github.com/hakimel/reveal.js#markup">nested slides</a>, <a href="https://github.com/hakimel/reveal.js#markdown">Markdown content</a>, <a href="https://github.com/hakimel/reveal.js#pdf-export">PDF export</a>, <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker notes</a> and a <a href="https://github.com/hakimel/reveal.js#api">JavaScript API</a>. It's best viewed in a modern browser but <a href="https://github.com/hakimel/reveal.js/wiki/Browser-Support">fall-backs …</a></p>
+                <a class="readmore" href="./presenting-with-revealjs.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

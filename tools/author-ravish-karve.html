@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Ravish Karve</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,19 +25,19 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/introduction-to-latex.html">Introduction to Latex</a></h1>
+                    <h1 class="entry-title"><a href="./introduction-to-latex.html">Introduction to Latex</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2015-03-17T00:00:00+01:00">
                 Published: Tue 17 March 2015
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-ravish-karve.html">Ravish Karve</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-maarten-debrouwere.html">Maarten Debrouwere</a>
+                By                         <a class="url fn" href="./author-ravish-karve.html">Ravish Karve</a>
+                        <a class="url fn" href="./author-maarten-debrouwere.html">Maarten Debrouwere</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-latex.html">Latex</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-latex.html">Latex</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-reporting.html">reporting</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-document-creation.html">document creation</a> </p>
-</footer><!-- /.post-info --><p><img alt="Latex" src="http://computationalmodelling.bitbucket.org/tools/Latex/LaTeX_logo.png" title="Latex" /></p>
+<p>In <a href="./category-latex.html">Latex</a>. </p>
+<p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
+</footer><!-- /.post-info --><p><img alt="Latex" src="./Latex/LaTeX_logo.png" title="Latex"></p>
 <h1>Introduction</h1>
 <p>Latex is a tool used to prepare documents. It is very useful to write scientific documents but can also be used to write a wide variety of other documents. Latex is not a <em>word processor</em> instead you concentrate on writing the content and Latex will format it for you. Latex is <strong>not</strong> a What You See is What You Get (WYSWG) editor like Microsoft Word. Almost everything in Latex can be customized, however it is recommended to stick with the default values as much as possible.</p>
 <p>At the end of this tutorial you should be able to create a basic Latex documents. We will also show you resources so that with a little work you will be able to create almost any type document.</p>
@@ -49,7 +49,7 @@
 <li>PDF viewer e.g.: Evince, Okular ...</li>
 </ul>
 <p>On Linux these tools can be installed by issuing the following commands in a terminal:</p>
-<div class="highlight"><pre>sudo apt-get install gedit
+<div class="highlight"><pre><span></span>sudo apt-get install gedit
 sudo apt-get install texlive
 sudo apt-get install evince
 </pre></div>
@@ -58,20 +58,20 @@ sudo apt-get install evince
 <p>A standard work-flow while writing Latex documents is to write the document in any text editor, next compile it with the <code>pdflatex filename</code> command in a terminal. The output is then automatically saved as <em>filename.pdf</em>, which can be opened with any pdf viewer. Some pdf readers will automatically update after compiling, others will require an open and close of the file. Latex IDE's usually include all three steps in one program.</p>
 <h1>Document structure</h1>
 <p>In Latex the text that you would enter in your body is entered as you normally would. Commands start with a backslash which is then followed by the command name. One then places the options, if any, in square brackets and the argument follows in curly brackets. A generic command would look like:</p>
-<div class="highlight"><pre><span class="k">\command</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\command</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
 </pre></div>
 
 
 <h2>Basic structure</h2>
 <p>Every Latex document must begin with the <code>\documentclass</code> command. The options of this command define the basic properties of your document such as paper size and font. The argument of the command is a template which dictates the layout of your document. Of the templates available the ones that are used most commonly for scientific writing are: <em>article and book</em>. This is then followed by the <em>environment</em> that contains the body of your text. An environment is always defined by :</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>[options] 
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>[options] 
 commands 
 <span class="k">\end</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>.
 </pre></div>
 
 
 <p>Any basic Latex document will start with the following structure:</p>
-<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
 
 <span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 
@@ -81,7 +81,7 @@ commands
 
 <h2>Creating sections</h2>
 <p>To give the document some more structure the main body can be divided into sections, subsections, subsubsections... The heading of the section is enclosed as argument for each section command. Latex will automatically take care of the numbering. Suffixing a <code>*</code> to a Latex section command will result in an unnumbered section, this also works for other numbered commands, some examples will follow. </p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 
 <span class="k">\section</span><span class="nb">{</span>Heading 1<span class="nb">}</span>
 This is a section.
@@ -101,7 +101,7 @@ Another section
 <p>A new line is started with a double-backslash and a new paragraph is started by a entering an empty line after a new line.</p>
 <h2>Labelling</h2>
 <p>Latex makes it very easy to reference and cross-reference parts of your document. This is done by using <em>labels</em>. In this example a label is attached to a section heading using the <code>\label</code> command. It can be refereed to later on using the <code>\ref</code> command.</p>
-<div class="highlight"><pre><span class="k">\section</span><span class="nb">{</span>Heading 1<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>sec:head1<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\section</span><span class="nb">{</span>Heading 1<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>sec:head1<span class="nb">}</span>
 This is a section.
 <span class="k">\subsection</span><span class="nb">{</span>Sub Heading 1<span class="nb">}</span>
 And here we have reached a subsection under section <span class="k">\ref</span><span class="nb">{</span>sec:head1<span class="nb">}</span>.
@@ -119,7 +119,7 @@ And here we have reached a subsection under section <span class="k">\ref</span><
 <h1></h1>
 <h2>Adding basic packages</h2>
 <p>A lot of extra functionality can be added to Latex by using packages. Some packages are required for even the most basic documents. Packages can be added using the <code>\usepackage[]{}</code> command, these commands must all be placed in the preamble, this means before the <code>\begin{document}</code>. </p>
-<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>amsmath,amsfonts,graphicx<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>float<span class="nb">}</span>
 
@@ -133,25 +133,25 @@ And here we have reached a subsection under section <span class="k">\ref</span><
 <h1></h1>
 <h1>Custom formatting</h1>
 <p>Text can be easily formatted in Latex.</p>
-<div class="highlight"><pre><span class="k">\subsection*</span><span class="nb">{</span>Sub Heading 2<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\subsection*</span><span class="nb">{</span>Sub Heading 2<span class="nb">}</span>
 This is an unnumbered section. This sentence shows the different formatting options: 
 <span class="k">\textbf</span><span class="nb">{</span>bold<span class="nb">}</span>, <span class="k">\textit</span><span class="nb">{</span>italic<span class="nb">}</span>, <span class="k">\emph</span><span class="nb">{</span>emphasize<span class="nb">}</span>. You can also make text <span class="k">\huge</span><span class="nb">{</span>huge<span class="nb">}</span> 
 or <span class="k">\small</span><span class="nb">{</span>small<span class="nb">}</span> or any combination like <span class="k">\textbf</span><span class="nb">{</span><span class="k">\huge</span><span class="nb">{</span>bold and large<span class="nb">}}</span>.
 </pre></div>
 
 
-<p><img alt="text format1" src="http://computationalmodelling.bitbucket.org/tools/Latex/format1b.png" title="Different text format options" /></p>
-<p><img alt="text format2" src="http://computationalmodelling.bitbucket.org/tools/Latex/format2b.png" title="Different text format options" /></p>
+<p><img alt="text format1" src="./Latex/format1b.png" title="Different text format options"></p>
+<p><img alt="text format2" src="./Latex/format2b.png" title="Different text format options"></p>
 <h1>Environments</h1>
 <h2>Maths</h2>
 <p>Including maths in a Latex document is very convenient especially compared to some other word processing tools. There are two different ways in which mathematical expressions can be included. One is in-line with the text by enclosing your expression with <code>$</code> signs.</p>
-<div class="highlight"><pre>There are two ways of included mathematical expression, in-line . 
+<div class="highlight"><pre><span></span>There are two ways of included mathematical expression, in-line . 
 Maths expressions enclosed in <span class="k">\$</span> is used to create in-line maths. E.g. <span class="s">$</span><span class="nb">c^</span><span class="m">2</span><span class="o">=</span><span class="nb">a^</span><span class="m">2</span><span class="o">+</span><span class="nb">b^</span><span class="m">2</span><span class="s">$</span>.<span class="k">\\</span>
 </pre></div>
 
 
 <p>For longer expressions and labelling the <em>equation</em> environment is used.</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
 <span class="k">\frac</span><span class="nb">{</span>d f<span class="nb">}{</span>dx<span class="nb">}</span>=<span class="k">\lim</span><span class="nb">_{</span><span class="k">\Delta</span> x <span class="k">\rightarrow</span> 0<span class="nb">}</span><span class="k">\frac</span><span class="nb">{</span>f(x+<span class="k">\Delta</span> x)-f(x)<span class="nb">}{</span><span class="k">\Delta</span> x<span class="nb">}</span>,
 <span class="k">\label</span><span class="nb">{</span>eqn:eq1<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
@@ -159,7 +159,7 @@ Maths expressions enclosed in <span class="k">\$</span> is used to create in-lin
 
 
 <p>Multi line equations can be formatted with the <em>align</em> environment:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
 <span class="k">\frac</span><span class="nb">{</span>d<span class="nb">}{</span>dx<span class="nb">}</span>(x+y)<span class="nb">^{</span>2<span class="nb">}&amp;</span>=<span class="k">\frac</span><span class="nb">{</span>d<span class="nb">}{</span>dx<span class="nb">}</span><span class="k">\left</span><span class="na">[ x^{2}+y^{2}+2xy\right]</span>, <span class="k">\nonumber\\</span>
 <span class="nb">&amp;</span>=2x+2y. <span class="k">\label</span><span class="nb">{</span>eqn:eq2<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
@@ -167,7 +167,7 @@ Maths expressions enclosed in <span class="k">\$</span> is used to create in-lin
 
 
 <p>As mentioned before these environments can be easily referenced from the text.</p>
-<div class="highlight"><pre>as in other environments we can use the <span class="k">\textit</span><span class="nb">{</span>label<span class="nb">}</span> command to refer to equations.
+<div class="highlight"><pre><span></span>as in other environments we can use the <span class="k">\textit</span><span class="nb">{</span>label<span class="nb">}</span> command to refer to equations.
 As you can see in equations <span class="k">\ref</span><span class="nb">{</span>eqn:eq1<span class="nb">}</span> and <span class="k">\eqref</span><span class="nb">{</span>eqn:eq2<span class="nb">}</span> typing maths in <span class="k">\LaTeX</span><span class="nb">{}</span> is fun and easy.
 </pre></div>
 
@@ -175,7 +175,7 @@ As you can see in equations <span class="k">\ref</span><span class="nb">{</span>
 <p>A comprehensive list of Latex's maths capabilities can be found <a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics">here</a>.</p>
 <h2>Figures</h2>
 <p>In Latex it also easy to include figures. Figures are treated as objects that are separate from the text. They are referred to as floats and their position is not fixed. An example figure is shown below:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[htb]
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[htb]
 <span class="k">\centering</span>
 <span class="k">\includegraphics</span><span class="na">[width=0.75\textwidth]</span><span class="nb">{</span>phd-front.jpg<span class="nb">}</span> <span class="c">%You can also comment your Latex file</span>
 <span class="k">\caption</span><span class="nb">{</span>This is a very funny picture.<span class="nb">}</span>
@@ -186,7 +186,7 @@ As you can see in equations <span class="k">\ref</span><span class="nb">{</span>
 
 <h2>Lists</h2>
 <p>Latex also allows various ways to list text. They can either be numbered lists or unnumbered lists. An example of these are:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>enumerate<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>enumerate<span class="nb">}</span>
     <span class="k">\item</span> We have so far learnt how to structure a document.
     <span class="k">\item</span> How to format text.
     <span class="k">\item</span> How to use various math environments.
@@ -196,7 +196,7 @@ As you can see in equations <span class="k">\ref</span><span class="nb">{</span>
 
 
 <p>or in unnumbered fashion:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
     <span class="k">\item</span> We have so far learnt how to structure a document.
     <span class="k">\item</span> How to format text.
     <span class="k">\item</span> How to use various math environments.
@@ -207,7 +207,7 @@ As you can see in equations <span class="k">\ref</span><span class="nb">{</span>
 
 <h2>Tables</h2>
 <p>Latex allows you you to include your hard earned data in tables such as:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[htb]
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>[htb]
 <span class="k">\caption</span><span class="nb">{</span>A table with useless info.<span class="nb">}</span>
 <span class="k">\label</span><span class="nb">{</span>tab:tab1<span class="nb">}</span>
 <span class="k">\centering</span>
@@ -234,7 +234,7 @@ As you can see in equations <span class="k">\ref</span><span class="nb">{</span>
 <h1>The next step</h1>
 <h2>Citing and bibliography</h2>
 <p>A basic way of adding a limited number of references is the <em>bibliography</em> environment. This environment takes care of the tedious reference formatting and allows for easy citation via the <code>\cite{}</code> command. A better way to do this would be to create and include a <em>bibtex</em> file. More details can be found <a href="http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management">here</a>.</p>
-<div class="highlight"><pre><span class="c">%This is a bibliography placed within the document. It is more common to create a separate file.</span>
+<div class="highlight"><pre><span></span><span class="c">%This is a bibliography placed within the document. It is more common to create a separate file.</span>
 <span class="k">\begin</span><span class="nb">{</span>thebibliography<span class="nb">}{</span>99<span class="nb">}</span>
 <span class="k">\bibitem</span><span class="nb">{</span>lamp<span class="nb">}</span> Leslie Lamport, <span class="k">\LaTeX\ </span>Guide and Reference Manual, 
 Addison Wesley (1994).
@@ -257,13 +257,13 @@ The (Not So) Short Introduction to <span class="k">\LaTeX</span> 2e, www.latex-p
 <h1>Exercise</h1>
 <p>Try and recreate the following documents as best as you can:</p>
 <ul>
-<li>Exercise 1: <a href="http://computationalmodelling.bitbucket.org/tools/Latex/Exercise1.pdf">pdf</a>, </li>
-<li>Exercise 2: <a href="http://computationalmodelling.bitbucket.org/tools/Latex/Exercise2.pdf">pdf</a>, use an external Bibtex file for the citations this time.</li>
+<li>Exercise 1: <a href="./Latex/Exercise1.pdf">pdf</a>, </li>
+<li>Exercise 2: <a href="./Latex/Exercise2.pdf">pdf</a>, use an external Bibtex file for the citations this time.</li>
 </ul>
 <p>Solutions to the exercises:</p>
 <ul>
-<li>Exercise 1: <a href="http://computationalmodelling.bitbucket.org/tools/Latex/Exercise1.tex">Latex</a>, </li>
-<li>Exercise 2: <a href="http://computationalmodelling.bitbucket.org/tools/Latex/Exercise2.tex">Latex</a>, <a href="http://computationalmodelling.bitbucket.org/tools/Latex/library.bib">Bibtex</a></li>
+<li>Exercise 1: <a href="./Latex/Exercise1.tex">Latex</a>, </li>
+<li>Exercise 2: <a href="./Latex/Exercise2.tex">Latex</a>, <a href="./Latex/library.bib">Bibtex</a></li>
 </ul>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">

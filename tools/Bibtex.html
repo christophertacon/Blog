@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Introduction to LaTeX and BibTeX</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -26,7 +26,7 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="http://computationalmodelling.bitbucket.org/tools/Bibtex.html" rel="bookmark"
+        <a href="./Bibtex.html" rel="bookmark"
            title="Permalink to Introduction to LaTeX and BibTeX">Introduction to LaTeX and BibTeX</a></h1>
     </header>
 
@@ -37,18 +37,18 @@
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-gabriele-boschetto.html">Gabriele Boschetto</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-alejandra-vergara.html">Alejandra Vergara</a>
+                By                         <a class="url fn" href="./author-gabriele-boschetto.html">Gabriele Boschetto</a>
+                        <a class="url fn" href="./author-alejandra-vergara.html">Alejandra Vergara</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-bibtex.html">bibtex</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-latex.html">Latex</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-bibtex.html">Bibtex</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-reporting.html">reporting</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-document-creation.html">document creation</a> </p>
-</footer><!-- /.post-info -->      <p><img alt="Latex_Bibtex" src="http://computationalmodelling.bitbucket.org/tools/bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow" /></p>
+<p>In <a href="./category-bibtex.html">bibtex</a>. </p>
+<p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-bibtex.html">Bibtex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
+</footer><!-- /.post-info -->      <p><img alt="Latex_Bibtex" src="./bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow"></p>
 <h1>Virtual Machine - How To</h1>
-<hr />
+<hr>
 <p>Install VirtualBox on your system (if you have not done so before); the link for the virtual machine is provided <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_bibtex.ova">here</a>. Log in as the user feeg6003 using the same password.</p>
 <p>In the virtual machine a basic LaTeX distribution has been installed, together with BibTeX, TeXstudio and also Mendeley. </p>
 <h1>Introduction to LaTeX</h1>
-<hr />
+<hr>
 <p>LaTeX (spelled <em>/ˈlatek/</em>) is a typesetting system that produces professionally scientific and mathematical documents with high typographical quality, nevertheless it is also suitable for producing all sorts of other documents, from simple letters to complete books. LaTeX uses TeX as its formatting engine.</p>
 <p>It is particularly useful for:</p>
 <ul>
@@ -66,7 +66,7 @@
 <li>Free software;</li>
 <li>Standard language.</li>
 </ul>
-<p><img alt="Latex_Word" src="http://computationalmodelling.bitbucket.org/tools/bibtex/latex_word.png" title="LaTeX and Word complexity" /></p>
+<p><img alt="Latex_Word" src="./bibtex/latex_word.png" title="LaTeX and Word complexity"></p>
 <p>It takes some effort at the beginning to learn the commands and understand how everything works, but after that (and lots of compiling errors!) you're going to be highly satisfied.</p>
 <p>To get started you will need at least the following:</p>
 <ul>
@@ -75,12 +75,12 @@
 <li>Output viewers for different formats (.dvi, .ps, .pdf).</li>
 </ul>
 <p>If you're using Windows you can simply download everything directly as .exe files, if you're using a Linux machine you can type on the command line:</p>
-<div class="highlight"><pre>sudo apt-get install texlive-full
+<div class="highlight"><pre><span></span>sudo apt-get install texlive-full
 </pre></div>
 
 
 <p>if you want a full LaTeX distribution (highly recommended). Otherwise you can type:</p>
-<div class="highlight"><pre>sudo apt-get texlive-latex-base
+<div class="highlight"><pre><span></span>sudo apt-get texlive-latex-base
 </pre></div>
 
 
@@ -88,19 +88,19 @@
 <h2>Writing with LaTeX</h2>
 <h3>Document structure</h3>
 <p>LaTeX practically forces you to declare structure within your documents: commands are usually prefixed with a backslash, <code>\</code>. Some commands have different options that you can specify when you type the command (these options are called "arguments"). The optional arguments (things you can choose to tell the command) usually go inside square brackets, and mandatory arguments (things you have to tell the command) usually go inside curly braces. A generic command would look like:</p>
-<div class="highlight"><pre><span class="k">\command</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\command</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
 </pre></div>
 
 
 <p>Every LaTeX document starts by defining what kind of document this is going to be (standard classes being <em>article</em>, <em>report</em>, <em>book</em> and <em>letter</em>), and this section of the document is called the preamble. We do this by: </p>
-<div class="highlight"><pre><span class="k">\documentclass</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
 </pre></div>
 
 
 <h4>The document environment</h4>
 <p>The <code>\begin{document}...\end{document}</code> LaTeX commands are an example of an environment. Environments are always entered with a <code>\begin{}</code> command and exited via a <code>\end{}</code> command. They define particular typesetting features so that you can set out different parts of your document in different ways, according to its content and purpose. The main document starts with <code>\begin{document}</code> and ends with <code>\end{document}</code>.
 An environment is always defined by:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>[options]
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>[options]
 commands
 <span class="k">\end</span><span class="nb">{</span>environment<span class="nb">_</span>name<span class="nb">}</span>.
 </pre></div>
@@ -108,7 +108,7 @@ commands
 
 <h4>Title</h4>
 <p>In LaTeX we can define the title and the authors of the document and this can be done in the preamble. Note that authors should be separated by the command <code>\and</code>. Command <code>\date</code> is used to replace or omit the current date, which LaTeX puts in the document by default. Command <code>\maketitle</code>, that has to be inserted inside the document environment, creates the title of the document based on the title, authors, and the date defined earlier.</p>
-<div class="highlight"><pre><span class="k">\title</span><span class="nb">{</span>...<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\title</span><span class="nb">{</span>...<span class="nb">}</span>
 <span class="k">\author</span><span class="nb">{</span>...<span class="nb">}</span> 
 <span class="k">\date</span><span class="nb">{</span>...<span class="nb">}</span> 
 <span class="k">\maketitle</span>
@@ -117,7 +117,7 @@ commands
 
 <h4>Sections and hierarchy</h4>
 <p>We can define the division of the document into chapters, sections, and subsections. Of course, certain commands are appropriate to different document classes. Notice that you do not need to specify section numbers, LaTeX will do the job! Also, for sections, you do not need to markup which content belongs to a given block, using <code>\begin</code> and <code>\end</code> commands, for example:</p>
-<div class="highlight"><pre><span class="k">\part</span><span class="nb">{</span>part<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\part</span><span class="nb">{</span>part<span class="nb">}</span>
 <span class="k">\chapter</span><span class="nb">{</span>chapter<span class="nb">}</span>
 <span class="k">\section</span><span class="nb">{</span>section<span class="nb">}</span>
 <span class="k">\subsection</span><span class="nb">{</span>subsection<span class="nb">}</span>
@@ -131,7 +131,7 @@ commands
 <p>A table of contents is produced with the <code>\tableofcontents</code> command. It's possible to put the command right where you want the table of contents to go, as long as it is inside the document environment. There are similar commands like <code>\listoffigures</code> and <code>\listoftables</code> for producing a list of figures and a list of tables, respectively.</p>
 <h4>Mathematics</h4>
 <p>In LaTeX it is straightforward to include mathematical equations and notation in your document. To write a mathematical symbol or formula anywhere in the text of the document surround it with $ (dollar) characters. To write a formula in a separate line, put it in the equation environment, like shown in the example below:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
     <span class="k">\frac</span><span class="nb">{</span><span class="k">\partial</span><span class="nb">^</span>2 <span class="k">\theta</span><span class="nb">}{</span><span class="k">\partial</span> s<span class="nb">^</span>2<span class="nb">}</span> = s f<span class="nb">_</span>g<span class="k">\cos</span>(<span class="k">\theta</span>) + sf<span class="nb">_</span>x<span class="k">\cos</span>(<span class="k">\phi</span>)<span class="k">\sin</span>(<span class="k">\theta</span>). 
 <span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
 </pre></div>
@@ -139,7 +139,7 @@ commands
 
 <h4>Tables</h4>
 <p>A table is a rectangular array of cells, arranged in rows and columns, and the relevant LaTeX environment is the tabular environment. It's recommended to nest this inside a table environment, which will make sure tables are floated to the top (or bottom) of a page, however this is not strictly necessary.</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>table<span class="nb">}</span>
   <span class="k">\caption</span><span class="nb">{</span>Largest cities in the world (source: Wikipedia)<span class="nb">}</span>
     <span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>lr<span class="nb">}</span> 
     City <span class="nb">&amp;</span> Population <span class="k">\\</span> <span class="k">\hline</span> <span class="k">\hline</span>
@@ -155,18 +155,18 @@ commands
 <h4>The figure environment</h4>
 <p>Dealing with figures in LaTeX is quite tricky, especially because by default LaTeX will insert them where there is enough blank space available in the document. There are some commands to force a figure in a particular position, but usually it's always better to stick with LaTeX default settings.
 The basic syntax to put figures is: </p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[h]
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>[h]
   <span class="k">\includegraphics</span><span class="na">[options]</span><span class="nb">{</span>filename<span class="nb">}</span>
 <span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
 </pre></div>
 
 
 <h1>Bibliography in LaTeX</h1>
-<hr />
+<hr>
 <p>Being able to manage the list of references that have been used when writing an article (or a book, for example) is a tedious but nevertheless essential task; fortunately LaTeX provides some useful tools that can be of help. </p>
 <h2>Standard Bibliography Environment</h2>
 <p>To manage the bibliography LaTeX provides a basic environment called, not so surprisingly, <em>thebibliography</em>; it can be useful when the number of references is not so high or maybe when we are writing a document on a topic that we do not treat frequently. Here is a very simple example:</p>
-<div class="highlight"><pre><span class="k">\begin</span><span class="nb">{</span>thebibliography<span class="nb">}{</span>9<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>thebibliography<span class="nb">}{</span>9<span class="nb">}</span>
 <span class="k">\bibitem</span><span class="nb">{</span>adams79<span class="nb">}</span>
     Douglas Adams,
     <span class="k">\emph</span><span class="nb">{</span>The Hitchhiker&#39;s Guide to the Galaxy<span class="nb">}</span>.
@@ -179,7 +179,7 @@ The basic syntax to put figures is: </p>
 <p>First of all it's worth ponting out that everything that is related to the bibliography goes within that environment. Secondly the number provided after the begin statement tells LaTeX how wide has to be the item label when creating a file; it actually doesn't matter the number itself, but instead the number of digits: for example in this case the number is '9', which means that the reference label is going to be only of one character in length. If we are planning to use more than nine references (until 99) then we can use any two-digits number, for example '23'.</p>
 <p>This environment is basically a list structure, such as <em>itemize</em> or <em>enumerate</em> and each entry has to be inserted after the command <code>\bibitem{cite_key}</code>, where the <em>cite_key</em> is a unique identifier for a certain reference. A part from this, everything that is inserted on each entry does not need to have a particular style: in this case the title of the book is in italics, but it could have been in bold letters or underlined. We also have total freedom also on which fields to insert (author, publisher, year...): in other words we need to specify the format of each element and it doesn't have to be uniform.</p>
 <p>In order to cite a reference in the document it's enough to type <code>\cite{cite_key}</code> when we want that particular citation to appear, as can be seen in the example below:</p>
-<div class="highlight"><pre>This book<span class="k">\cite</span><span class="nb">{</span>adams79<span class="nb">}</span> is amazing!
+<div class="highlight"><pre><span></span>This book<span class="k">\cite</span><span class="nb">{</span>adams79<span class="nb">}</span> is amazing!
 </pre></div>
 
 
@@ -193,14 +193,14 @@ The basic syntax to put figures is: </p>
 </ul>
 <h3>How Does It Work?</h3>
 <p>In order to include the bibliography in your document you just need to specify the database (the <code>.bib</code> file) and the style to be used (the <code>.bst</code> file); to do this you just need to include in your document:</p>
-<div class="highlight"><pre><span class="k">\bibliography</span><span class="nb">{</span>filename.bib<span class="nb">}</span>
+<div class="highlight"><pre><span></span><span class="k">\bibliography</span><span class="nb">{</span>filename.bib<span class="nb">}</span>
 <span class="k">\bibliographystyle</span><span class="nb">{</span>style.bst<span class="nb">}</span>
 </pre></div>
 
 
 <p>You don't need to include the file extensions, the file names are enough. 
 Now if we want to create our document the general workflow is (if executed on the command line):</p>
-<div class="highlight"><pre>pdflatex filename
+<div class="highlight"><pre><span></span>pdflatex filename
 bibtex filename
 pdflatex filename
 pdflatex filename
@@ -213,7 +213,7 @@ Finally you need to rerun (PDF)LaTeX two times: the first one allows the bibliog
 <p>If using an IDE such as TeXstudio or TeXmaker you may not need to execute all those commands.</p>
 <h3>The bib file</h3>
 <p>The structure of a database file is very simple, as shown in the example below:</p>
-<div class="highlight"><pre>@book<span class="nb">{</span>adams79,
+<div class="highlight"><pre><span></span>@book<span class="nb">{</span>adams79,
     author    = &quot;Douglas Adams&quot;,
     title     = &quot;The <span class="nb">{</span>H<span class="nb">}</span>itchhiker&#39;s <span class="nb">{</span>G<span class="nb">}</span>uide to the <span class="nb">{</span>G<span class="nb">}</span>alaxy&quot;,
     year      = 1979,
@@ -234,7 +234,7 @@ We first need to define a reference type and this is done using the @ symbol fol
 <li><strong>misc</strong>: use this when nothing else seems appropriate.</li>
 </ul>
 <p>Once defined an entry type we need to put all the required fields between curly braces; each field should have this format:</p>
-<div class="highlight"><pre>@entry<span class="nb">{</span>cite<span class="nb">_</span>key,
+<div class="highlight"><pre><span></span>@entry<span class="nb">{</span>cite<span class="nb">_</span>key,
     field<span class="nb">_</span>1 = &quot;value<span class="nb">_</span>1&quot;,
     field<span class="nb">_</span>2 = &quot;value<span class="nb">_</span>2&quot;,
     ...
@@ -257,14 +257,14 @@ We first need to define a reference type and this is done using the @ symbol fol
 <p>If you have more than one author you can separate them with <em>and</em>, while if you have a high number of contributors you can simply type <em>and others</em> to produce the output <em>et al.</em></p>
 <h4>Some tricks: strings and cross-references</h4>
 <p>It is possible to define strings inside the bib file: it can be helpful when one has to include the same authors or the same publisher/journal in many entries. A string can be define like this:</p>
-<div class="highlight"><pre>@string<span class="nb">{</span>PB = &quot;Pan Books&quot;<span class="nb">}</span>
+<div class="highlight"><pre><span></span>@string<span class="nb">{</span>PB = &quot;Pan Books&quot;<span class="nb">}</span>
 
 @string<span class="nb">{</span>adams = &quot;Douglas Adams&quot;<span class="nb">}</span>
 </pre></div>
 
 
 <p>Now you can use that string just defined to build your references. For example:</p>
-<div class="highlight"><pre>@book<span class="nb">{</span>adams79,
+<div class="highlight"><pre><span></span>@book<span class="nb">{</span>adams79,
     author    = adams,
     title     = &quot;The <span class="nb">{</span>H<span class="nb">}</span>itchhiker&#39;s <span class="nb">{</span>G<span class="nb">}</span>uide to the <span class="nb">{</span>G<span class="nb">}</span>alaxy&quot;,
     year      = 1979,
@@ -275,7 +275,7 @@ We first need to define a reference type and this is done using the @ symbol fol
 
 <p>This will produce the same output as the previous case. Note that when filling a field with a string we don't need to use double quotes, because we have already used them when we defined that string.</p>
 <p>Another useful feature of BibTeX is the possibility of cross-referencing: suppose we want to cite a chapter (or a part) of a book or an article in conference proceedings, for example chapter 13 of the LaTeX Companion:</p>
-<div class="highlight"><pre>@book<span class="nb">{</span>companion,
+<div class="highlight"><pre><span></span>@book<span class="nb">{</span>companion,
     author    = &quot;Goossens, Michel and Mittelbach, Franck and Samarin, Alexander&quot;,
     title     = &quot;The <span class="k">\LaTeX\ </span><span class="nb">{</span>C<span class="nb">}</span>ompanion&quot;,
     booktitle = &quot;The <span class="k">\LaTeX</span> <span class="nb">{</span>C<span class="nb">}</span>ompanion&quot;,
@@ -310,7 +310,7 @@ We first need to define a reference type and this is done using the @ symbol fol
 </ul>
 <p>There are many other styles available, in order to use them you just need to load additional packages, such as <strong>natbib</strong>: with this loaded you can have access to lots of different styles plus the classical ones redefined especially for natbib (<em>plainnat</em>, <em>unsrtnat</em>, abbrvnat*) with other features, like for example the possibility to include an URL as a field within an entry. The <em>\cite</em> command has also been redefined, so that you can handle citations styles in different ways, for example changing the brackets, or making them superscript.</p>
 <p>As mentioned before, the bst file is the one responsible for building the reference list. Let's have a (brief) look at how it's structured:</p>
-<div class="highlight"><pre>ENTRY
+<div class="highlight"><pre><span></span>ENTRY
 <span class="nb">{</span> ... <span class="nb">}</span>
 <span class="nb">{</span> ... <span class="nb">}</span>
 <span class="nb">{</span> ... <span class="nb">}</span>
@@ -342,13 +342,13 @@ EXECUTE <span class="nb">{</span> ... <span class="nb">}</span>
 <li><strong>REVERSE</strong>: Like ITERATE, but the functions are executed from the last entries to the first ones.</li>
 </ul>
 <p>Usually it's better not to modify the bst file, unless you really need to; if you're looking for a particular format there are hundreds of styles that can be downloaded (for example lots of journals have made their citation styles available for download). If you want to create a style file from scratch an useful tool could be <strong>custom-bib</strong>; you just need to type from the command line:</p>
-<div class="highlight"><pre>latex makebst.tex
+<div class="highlight"><pre><span></span>latex makebst.tex
 </pre></div>
 
 
 <p>This will start a <em>Q&amp;A</em> session in which you'll be required to answer some easy questions about the structure of the file that you want to create. In the end a bst file will be produced.</p>
 <h1>References and useful links</h1>
-<hr />
+<hr>
 <ul>
 <li><a href="http://en.wikibooks.org/wiki/LaTeX">Latex Wiki</a></li>
 <li><a href="https://tobi.oetiker.ch/lshort/lshort.pdf">The Not So Short Introduction to Latex</a></li>
@@ -359,9 +359,9 @@ EXECUTE <span class="nb">{</span> ... <span class="nb">}</span>
 </ul>
 <h1></h1>
 <h1>Exercise</h1>
-<hr />
+<hr>
 <p>The exercise consists of two parts: in the first one you'll be required to reproduce the document as best as you can, while in the second part you'll be required to deal with the bibliography using BibTeX.</p>
-<p><a href="http://computationalmodelling.bitbucket.org/tools/bibtex/Exercise.pdf">Exercise</a></p>
+<p><a href="./bibtex/Exercise.pdf">Exercise</a></p>
     </div><!-- /.entry-content -->
 
   </article>

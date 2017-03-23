@@ -25,7 +25,236 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./mercurial.html">Mercurial</a></h1>
+                    <h1 class="entry-title"><a href="./continuous-integration.html">Continuous Integration for Scientists</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-02-21T16:00:00+01:00">
+                Published: Sun 21 February 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-21T16:00:00+01:00">
+                Updated: Sun 21 February 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-ryan-pepper.html">Ryan Pepper</a>
+                        <a class="url fn" href="./author-alvaro-perez-diaz.html">Alvaro Perez-Diaz</a>
+        </address>
+<p>In <a href="./category-programming.html">Programming</a>. </p>
+<p>tags: <a href="./tag-python.html">Python</a> <a href="./tag-github.html">GitHub</a> <a href="./tag-git.html">Git</a> <a href="./tag-testing.html">Testing</a> </p>
+</footer><!-- /.post-info --><p>This blog entry accompanies a workshop delivered on 22/02/2016 as part of Advanced Computational Methods II. It can also be used as standalone exercise.</p>
+<h1>Continuous Integration - What is the point?</h1>
+<p>Continuous integration (CI) is a method for automatically testing software whenever you reach a milestone in the development process. These milestones should be small; the addition of a new function, for example. Using version control (as all good programmers should!) and CI allows you to see immediately when a new feature has broken something, which leads to cleaner code, a faster development process and considerably less bug hunting.</p>
+<h1>Getting Started - a Guided Exercise</h1>
+<p>This turorial uses Python, GitHub and CircleCI to provide a simple example illustrating the main features of Continuous Integration.</p>
+<h2>Installation</h2>
+<p>If you're using OS X or Linux on your personal laptop, you can just follow our instructions straight away: you just need access to command line, and <em>git</em> and <em>Python</em> installed. If you are using Windows, it is probably best to use a Virtual Machine with a Linux distribution on it: you can use <a href="https://www.virtualbox.org/">Virtual Box</a> and the following <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003lubuntu.ova">image</a>.</p>
+<p>You will also need GitHub and CircleCI accounts, both services are free.</p>
+<h2>Create your repository</h2>
+<p>Set up an account on GitHub if you don't already have one, and create a public repository called <em>continuousintegration</em>. Make sure you select the option to initialise with a README.md file. Clone this repository to your computer and change to the directory using.</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/yourusername/continuousintegration.git
+<span class="nb">cd</span> continuousintegration
+</pre></div>
+
+
+<h2>Write your tests and try the CI service</h2>
+<p>We are going to use Python for the demonstration of the Circle CI service, just for simplicity but you can use any language provided it can be installed on a Debian Linux distribution (which is what Circle is based on), and it has a unit testing framework (or the functionality exists to wrap the language so it can be accessed in a language which does).</p>
+<p>We will guide you through a simple example of testing a function which generates the fibonacci sequence elements.</p>
+<p>Starting out simply, create a file called test_fibonacci.py in the directory. We will start by writing a test to compare the output from a function called Fibonacci</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_fibonacci</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    In this function we import the module fibonacci.py,</span>
+<span class="sd">    and test it the function Fibonacci against known</span>
+<span class="sd">    values.</span>
+<span class="sd">    Fibonacci(n)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">fibonacci</span> <span class="kn">as</span> <span class="nn">fb</span>
+    <span class="k">assert</span> <span class="n">fb</span><span class="o">.</span><span class="n">Fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">55</span>
+    <span class="k">assert</span> <span class="n">fb</span><span class="o">.</span><span class="n">Fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+</pre></div>
+
+
+<p>Commit this file and push it to the GitHub repository </p>
+<div class="highlight"><pre><span></span>git add test_fibonacci.py
+git commit -m <span class="s1">&#39;Added first test&#39;</span>
+git push
+</pre></div>
+
+
+<p>Now, we clearly haven't written the function Fibonacci yet, but we'll show how to set up CircleCI so that you <em>know</em> you haven't written the function yet.</p>
+<p>Go to <a href="http://www.circleci.com">CircleCI</a>, and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository <em>continuousintegration</em>, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."</p>
+<p><img alt="No tests!" src="./continuous-integration/image/no_tests.png"></p>
+<p>The next step is therefore to set the build environment up so that the virtual machine will run tests when we then push a commit. </p>
+<h2>CircleCI Configuration</h2>
+<p>Create a file in the <em>continuousintegration</em> folder on your computer called circle.yml. This file is used to specify programmes which need to be installed, such as interpreters or compilers.</p>
+<p>Circle has many prebuilt binaries of common programming languages, to avoid using more compute time than necessary. You can see a full list of these <a href="https://circleci.com/docs/environment">here</a>. Below, you can see how we initiate a machine using the <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">London timezone</a>, and Python 3.5.0.</p>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">machine</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">timezone</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Europe/London</span>
+  <span class="l l-Scalar l-Scalar-Plain">python</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3.5.0</span>
+</pre></div>
+
+
+<p>We now need to specify the dependencies our project needs to run. We do this with a 'dependencies' block as follows:</p>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">dependencies</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">pre</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pip install pytest</span>
+</pre></div>
+
+
+<p>You can install more packages as needed in your own project. If, for example you wanted to install a non-python project you could run any bash script here, pull packages from apt</p>
+<p>Finally, we need to tell Circle what to run. In the case of our example, we can just use the following to run our simple test:</p>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">test</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">override</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">py.test -v</span>
+</pre></div>
+
+
+<p>We should now commit the circle.yml file to the repository:</p>
+<div class="highlight"><pre><span></span>git add circle.yml
+git commit -m <span class="s2">&quot;Added CircleCI config file&quot;</span>
+git push
+</pre></div>
+
+
+<p>Then we can go back to the CicleCI website and wait for the tests to run. The test runs and fails as the function we are testing doesn't exist (yet).</p>
+<p><img alt="Tests failed!" src="./continuous-integration/image/failed.png"></p>
+<p><img alt="No module Fibonacci!" src="./continuous-integration/image/no_module_fibonacci.png"></p>
+<h2>Add the CircleCI status badge to your GitHub repository (very handy!)</h2>
+<p>Just add the following code to the README.md file in your repository, make sure you change <em>yourusername</em> by your actual username:</p>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="o">!</span><span class="p">[</span><span class="n">Circle</span> <span class="n">CI</span><span class="p">](</span><span class="nl">https</span><span class="p">:</span><span class="c1">//circleci.com/gh/yourusername/continuousintegration.svg?style=svg)](https://circleci.com/gh/yourusername/continuousintegration)</span>
+</pre></div>
+
+
+<p>Add the changes, commit and push to GitHub:</p>
+<div class="highlight"><pre><span></span>git add README.md
+git commit -m <span class="s2">&quot;Added CircleCI badge to README file&quot;</span>
+git push
+</pre></div>
+
+
+<p>Now, when you go to your GitHub repository you should see a red badge saying "Failed":</p>
+<p>![No tests!]({filename}/continuous-integration/image/badge_failed.png | width=100)</p>
+<p>We will turn it to green in the next step!</p>
+<h2>Write the actual code and pass the tests!</h2>
+<p>Let's now write the actual Fibonacci function we wish to test: create a file fibonacci.py and type the following naïve code:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the n-th value of the Fibonacci sequence</span>
+<span class="sd">    [0, 1, 1, 2, 3, 5, 8, 13, ...]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>We can now commit our changes again:</p>
+<div class="highlight"><pre><span></span>git add fibonacci.py
+git commit -m <span class="s2">&quot;Added Fibonacci function in file fibonacci.py&quot;</span>
+git push
+</pre></div>
+
+
+<p>and get our first green light message!</p>
+<p><img alt="No tests!" src="./continuous-integration/image/passed.png"></p>
+<p>We can check that indeed, our test has passed successfully:</p>
+<p><img alt="No tests!" src="./continuous-integration/image/test_passed.png"></p>
+<p>and we have a green badge in our GitHub account:</p>
+<p><img alt="No tests!" src="./continuous-integration/image/badge_passed.png"></p>
+<h2>Add more tests</h2>
+<p>Say that we want to test that our function does something sensible with an invalid input - the Pythonic way of handling an invalid value is to throw an exception. We can modify our test to check that exceptions are thrown by the function for cases such as:</p>
+<ul>
+<li>A negative input.</li>
+<li>A non integer input.</li>
+</ul>
+<p>We do this by importing the unittest module, which comes with Python, and creating a test class which inherits from the class TestCase. We then use the TestCase function assertRaises() to check the type of exception thrown when the Fibonacci function is called with values -5 and 5.1.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">FibExceptions</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_fibonacci</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        In this function we import the module fibonacci.py,</span>
+<span class="sd">        and test it the function Fibonacci against known</span>
+<span class="sd">        values.</span>
+<span class="sd">        Fibonacci(n)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">fibonacci</span> <span class="kn">as</span> <span class="nn">fb</span>
+        <span class="k">assert</span> <span class="n">fb</span><span class="o">.</span><span class="n">Fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">55</span>
+        <span class="k">assert</span> <span class="n">fb</span><span class="o">.</span><span class="n">Fibonacci</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span>
+
+    <span class="k">def</span> <span class="nf">test_Fibonacci_throws_exception</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        We test here that when a negative value is passed as n</span>
+<span class="sd">        to the Fibonacci function, it throws an exception.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">fibonacci</span> <span class="kn">as</span> <span class="nn">fb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">fb</span><span class="o">.</span><span class="n">Fibonacci</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span> 
+
+
+    <span class="k">def</span> <span class="nf">test_Fibonacci_float_handling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tests that input is an integer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">import</span> <span class="nn">fibonacci</span> <span class="kn">as</span> <span class="nn">fb</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">fb</span><span class="o">.</span><span class="n">Fibonacci</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This test then passes with a modified Fibonacci function:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the n-th value of the Fibonacci sequence</span>
+<span class="sd">    [0, 1, 1, 2, 3, 5, 8, 13, ...]. Throws an exception</span>
+<span class="sd">    for a non-valid input (n &lt; 0 or n not integer).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be greater than zero&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">round</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be a whole number&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Commit and push again, and go to your CircleCI page, you should see a message saying that the three tests passed successfully!</p>
+<h1>SSH access in a CircleCI build</h1>
+<p>It's possible to add compilers, programs and your own code to CircleCI just by adding additional dependencies to the circle.yml file. It may be that you're not sure that it something will compile, or it's possible that a dependency is not present in the Ubuntu apt package manager. You may want to see specifically why a test failed, and check a modified version of the code works. If this is the case, it is possible to use SSH to log into a build box and check! </p>
+<p>In order to do this, you must first set up SSH access with your GitHub account. If you do not already have this set up, following <a href="https://help.github.com/articles/generating-an-ssh-key/">these instructions on the GitHub site</a></p>
+<p>Now, navigate to the CircleCI page for your repository. In the latest build, you can see a <em>Rebuild</em> menu - click the arrow to expand the list, and select <em>Rebuid with SSH</em>. </p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh-menu.png"></p>
+<p>The build will then start, and you can then see a list of Containers, and the associated commands needed to login. For our simple case, we should see only something like the following, with a single Container:</p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh-address.png"></p>
+<p>If you then copy the highlighted text, and execute it in a terminal, you can log into the box and do whatever you like. As a warning - if you are disconnected, it may mean that you are using too much memory in the remote box.</p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh.png"></p>
+<h1>Where to from here?</h1>
+<p>We've shown you some very brief and easy things to do with CircleCI. Some more advanced features that you may like to try out are:</p>
+<ul>
+<li><a href="https://circleci.com/docs/setting-up-parallelism">Parallelism</a> - you are able to split your tests across multiple boxes in order to reduce the time taken to test.</li>
+<li><a href="https://circleci.com/docs/how-cache-works">Dependency Caching</a> In order to spend less time building the Virtual Machine, you can cache directories of other dependencies or compiled code.</li>
+<li><a href="https://circleci.com/docs/docker">Docker</a> - Circle also offers some basic support for running Docker inside your build.</li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./mercurial.html" rel="bookmark"
+                           title="Permalink to Mercurial">Mercurial</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-02-26T00:00:00+01:00">
                 Published: Thu 26 February 2015
@@ -36,7 +265,7 @@
         </address>
 <p>In <a href="./category-mercurial-basics.html">mercurial-basics</a>. </p>
 <p>tags: <a href="./tag-infrastructure.html">Infrastructure</a> <a href="./tag-productivity.html">Productivity</a> <a href="./tag-reproducibility.html">Reproducibility</a> <a href="./tag-testing.html">Testing</a> </p>
-</footer><!-- /.post-info --><div class="section" id="introduction-to-version-control-using-mercurial">
+</footer><!-- /.post-info -->                <div class="section" id="introduction-to-version-control-using-mercurial">
 <h2><a class="toc-backref" href="#id1">Introduction to version control (using Mercurial)</a></h2>
 <blockquote>
 <img alt="Mercurial logo" src="./mercurial-basics/mercurial-logo.jpeg" style="width: 20%;" />
@@ -54,1020 +283,10 @@
 <li><a class="reference internal" href="#terminology" id="id8">Terminology</a></li>
 <li><a class="reference internal" href="#getting-started-with-hg" id="id9">Getting started with hg</a></li>
 <li><a class="reference internal" href="#initialise-hg-repository" id="id10">Initialise hg repository</a></li>
-<li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files</a></li>
-<li><a class="reference internal" href="#in-built-help-function" id="id12">In-built help function</a></li>
-<li><a class="reference internal" href="#first-steps-1-adding-files" id="id13">First steps 1: Adding files</a></li>
-<li><a class="reference internal" href="#first-steps-2-checking-status" id="id14">First steps 2: checking status</a></li>
-<li><a class="reference internal" href="#first-steps-3-modifying-the-file" id="id15">First steps 3: modifying the file</a></li>
-<li><a class="reference internal" href="#first-steps-4-review-the-change" id="id16">First steps 4: Review the change</a></li>
-<li><a class="reference internal" href="#first-steps-5-the-history-again" id="id17">First steps 5: The history (again)</a></li>
-<li><a class="reference internal" href="#first-steps-6-adding-another-file" id="id18">First steps 6: Adding another file</a></li>
-<li><a class="reference internal" href="#first-steps-7-study-the-history" id="id19">First steps 7: Study the history</a></li>
-<li><a class="reference internal" href="#other-ways-of-reading-the-history-and-guis" id="id20">Other ways of reading the history (and GUIs)</a></li>
-<li><a class="reference internal" href="#see-which-line-was-written-when-and-by-whom" id="id21">See which line was written when (and by whom!)</a></li>
-<li><a class="reference internal" href="#commit-messages" id="id22">Commit messages</a></li>
-<li><a class="reference internal" href="#typical-cycle" id="id23">Typical cycle</a></li>
-<li><a class="reference internal" href="#the-update-command" id="id24">The update command</a></li>
-<li><a class="reference internal" href="#the-cat-command" id="id25">The cat command</a></li>
-<li><a class="reference internal" href="#adding-user-defined-tags" id="id26">Adding user-defined tags</a></li>
-<li><a class="reference internal" href="#user-defined-tag-examples" id="id27">User-defined tag examples</a></li>
-<li><a class="reference internal" href="#what-are-revision-specifiers" id="id28">What are revision specifiers</a></li>
-<li><a class="reference internal" href="#removing-files-from-the-repository" id="id29">Removing files from the repository</a></li>
-<li><a class="reference internal" href="#renaming-files-and-directories" id="id30">Renaming files and directories</a></li>
-<li><a class="reference internal" href="#where-is-all-the-history-stored" id="id31">Where is all the history stored?</a></li>
-<li><a class="reference internal" href="#reverting-changes" id="id32">Reverting changes</a></li>
-<li><a class="reference internal" href="#uncommitting-the-commit" id="id33">Uncommitting the commit</a></li>
-<li><a class="reference internal" href="#making-copies-backups-of-the-repository" id="id34">Making copies (backups?) of the repository</a></li>
-<li><a class="reference internal" href="#multiple-repositories" id="id35">Multiple repositories</a></li>
-<li><a class="reference internal" href="#multiple-repositories-one-master-repository" id="id36">Multiple repositories: one master repository</a></li>
-<li><a class="reference internal" href="#location-of-multiple-repositories" id="id37">Location of multiple repositories</a></li>
-<li><a class="reference internal" href="#scientific-truth-and-reproducibility" id="id38">Scientific truth and <em>reproducibility</em></a></li>
-<li><a class="reference internal" href="#summary-of-important-commands" id="id39">Summary of important commands</a></li>
-<li><a class="reference internal" href="#abbreviating-commands" id="id40">Abbreviating commands</a></li>
-<li><a class="reference internal" href="#odd-bits-of-information" id="id41">Odd bits of information</a></li>
-<li><a class="reference internal" href="#advanced-functionality" id="id42">Advanced functionality</a></li>
-<li><a class="reference internal" href="#useful-entries-in-user-hg-configuration-file" id="id43">Useful entries in user hg configuration file</a></li>
-<li><a class="reference internal" href="#what-about-git" id="id44">What about git?</a></li>
-<li><a class="reference internal" href="#summary" id="id45">Summary</a></li>
-<li><a class="reference internal" href="#download-repository-created-in-this-archive" id="id46">Download repository created in this archive</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="prerequisits-for-this-session">
-<h3><a class="toc-backref" href="#id2">Prerequisits for this session</a></h3>
-<ul>
-<li><p class="first">Have working mercurial installation.  You can check for an existing installation using the command
-<tt class="docutils literal">hg <span class="pre">--version</span></tt>, which should display some output starting with:</p>
-<pre class="literal-block">
-Mercurial Distributed SCM (version 3.1)
-(see http://mercurial.selenic.com for more information)
-</pre>
-<p>If this is not working, you need to install Mercurial: see <a class="reference internal" href="#installation">Installation</a></p>
-</li>
-<li><p class="first">If you want to explore the example repository used in this session, you can download it from
-<a class="reference external" href="./mercurial-basics/project1.tar.gz">project1.tar.gz</a>. To unpack the archive, you can use <tt class="docutils literal">tar xfvz project1.tar.gz</tt>.</p>
-<p>However, the recommended exercise is to follow the examples in the notes below and create your own repository as you work through the material.</p>
-</li>
-</ul>
-</div>
-<hr class="docutils" />
-<div class="section" id="video-recordings">
-<h3><a class="toc-backref" href="#id3">Video recordings</a></h3>
-<p>Video recording part one:</p>
-<iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=2beff262-aebe-4568-973f-6cdf12b0e5a3&v=1" width="450" height="300" frameborder="0"></iframe><p>Video recording part two:</p>
-<iframe src="https://coursecast.soton.ac.uk/Panopto/Pages/Embed.aspx?id=8ee6033b-ea64-41b0-94ce-f8a751904eca&v=1" width="450" height="300" frameborder="0"></iframe></div>
-<hr class="docutils" />
-<div class="section" id="why-version-control-single-user">
-<h3><a class="toc-backref" href="#id4">Why version control - Single user</a></h3>
-<ul>
-<li><p class="first">often we work on documents (or a set of files) for a long time
-(days, weeks, months)</p>
-</li>
-<li><p class="first">we (should) have backup copies in other places</p>
-</li>
-<li><p class="first">need to know:</p>
-<ul class="simple">
-<li>regularly: what is the most recent version</li>
-<li>sometimes: how did the project look like some time ago (say two weeks)</li>
-</ul>
-</li>
-<li><p class="first">Common approaches:</p>
-<pre class="literal-block">
-file-1.doc
-file-2.doc
-file-2a.doc
-file-3.doc
-...
-</pre>
-<p>or</p>
-<img alt="Invented names of different versions of one document.  Version control provides a better solution." src="./mercurial-basics/versioning-grant-proposals-fake.png" style="width: 90%;" />
-<p>or</p>
-<img alt="Invented names for fortran code versions. Version control provides a better solution." src="./mercurial-basics/versioning-code-fake.png" style="width: 50%;" />
-<p>We can do much better using <em>version control</em> tools.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="why-version-control-in-team">
-<h3><a class="toc-backref" href="#id5">Why version control - in Team</a></h3>
-<ul class="simple">
-<li>multiple people working on code</li>
-<li>may work on one file simultaneously</li>
-<li>need<ul>
-<li>tracking of versions</li>
-<li>merging of changes from different people</li>
-</ul>
-</li>
-<li>Impossible to do manually -&gt; Need version control</li>
-</ul>
-</div>
-<div class="section" id="this-session-on-version-control-and-mercurial">
-<h3><a class="toc-backref" href="#id6">This session on Version Control and Mercurial</a></h3>
-<ul>
-<li><p class="first">will introduce <em>idea</em> of version control together with</p>
-</li>
-<li><p class="first"><em>Mercurial</em> which is a particular version control package</p>
-<p>Homepage: <a class="reference external" href="http://www.selenic.com/mercurial">http://www.selenic.com/mercurial</a></p>
-<p>Mercurial is abbreviated <tt class="docutils literal">hg</tt> (from the chemical element)</p>
-</li>
-</ul>
-</div>
-<div class="section" id="installation">
-<h3><a class="toc-backref" href="#id7">Installation</a></h3>
-<p>Download <em>binary</em> from  <a class="reference external" href="http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages">http://www.selenic.com/mercurial/wiki/index.cgi/BinaryPackages</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Linux:</th><td class="field-body">usually standard package of distribution. On Ubuntu/Debian, you can use <tt class="docutils literal">sudo <span class="pre">apt-get</span> install mercurial</tt> to install it.</td>
-</tr>
-<tr class="field"><th class="field-name">MacOS:</th><td class="field-body">compile from source or download binary</td>
-</tr>
-<tr class="field"><th class="field-name">Windows:</th><td class="field-body">recommend TortoiseHg at TortoiseHg <a class="reference external" href="http://www.selenic.com/mercurial/wiki/index.cgi/TortoiseHg">http://www.selenic.com/mercurial/wiki/index.cgi/TortoiseHg</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="terminology">
-<h3><a class="toc-backref" href="#id8">Terminology</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Repository:</th><td class="field-body"><p class="first">something keeping track of all changes to the project for all the past (hidden in <tt class="docutils literal">.hg</tt>)</p>
-<p>You can think of this as a (hidden) collection of the files
-<tt class="docutils literal"><span class="pre">file-1.doc</span></tt>, <tt class="docutils literal"><span class="pre">file-2.doc</span></tt>, <tt class="docutils literal"><span class="pre">file-3.doc</span></tt>, <tt class="docutils literal"><span class="pre">file-4.doc</span></tt>.</p>
-</td>
-</tr>
-<tr class="field"><th class="field-name">Working copy:</th><td class="field-body"><p class="first">the set (visible) files (in the working directory), i.e. one copy of
-the project.</p>
-<p class="last">Typically, this will contain the most recent version
-(i.e. <tt class="docutils literal"><span class="pre">file-4.doc</span></tt>)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="getting-started-with-hg">
-<h3><a class="toc-backref" href="#id9">Getting started with hg</a></h3>
-<ul>
-<li><p class="first">Suppose we need to write a Python program in a directory <tt class="docutils literal">project1</tt></p>
-</li>
-<li><p class="first">Create directory and change into directory:</p>
-<pre class="literal-block">
-$&gt; mkdir project1
-$&gt; cd project1
-$project1&gt;
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="initialise-hg-repository">
-<h3><a class="toc-backref" href="#id10">Initialise hg repository</a></h3>
-<ul>
-<li><p class="first">Need to do this only once for a given repository:</p>
-<pre class="literal-block">
-$project1&gt; hg init
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="checking-the-status-of-files">
-<h3><a class="toc-backref" href="#id11">Checking the status of files</a></h3>
-<ul>
-<li><p class="first">Suppose our first file is <tt class="docutils literal">hello.py</tt> in the project1 directory:</p>
-<pre class="literal-block">
-def hello(msg):
-   print(&quot;Hello World: %s&quot; % msg)
-</pre>
-</li>
-<li><p class="first">We can ask <tt class="docutils literal">hg</tt> whether it knows about the file:</p>
-<pre class="literal-block">
-$project1&gt; hg status hello.py
-? hello.py
-</pre>
-<p>We could also have used:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-? hello.py
-</pre>
-<p>and <tt class="docutils literal">hg</tt> will report the status of all files in the directory.</p>
-<p><tt class="docutils literal">?</tt> means: unknown.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="in-built-help-function">
-<h3><a class="toc-backref" href="#id12">In-built help function</a></h3>
-<ul>
-<li><p class="first">Mercurial has a fairly comprehensive help command:</p>
-<pre class="literal-block">
-$&gt; hg help
-</pre>
-<p>Or to get help for a particular command:</p>
-<pre class="literal-block">
-$&gt; hg help add
-hg add [OPTION]... [FILE]...
-
-add the specified files on the next commit
-
-    Schedule files to be version controlled and added to the
-    repository.
-
-    The files will be added to the repository at the next
-    commit. To undo an add before that, see hg revert.
-
-    If no names are given, add all files in the repository.
-...
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-1-adding-files">
-<h3><a class="toc-backref" href="#id13">First steps 1: Adding files</a></h3>
-<ul>
-<li><p class="first">Add this file to the repository (i.e. tell <tt class="docutils literal">hg</tt> to track it):</p>
-<pre class="literal-block">
-$project1&gt; hg add hello.py
-$project1&gt;
-</pre>
-<p>At this stage, <tt class="docutils literal">hg</tt> knows that it should add the file. Let's check this (via the status command):</p>
-<pre class="literal-block">
-$project1&gt; hg status
-A hello.py
-</pre>
-<p><tt class="docutils literal">A</tt> stands for Added.</p>
-</li>
-<li><p class="first">Commit changes (ask <tt class="docutils literal">hg</tt> to take snapshot):</p>
-<pre class="literal-block">
-$project1&gt; hg commit -m &quot;Added my first file&quot;
-$project1&gt;
-</pre>
-</li>
-<li><p class="first">If at this point mercurial complains that no username is defined:</p>
-<pre class="literal-block">
-abort: no username supplied
-(use &quot;hg config --edit&quot; to set your username)
-</pre>
-<p>then we need to follow the instructions, and use the <tt class="docutils literal">hg config
-<span class="pre">--edit</span></tt> command. This will open the mercurial user configuration
-file in an editor.  We need to provide a username (and email) on the
-line starting with <tt class="docutils literal">username =</tt> that is provided in the
-configuration template.</p>
-<p>[On Linux and Mac OS X, the user configuration file is in
-<tt class="docutils literal"><span class="pre">~/.hgrc</span></tt> and can also be edited directly.]</p>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-2-checking-status">
-<h3><a class="toc-backref" href="#id14">First steps 2: checking status</a></h3>
-<ul>
-<li><p class="first">Check status:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-$project1&gt;
-</pre>
-<p><em>no news is good news</em>, i.e. all files in the directory are
-up-to-date (=identical to last snap-shot)</p>
-</li>
-<li><p class="first">Study history of repository (the log):</p>
-<pre class="literal-block">
-$project1&gt; hg log
-changeset:   0:f8087bdd8fc8
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-3-modifying-the-file">
-<h3><a class="toc-backref" href="#id15">First steps 3: modifying the file</a></h3>
-<ul>
-<li><p class="first">extend programm <tt class="docutils literal">hello.py</tt> to read:</p>
-<pre class="literal-block">
-def hello(msg):
-           print(&quot;Hello World: %s&quot; % msg)
-
-hello(&quot;from hello.py&quot;)
-</pre>
-</li>
-<li><p class="first">Has <tt class="docutils literal">hg</tt> realised we have changed the file?:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-M hello.py
-</pre>
-<p>Yes, <tt class="docutils literal">M</tt> stands for <tt class="docutils literal">M</tt>odified.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-4-review-the-change">
-<h3><a class="toc-backref" href="#id16">First steps 4: Review the change</a></h3>
-<ul>
-<li><p class="first">What is the <em>diff</em>erence (in comparison to the last snapshot):</p>
-<pre class="literal-block">
-$project1&gt; hg diff
-diff -r f8087bdd8fc8 hello.py
---- a/hello.py  Thu May 15 23:24:31 2008 +0100
-+++ b/hello.py  Thu May 15 23:29:32 2008 +0100
-&#64;&#64; -1,2 +1,4 &#64;&#64;
- def hello(msg):
-        print(&quot;Hello World: %s&quot; % msg)
-+
-+hello(&quot;from hello.py&quot;)
-</pre>
-</li>
-<li><p class="first">Suppose we are happy with this change, and want to take a snap-shot: (i.e. <em>commit</em> the change):</p>
-<pre class="literal-block">
-$project1&gt; hg commit -m &quot;Adding main program&quot;
-$project1&gt;
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-5-the-history-again">
-<h3><a class="toc-backref" href="#id17">First steps 5: The history (again)</a></h3>
-<ul>
-<li><p class="first">Check out the history of the project:</p>
-<pre class="literal-block">
-$project1&gt; hg log
-changeset:   1:7bcacdc541fb
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="first-steps-6-adding-another-file">
-<h3><a class="toc-backref" href="#id18">First steps 6: Adding another file</a></h3>
-<p>We create a new file <tt class="docutils literal">README.txt</tt> which contains this line:</p>
-<pre class="literal-block">
-The hello.py program prints a friendly message.
-</pre>
-<p>Let's check the status, add, commit and check:</p>
-<pre class="literal-block">
-$project1&gt; hg status
-? README.txt
-$project1&gt; hg add README.txt
-$project1&gt; hg status
-A README.txt
-$project1&gt; hg commit -m &quot;Adding RENAME file&quot;
-$project1&gt; hg status
-$project1&gt;
-</pre>
-</div>
-<div class="section" id="first-steps-7-study-the-history">
-<h3><a class="toc-backref" href="#id19">First steps 7: Study the history</a></h3>
-<ul>
-<li><p class="first">Using the <tt class="docutils literal">hg log</tt> command:</p>
-<pre class="literal-block">
-$project1&gt; hg log
-changeset:   2:7a6262cf0acf
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:53:41 2008 +0100
-summary:     Adding REAME file
-
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">The <tt class="docutils literal"><span class="pre">-v</span></tt> flag shows files affected by each changeset:</p>
-<pre class="literal-block">
-$project1&gt; hg log -v
-changeset:   3:691317be5f4b
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Fri May 16 16:26:41 2008 +0100
-files:       .hgtags
-description:
-Added tag release 1.0 for changeset 7a6262cf0acf
-
-
-changeset:   2:7a6262cf0acf
-tag:         release 1.0
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:53:41 2008 +0100
-files:       README.txt
-description:
-Adding REAME file
-
-
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-files:       hello.py
-description:
-Adding main program
-
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-files:       hello.py
-description:
-Added my first file
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="other-ways-of-reading-the-history-and-guis">
-<h3><a class="toc-backref" href="#id20">Other ways of reading the history (and GUIs)</a></h3>
-<ul>
-<li><p class="first">Graphical interface:</p>
-<pre class="literal-block">
-$project1&gt; hg view
-</pre>
-<img alt="Snapshot of hg view." src="./mercurial-basics/hgview.png" style="width: 80%;" />
-</li>
-<li><p class="first">Using webserver:</p>
-<pre class="literal-block">
-$project1&gt; hg serve
-</pre>
-<p>and point webbrowser to <a class="reference external" href="http://localhost:8000">http://localhost:8000</a></p>
-<img alt="Snapshot of hg view." src="./mercurial-basics/hgserve.png" style="width: 80%;" />
-</li>
-<li><p class="first">Use <tt class="docutils literal">hg glog</tt> (for <tt class="docutils literal">graphlog</tt>):</p>
-<pre class="literal-block">
-$project1&gt; hg glog
-&#64;  changeset:   3:691317be5f4b
-|  tag:         tip
-|  user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-|  date:        Fri May 16 16:26:41 2008 +0100
-|  summary:     Added tag release 1.0 for changeset 7a6262cf0acf
-|
-o  changeset:   2:7a6262cf0acf
-|  tag:         release 1.0
-|  user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-|  date:        Thu May 15 23:53:41 2008 +0100
-|  summary:     Adding REAME file
-|
-o  changeset:   1:7bcacdc541fb
-|  user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-|  date:        Thu May 15 23:35:53 2008 +0100
-|  summary:     Adding main program
-|
-o  changeset:   0:f8087bdd8fc8
-   user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-   date:        Thu May 15 23:24:31 2008 +0100
-   summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">Use graphical user interfaces (such as Sourcetree)</p>
-<img alt="Snapshot of Sourcetree." src="./mercurial-basics/sourcetree.png" style="width: 80%;" />
-</li>
-<li><p class="first">Use service such as bitbucket or github</p>
-<img alt="Snapshot of Sourcetree." src="./mercurial-basics/bitbucket.png" style="width: 80%;" />
-</li>
-</ul>
-</div>
-<div class="section" id="see-which-line-was-written-when-and-by-whom">
-<h3><a class="toc-backref" href="#id21">See which line was written when (and by whom!)</a></h3>
-<pre class="literal-block">
-$project1&gt; hg blame hello.py
-0: def hello(msg):
-0:      print &quot;Hello World: %s&quot; % msg
-1:
-1: hello(&quot;from hello.py&quot;)
-
-$project1&gt; hg blame -u hello.py
-fangohr: def hello(msg):
-fangohr:        print(&quot;Hello World: %s&quot; % msg)
-fangohr:
-fangohr: hello(&quot;from hello.py&quot;)
-</pre>
-</div>
-<div class="section" id="commit-messages">
-<h3><a class="toc-backref" href="#id22">Commit messages</a></h3>
-<p>Commit messages should be used to explain what has been changed in this commit, or what this commit provides / fixes / etc. For example:</p>
-<ul class="simple">
-<li>&quot;starting implementation of new feature X&quot;</li>
-<li>&quot;as used for figure 3 in Nature paper&quot;</li>
-<li>&quot;have added iterative method to solver suite&quot;</li>
-<li>&quot;implemented suggestion from examiner in transfer viva&quot;</li>
-</ul>
-<p>The purpose of them is to (help) find a particular version of the code later. The messages are not limited to one line but can be very long if desired.</p>
-</div>
-<div class="section" id="typical-cycle">
-<h3><a class="toc-backref" href="#id23">Typical cycle</a></h3>
-<p>While programming (or writing a report, creating a web page, etc), we
-tend to follow this cycle:</p>
-<ol class="arabic simple">
-<li>do the work (i.e. modify files)</li>
-<li>commit changes with commit message</li>
-<li>back to 1.</li>
-</ol>
-<p>Only occasionally, we need to do special things:</p>
-<blockquote>
-<ul class="simple">
-<li>examine the history (partly shown)</li>
-<li>go back to an older snap shot (next topic)</li>
-</ul>
-</blockquote>
-</div>
-<div class="section" id="the-update-command">
-<h3><a class="toc-backref" href="#id24">The update command</a></h3>
-<p><tt class="docutils literal">update</tt> refers to the files in the <em>working directory</em> (not the
-repository), and allows 'time travel'.</p>
-<ul>
-<li><p class="first">To go back to revision 0, use:</p>
-<pre class="literal-block">
-$project1&gt; hg update -r 0
-1 files updated, 0 files merged, 1 files removed, 0 files unresolved
-</pre>
-<p>(Similarly, can use <tt class="docutils literal">hg update <span class="pre">-r</span> 1</tt>, <tt class="docutils literal">hg update <span class="pre">-r</span> 2</tt> etc)</p>
-</li>
-<li><p class="first">What files are in the working directory?:</p>
-<pre class="literal-block">
-$project1&gt; ls
-hello.py
-</pre>
-</li>
-<li><p class="first">What is the content?:</p>
-<pre class="literal-block">
-$project1&gt; cat hello.py
-def hello(msg):
-        print &quot;Hello World: %s&quot; % msg
-</pre>
-</li>
-<li><p class="first">To  check the version of the files in the working directory, use the <tt class="docutils literal">parent</tt> command:</p>
-<pre class="literal-block">
-$project1&gt; hg parent
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">To go to the most recent version in the repository (the <em>tip</em>) use:</p>
-<pre class="literal-block">
-$project1&gt; hg update tip
-</pre>
-<p>or simply <tt class="docutils literal">hg update</tt>.</p>
-</li>
-<li><p class="first">Can also request the latest snap shot taken before 23:50 on 15 May 2008:</p>
-<pre class="literal-block">
-$project1&gt; hg update --date &quot;&lt;2008-05-15 23:45&quot;
-Found revision 1 from Thu May 15 23:35:53 2008 +0100
-0 files updated, 0 files merged, 1 files removed, 0 files unresolved
-</pre>
-<p>Check status of working directory:</p>
-<pre class="literal-block">
-$project1&gt; hg parents
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-</pre>
-<p>Useful if you happen to know that at a certain date something worked.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="the-cat-command">
-<h3><a class="toc-backref" href="#id25">The cat command</a></h3>
-<p>The <tt class="docutils literal">hg cat <span class="pre">-r</span> n FILE</tt> allows to send the FILE in revision <tt class="docutils literal">n</tt> to the stdout:</p>
-<pre class="literal-block">
-$project1&gt; hg cat -r 0 hello.py
-def hello(msg):
-  print(&quot;Hello World: %s&quot; % msg)
-$project1&gt; hg cat -r 1 hello.py
-def hello(msg):
-  print(&quot;Hello World: %s&quot; % msg)
-
-hello(&quot;from hello.py&quot;)
-</pre>
-<p>This is useful to see (or retrieve and redirect into a file) an older version of one file.
-The <tt class="docutils literal">update</tt> command will update all the files in the working repository to version <tt class="docutils literal">n</tt> and cannot operate on a single file.</p>
-</div>
-<div class="section" id="adding-user-defined-tags">
-<h3><a class="toc-backref" href="#id26">Adding user-defined tags</a></h3>
-<ul class="simple">
-<li>Version control is particularly important when maintaining software
-that is released to users.</li>
-<li>Also useful if we need to remember particular revisions (such as <tt class="docutils literal">interim report</tt>, <tt class="docutils literal">Masters thesis</tt>, ...)</li>
-</ul>
-</div>
-<div class="section" id="user-defined-tag-examples">
-<h3><a class="toc-backref" href="#id27">User-defined tag examples</a></h3>
-<p>Suppose we have released revision 2 as version 1.0 of the software, and we want to</p>
-<ul>
-<li><p class="first">Add a tag:</p>
-<pre class="literal-block">
-$project1&gt; hg tag -r 2 &quot;release 1.0&quot;
-</pre>
-</li>
-<li><p class="first">the <em>tags</em> command lists all defined tags:</p>
-<pre class="literal-block">
-$project1&gt; hg tags
-tip                                3:691317be5f4b
-release 1.0                        2:7a6262cf0acf
-</pre>
-</li>
-<li><p class="first">can also see tags in log:</p>
-<pre class="literal-block">
-$project1&gt; hg log
-
-changeset:   3:691317be5f4b
-tag:         tip
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Fri May 16 16:26:41 2008 +0100
-summary:     Added tag release 1.0 for changeset 7a6262cf0acf
-
-changeset:   2:7a6262cf0acf
-tag:         release 1.0
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:53:41 2008 +0100
-summary:     Adding REAME file
-
-changeset:   1:7bcacdc541fb
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:35:53 2008 +0100
-summary:     Adding main program
-
-changeset:   0:f8087bdd8fc8
-user:        Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-date:        Thu May 15 23:24:31 2008 +0100
-summary:     Added my first file
-</pre>
-</li>
-<li><p class="first">Can now use the tag &quot;release 1.0&quot; instead of the revision number if,
-say, we need to go back to that version:</p>
-<pre class="literal-block">
-$project1&gt; hg update -r &quot;release 1.0&quot;
-</pre>
-</li>
-<li><p class="first">You may want to t ag particular versions of your work,
-i.e. use tags like:</p>
-<ul class="simple">
-<li><tt class="docutils literal">interim_report</tt></li>
-<li><tt class="docutils literal">final_as_submitted</tt></li>
-<li><tt class="docutils literal">has bug</tt></li>
-<li><tt class="docutils literal"><span class="pre">as-submitted-to-Nature</span></tt></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="what-are-revision-specifiers">
-<h3><a class="toc-backref" href="#id28">What are revision specifiers</a></h3>
-<ul>
-<li><p class="first">Revisions (=snap-shots) are identified by</p>
-<ul class="simple">
-<li>hashes (such as 7a6262cf0acf) and</li>
-<li>integers (such as 2)</li>
-<li>user-defined tags (see <a class="reference internal" href="#adding-user-defined-tags">Adding user-defined tags</a>)</li>
-</ul>
-<p>The integers are easier to use.</p>
-</li>
-</ul>
-<div class="admonition caution">
-<p class="first admonition-title">Caution!</p>
-<p class="last">If you use the <tt class="docutils literal">push</tt>, <tt class="docutils literal">pull</tt> or <tt class="docutils literal">merge</tt> commands, the
-integers may change. See <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial tutorial</a> for details.</p>
-</div>
-</div>
-<div class="section" id="removing-files-from-the-repository">
-<h3><a class="toc-backref" href="#id29">Removing files from the repository</a></h3>
-<ul>
-<li><p class="first">To remove a file from the repository (say <tt class="docutils literal">README.txt</tt>), you can use:</p>
-<pre class="literal-block">
-$project1&gt; hg remove README.txt
-</pre>
-</li>
-<li><p class="first">Mercurial will tag the file for removal, and will delete it with the
-next commit.</p>
-</li>
-<li><p class="first">Note that the history of the file is not changed: we can always go
-back to earlier revisions and the file will be there.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="renaming-files-and-directories">
-<h3><a class="toc-backref" href="#id30">Renaming files and directories</a></h3>
-<p>You can easily rename a file with <tt class="docutils literal">hg</tt>. Suppose we need to rename
-<tt class="docutils literal">README.txt</tt> to <tt class="docutils literal">readme.txt</tt>:</p>
-<pre class="literal-block">
-$project1&gt; hg rename README.txt readme.txt
-</pre>
-<p>This (i) renames the file in the working directory and (ii) include
-the change in the repository the next time we commit.</p>
-<dl class="docutils">
-<dt>You could rename a file as follows (but we shouldn't!):</dt>
-<dd><ul class="first last simple">
-<li>copy <tt class="docutils literal">README.txt</tt> to <tt class="docutils literal">readme.txt</tt> without <tt class="docutils literal">hg</tt></li>
-<li>tell <tt class="docutils literal">hg</tt> to remove <tt class="docutils literal">README.txt</tt> from the repository and</li>
-<li>tell <tt class="docutils literal">hg</tt> to add <tt class="docutils literal">readme.txt</tt>.</li>
-</ul>
-</dd>
-</dl>
-<p>This his two disadvantages: (i) <tt class="docutils literal">hg</tt> cannot know that this is the
-same file and (ii) this will take much more disk space than using <tt class="docutils literal">hg
-rename</tt>.</p>
-</div>
-<div class="section" id="where-is-all-the-history-stored">
-<h3><a class="toc-backref" href="#id31">Where is all the history stored?</a></h3>
-<ul>
-<li><p class="first">The whole repository lives in a hidden directory with name <tt class="docutils literal">.hg</tt>.
-(it is hidden due to the leading dot.</p>
-<p>On Linux/Unix/Mac OS X, you can display hidden directories with the <tt class="docutils literal"><span class="pre">-a</span></tt> switch:</p>
-<pre class="literal-block">
-$project1&gt; ls -a
-.hg  README.txt  hello.py
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="reverting-changes">
-<h3><a class="toc-backref" href="#id32">Reverting changes</a></h3>
-<ul>
-<li><p class="first">Suppose you are working on file <tt class="docutils literal">hello.py</tt>. You start with the most recent version from the repository:</p>
-<pre class="literal-block">
-$project1&gt; hg update
-</pre>
-<p>You make some changes to <tt class="docutils literal">hello.py</tt>, and then realise that your
-changes were not useful, and you want to go back the last version
-from the repository.</p>
-<p>There are (at least) two options:</p>
-<blockquote>
-<ol class="arabic simple">
-<li>You delete the file manually and run <tt class="docutils literal">hg update</tt>.</li>
-<li>You use the revert command: <tt class="docutils literal">hg revert hello.py</tt>.</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="uncommitting-the-commit">
-<h3><a class="toc-backref" href="#id33">Uncommitting the commit</a></h3>
-<p>If you have committed something that you didn't want to commit, you
-can <em>undo</em> the last commit (but only the last commit!) with:</p>
-<pre class="literal-block">
-$project1&gt; hg rollback
-</pre>
-</div>
-<div class="section" id="making-copies-backups-of-the-repository">
-<h3><a class="toc-backref" href="#id34">Making copies (backups?) of the repository</a></h3>
-<p>You can either</p>
-<ul>
-<li><p class="first">just copy the whole <tt class="docutils literal">project1</tt> folder (which includes the hidden <tt class="docutils literal">.hg</tt> directory) to another place</p>
-</li>
-<li><p class="first">or (recommended): you can ask <tt class="docutils literal">hg</tt> to make the copy:</p>
-<pre class="literal-block">
-$project1&gt; cd ..
-$&gt; hg clone project1 my-backup-project1
-</pre>
-<p>Now you have an identical copy of the repository in directory
-<tt class="docutils literal"><span class="pre">my-backup-project1</span></tt>.</p>
-<p>-&gt; See also using <a class="reference internal" href="#multiple-repositories">multiple repositories</a> (pull, push, merge)</p>
-<p>Note: To propagate changes from the original repository (<tt class="docutils literal">project1</tt>) to the cloned copy (<tt class="docutils literal"><span class="pre">my-backup-project</span></tt>), do this:</p>
-<pre class="literal-block">
-$&gt; cd my-backup-project1
-$my-backup-project1&gt; hg pull
-</pre>
-</li>
-</ul>
-</div>
-<div class="section" id="multiple-repositories">
-<h3><a class="toc-backref" href="#id35">Multiple repositories</a></h3>
-<ul>
-<li><p class="first">When working with several people, one can have multiple repositories
-in different places:</p>
-<ul class="simple">
-<li>Developer A may be working on the graphical user interface while
-developer B is improving the numerical part of the code.</li>
-<li>In a Group Design Project report student A might be working on the
-introduction, student B on results chapter 1 and student C on the
-appendix of a large (LaTeX) document.</li>
-</ul>
-</li>
-<li><p class="first">Occasionally (maybe quite frequently), the changes in these
-repositories (or some of these) need to be combined (<em>merged</em>)</p>
-</li>
-<li><p class="first">We will cover this advanced topic only superficially for one
-particular setup (with one central master repository).</p>
-<p>There are many other ways in which (distributed) version control
-systems can be used. See <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial tutorial</a> for
-details.</p>
-</li>
-</ul>
-</div>
-<div class="section" id="multiple-repositories-one-master-repository">
-<h3><a class="toc-backref" href="#id36">Multiple repositories: one master repository</a></h3>
-<ol class="arabic">
-<li><p class="first">Create the master repository, say:</p>
-<pre class="literal-block">
-$&gt; mkdir master
-$&gt; cd master
-$master&gt; hg init .
-</pre>
-</li>
-<li><p class="first">Add any files that you have already, and commit.</p>
-</li>
-<li><p class="first">Now individuals can clone from the master to carry out their work:</p>
-<pre class="literal-block">
-$&gt; hg clone master my-copy-A
-$&gt; cd my-copy-A
-</pre>
-<ul>
-<li><p class="first">Do the work here, and and modify files, commit as many times as
-you like (may need <em>pull</em>; see below).</p>
-</li>
-<li><p class="first">When you have completed your work, commit everything and <em>push</em>
-your changes to the master (may need <em>pull</em> first):</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg push
-</pre>
-</li>
-</ul>
-</li>
-<li><p class="first">To import changes from the master repository (others could have
-done some work in the mean time) into <tt class="docutils literal"><span class="pre">my-copy-A</span></tt>, use the <em>pull</em>
-command:</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg commit          #commit all our changes first
-$my-copy-A&gt; hg pull
-</pre>
-<p>This will update the <em>repository</em> (not the working directory). To
-bring changes into the working directory, we have to <em>update</em>:</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg update
-</pre>
-<p>If there have been changes on files that we have worked on as well,
-a <em>merge</em> has to take place (command is <tt class="docutils literal">hg merge</tt>)</p>
-<ul>
-<li><p class="first">This is usually automatic and <tt class="docutils literal">hg</tt> will tell us if
-required.</p>
-</li>
-<li><p class="first">Rarely, one needs to edit a file manually during the
-merge.</p>
-</li>
-<li><p class="first">After a merge, we need to commit, typically like this:</p>
-<pre class="literal-block">
-$my-copy-A&gt; hg commit -m &quot;merge&quot;
-</pre>
-</li>
-</ul>
-</li>
-</ol>
-<p>Note that the extension <tt class="docutils literal">hg fetch</tt> automates the <tt class="docutils literal">pull, update, merge and commit if required</tt> sequence.</p>
-</div>
-<div class="section" id="location-of-multiple-repositories">
-<h3><a class="toc-backref" href="#id37">Location of multiple repositories</a></h3>
-<p>The <em>cloning</em>, <em>pull</em>ing and <em>push</em>ing between repositories can happen:</p>
-<ul class="simple">
-<li>on the same file system/computer, where multiple repositories are hosted in different subdirectories</li>
-<li>between computers using either<ul>
-<li>ssh or</li>
-<li>the web server</li>
-</ul>
-</li>
-<li>bitbucket and github offer webhosting of repositories.</li>
-</ul>
-<p>This is an advanced topic (see <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial Tutorial</a>).</p>
-<!-- comment:
-
-.. Caution::
-
-  When using multiple repositories, do not use integer revision
-  numbers to uniquely identify a version. -->
-</div>
-<div class="section" id="scientific-truth-and-reproducibility">
-<h3><a class="toc-backref" href="#id38">Scientific truth and <em>reproducibility</em></a></h3>
-<ul class="simple">
-<li>we tend to believe the 'results' or 'findings' of a research group
-(or individual), if other individuals and groups can <em>reproduce</em>
-them</li>
-<li>this implies that individuals should be able to reproduce all of
-their (earlier) results</li>
-<li>if these results include computer simulations, then we need to know<ul>
-<li>which version of the simulation programme/code was used</li>
-<li>what input parameters (configuration files?) were used</li>
-</ul>
-</li>
-</ul>
-<div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">When using computer simulations, we should use version control to
-be able to reproduce any earlier results at any point in the
-future.</p>
-</div>
-</div>
-<div class="section" id="summary-of-important-commands">
-<h3><a class="toc-backref" href="#id39">Summary of important commands</a></h3>
-<p><tt class="docutils literal">hg add</tt> (add files)</p>
-<p><tt class="docutils literal">hg commit</tt>  (commit changes)</p>
-<p><tt class="docutils literal">hg status</tt> (show modified/missing/added/removed files)</p>
-<p><tt class="docutils literal">hg log</tt> (show log)</p>
-<p><tt class="docutils literal">hg diff</tt> (show diff to version of working directory)</p>
-<p><tt class="docutils literal">hg parents</tt> (show version of working directory)</p>
-<p><tt class="docutils literal">hg update</tt> (updated working directory)</p>
-<p><tt class="docutils literal">hg cat</tt> (send version of file to stdout)</p>
-<p><tt class="docutils literal">hg clone</tt> (copy repository)</p>
-<p><tt class="docutils literal">hg tag</tt> (add tag)</p>
-<p><tt class="docutils literal">hg tags</tt> (list tags)</p>
-</div>
-<div class="section" id="abbreviating-commands">
-<h3><a class="toc-backref" href="#id40">Abbreviating commands</a></h3>
-<p>Most commands can be abbreviated, such as:</p>
-<pre class="literal-block">
-status -&gt; st
-
-commit -&gt; ci
-
-diff   -&gt; di
-
-update -&gt; up
-
-rename -&gt; mv
-</pre>
-</div>
-<div class="section" id="odd-bits-of-information">
-<h3><a class="toc-backref" href="#id41">Odd bits of information</a></h3>
-<ul class="simple">
-<li>Mercurial (<tt class="docutils literal">hg</tt>) is written in Python</li>
-</ul>
-</div>
-<div class="section" id="advanced-functionality">
-<h3><a class="toc-backref" href="#id42">Advanced functionality</a></h3>
-<p>Read more about these topics in the (unofficial) manual at <a class="reference external" href="http://hgbook.red-bean.com">http://hgbook.red-bean.com</a></p>
-<ul class="simple">
-<li>keyword expansion</li>
-<li>sending emails when revisions are committed, or repositories pushed</li>
-<li>access control (beyond ssh)</li>
-</ul>
-</div>
-<div class="section" id="useful-entries-in-user-hg-configuration-file">
-<h3><a class="toc-backref" href="#id43">Useful entries in user hg configuration file</a></h3>
-<p>On a Linux/Mac OS X user account, this is (an optional) file <tt class="docutils literal">.hgrc</tt>
-in the home directory:</p>
-<pre class="literal-block">
-[ui]
-#tell Mercurial what user information to use in commit messages
-username = Hans Fangohr [phi] &lt;fangohr&#64;soton.ac.uk&gt;
-
-[extensions]
-#this enables the 'hg view' command
-hgk=
-hgext.graphlog=
-hgext.fetch=
-
-[web]
-#this makes for a nicer layout of the web interface (which is started
-#with 'hg serve'
-style=gitweb
-</pre>
-</div>
-<div class="section" id="what-about-git">
-<h3><a class="toc-backref" href="#id44">What about git?</a></h3>
-<p>In a first approximation, git and mercurial provide very similar functionality.</p>
-</div>
-<div class="section" id="summary">
-<h3><a class="toc-backref" href="#id45">Summary</a></h3>
-<ul class="simple">
-<li>Nowadays, version control software (such as <tt class="docutils literal">hg</tt> and <tt class="docutils literal">git</tt>) is<ul>
-<li>easy to install</li>
-<li>very easy to use (in single user mode), but sufficiently
-sophisticated to support very complex projects</li>
-<li>well documented (start with <a class="reference external" href="http://hgbook.red-bean.com/">Mercurial Tutorial</a> and other links
-on <a class="reference external" href="http://www.selenic.com/mercurial">Mercurial home page</a>).</li>
-</ul>
-</li>
-<li>An effective way to:<ul>
-<li>keep track of the history of a project,</li>
-<li>reliably retrieve earlier versions if required</li>
-<li>recover from errors (such as accidental deletion of files,
-inability to retrieve working version)</li>
-<li>always find the most recent version of a document and</li>
-<li>have (versioned) backups</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="download-repository-created-in-this-archive">
-<h3><a class="toc-backref" href="#id46">Download repository created in this archive</a></h3>
-<p>The created archive from the exercises as in the videos is available here as <a class="reference external" href="./mercurial-basics/master.tar">master.tar</a>. Use <tt class="docutils literal">tar xfv master.tar</tt> to untar it into a directory with name <tt class="docutils literal">master</tt>.</p>
-</div>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files …</a></li></ul></li></ul></div></div>
+                <a class="readmore" href="./mercurial.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

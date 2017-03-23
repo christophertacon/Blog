@@ -3,10 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <title>Computational Modelling Tools Workshops - Konstantinos Drakopoulos</title>
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/main.css" />
+        <link rel="stylesheet" href="./theme/css/main.css" />
 
         <!-- Addition to include keys -->
-        <link rel="stylesheet" href="http://computationalmodelling.bitbucket.org/tools/theme/css/keys.css" type="text/css" />
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,7 +15,7 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="http://computationalmodelling.bitbucket.org/tools/">Computational Modelling Tools Workshops </a></h1>
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
                 <nav><ul>
                     <li><a href="about.html">About</a></li>
                     <li><a href="archives.html">Archive</a></li>
@@ -25,19 +25,19 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://computationalmodelling.bitbucket.org/tools/presenting-with-revealjs.html">Presenting with Reveal.js</a></h1>
+                    <h1 class="entry-title"><a href="./presenting-with-revealjs.html">Presenting with Reveal.js</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2016-03-10T00:00:00+01:00">
                 Published: Thu 10 March 2016
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-craig-rafter.html">Craig Rafter</a>
-                        <a class="url fn" href="http://computationalmodelling.bitbucket.org/tools/author-konstantinos-drakopoulos.html">Konstantinos Drakopoulos</a>
+                By                         <a class="url fn" href="./author-craig-rafter.html">Craig Rafter</a>
+                        <a class="url fn" href="./author-konstantinos-drakopoulos.html">Konstantinos Drakopoulos</a>
         </address>
-<p>In <a href="http://computationalmodelling.bitbucket.org/tools/category-revealjs.html">revealJS</a>. </p>
-<p>tags: <a href="http://computationalmodelling.bitbucket.org/tools/tag-productivity.html">Productivity</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-presentation.html">Presentation</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-web.html">Web</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-html.html">HTML</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-css.html">CSS</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-javascript.html">JavaScript</a> <a href="http://computationalmodelling.bitbucket.org/tools/tag-markdown.html">Markdown</a> </p>
-</footer><!-- /.post-info --><p align="center"><img src="http://computationalmodelling.bitbucket.org/tools/revealJS/reveal.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
+<p>In <a href="./category-revealjs.html">revealJS</a>. </p>
+<p>tags: <a href="./tag-productivity.html">Productivity</a> <a href="./tag-presentation.html">Presentation</a> <a href="./tag-web.html">Web</a> <a href="./tag-html.html">HTML</a> <a href="./tag-css.html">CSS</a> <a href="./tag-javascript.html">JavaScript</a> <a href="./tag-markdown.html">Markdown</a> </p>
+</footer><!-- /.post-info --><p align="center"><img src="./revealJS/reveal.png" align="right" style="margin: 2em 5em 2em 2em"/></p>
 
 <h2>Introduction</h2>
 <p><a href="https://github.com/hakimel/reveal.js/">Reveal.js</a> is a framework for easily creating beautiful presentations using HTML/Markdown. <a href="http://lab.hakim.se/reveal-js/">Check out the live demo</a>.</p>
@@ -45,7 +45,7 @@
 <p>The Reveal.js framework is built around HTML, JavaScript, and CSS. But also has extensive support for Markdown. Reveal.js also supports LaTeX representation of mathematical equations using the <a href="https://www.mathjax.org/">MathJax</a> plugin, enhancing its suitability in the academic domain. Slide decks in Reveal.js are cross platform compatible requiring only a browser to run, and can even be hosted online! Reveal.js presentations are text based so its files are relatively small, and readily version controllable! Overall, Reveal.js brings the beauty of web design, and the ease of markdown to presentation creation!</p>
 <h2>Getting Started</h2>
 <h4>Software (Own Machine)</h4>
-<p>the necessities are a browser (<em>recent versions of Firefox, Chrome, Safari recommended</em>), and a text editor (<em>for web programming we recommend <a href="http://brackets.io/">Brackets</a> for its live update feature</em>). A zipped folder with all the neccessary files is available <a href="http://computationalmodelling.bitbucket.org/tools/revealJS/feeg6003_revealjs.zip">here</a>, download and extract the files somewhere on your machine.</p>
+<p>the necessities are a browser (<em>recent versions of Firefox, Chrome, Safari recommended</em>), and a text editor (<em>for web programming we recommend <a href="http://brackets.io/">Brackets</a> for its live update feature</em>). A zipped folder with all the neccessary files is available <a href="./revealJS/feeg6003_revealjs.zip">here</a>, download and extract the files somewhere on your machine.</p>
 <h4>Virtual Machine</h4>
 <p>A <a href="https://www.virtualbox.org/">VirtualBox</a> virtual machine is available <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/RevealJS-feeg6003.ova">here</a>, all the neccessary files and software are pre-loaded. Open the documents folder, enter the workshop folder and launch the presentation using brackets.</p>
 <h4>Files</h4>
@@ -73,7 +73,7 @@
 <h4>Controlling the presentation</h4>
 <p>If you wish to make the presentation full screen, then press the <strong>F</strong> key, or leave the window reduced if you want to just test the presentation. With the browser in focus, the presentation can be controlled using the arrow keys or spacebar.</p>
 <h2>Tutorial</h2>
-<p>For the tutorial page click <a href="{filename}/revealJS/tutorial.html">here</a>, if you would like it in PDF format click <a href="http://computationalmodelling.bitbucket.org/tools/revealJS/tutorial.pdf">here</a>. For the tutorial files click <a href="http://computationalmodelling.bitbucket.org/tools/revealJS/feeg6003_revealjs.zip">here</a></p>
+<p>For the tutorial page click <a href="./drafts/revealjs-tutorial.html">here</a>, if you would like it in PDF format click <a href="./revealJS/tutorial.pdf">here</a>. For the tutorial files click <a href="./revealJS/feeg6003_revealjs.zip">here</a></p>
 <h3>Thank you!</h3>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">

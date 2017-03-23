@@ -25,7 +25,112 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="./Pandas.html">Pandas</a></h1>
+                    <h1 class="entry-title"><a href="./imp-vs-dec-install.html">Imperative vs. Declarative Programming - Installation Instructions</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-03-23T00:00:00+01:00">
+                Published: Thu 23 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-gary-downing.html">Gary Downing</a>
+                        <a class="url fn" href="./author-mohammed-el-kout.html">Mohammed El Kout</a>
+                        <a class="url fn" href="./author-andres-gutierrez-robledo.html">Andres Gutierrez Robledo</a>
+        </address>
+<p>In <a href="./category-imp-vs-dec.html">imp-vs-dec</a>. </p>
+<p>tags: <a href="./tag-imperative.html">Imperative</a> <a href="./tag-declarative.html">Declarative</a> <a href="./tag-python.html">Python</a> <a href="./tag-assembly.html">Assembly</a> <a href="./tag-haskell.html">Haskell</a> </p>
+</footer><!-- /.post-info --><p>In this workshop we will attempt to clarify, by way of comparison, the differences between imperative and declarative programming styles. Moreover, how aspects of both styles can be used to improve programming productivity.</p>
+<p>To aid with this, we will be presenting a number of exercises. Attempting these exercises requires access to a couple of different programming environments, installation instructions for which can be found below.</p>
+<h1>Installation</h1>
+<p>The exercises in this workshop require <a href="https://www.python.org/">Python</a> &amp; <a href="https://www.haskell.org/">Haskell</a> environments and <a href="https://gnusim8085.github.io/">GNUSim8085</a>, an assembler simulator and debugger.</p>
+<h2>The VM Image (Recommended)</h2>
+<p><a href="http://www.southampton.ac.uk/~gmd1n15/LubuntuJupyterHaskellGNUSim.ova">Download the virtual machine image with the required applications pre-installed</a> (or <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/LubuntuJupyterHaskellGNUSim.ova">here</a> if the first link isn't available). Then import the <code>.ova</code> image in VirtualBox (instructions for how to this can be found in an earlier <a href="https://computationalmodelling.bitbucket.io/tools/virtualbox-basics.html">VirtualBox workshop blog post</a>).</p>
+<p>To check everything is working correctly;</p>
+<ul>
+<li>Start the VM, login and password are the same.</li>
+<li>Open a terminal (shortcut on the desktop) and call <code>$ jupyter notebook</code>. This should open a Firefox with the Jupyter notebook working. Check you can create <code>New</code> Python 3 and Haskell notebooks.</li>
+<li>Try to run GNUSim8085 (shortcut on the desktop).</li>
+</ul>
+<h1></h1>
+<h2>Teaching Materials</h2>
+<p>The VM contains all the teaching materials for this workshop. They can also be downloaded separately <a href="./imp-vs-dec/imp-vs-dec-teaching-materials.zip">here</a>.</p>
+<h2>Alternative Install Methods</h2>
+<p><img alt="Python" src="./imp-vs-dec/python.png" title="Python"></p>
+<h3>Python 3</h3>
+<p>For the Python exercises, we recommend the <a href="https://ipython.org/notebook.html">Jupyter Notebook</a>:</p>
+<ul>
+<li><em>Option 1</em>: You can <a href="https://try.jupyter.org/">try Jupyter Notebook in your browser</a>.</li>
+<li><em>Option 2</em>: Install Jupyter Notebook with <a href="https://jupyter.org/install.html">these instructions</a></li>
+<li><em>Option 3</em>: Most Linux and Mac OS installations come with Python pre-installed. Simply execute <code>$ python</code> in the command line (N.b. that these pre-installed versions are normally an older version and do not provide an editor, just a command line parser).</li>
+</ul>
+<p><img alt="Haskell" src="./imp-vs-dec/haskell.png" title="Haskell"></p>
+<h3>Haskell</h3>
+<p>In the Haskell exercises, we will be again using Jupyter Notebook, but this time with the <a href="https://github.com/gibiansky/IHaskell">IHaskell kernel</a>:</p>
+<ul>
+<li><em>Option 1</em>: <a href="https://try.jupyter.org/">Try the IHaskell kernel in your browser</a> (This webpage is somewhat unreliable, so don't expect it to work every time).</li>
+<li>
+<p><em>Option 2</em>: If using Linux (Mac instructions will be similar), follow these steps to install the IHaskell kernel (more information can be on the <a href="https://github.com/gibiansky/IHaskell">IHaskell homepage</a>);</p>
+<ul>
+<li>Install GHC (Glasgow Haskell Compiler): <code>$ sudo apt-get install ghc</code></li>
+<li>Install git, haskell-stack (to build IHaskell with), and build dependencies: <code>$ sudo apt-get install git haskell-stack pkg-config libz-dev libzmq3-dev ncurses-dev</code></li>
+<li>Clone the IHaskell repo: <code>$ git clone https://github.com/gibiansky/IHaskell.git</code></li>
+<li>Build and install IHaskell;
+<code>cd IHaskell;
+stack setup;
+stack install</code></li>
+<li>Make sure IHaskell can be found (might need terminal restart): <code>$ ihaskell -V</code>. If not, you need a symbolic link to <code>ihaskell</code> executable in current <code>$PATH</code> or add it to <code>$PATH</code> itself (this should be automatic in ubuntu).</li>
+<li>(Optional) cleanup: <code>$ sudo apt-get remove --purge libz-dev haskell-stack git pkg-config ncurses-dev</code></li>
+<li>Finally, install the kernel <code>$ ihaskell install</code></li>
+</ul>
+</li>
+<li>
+<p><em>Option 3</em>: You can use the GHC compiler from the command line. Just install GHC as in <em>Option 2</em>, then execute <code>$ ghci</code>. This will give you a command line interface similar to the Python one.</p>
+</li>
+</ul>
+<p><img alt="GNUSim8085" src="./imp-vs-dec/gnusim.png" title="GNUSim8085"></p>
+<h3>GNUSim8085</h3>
+<p>The Assembler exercises will use GNUSim8085:</p>
+<ul>
+<li><em>Option 1</em>: On Debian and it's derivatives, this program is available via the package manager: <code>apt-get install gunsim8085</code></li>
+<li><em>Option 2</em>: Binaries for other platforms and source code can be found on the <a href="https://gnusim8085.github.io/">GNUSim8085 homepage</a>.</li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./Metaprogramming.html" rel="bookmark"
+                           title="Permalink to Metaprogramming in Python">Metaprogramming in Python</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-04-28T00:00:00+02:00">
+                Published: Thu 28 April 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-lucy-upton.html">Lucy Upton</a>
+        </address>
+<p>In <a href="./category-metaprogramming.html">Metaprogramming</a>. </p>
+<p>tags: <a href="./tag-python.html">Python</a> <a href="./tag-metaprogramming.html">Metaprogramming</a> <a href="./tag-ipythonjupyter-notebook.html">IPython/Jupyter Notebook</a> <a href="./tag-ngcm.html">NGCM</a> <a href="./tag-virtualbox.html">VirtualBox</a> </p>
+</footer><!-- /.post-info -->                <h2>Metaprogramming</h2>
+<p>Metaprogramming is the process of writing code which manipulates existing code, such as functions or classes. It is a simple technique which can eliminate code repetition without introducing inheritance classes or multiple similar functions. </p>
+<h2>The Workshop</h2>
+<p>The workshop will be taught by Lucy Upton, a first year PhD student …</p>
+                <a class="readmore" href="./Metaprogramming.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./Pandas.html" rel="bookmark"
+                           title="Permalink to Pandas">Pandas</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-04-25T16:00:00+02:00">
                 Published: Mon 25 April 2016
@@ -37,112 +142,12 @@
         </address>
 <p>In <a href="./category-pandas.html">Pandas</a>. </p>
 <p>tags: <a href="./tag-python.html">Python</a> <a href="./tag-pandas.html">pandas</a> </p>
-</footer><!-- /.post-info --><!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</footer><!-- /.post-info -->                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <p>Python is a becoming an increasingly common high level programming language, excelling in easy implementation of scientific programming tasks. For statistical analysis however, environments such as R or Stata remain the first choice of most.</p>
-<p>Pandas the Python Data Analysis Library, is an open source python library which allows advance data analysis to be performed in the python environment.</p>
-<p>The workshop provided exercises and a demonstration of the Pandas library, material used in the workshop is available on the virtual machine, and the following link for those who wish to go through the exercises:
-<a class="reference external" href="./pandas/feeg6003.zip">materials</a> The zip file contains a demonstration notebook, presentation, exercises and solutions, and two datasets used for the material.</p>
-<p>Alternatively if you don't have a Python installation, a virtual machine is available:
-To download the virtual machine please download here: <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_pandas.ova">VM</a></p>
-<p>The virtual machine has a light Lubuntu Linux distribution installed, the user name and password are 'feeg6003'. Import the appliance in VirtualBox.</p>
-<p>From the desktop now press ctrl + alt + T to open a terminal, A Jupyter Notebook will open automatically. Navigate to the pandas folder on the desktop and open the ipython notebooks (.ipynb) for the demonstration and exercises.</p>
-<p>Below is a summary of some of the workshop content and a guide of how to get started with Pandas.</p>
-<hr class="docutils" />
-<div class="section" id="introduction-to-pandas-crime-example">
-<h2>Introduction to Pandas: crime example</h2>
-<p>We begin by importing the pandas and numpy libaries as pd and np respectively, and set the matplotlib inline command to display plots within the iPython notebook.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</pre></div>
-<p>The basic data structure in Pandas is the dataframe, and for this demonstration we are reading in a dataset of crime statistics for Hampshire (UK) from csv files to demonstrate some of the functionality of Pandas for handling large sets of data. Our csv files are read in with the Pandas read_csv function, after creating a list of filenames to read in. The exclamation mark highlighted allows us to use Unix commands within the Python environment, and store the output of directories as a list to iterate over.</p>
-<p>As each csv file is read in, the pd.concat function concatenates it into one large dataset for further processing.</p>
-<div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="err">!</span><span class="n">ls</span> <span class="o">./</span><span class="n">police</span><span class="o">/*/*.</span><span class="n">csv</span> <span class="c1"># IPython magic to find csv files</span>
-<span class="n">police_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">])</span>
-<span class="n">police_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-<p>Next we discard the unwanted columns with the pandas drop method as shown below, where the variable discarded_columns is a list of strings containing the column name labels we wish to drop. The .head() method returns the top five rows of our dataset, .tail() can be used for the last five; array slicing notation [:5] would also produce the top five rows.</p>
-<div class="figure align-center">
-<img alt="Discarding unwanted columns." src="./pandas/disc_col.png" style="width: 100%;" />
-</div>
-<p>For easy plotting of time-series, we use the to_datetime() method on the Month data to convert it into Pandas date format. Here the square brackets are used to alter the Month column within the dataframe police_data</p>
-<div class="highlight"><pre><span></span><span class="n">police_data</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">police_data</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">])</span>
-</pre></div>
-<p>Now we wish to filter our dataset into one where we concentrate on the location &quot;Burgess Road&quot;, we create a new dataframe called university_crime, before creating a boolean mask and applying it to the original police_data dataframe. The str.contains method is applied to search for only the rows which contain the string &quot;Burgess Road&quot; in the location column, and the output is stored in the new dataframe.</p>
-<p>In the second line we apply the value_counts() method to count the number of each crime type, and then plot the output as a bar chart displayed below.</p>
-<div class="highlight"><pre><span></span><span class="n">university_crime</span> <span class="o">=</span> <span class="n">police_data</span><span class="p">[</span><span class="n">police_data</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;Burgess Road&quot;</span><span class="p">)]</span>
-<span class="n">university_crime_count</span> <span class="o">=</span> <span class="n">university_crime</span><span class="p">[</span><span class="s1">&#39;Crime type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">university_crime_count</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Burgess Road crime distribution 2014-16&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-</pre></div>
-<div class="figure align-center">
-<img alt="Burgess road crime breakdown." src="./pandas/burg_bar.png" style="width: 100%;" />
-</div>
-<p>If instead we are interested in a monthly breakdown of the number of reported crimes for this area, we simply filter the month column instead and apply the value_counts() method once more.</p>
-<div class="highlight"><pre><span></span><span class="n">university_crime_monthly</span> <span class="o">=</span> <span class="n">university_crime</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">university_crime_monthly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Burgess Road crime distribution 2014-16&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-</pre></div>
-<div class="figure align-center">
-<img alt="Burgess road monthly variation." src="./pandas/burg_line.png" style="width: 100%;" />
-</div>
-<p>We are now interested in the time-series trends for different crime types for all of Hampshire. We create a list of crimes for comparison, loop over them and count the monthly frequency for that specific crime. The results are plotted within the loop and allows for direct comparison of how the various offences have varied over the two year period.</p>
-<div class="highlight"><pre><span></span><span class="n">crimes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Burglary&#39;</span><span class="p">,</span> <span class="s1">&#39;Shoplifting&#39;</span><span class="p">,</span> <span class="s1">&#39;Violence and sexual offences&#39;</span><span class="p">,</span><span class="s1">&#39;Vehicle crime&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">crime</span> <span class="ow">in</span> <span class="n">crimes</span><span class="p">:</span>
-<span class="n">crime_sort</span> <span class="o">=</span> <span class="n">police_data</span><span class="p">[</span><span class="n">police_data</span><span class="p">[</span><span class="s1">&#39;Crime type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">crime</span><span class="p">)]</span>
-<span class="n">monthlycount</span> <span class="o">=</span> <span class="n">crime_sort</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">ax3</span> <span class="o">=</span> <span class="n">monthlycount</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">crime</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>\
-            <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Hampshire 2014-16: reported crime trends&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-        <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
-</pre></div>
-<div class="figure align-center">
-<img alt="Hampshire crime comparison." src="./pandas/four_crimes.png" style="width: 100%;" />
-</div>
-<p>In this summary we have seen how Pandas can be used to take a large dataset, extract the data of interest and use string searching and counting methods to obtain visual summaries. The full demonstration in the workshop material also contains use of the group_by method in Pandas, .describe() and some more in depth analysis of the crime statistics.</p>
-</div>
-<div class="section" id="converting-numpy-data-to-latex-tables">
-<h2>Converting Numpy data to LaTeX tables</h2>
-<p>In this section we briefly demonstrate how to convert data stored in Numpy arrays to a Pandas dataframe and then use one of the export methods to automatically generate LaTeX code for inclusion in a report.</p>
-<p>Three columns of random data are generated in the arrays x, y, z, before being combined with the Numpy hstack command. A list of column labels is created, which is then passed into the pd.Dataframe command with the numpy array to create a new dataframe.</p>
-<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">10</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">15</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">))</span>
-<span class="n">column_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">]</span>
-<span class="n">output_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">column_labels</span><span class="p">)</span>
-</pre></div>
-<p>At this point all that needs to be done to convert to a LaTeX table is to call the to_latex() method on the dataframe and print the output. The index=None argument here specifies that we don't wish to include the Pandas row numbering index in our final table.</p>
-<div class="figure align-center">
-<img alt="Numpy to LaTeX conversion." src="./pandas/latex.png" style="width: 100%;" />
-</div>
-</div>
-<div class="section" id="combining-pandas-with-the-statsmodels-library">
-<h2>Combining Pandas with the Statsmodels library</h2>
-<p>Arbitrary data representing the number of drinks sold as a function of number of drinks dispensers is used here to demonstrate how to perform a simple linear regression, and the compatibility between Pandas and Statsmodels.</p>
-<p>In the following code segment we import the statsmodels api, read the data into a Pandas dataframe and fit an ordinary least squares regression using statsmodels. The residuals of the model are then plotted using the statsmodels plot_regress_exog function. As seen below the formula input, statistical summary and residual plots are all 'R' style, the short number of lines needed to produce these outputs demonstrates Pandas ability to bridge the gap between Python and R like stats languages.</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="kn">as</span> <span class="nn">sm</span>
-<span class="n">Data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Dispensers&#39;</span><span class="p">:</span> <span class="n">Dispensers</span><span class="p">,</span> <span class="s1">&#39;Dispensers2&#39;</span><span class="p">:</span> <span class="n">Dispensers</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Sales&#39;</span><span class="p">:</span> <span class="n">Sales</span><span class="p">}</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">Data</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Dispensers&#39;</span><span class="p">,</span><span class="s1">&#39;Sales&#39;</span><span class="p">,</span><span class="s1">&#39;Dispensers2&#39;</span><span class="p">])</span>
-<span class="n">linear_model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;Sales ~ Dispensers+Dispensers2&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="n">linear_model2</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-<div class="figure align-center">
-<img alt="Linear regression model summary." src="./pandas/sm_out.png" style="width: 70%;" />
-</div>
-<p>Now we have the linear model we plot the residuals below.</p>
-<div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">plot_regress_exog</span><span class="p">(</span><span class="n">linear_model2</span><span class="p">,</span><span class="s1">&#39;Dispensers&#39;</span><span class="p">,</span><span class="n">fig</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
-</pre></div>
-<div class="figure align-center">
-<img alt="Residual plots" src="./pandas/sm_resid.png" style="width: 100%;" />
-</div>
-<p>The full demonstration, exercises and a set of solutions are available on the VM and the links provided at the start of this post. The exercises include a question on sorting through a dataset of films and their ratings. Resources for further reading about Pandas are also included in the demonstration file.</p>
-</div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>Pandas the Python Data Analysis Library, is an open source python library which allows advance …</p>
+                <a class="readmore" href="./Pandas.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -172,6 +177,33 @@ To download the virtual machine please download here: <a class="reference extern
 <p>The virtual machine has a light lubuntu distribution installed, the user name and password are 'feeg6003'.</p>
 <p>Once you are logged in press ctrl + alt + t which will open a new terminal, we modified the terminal to …</p></div>
                 <a class="readmore" href="./Pint.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="./continuous-integration.html" rel="bookmark"
+                           title="Permalink to Continuous Integration for Scientists">Continuous Integration for Scientists</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-02-21T16:00:00+01:00">
+                Published: Sun 21 February 2016
+        </abbr>
+		<br />
+        <abbr class="modified" title="2016-02-21T16:00:00+01:00">
+                Updated: Sun 21 February 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-ryan-pepper.html">Ryan Pepper</a>
+                        <a class="url fn" href="./author-alvaro-perez-diaz.html">Alvaro Perez-Diaz</a>
+        </address>
+<p>In <a href="./category-programming.html">Programming</a>. </p>
+<p>tags: <a href="./tag-python.html">Python</a> <a href="./tag-github.html">GitHub</a> <a href="./tag-git.html">Git</a> <a href="./tag-testing.html">Testing</a> </p>
+</footer><!-- /.post-info -->                <p>A post about Continuous Integration in GitHub</p>
+                <a class="readmore" href="./continuous-integration.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
