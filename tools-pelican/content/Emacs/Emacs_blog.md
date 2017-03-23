@@ -1,6 +1,6 @@
 title: Introduction to Emacs
 authors: Jamie Caldwell, Nicholas McCaw, Daniel Powell
-date: 2017-05-06
+date: 2017-03-06
 tags: Emacs, NGCM, VirtualBox
 slug: Emacs
 
