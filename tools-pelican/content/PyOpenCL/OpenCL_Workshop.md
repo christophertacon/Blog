@@ -1,4 +1,4 @@
-title: Introduction to OpenCL
+title: Introduction to PyOpenCL
 authors: Alex Fforde, Roshan Pasupathy
 date: 2017-03-20
 tags: NGCM, OpenCL, Python, C, PyOpenCL
@@ -20,7 +20,7 @@ Use of PyOpenCL requires users to have knowledge of programming in both the Pyth
 
 The password for the VM is **feeg6003**. In Terminal, users should navigate to **feeg6003/Documents/opencl_workshop/** and run the command **git pull origin**.
 
-This will download the exercises for the workshop. To access all the workshop materials (including correct exercise answers), they can be downloaded from [here]({filename}/PyOpenCL).
+This will download the exercises for the workshop. To access all the workshop materials (including correct exercise answers), they can be downloaded from [here]({filename}/PyOpenCL/).
 
 # Presentation Slides #
 
