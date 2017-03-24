@@ -4,7 +4,7 @@ date: 2017-03-20
 tags: NGCM, OpenCL, Python, C, PyOpenCL
 slug: OpenCL2017
 
-![OpenCL Logo]({filename}/OpenCL/opencl_logo.jpg)
+![OpenCL Logo]({filename}/PyOpenCL/opencl_logo.jpg)
 
 # OpenCL #
 
@@ -24,7 +24,7 @@ This will download the exercises for the workshop. To access all the workshop ma
 
 # Presentation Slides #
 
-For just the slideshow used during the workshop, it can be retrieved from [here](https://computationalmodelling.bitbucket.io/tools/PyOpenCL/Presentation.pptx) and provides an introduction to the concepts of OpenCL's operation as well as a rough guide to the individual Python commands to use PyOpenCL. The presentation provides clues to completing the exercises and should be seen as a guide of sorts.
+For just the slideshow used during the workshop, it can be retrieved from [here]({filename}/PyOpenCL/Presentation.pptx) and provides an introduction to the concepts of OpenCL's operation as well as a rough guide to the individual Python commands to use PyOpenCL. The presentation provides clues to completing the exercises and should be seen as a guide of sorts.
 
 # Exercise 1 #
 
