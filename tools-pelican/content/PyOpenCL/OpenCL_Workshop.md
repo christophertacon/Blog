@@ -16,11 +16,11 @@ While OpenCL offers much higher performance, it also has a difficult entry barri
 
 # Prerequisites #
 
-Use of PyOpenCL requires users to have knowledge of programming in both the Python and C languages. A Virtual Machine is available with all the software pre-installed [here](www.southampton.ac.uk/~ngcmbits/virtualmachines) (WARNING: 4 GB Download). For those not using the VM, they will need to install Python and PyOpenCL on their machine and OpenCL as well if it isn't already included. Note that not using the Virtual Machine does allow PyOpenCL to access more elements than just the CPU (if your machine has them).
+Use of PyOpenCL requires users to have knowledge of programming in both the Python and C languages. A Virtual Machine is available with all the software pre-installed [here](www.southampton.ac.uk/~ngcmbits/virtualmachines/Ubuntu14_PyOpenCL.ova) (WARNING: 4 GB Download). For those not using the VM, they will need to install Python and PyOpenCL on their machine and OpenCL as well if it isn't already included. Note that not using the Virtual Machine does allow PyOpenCL to access devices besides the  CPU (if your machine has them).
 
 The password for the VM is **feeg6003**. In Terminal, users should navigate to **feeg6003/Documents/opencl_workshop/** and run the command **git pull origin**.
 
-This will download the exercises for the workshop. To access all the workshop materials (including correct exercise answers), they can be downloaded from [here](https://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org/src/d978f0efb2178c6fbeb770066ce710f49b1dc49f/tools-pelican/content/PyOpenCL/).
+This will download the exercises for the workshop. To access all the exercise materials (including correct exercise answers), they can be downloaded from [here]({filename}/PyOpenCL/Exercises.zip).
 
 # Presentation Slides #
 
