@@ -1,10 +1,10 @@
-title: Introduction to OpenCL
+title: Introduction to PyOpenCL
 authors: Alex Fforde, Roshan Pasupathy
 date: 2017-03-20
 tags: NGCM, OpenCL, Python, C, PyOpenCL
 slug: OpenCL2017
 
-![OpenCL Logo]({filename}/OpenCL/opencl_logo.jpg)
+![OpenCL Logo]({filename}/PyOpenCL/opencl_logo.jpg)
 
 # OpenCL #
 
@@ -16,15 +16,15 @@ While OpenCL offers much higher performance, it also has a difficult entry barri
 
 # Prerequisites #
 
-Use of PyOpenCL requires users to have knowledge of programming in both the Python and C languages. A Virtual Machine is available with all the software pre-installed [here](www.southampton.ac.uk/~ngcmbits/virtualmachines) (WARNING: 4 GB Download). For those not using the VM, they will need to install Python and PyOpenCL on their machine and OpenCL as well if it isn't already included. Note that not using the Virtual Machine does allow PyOpenCL to access more elements than just the CPU (if your machine has them).
+Use of PyOpenCL requires users to have knowledge of programming in both the Python and C languages. A Virtual Machine is available with all the software pre-installed [here](www.southampton.ac.uk/~ngcmbits/virtualmachines/Ubuntu14_PyOpenCL.ova) (WARNING: 4 GB Download). For those not using the VM, they will need to install Python and PyOpenCL on their machine and OpenCL as well if it isn't already included. Note that not using the Virtual Machine does allow PyOpenCL to access devices besides the  CPU (if your machine has them).
 
 The password for the VM is **feeg6003**. In Terminal, users should navigate to **feeg6003/Documents/opencl_workshop/** and run the command **git pull origin**.
 
-This will download the exercises for the workshop. To access all the workshop materials (including correct exercise answers), they can be downloaded from [here](https://computationalmodelling.bitbucket.io/tools/PyOpenCL).
+This will download the exercises for the workshop. To access all the exercise materials (including correct exercise answers), they can be downloaded from [here]({filename}/PyOpenCL/Exercises.zip).
 
 # Presentation Slides #
 
-For just the slideshow used during the workshop, it can be retrieved from [here](https://computationalmodelling.bitbucket.io/tools/PyOpenCL/Presentation.pptx) and provides an introduction to the concepts of OpenCL's operation as well as a rough guide to the individual Python commands to use PyOpenCL. The presentation provides clues to completing the exercises and should be seen as a guide of sorts.
+For just the slideshow used during the workshop, it can be retrieved from [here]({filename}/PyOpenCL/Presentation.pptx) and provides an introduction to the concepts of OpenCL's operation as well as a rough guide to the individual Python commands to use PyOpenCL. The presentation provides clues to completing the exercises and should be seen as a guide of sorts.
 
 # Exercise 1 #
 
