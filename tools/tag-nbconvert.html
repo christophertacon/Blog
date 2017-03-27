@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - nbconvert</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./jupyter-notebooks.html">Jupyter Notebooks</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-03-13T00:00:00+01:00">
+                Published: Mon 13 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-james-bailey.html">James Bailey</a>
+                        <a class="url fn" href="./author-marian-daogaru.html">Marian Daogaru</a>
+        </address>
+<p>In <a href="./category-jupyternotebooks.html">JupyterNotebooks</a>. </p>
+<p>tags: <a href="./tag-jupyter.html">Jupyter</a> <a href="./tag-jupyter-notebook.html">Jupyter Notebook</a> <a href="./tag-nbdime.html">nbdime</a> <a href="./tag-nbval.html">nbval</a> <a href="./tag-nbconvert.html">nbconvert</a> <a href="./tag-python.html">Python</a> <a href="./tag-python3.html">Python3</a> <a href="./tag-pytest.html">pytest</a> </p>
+</footer><!-- /.post-info --><h2>Introduction</h2>
+<p>Jupyter Notebooks are a web based application that enables users to create and share documents containing code, data visualisations and text in different programming languages. The structure of the notebook makes them useful for describing and record keeping of code execution and figures, helping maintain the reproducibility of the software. This format also suits the production of documentation and teaching, combining text and code within one document.</p>
+<p>This workshop presents an introduction to Jupyter Notebooks and three packages which extend their functionality:</p>
+<ul>
+<li><strong>nbconvert</strong></li>
+<li><strong>nbdime</strong></li>
+<li><strong>nbval</strong></li>
+</ul>
+<p>These packages were chosen for their relevance to scientific computing: for the sharing of outputs, allowing version control and validation of documentation produced using the notebook. <a href="https://nbconvert.readthedocs.io/en/latest/"><strong>nbconvert</strong></a> allows the user to convert a Jupyter Notebook into different formats, such as PDF, LaTeX and many more. <a href="https://nbdime.readthedocs.io/en/latest/"><strong>nbdime</strong></a> is a tool used to see the differences between two notebooks (diffing) or to merge two notebooks. Lastly, <a href="https://github.com/computationalmodelling/nbval"><strong>nbval</strong></a> is a plugin for pytest which validates the execution of the notebook by checking the output. </p>
+<p><strong>nbconvert</strong> and <strong>nbdime</strong> are the main tools for the conversion of notebooks into different formats, and diffing and merging. <strong>nbval</strong> is one of a number of tools which give the ability to test notebooks. <strong>pytest-ipynb</strong> allows cells to be defined as tests, which can then be executed using the standard pytest procedure. <strong>ipython_nose</strong> is a similar extension which allows the execution of Nose tests using the notebook. <strong>nbval</strong> will be presented here as it fits into the use of notebooks for documentation.</p>
+<p>For this workshop, Python3 will be used. No previous knowledge of Jupyter Notebooks is required, however coding skills are a plus.</p>
+<h2>Tutorial</h2>
+<h3>Learning Material and Exercises</h3>
+<p>All of the material created for this session is contained in Jupyter Notebooks. There is a main notebook which contains all of the learning material and exercises. This will guide you through using Jupyter Notebooks and the three packages listed above, ending with the exercises to practise what you have learnt. You can view that material <a href="./JupyterNotebooks/Teaching_Material/JupyterNotebooks_Manual.html">here</a> or see the download section below.</p>
+<h3>Supporting Material</h3>
+<p>A number of notebooks have been created to demonstrate the functionality of the three packages covered and will be referenced in the learning material.</p>
+<h3>Download</h3>
+<p>You can download all of this material from <a href="./JupyterNotebooks/Learning_Material.zip">here</a> and starting working through it.</p>
+<h2>Pre-Requisites</h2>
+<h3>Installation on own machine</h3>
+<p>For working on your own machine, you will need:</p>
+<ul>
+<li>Python</li>
+<li>Jupyter Notebook</li>
+<li>nbconvert</li>
+<li>nbdime</li>
+<li>nbval (version &gt;= 0.5.0)</li>
+</ul>
+<h4>Python</h4>
+<p>We would recommend installing Python using Anaconda. This gives you access to Python, a range of standard packages and pip (for installing further Python packages). If you do not want to install the full Anaconda distribution then you can use Miniconda which will install only a few basic packages to get you started.</p>
+<h4>Jupyter Notebook</h4>
+<ul>
+<li><strong>Anaconda</strong> - Jupyter Notebook comes as part of the Anaconda distribution</li>
+<li><strong>pip</strong> - there is a metapackage called Jupyter which will install all of the necessary Jupyter packages
+      pip install jupyter</li>
+</ul>
+<p>See <a href="http://jupyter.readthedocs.io/en/latest/install.html#new-to-python-and-jupyter">here</a> for further information on installing Jupyter.</p>
+<h4>nbconvert</h4>
+<ul>
+<li>
+<p>In command line run:</p>
+<p>pip install nbconvert</p>
+</li>
+</ul>
+<h4>nbdime</h4>
+<ul>
+<li>
+<p>run the following lines in command line.</p>
+<p>pip install --upgrade nbdime</p>
+</li>
+</ul>
+<h4>nbval</h4>
+<ul>
+<li><strong>pip</strong> - nbval can be installed through pip:
+      pip install nbval</li>
+</ul>
+<h3>Virtual Machine</h3>
+<p>We have also created a virtual machine which contains all of the necessary software and material for the workshop. If you prefer you can use VirtualBox and download the virtual machine labelled feeg6003_jupyternotebook from <a href="http://www.soton.ac.uk/~ngcmbits/virtualmachines">here</a> to complete the workshop.</p>
+<h3>Checking you're ready</h3>
+<p>The following steps allow you to check that you have Jupyter Notebook installed correctly and have the additional packages we are going to show you.</p>
+<h4>Opening Jupyter Notebook</h4>
+<p>In a terminal window:</p>
+<div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+
+
+<p>This should open an instance of Jupyter Notebook which usually open automatically in your browser. The Jupyter Notebook instance has the default address <code>http://localhost:8888/</code> so by typing this into your browser you should also be able to access a running Jupyter Notebook.</p>
+<h4>nbconvert</h4>
+<p>If you installed nbconvert using command line, run the following lines to download and run the official tests.</p>
+<div class="highlight"><pre><span></span>pip install nbconvert[test]
+py.test --pyargs nbconvert
+</pre></div>
+
+
+<p>Most of the tests shoud pass, with some few skipped and several warnings. It can be read by the warning messages that the tests are deprecated, and will be eliminated in the next version.</p>
+<h4>nbdime</h4>
+<p>If you installed nbdime using command line, run the following lines to download and run the official tests.</p>
+<div class="highlight"><pre><span></span>pip install nbdime[test]
+py.test --pyargs nbdime
+</pre></div>
+
+
+<p>Most of the tests should pass, with some failing due to some libraries not being installed properly. Ignore this for now, as they do not affect the functionality.</p>
+<h4>nbval</h4>
+<p>For the functionality included in this workshop we need version 0.5.0 or greater. You can check your current version using:</p>
+<div class="highlight"><pre><span></span>pip show nbval
+</pre></div>
+
+
+<p>If you have version 0.5.0 or greater then you have what you need.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

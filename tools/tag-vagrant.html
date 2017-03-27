@@ -125,17 +125,17 @@ at the provisioning stage (when the machine is initially setup). This allows for
 <p>ie.
     /home/feeg6003/puppet/manifests/default.pp</p>
 <p>An example puppet file can be seen here for the system-update module:</p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">system</span><span class="o">-</span><span class="nx">update</span><span class="p">{</span>
-<span class="nx">exec</span><span class="p">{</span><span class="s1">&#39;apt-get update&#39;</span><span class="o">:</span>
-<span class="nx">command</span> <span class="o">=&gt;</span> <span class="s1">&#39;apt-get update&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">system-update</span>{
+<span class="n">exec</span>{<span class="s">&#39;apt-get update&#39;</span>:
+<span class="n">command</span> =&gt; <span class="s">&#39;apt-get update&#39;</span>,
+}
 
-<span class="nx">$sysPackages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;build-essential&quot;</span><span class="p">]</span>
-<span class="kr">package</span><span class="p">{</span><span class="nx">$sysPackages</span>:
-<span class="kt">ensure</span><span class="o">=&gt;</span> <span class="s2">&quot;installed&quot;</span><span class="p">,</span>
-<span class="nx">require</span><span class="o">=&gt;</span><span class="nx">Exec</span><span class="p">[</span><span class="s1">&#39;qpt-get update&#39;</span><span class="p">],</span>
-<span class="p">}</span>
-<span class="p">}</span>
+<span class="nv">$sysPackages</span> = [<span class="s">&quot;build-essential&quot;</span>]
+<span class="k">package</span>{<span class="nv">$sysPackages:</span>
+<span class="n">ensure</span>=&gt; <span class="s">&quot;installed&quot;</span>,
+<span class="k">require</span>=&gt;<span class="n">Exec</span>[<span class="s">&#39;qpt-get update&#39;</span>],
+}
+}
 </pre></div>
 
 
@@ -266,14 +266,14 @@ sudo make install
 
 
 <p>Export the OpenMPI package path to the bash settings file</p>
-<div class="highlight"><pre><span></span>echo export PATH=&quot;$PATH:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.bashrc
-echo export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.bashrc
+<div class="highlight"><pre><span></span><span class="x">echo export PATH=&quot;</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.bashrc</span>
+<span class="x">echo export LD_LIBRARY_PATH=&quot;</span><span class="p">$</span><span class="nv">LD_LIBRARY_PATH</span><span class="x">:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.bashrc</span>
 </pre></div>
 
 
 <p>This makes Open MPI available when running through an interactive shell. To use it through <code>ssh</code>, add </p>
-<div class="highlight"><pre><span></span>echo export PATH=&quot;$PATH:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.profile
-echo export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.profile
+<div class="highlight"><pre><span></span><span class="x">echo export PATH=&quot;</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.profile</span>
+<span class="x">echo export LD_LIBRARY_PATH=&quot;</span><span class="p">$</span><span class="nv">LD_LIBRARY_PATH</span><span class="x">:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.profile</span>
 </pre></div>
 
 
