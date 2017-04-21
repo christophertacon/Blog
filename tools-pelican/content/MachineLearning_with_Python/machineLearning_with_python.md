@@ -18,7 +18,7 @@ While no previous knowledge of machine learning is expected, knowledge of Python
 # Installation
 
 ## VirtualBox
-A virtual machine image is provided that has the required packages preinstalled, as well as the workshop content. This is the recommended install method as it is the quickest and easiest way to get set up and running.
+A virtual machine image is provided [here](http://www.southampton.ac.uk/~ngcmbits/virtualmachines/Lubuntu_MachineLearning.ova) that has the required packages preinstalled, as well as the workshop content. This is the recommended install method as it is the quickest and easiest way to get set up and running.
 
 ## On Your Own machine
 The packages and workshop content can be installed on your own machine if that is preferred to using a virtual machine.
@@ -33,16 +33,18 @@ The easiest way to install all the required packages on your own machine is to i
 * Graphviz: Install Graphviz for Python by using the pip command `"pip install graphviz"`.
 
 ### Minimal Install
-If space is a concern then a minimal install can be done by installng the following:
+If space is a concern then a minimal install can be done by installing the following:
 
 * Miniconda: Download and install Miniconda from [here](https://conda.io/miniconda.html).
 * Git: If not already installed, download and install git from [here](https://git-scm.com/), or install it using a package manager.
 * wget: If this is not already installed then download and install wget from [here](https://www.gnu.org/software/wget/).
-* Pip: Install pip with the command `"conda install pip"`
-* Jupyter Notebook: Install the Jupyter Notebook with using the pip command `"pip install jupyter"`
-* Scikit-learn: Install Scikit-Learn by using the pip command `"pip install scikitlearn"`
-* TensorFlow: Install TensorFlow by using the pip command `"pip install tensorflow"`
-* Pydotplus: Install Pydotplus by using the pip command `"pip install pydotplus"`
+* Pip: Install pip with the command `"conda install pip"`.
+* Scipy: Install Scipy with the pip command `"pip install scipy"`.
+* Matplotlib: Install Matplotlib with the pip command `"pip install matplotlib"`.
+* Jupyter Notebook: Install the Jupyter Notebook with using the pip command `"pip install jupyter"`.
+* Scikit-learn: Install Scikit-Learn by using the pip command `"pip install scikit-learn"`.
+* TensorFlow: Install TensorFlow by using the pip command `"pip install tensorflow"`.
+* Pydotplus: Install Pydotplus by using the pip command `"pip install pydotplus"`.
 * Graphviz: Install Graphviz for Python by using the pip command `"pip install graphviz"`.
 
 Note: If any packages are missing install them with `"pip install <package-name>"`.
