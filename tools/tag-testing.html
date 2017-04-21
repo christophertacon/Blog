@@ -82,7 +82,7 @@ git push
 
 <p>Now, we clearly haven't written the function Fibonacci yet, but we'll show how to set up CircleCI so that you <em>know</em> you haven't written the function yet.</p>
 <p>Go to <a href="http://www.circleci.com">CircleCI</a>, and log in using your GitHub account. Authorise your account, and you will go to a page titled "Add Projects." Select your account name from the list below, and then the repository <em>continuousintegration</em>, and click "Build Project." This sets up the connection between the CI service and your GitHub repository, and starts a virtual machine on CircleCI's servers, then clones the most recent commit from GitHub, and then turns off again as we have not told it to do anything, with the error message "No Tests."</p>
-<p><img alt="No tests!" src="./continuous-integration/image/no_tests.png"></p>
+<p><img alt="No tests!" src="./continuous-integration/image/no_tests.png" /></p>
 <p>The next step is therefore to set the build environment up so that the virtual machine will run tests when we then push a commit. </p>
 <h2>CircleCI Configuration</h2>
 <p>Create a file in the <em>continuousintegration</em> folder on your computer called circle.yml. This file is used to specify programmes which need to be installed, such as interpreters or compilers.</p>
@@ -118,8 +118,8 @@ git push
 
 
 <p>Then we can go back to the CicleCI website and wait for the tests to run. The test runs and fails as the function we are testing doesn't exist (yet).</p>
-<p><img alt="Tests failed!" src="./continuous-integration/image/failed.png"></p>
-<p><img alt="No module Fibonacci!" src="./continuous-integration/image/no_module_fibonacci.png"></p>
+<p><img alt="Tests failed!" src="./continuous-integration/image/failed.png" /></p>
+<p><img alt="No module Fibonacci!" src="./continuous-integration/image/no_module_fibonacci.png" /></p>
 <h2>Add the CircleCI status badge to your GitHub repository (very handy!)</h2>
 <p>Just add the following code to the README.md file in your repository, make sure you change <em>yourusername</em> by your actual username:</p>
 <div class="highlight"><pre><span></span><span class="p">[</span><span class="o">!</span><span class="p">[</span><span class="n">Circle</span> <span class="n">CI</span><span class="p">](</span><span class="nl">https</span><span class="p">:</span><span class="c1">//circleci.com/gh/yourusername/continuousintegration.svg?style=svg)](https://circleci.com/gh/yourusername/continuousintegration)</span>
@@ -160,11 +160,11 @@ git push
 
 
 <p>and get our first green light message!</p>
-<p><img alt="No tests!" src="./continuous-integration/image/passed.png"></p>
+<p><img alt="No tests!" src="./continuous-integration/image/passed.png" /></p>
 <p>We can check that indeed, our test has passed successfully:</p>
-<p><img alt="No tests!" src="./continuous-integration/image/test_passed.png"></p>
+<p><img alt="No tests!" src="./continuous-integration/image/test_passed.png" /></p>
 <p>and we have a green badge in our GitHub account:</p>
-<p><img alt="No tests!" src="./continuous-integration/image/badge_passed.png"></p>
+<p><img alt="No tests!" src="./continuous-integration/image/badge_passed.png" /></p>
 <h2>Add more tests</h2>
 <p>Say that we want to test that our function does something sensible with an invalid input - the Pythonic way of handling an invalid value is to throw an exception. We can modify our test to check that exceptions are thrown by the function for cases such as:</p>
 <ul>
@@ -230,11 +230,11 @@ git push
 <p>It's possible to add compilers, programs and your own code to CircleCI just by adding additional dependencies to the circle.yml file. It may be that you're not sure that it something will compile, or it's possible that a dependency is not present in the Ubuntu apt package manager. You may want to see specifically why a test failed, and check a modified version of the code works. If this is the case, it is possible to use SSH to log into a build box and check! </p>
 <p>In order to do this, you must first set up SSH access with your GitHub account. If you do not already have this set up, following <a href="https://help.github.com/articles/generating-an-ssh-key/">these instructions on the GitHub site</a></p>
 <p>Now, navigate to the CircleCI page for your repository. In the latest build, you can see a <em>Rebuild</em> menu - click the arrow to expand the list, and select <em>Rebuid with SSH</em>. </p>
-<p><img alt="No tests!" src="./continuous-integration/image/ssh-menu.png"></p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh-menu.png" /></p>
 <p>The build will then start, and you can then see a list of Containers, and the associated commands needed to login. For our simple case, we should see only something like the following, with a single Container:</p>
-<p><img alt="No tests!" src="./continuous-integration/image/ssh-address.png"></p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh-address.png" /></p>
 <p>If you then copy the highlighted text, and execute it in a terminal, you can log into the box and do whatever you like. As a warning - if you are disconnected, it may mean that you are using too much memory in the remote box.</p>
-<p><img alt="No tests!" src="./continuous-integration/image/ssh.png"></p>
+<p><img alt="No tests!" src="./continuous-integration/image/ssh.png" /></p>
 <h1>Where to from here?</h1>
 <p>We've shown you some very brief and easy things to do with CircleCI. Some more advanced features that you may like to try out are:</p>
 <ul>
@@ -283,7 +283,7 @@ git push
 <li><a class="reference internal" href="#terminology" id="id8">Terminology</a></li>
 <li><a class="reference internal" href="#getting-started-with-hg" id="id9">Getting started with hg</a></li>
 <li><a class="reference internal" href="#initialise-hg-repository" id="id10">Initialise hg repository</a></li>
-<li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files …</a></li></ul></li></ul></div></div>
+<li><a class="reference internal" href="#checking-the-status-of-files" id="id11">Checking the status of files ...</a></li></ul></li></ul></div></div>
                 <a class="readmore" href="./mercurial.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -321,7 +321,7 @@ git push
 <div class="figure align-left" style="width: 60%">
 <img alt="Importing the virtual machine" src="./virtualbox-basics/virtualbox-images/ImportAppliance2.png" style="width: 100%;" />
 </div>
-<p>To start the machine just …</p>
+<p>To start the machine just ...</p>
                 <a class="readmore" href="./virtualbox-basics.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>

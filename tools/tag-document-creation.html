@@ -37,7 +37,7 @@
         </address>
 <p>In <a href="./category-latex-with-lyx.html">latex-with-lyx</a>. </p>
 <p>tags: <a href="./tag-lyx.html">Lyx</a> <a href="./tag-latex.html">Latex</a> <a href="./tag-document-creation.html">document creation</a> </p>
-</footer><!-- /.post-info --><p><img alt="LyX" src="./latex-with-lyx/lyx.png" title="LyX"></p>
+</footer><!-- /.post-info --><p><img alt="LyX" src="./latex-with-lyx/lyx.png" title="LyX" /></p>
 <h1>Introduction</h1>
 <p>This workshop serves as an introduction to LaTeX, using the graphical user interface LyX. We explain the advantages of using LyX, and provide an exercise with the aim of producing a basic template of a scientific report.</p>
 <p>Our motivation is to allow people to quickly gain familiarity with LaTeX.</p>
@@ -62,97 +62,30 @@
 <li>Spellchecker</li>
 <li>Export to LaTeX</li>
 </ul>
-<h1>LyX</h1>
-<p>To get LyX, simply download from their website or use the virtual machine provided.</p>
+<h1>Installation</h1>
+<h2>VirtualBox</h2>
+<p>A virtual machine image is provided that has the required packages preinstalled, as well as the workshop content. This is the recommended install as it's the quickest and easiest to get up and running.</p>
+<h2>On Your Own machine</h2>
+<p>The packages and workshop content can be easily installed on your own machine if that is preferred to running from a virtual machine.</p>
+<h3>Full Install</h3>
+<p>The easiest way to install all the required packages on your own machine is to install install the packages as follows:</p>
 <ul>
-<li><a href="https://www.lyx.org/">LyX</a></li>
+<li>
+<p>Anaconda: Download Anaconda <a href="https://www.continuum.io/downloads">here</a> and install it.</p>
+</li>
+<li>
+<p>Git: If not already installed, either download git and install it from <a href="https://git-scm.com/">here</a> or install it using a package manager.</p>
+</li>
+<li>
+<p>TensorFlow: Install TensorFlow for Python by using pip, "pip install tensorflow".</p>
+</li>
+<li>
+<p>Graphviz: Install Graphviz for Python by using pip, "pip install graphviz".</p>
+</li>
 </ul>
-<p>Both LyX and LaTeX require a TeX distribution is installed on your machine. Popular options include TeXLive or MiKTeX:</p>
-<ul>
-<li><a href="https://www.tug.org/texlive/">TeXLive</a></li>
-<li><a href="https://miktex.org/">MiKTeX</a></li>
-</ul>
-<p>The beauty of LyX lies in its ease of use. Instead of writing LaTeX commands to insert tables/titles/sections/etc, one simply selects from drop down menus. LyX also has a user-friendly equation editor.</p>
-<p>After you've played around with LyX and written a document, you can view the resulting pdf by clicking on the 'eyes' icon in the toolbar. If you make further changes to your document, clicking the 'cyclic arrows' icon button just to the right of the 'eyes' icon updates the pdf with any changes.</p>
-<p>The best way to discover the features of LyX is by experimentation, and for those in search of a more complete tutorial more details can be found <a href="http://wiki.lyx.org/LyX/Tutorials">here</a>.</p>
-<h1>LaTeX</h1>
-<p>We now present a brief introduction on how to construct a document using LaTeX. For a more thorough introduction to LaTeX, we refer to an excellent previous workshop which can be found <a href="https://computationalmodelling.bitbucket.io/tools/introduction-to-latex.html">here</a>.</p>
-<p>To get started with LaTex you will need a text editor/IDE (eg. Emacs, Sublime or TeXMaker) and a PDF viewer (eg. Evince, Adobe) in addition to a TeX distribution.</p>
+<p>Anaconda, git, Tensorflow, and Graphviz</p>
+<h3>Minimal Install</h3>
 <h2>Document structure</h2>
-<p>Begin by using a preferred text editor, or LaTeX IDE. A LaTeX document is formed around commands:</p>
-<div class="highlight"><pre><span></span><span class="k">\command</span><span class="na">[option]</span><span class="nb">{</span>argument<span class="nb">}</span>
-</pre></div>
-
-
-<p>The document should begin by defining the document class. Different classes have different purposes and properties. The most common for scientific documents will be the article class. Note the options provided to the command.</p>
-<div class="highlight"><pre><span></span><span class="k">\documentclass</span><span class="na">[a4paper,12pt]</span><span class="nb">{</span>article<span class="nb">}</span>
-</pre></div>
-
-
-<p>Packages can be added to extend basic functionality,</p>
-<div class="highlight"><pre><span></span><span class="k">\usepackage</span><span class="na">[opt1, opt2, ...]</span><span class="nb">{</span>package<span class="nb">_</span>name<span class="nb">}</span>
-</pre></div>
-
-
-<p>Two useful such packages are <em>amsmath</em> and <em>graphicx</em>, which allow for inclusion of a wide range of mathematical expressions and the importing of figures, respectively.</p>
-<p>The body of the document must be contained between the following:</p>
-<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</pre></div>
-
-
-<h2>Creating a title</h2>
-<p>To specify the title, author and date, use the following commands at the beginning of the document:</p>
-<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
-<span class="k">\title</span><span class="nb">{</span>Proof of Fermat’s Last Theorem<span class="nb">}</span>
-<span class="k">\author</span><span class="nb">{</span>Andrew Wiles<span class="nb">}</span>
-<span class="k">\date</span><span class="nb">{</span>December 1994<span class="nb">}</span>
-<span class="k">\maketitle</span>
-<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
-</pre></div>
-
-
-<h2>Sections</h2>
-<p>Just like LyX we have sections and subsections. Unlike LyX, we define them using commands. For example,</p>
-<div class="highlight"><pre><span></span><span class="k">\section</span><span class="nb">{</span>Calculus<span class="nb">}</span>
-<span class="k">\subsection</span><span class="nb">{</span>Differentiation<span class="nb">}</span>
-<span class="k">\section*</span><span class="nb">{</span>Integration<span class="nb">}</span>        (this will be unnumbered)
-<span class="k">\section</span><span class="nb">{</span>Calculus<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>sec:Calculus<span class="nb">}</span>
-</pre></div>
-
-
-<p>We can then refer to the <em>'Calculus'</em> section by using the following command within text:</p>
-<div class="highlight"><pre><span></span><span class="k">\ref</span><span class="nb">{</span>sec:Calculus<span class="nb">}</span>
-</pre></div>
-
-
-<h2>Equations and Figures</h2>
-<p>At the most basic level, equations can be included inline or separately to allow for numbering. To include inline simply include the following within text:</p>
-<div class="highlight"><pre><span></span><span class="s">$</span><span class="nb">equation</span><span class="s">$</span>
-</pre></div>
-
-
-<p>The alternative is to use the equation environment:</p>
-<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>equation<span class="nb">}</span>
-  y = x<span class="nb">_</span>0 + <span class="k">\frac</span><span class="nb">{</span>1<span class="nb">}{</span><span class="k">\displaystyle</span> x<span class="nb">_</span>1
-          + <span class="k">\frac</span><span class="nb">{</span>1<span class="nb">}{</span><span class="k">\displaystyle</span> x<span class="nb">_</span>2
-          + <span class="k">\frac</span><span class="nb">{</span>1<span class="nb">}{</span><span class="k">\displaystyle</span> x<span class="nb">_</span>3 + x<span class="nb">_</span>4<span class="nb">}}}</span> <span class="k">\nonumber</span>
-<span class="k">\end</span><span class="nb">{</span>equation<span class="nb">}</span>
-</pre></div>
-
-
-<p>To include figures, the basic code structure is:</p>
-<div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>figure<span class="nb">}</span>
-<span class="k">\centering</span>
-  <span class="k">\includegraphics</span><span class="na">[scale=0.8]</span><span class="nb">{</span>image.png<span class="nb">}</span>
-  <span class="k">\caption</span><span class="nb">{</span>A caption.<span class="nb">}</span>
-  <span class="k">\label</span><span class="nb">{</span>fig:image<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>figure<span class="nb">}</span>
-</pre></div>
-
-
-<p>Note that we have centered the image and added a suitable caption and label, which can be referred to within the text.</p>
 <h2>Bibliography</h2>
 <p>If you have a small number of references you can use LaTeX's bibliography environment as follows:</p>
 <div class="highlight"><pre><span></span><span class="k">\begin</span><span class="nb">{</span>thebibliography<span class="nb">}{</span>99<span class="nb">}</span>
@@ -214,11 +147,11 @@ Person B&#39;s Book, Publisher B (Date B).
         </address>
 <p>In <a href="./category-bibtex.html">bibtex</a>. </p>
 <p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-bibtex.html">Bibtex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
-</footer><!-- /.post-info -->                <p><img alt="Latex_Bibtex" src="./bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow"></p>
+</footer><!-- /.post-info -->                <p><img alt="Latex_Bibtex" src="./bibtex/bibtexdiagram.png" title="LaTeX and BibTeX workflow" /></p>
 <h1>Virtual Machine - How To</h1>
-<hr>
+<hr />
 <p>Install VirtualBox on your system (if you have not done so before); the link for the virtual machine is provided <a href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/feeg6003_bibtex.ova">here</a>. Log in as the user feeg6003 using the same password.</p>
-<p>In the virtual machine a basic LaTeX distribution has been installed, together with BibTeX, TeXstudio …</p>
+<p>In the virtual machine a basic LaTeX distribution has been installed, together with BibTeX, TeXstudio ...</p>
                 <a class="readmore" href="./Bibtex.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -241,9 +174,9 @@ Person B&#39;s Book, Publisher B (Date B).
         </address>
 <p>In <a href="./category-latex.html">Latex</a>. </p>
 <p>tags: <a href="./tag-latex.html">Latex</a> <a href="./tag-reporting.html">reporting</a> <a href="./tag-document-creation.html">document creation</a> </p>
-</footer><!-- /.post-info -->                <p><img alt="Latex" src="./Latex/LaTeX_logo.png" title="Latex"></p>
+</footer><!-- /.post-info -->                <p><img alt="Latex" src="./Latex/LaTeX_logo.png" title="Latex" /></p>
 <h1>Introduction</h1>
-<p>Latex is a tool used to prepare documents. It is very useful to write scientific documents but can also be used to write a wide variety of other documents. Latex is not a <em>word processor</em> instead you concentrate on writing the content and Latex will format it for you …</p>
+<p>Latex is a tool used to prepare documents. It is very useful to write scientific documents but can also be used to write a wide variety of other documents. Latex is not a <em>word processor</em> instead you concentrate on writing the content and Latex will format it for you ...</p>
                 <a class="readmore" href="./introduction-to-latex.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>

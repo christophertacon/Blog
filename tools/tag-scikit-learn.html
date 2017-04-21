@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - scikit-learn</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./introduction-to-machine-learning-with-python.html">Introduction to Machine Learning with Python</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-04-24T00:00:00+02:00">
+                Published: Mon 24 April 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-greg-parkes.html">Greg Parkes</a>
+                        <a class="url fn" href="./author-toshan-rampat.html">Toshan Rampat</a>
+                        <a class="url fn" href="./author-samuel-senior.html">Samuel Senior</a>
+        </address>
+<p>In <a href="./category-machinelearning_with_python.html">MachineLearning_with_Python</a>. </p>
+<p>tags: <a href="./tag-machine-learning.html">Machine Learning</a> <a href="./tag-python.html">Python</a> <a href="./tag-scikit-learn.html">scikit-learn</a> <a href="./tag-tensorflow.html">TensorFlow</a> </p>
+</footer><!-- /.post-info --><p><img alt="scikit-learn" src="./MachineLearning_with_Python/scikit-learn.png" /></p>
+<h1>Introduction</h1>
+<p>Machine Learning is a form of Artificial Intelligence that gives computers the ability to learn from sets of data without explicitly programming them. By learning from one set of data, behaviours and patterns can be discovered and used to process new, unseen data. In other areas of computer science prior knowledge of relationships and patters are needed so that they can be hardcoded into the computer programs. This makes areas such as facial recognition a lot harder as specific hardcoded rules are needed for processing the data. With machine learning the computer learns these rules itself and applies them to the data to produce results that would be hard to achieve using other methods.</p>
+<p>Machine learning works best when there is a large amount of data to learn from and as such it is most prevalent in areas where there are vast amounts of data to work with. Today, machine learning is used in such things as self driving cars, cybersecurity, banking chatbots, and image recognition.</p>
+<p>This workshop aims to introduce machine learning to an audience who has not previously encountered it. An overview of some of the most common techniques in machine learning is given and practical exercises using these techniques are set.</p>
+<p>While no previous knowledge of machine learning is expected, knowledge of Python is required as the practical exercises use Python.</p>
+<h1>Installation</h1>
+<h2>VirtualBox</h2>
+<p>A virtual machine image is provided that has the required packages preinstalled, as well as the workshop content. This is the recommended install method as it is the quickest and easiest way to get set up and running.</p>
+<h2>On Your Own machine</h2>
+<p>The packages and workshop content can be installed on your own machine if that is preferred to using a virtual machine.</p>
+<h3>Full Install</h3>
+<p>The easiest way to install all the required packages on your own machine is to install them as follows:</p>
+<ul>
+<li>Anaconda: Download Anaconda <a href="https://www.continuum.io/downloads">here</a> and install it.</li>
+<li>Git: If not already installed, either download git and install it from <a href="https://git-scm.com/">here</a>, or install it using a package manager.</li>
+<li>Wget: If this is not already installed then download and install wget from <a href="https://www.gnu.org/software/wget/">here</a>.</li>
+<li>TensorFlow: Install TensorFlow for Python by using the pip command <code>"pip install tensorflow"</code>.</li>
+<li>Graphviz: Install Graphviz for Python by using the pip command <code>"pip install graphviz"</code>.</li>
+</ul>
+<h3>Minimal Install</h3>
+<p>If space is a concern then a minimal install can be done by installng the following:</p>
+<ul>
+<li>Miniconda: Download and install Miniconda from <a href="https://conda.io/miniconda.html">here</a>.</li>
+<li>Git: If not already installed, download and install git from <a href="https://git-scm.com/">here</a>, or install it using a package manager.</li>
+<li>wget: If this is not already installed then download and install wget from <a href="https://www.gnu.org/software/wget/">here</a>.</li>
+<li>Pip: Install pip with the command <code>"conda install pip"</code></li>
+<li>Jupyter Notebook: Install the Jupyter Notebook with using the pip command <code>"pip install jupyter"</code></li>
+<li>Scikit-learn: Install Scikit-Learn by using the pip command <code>"pip install scikitlearn"</code></li>
+<li>TensorFlow: Install TensorFlow by using the pip command <code>"pip install tensorflow"</code></li>
+<li>Pydotplus: Install Pydotplus by using the pip command <code>"pip install pydotplus"</code></li>
+<li>Graphviz: Install Graphviz for Python by using the pip command <code>"pip install graphviz"</code>.</li>
+</ul>
+<p>Note: If any packages are missing install them with <code>"pip install &lt;package-name&gt;"</code>.</p>
+<h1>Workshop Material</h1>
+<p>The workshop material comes already downloaded in the virtual machine, though it can also be downloaded from <a href="https://github.com/samuelsenior/ML_Intro">here</a>.</p>
+<h2>Structure</h2>
+<p>The workshop material is structured with a parent directory containing a PowerPoint presentation of the workshop slides, a pdf of these slides, and a subdirectory of the practical exercises. There is also a readme that can be found in the parent directory that gives a very brief overview of the requirements.</p>
+<p>The Practicals subdirectory contains a directory for each of the three practical exercises which are mentioned in the slides.</p>
+<h1>Useful Links</h1>
+<ul>
+<li><a href="http://scikit-learn.org">Scikit-learn</a></li>
+<li><a href="https://www.tensorflow.org">TensorFlow</a></li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

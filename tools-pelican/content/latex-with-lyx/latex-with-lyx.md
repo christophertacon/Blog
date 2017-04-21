@@ -5,7 +5,7 @@ tags: Lyx, Latex, document creation
 
 ![LyX]( {filename}/latex-with-lyx/lyx.png "LyX")
 
-#Introduction
+# Introduction
 
 This workshop serves as an introduction to LaTeX, using the graphical user interface LyX. We explain the advantages of using LyX, and provide an exercise with the aim of producing a basic template of a scientific report.
 
@@ -35,114 +35,32 @@ Why LyX?
 * Spellchecker
 * Export to LaTeX
 
-# LyX
+# Installation
 
-To get LyX, simply download from their website or use the virtual machine provided.
+## VirtualBox
+A virtual machine image is provided that has the required packages preinstalled, as well as the workshop content. This is the recommended install as it's the quickest and easiest to get up and running.
 
-* [LyX](https://www.lyx.org/)
+## On Your Own machine
+The packages and workshop content can be easily installed on your own machine if that is preferred to running from a virtual machine.
 
-Both LyX and LaTeX require a TeX distribution is installed on your machine. Popular options include TeXLive or MiKTeX:
+### Full Install
+The easiest way to install all the required packages on your own machine is to install install the packages as follows:
 
-* [TeXLive](https://www.tug.org/texlive/)
-* [MiKTeX](https://miktex.org/)
+* Anaconda: Download Anaconda [here](https://www.continuum.io/downloads) and install it.
 
-The beauty of LyX lies in its ease of use. Instead of writing LaTeX commands to insert tables/titles/sections/etc, one simply selects from drop down menus. LyX also has a user-friendly equation editor.
+* Git: If not already installed, either download git and install it from [here](https://git-scm.com/) or install it using a package manager.
 
-After you've played around with LyX and written a document, you can view the resulting pdf by clicking on the 'eyes' icon in the toolbar. If you make further changes to your document, clicking the 'cyclic arrows' icon button just to the right of the 'eyes' icon updates the pdf with any changes.
+* TensorFlow: Install TensorFlow for Python by using pip, "pip install tensorflow".
 
-The best way to discover the features of LyX is by experimentation, and for those in search of a more complete tutorial more details can be found [here](http://wiki.lyx.org/LyX/Tutorials).
+* Graphviz: Install Graphviz for Python by using pip, "pip install graphviz".
 
-# LaTeX
+Anaconda, git, Tensorflow, and Graphviz
 
-We now present a brief introduction on how to construct a document using LaTeX. For a more thorough introduction to LaTeX, we refer to an excellent previous workshop which can be found [here](https://computationalmodelling.bitbucket.io/tools/introduction-to-latex.html).
+### Minimal Install
+## Document structure
 
-To get started with LaTex you will need a text editor/IDE (eg. Emacs, Sublime or TeXMaker) and a PDF viewer (eg. Evince, Adobe) in addition to a TeX distribution.
 
-##Document structure
-
-Begin by using a preferred text editor, or LaTeX IDE. A LaTeX document is formed around commands:
-
-```tex
-\command[option]{argument}
-```
-
-The document should begin by defining the document class. Different classes have different purposes and properties. The most common for scientific documents will be the article class. Note the options provided to the command.
-
-```tex
-\documentclass[a4paper,12pt]{article}
-```
-
-Packages can be added to extend basic functionality,
-
-```tex
-\usepackage[opt1, opt2, ...]{package_name}
-```
-Two useful such packages are *amsmath* and *graphicx*, which allow for inclusion of a wide range of mathematical expressions and the importing of figures, respectively.
-
-The body of the document must be contained between the following:
-
-```tex
-\begin{document}
-
-\end{document}
-```
-
-##Creating a title
-To specify the title, author and date, use the following commands at the beginning of the document:
-
-```tex
-\begin{document}
-\title{Proof of Fermat’s Last Theorem}
-\author{Andrew Wiles}
-\date{December 1994}
-\maketitle
-\end{document}
-```
-
-##Sections
-Just like LyX we have sections and subsections. Unlike LyX, we define them using commands. For example,
-
-```tex
-\section{Calculus}
-\subsection{Differentiation}
-\section*{Integration}        (this will be unnumbered)
-\section{Calculus}\label{sec:Calculus}
-```
-
-We can then refer to the *'Calculus'* section by using the following command within text:
-
-```tex
-\ref{sec:Calculus}
-```
-
-##Equations and Figures
-At the most basic level, equations can be included inline or separately to allow for numbering. To include inline simply include the following within text:
-
-```tex
-$equation$
-```
-The alternative is to use the equation environment:
-
-```tex
-\begin{equation}
-  y = x_0 + \frac{1}{\displaystyle x_1
-          + \frac{1}{\displaystyle x_2
-          + \frac{1}{\displaystyle x_3 + x_4}}} \nonumber
-\end{equation}
-```
-
-To include figures, the basic code structure is:
-```tex
-\begin{figure}
-\centering
-  \includegraphics[scale=0.8]{image.png}
-  \caption{A caption.}
-  \label{fig:image}
-\end{figure}
-```
-Note that we have centered the image and added a suitable caption and label, which can be referred to within the text.
-
-##Bibliography
+## Bibliography
 If you have a small number of references you can use LaTeX's bibliography environment as follows:
 
 ```tex
@@ -161,14 +79,14 @@ Items are added using the '\bibitem{label}' command. You can use the '\cite{}' c
 
 For instructions on how to use BibTeX for referencing, we refer to the excellent previous workshop by Gabriele Boschetto and Alejandra Vergara, which can be found [here](https://computationalmodelling.bitbucket.io/tools/Bibtex.html).
 
-#References and useful links
+# References and useful links
 * [LyX](https://www.lyx.org/)
 * [Introduction to LaTeX and BibTeX](https://computationalmodelling.bitbucket.io/tools/Bibtex.html)
 * [Introduction to LaTeX](https://computationalmodelling.bitbucket.io/tools/introduction-to-latex.html)
 * [Latex Wiki](http://en.wikibooks.org/wiki/LaTeX)
 * [The Not So Short Introduction to Latex](https://tobi.oetiker.ch/lshort/lshort.pdf)
 
-#Exercise
+# Exercise
 
 Try to recreate the following pdf as close as you can, you can use either LyX or, if you are more comfortable, LaTeX to do this. Feel free to be creative, there's no need to laboriously recreate the exercise pdf exactly, as long as you can demonstrate the main features.
 
