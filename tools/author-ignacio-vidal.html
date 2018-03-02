@@ -73,7 +73,7 @@
 <p>Executing <code>docker</code> without arguments will print a detailed list of available commands. <code>docker &lt;command&gt; --help</code> will print help.</p>
 <h2>Hello World</h2>
 <p>We will now print a <em>dockerized</em> hello world. The command to execute is:</p>
-<div class="highlight"><pre><span></span>docker run ubuntu /bin/echo &quot;hello world&quot;
+<div class="highlight"><pre>docker run ubuntu /bin/echo &quot;hello world&quot;
 </pre></div>
 
 
@@ -81,12 +81,12 @@
 <p>That was a lot of work to simply print a string on the screen.</p>
 <h2>Interactive bash session</h2>
 <p>The same way we ran <code>/bin/echo</code>, we can run <code>/bin/bash</code>, so...</p>
-<div class="highlight"><pre><span></span>docker run ubuntu /bin/bash
+<div class="highlight"><pre>docker run ubuntu /bin/bash
 </pre></div>
 
 
 <p>Oh... it didn't worked. Why? Because we have to tell docker to allocate a pseudo TTY (option <code>-t</code>) and to attach the standard input to the container (option <code>-i</code>). Now</p>
-<div class="highlight"><pre><span></span>docker run ubuntu -t -i /bin/bash
+<div class="highlight"><pre>docker run ubuntu -t -i /bin/bash
 </pre></div>
 
 
@@ -102,14 +102,14 @@
 <p>There are two ways of creating an image:</p>
 <h3>Incremental changes</h3>
 <p>Changes to an image done with a bash interactive session will not be persistent <em>unless</em> you commit them. You can commit changes in a git style using <code>docker commit</code>. Example:</p>
-<div class="highlight"><pre><span></span>docker commit -m &quot;Commit message&quot; -a &quot;authorname&quot; containerID user/newimagename:tag
+<div class="highlight"><pre>docker commit -m &quot;Commit message&quot; -a &quot;authorname&quot; containerID user/newimagename:tag
 </pre></div>
 
 
 <h3>Using a DOCKERFILE</h3>
 <p>Running a bash session and commiting the changes may be inconvinient to manage images and deploy to a large team. Luckily we can automate the process and specify creation commands in a bash-style script: the Dockerfile.</p>
 <p>Below you can see a Dockerfile template:</p>
-<div class="highlight"><pre><span></span>################################################
+<div class="highlight"><pre>################################################
 # Dockerfile template to build a simple image  #
 # Based on Ubuntu 14:04                        #
 ################################################
@@ -137,7 +137,7 @@ In order to build the image, just type <code>docker build -t username/imagename:
 <p><a href="https://hub.docker.com/r/feeg6003/scicomp/">Scientific tools sample container: feeg6003/scicomp:v1</a></p>
 <h2>Working with data</h2>
 <p>It is possible to share data between the container and the hosts OS:</p>
-<div class="highlight"><pre><span></span>docker run --name data -v /home/feeg6003-docker/data:/data feeg6003/scicomp:v1 /bin/bash
+<div class="highlight"><pre>docker run --name data -v /home/feeg6003-docker/data:/data feeg6003/scicomp:v1 /bin/bash
 </pre></div>
 
 

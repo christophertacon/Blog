@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - training</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./vim-basics.html">VIM Basics</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-03-05T00:00:00+01:00">
+                Published: Mon 05 March 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-ben-guthrie.html">Ben Guthrie</a>
+                        <a class="url fn" href="./author-sebastien-lemaire.html">Sebastien Lemaire</a>
+        </address>
+<p>In <a href="./category-vim.html">vim</a>. </p>
+<p>tags: <a href="./tag-vim.html">vim</a> <a href="./tag-basics.html">basics</a> <a href="./tag-training.html">training</a> <a href="./tag-editor.html">editor</a> </p>
+</footer><!-- /.post-info --><h1>What is VIM?</h1>
+<p><strong>VIM</strong> is a text editor with a relatively high learning curve, but many advantages. For example, <strong>VIM</strong> is ubiquitous - it is installed by default on almost all operating systems - as well as being highly configurable and efficient. It can be used for anything from quick text editing, to code writing as a fully functional, configurable IDE.</p>
+<h1>Setting up the vim environment</h1>
+<p><strong>VIM</strong> is installed by default on almost all machines. The training material used in this workshop can be found <a href="here">https://gitlab.com/Nanoseb/feeg6003-vim</a>.</p>
+<p>If using the virtual machine:</p>
+<p>Navitage to home directory</p>
+<div class="highlight"><pre><span class="k">cd</span> <span class="p">~</span>
+</pre></div>
+
+
+<p>Setup the environment</p>
+<div class="highlight"><pre><span class="n">goto_level</span> <span class="mi">1</span>
+</pre></div>
+
+
+<h3>NOTE:</h3>
+<p>This workshop contains very many commands. It is not expected that you will learn all of these commands by the end of the workshop - instead, it will serve as a "cheatsheet" to refer back to while using VIM. However, after a short time you will most likely find you remember all the commands you need.</p>
+<h1>VIM Basics: Opening files, navigation, insert mode</h1>
+<h2>Opening and closing files</h2>
+<p>Create/open a file called <strong>filename</strong></p>
+<div class="highlight"><pre><span class="k">vim</span> filename
+</pre></div>
+
+
+<p>Insert some text</p>
+<div class="highlight"><pre><span class="n">i</span>
+<span class="p">[</span><span class="n">INSERT</span> <span class="n">TEXT</span><span class="p">]</span>
+<span class="o">&lt;</span><span class="n">ESC</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>Close the file</p>
+<div class="highlight"><pre><span class="p">:</span><span class="n">wq</span> <span class="c1"># Save and exit (alternatively ZZ)</span>
+<span class="p">:</span><span class="n">q</span><span class="err">!</span> <span class="c1"># Discard changes</span>
+</pre></div>
+
+
+<h2>Normal and Insert modes</h2>
+<p><strong>VIM</strong> starts in normal mode. In this mode, you can navigate around the text, use commands, and edit text. Most of your time will be spent in this mode.</p>
+<p>Insert mode allows inserting text, but nothing else. This mode can be entered in a number of ways:</p>
+<div class="highlight"><pre><span class="n">i</span> <span class="c1"># Insert before the cursor</span>
+<span class="n">a</span> <span class="c1"># Append after cursor</span>
+<span class="n">o</span> <span class="c1"># Insert on a new line below the cursor</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="n">I</span> <span class="c1"># Insert at the end beginning of the line</span>
+<span class="n">A</span> <span class="c1"># Append to the end of the line</span>
+<span class="n">O</span> <span class="c1"># Insert on a new line above the cursor</span>
+</pre></div>
+
+
+<p>Press <code>&lt;ESC&gt;</code> to return to normal mode.</p>
+<h2>Navigation</h2>
+<p>All navigation is done using the keyboard, in normal mode.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Movement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code>, <code>j</code>, <code>k</code>, <code>l</code></td>
+<td>Left, down, up, right</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>To the start of the next word</td>
+</tr>
+<tr>
+<td><code>W</code></td>
+<td>To the start of the next WORD</td>
+</tr>
+<tr>
+<td><code>e</code>, <code>E</code></td>
+<td>To the end of the next word / WORD</td>
+</tr>
+<tr>
+<td><code>b</code>, <code>B</code></td>
+<td>To the start of the previous word / WORD</td>
+</tr>
+<tr>
+<td><code>0</code>, <code>$</code></td>
+<td>To the start / end of the line</td>
+</tr>
+<tr>
+<td><code>(</code>, <code>)</code></td>
+<td>Forward / backward one sentence</td>
+</tr>
+<tr>
+<td><code>{</code>, <code>}</code></td>
+<td>Forward / backward one paragraph</td>
+</tr>
+<tr>
+<td><code>gg</code>, <code>G</code></td>
+<td>To the start / end of the file</td>
+</tr>
+</tbody>
+</table>
+<p>The difference between a word and a WORD is that the former only contains alphanumeric characters and underscores, while the latter includes everything up to the next whitespace.</p>
+<h1>Commands and config files.</h1>
+<p>Setup the environment</p>
+<div class="highlight"><pre>goto_level <span class="m">2</span>
+</pre></div>
+
+
+<h2>VIM Commands</h2>
+<p><strong>VIM</strong> has many commands to enable efficient text editing. Some are rarely used, others will be used all the time. Commands can be formed by combining operators, in the form <code>verb</code> <code>modifier</code> <code>noun</code>. All commands must be entered in normal mode.</p>
+<p>Some useful commands are the following:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Verbs</th>
+<th align="left">Modifiers</th>
+<th align="left">Nouns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>d</code>: <em>delete (and copy)</em></td>
+<td align="left"><code>1</code>,<code>2</code>,<code>3</code>...</td>
+<td align="left"><code>s</code>: <em>sentence</em></td>
+</tr>
+<tr>
+<td align="left"><code>c</code>: <em>change</em></td>
+<td align="left"><code>i</code>: <em>inside</em></td>
+<td align="left"><code>p</code>: <em>paragraph</em></td>
+</tr>
+<tr>
+<td align="left"><code>y</code>: <em>yank (copy)</em></td>
+<td align="left"><code>a</code>: <em>around</em></td>
+<td align="left"><code>w</code>: <em>word</em></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><code>t</code>: <em>to character</em></td>
+<td align="left"><code>'</code>, <code>"</code>, <code>(</code>, <code>&lt;</code>, ...</td>
+</tr>
+</tbody>
+</table>
+<p>To perform commands on a whole line:</p>
+<p><code>dd</code>: <em>delete line</em><br />
+<code>yy</code>: <em>copy line</em><br />
+<code>C</code>: <em>change the line from the cursor position</em><br />
+<code>S</code>: <em>change the entire line</em><br />
+<code>5dd</code>: <em>delete 5 lines</em>  </p>
+<p>Other useful commands:</p>
+<p><code>x</code>: <em>delete the character under the cursor</em><br />
+<code>r</code>: <em>replace the character under the cursor</em><br />
+<code>u</code>, <code>Ctrl-r</code>: <em>undo / redo</em><br />
+<code>p</code>: <em>paste after/below the cursor</em><br />
+<code>P</code>: <em>paste before/above the cursor</em><br />
+<code>.</code>: <em>repeat the last command</em>  </p>
+<p>Some examples of combined commands:</p>
+<div class="highlight"><pre><span class="n">d2w</span> <span class="c1"># Delete 2 words</span>
+<span class="n">yis</span> <span class="c1"># Yank (copy) inside sentence</span>
+<span class="n">ct</span><span class="p">{</span><span class="n">character</span><span class="p">}</span> <span class="c1"># Change up to the next {character}</span>
+<span class="n">dW</span> <span class="c1"># delete (1) WORD</span>
+</pre></div>
+
+
+<p>Many commands can also be preceded by a number - this will tell <strong>VIM</strong> to repeat the command N times. E.g.:</p>
+<div class="highlight"><pre><span class="mi">30</span><span class="n">i</span><span class="o">*</span> <span class="o">&lt;</span><span class="n">ESC</span><span class="o">&gt;</span> <span class="c1"># Insert 30 asterisks (*)</span>
+<span class="mi">3</span><span class="n">p</span> <span class="c1"># Paste 3 times</span>
+</pre></div>
+
+
+<h4>You can now try the exercises in level 2</h4>
+<h2>Config file</h2>
+<p>The .vimrc file contains optional runtime configuration settings, such as key maps, customisation and plugin management.</p>
+<p>For example, the following line allows you to use <code>jk</code> instead of <code>&lt;ESC&gt;</code> to return to normal mode. This tends to be more efficient since your hands don't need to leave the home keys.</p>
+<div class="highlight"><pre><span class="nb">inoremap</span> jk <span class="p">&lt;</span>esc<span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Feel free to look at the .vimrc files used in the different levels for an example of what they are used for.</p>
+<p>For your own use, a recommended vim configuration can be found <a href="here">https://gitlab.com/Nanoseb/feeg6003-vim/blob/master/level_5/.vimrc</a>.</p>
+<h1>More advanced navigation</h1>
+<div class="highlight"><pre>goto_level <span class="m">3</span>
+</pre></div>
+
+
+<p>Trying to navigate a large file using the hjkl keys can feel slow and clunky, even using the navigation commands described earlier. Here we will introduce two ways to speed up navigation.</p>
+<p>Firstly, modifiers can be placed before navigation commands, e.g.:</p>
+<p><code>2w</code>: <em>Move forward two words</em><br />
+<code>5l</code>: <em>Move right 5 characters</em>  </p>
+<p>You can go to a specific line number by typing, e.g., <code>:10</code> or <code>10G</code> to go to line 10.</p>
+<p>Finally, in <strong>VIM</strong> you can search for both characters and strings. When combined with <strong>VIM</strong> commands, this can enable rapid editing of an large file...</p>
+<h3>Searching for characters</h3>
+<p>Search for closing bracket )</p>
+<div class="highlight"><pre><span class="n">t</span><span class="p">)</span> <span class="c1"># Jump up to )</span>
+<span class="n">f</span><span class="p">)</span> <span class="c1"># Jump onto )</span>
+<span class="p">;</span> <span class="c1"># (After searching) jump to the next occurance</span>
+</pre></div>
+
+
+<p>The above commands can also be used as a noun in combined commands:</p>
+<div class="highlight"><pre><span class="n">ct</span><span class="p">)</span> <span class="c1"># Change all text up to the next )</span>
+</pre></div>
+
+
+<p>These commands will work for any character, including alphanumeric characters.</p>
+<h3>Searching for strings</h3>
+<p>This is more useful than character searching, and you will use it very regularly.</p>
+<p>Search for all occurances of a certain string:</p>
+<div class="highlight"><pre><span class="o">/</span><span class="n">string</span> <span class="c1"># Find all occurances of string</span>
+<span class="o">*</span> <span class="c1"># Find all occurances of the word under the cursor</span>
+<span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span> <span class="c1"># Replace all occurances of old with new</span>
+</pre></div>
+
+
+<p>Jump between occurances of the string:</p>
+<div class="highlight"><pre><span class="n">n</span> <span class="c1"># Jump to next</span>
+<span class="n">N</span> <span class="c1"># Jump to previous</span>
+</pre></div>
+
+
+<p>Searching can become particularly powerful when combined with the dot command.</p>
+<h4>Now try the exercises in level 3, and the <strong>VIM</strong> golf challenge - how many ways can you find to complete it?</h4>
+<h1>VISUAL mode</h1>
+<p>We have seen ==Normal== and ==Insert mode== previously, the Visual mode can be quite useful too, it deals with text selection. If you don't have a mouse, selecting text in a terminal is not easy, the ==VISUAL mode== is meant to make this accessible.</p>
+<p>On a selected text you will be able to run commands and functions (copy, delete/cut, and more advanced functions)</p>
+<h2>How does it works?</h2>
+<p>Enter in visual mode:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>v</code></td>
+<td align="left">Character based selection</td>
+</tr>
+<tr>
+<td align="left"><code>V</code></td>
+<td align="left">Whole line selection</td>
+</tr>
+<tr>
+<td align="left"><code>ctrl+v</code></td>
+<td align="left">Block based selection</td>
+</tr>
+</tbody>
+</table>
+<p>The you can use displacement keystroke to expand the selection:
+<code>h</code> <code>j</code> <code>k</code> <code>l</code>, <code>$</code> <code>0</code>, <code>(</code> <code>)</code>, <code>G</code> <code>gg</code> ...</p>
+<p>Once you have your text selected use any of the command you already know to modify the text: <code>y</code>, <code>d</code>, <code>x</code>, <code>I</code> ...</p>
+<h4>You can now try the exercises in level 4</h4>
+<h1>Command line <code>:</code></h1>
+<p>Functions can be run from a command prompt with <code>:</code></p>
+<h3>File opening</h3>
+<p>To open a new file without moving from your current vim instance:
+- In the current window <code>:e path/to/file</code>
+- In a new tab <code>:tabe path/to/file</code></p>
+<h3>Text <code>s</code>ubstitution</h3>
+<p>Text substitution is also quite useful, the syntax is simular to the command line tool <code>sed</code>.</p>
+<div class="highlight"><pre><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span>    <span class="c1"># act on the current line/selection</span>
+</pre></div>
+
+
+<p>If one want to substitute every iteration on the line, <code>g</code> is needed like so:</p>
+<div class="highlight"><pre><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>    <span class="c1"># modify every &#39;old&#39; of the line</span>
+</pre></div>
+
+
+<p>To apply the substitution on the entire file, just add a <code>%</code> at the begining:</p>
+<div class="highlight"><pre><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>    <span class="c1"># act on the entire file</span>
+</pre></div>
+
+
+<p>VISUAL mode can also be used here, to apply a substitution only on the selected text.</p>
+<h3>Run bash commands</h3>
+<p><strong>Vim</strong> can run bash commands directly without leaving its interface, and act on the current file.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>:r ! bash_command</code></td>
+<td align="left">add output of a bash command</td>
+</tr>
+<tr>
+<td align="left"><code>:! command</code></td>
+<td align="left">filter selection with command</td>
+</tr>
+</tbody>
+</table>
+<p>Here are a couple of examples:</p>
+<div class="highlight"><pre>:r ! ls 
+:! sort          # alphabetical sort of lines (-R for random)
+:! bc            # computes simple calculus using bc
+</pre></div>
+
+
+<h4>Now try the exercises in level 5</h4>
+<h1>Plugins</h1>
+<p><strong>VIM</strong> is a versatile text editor, you can expand its capabilities with plugins, </p>
+<p>Example of plugin:</p>
+<ul>
+<li>python pep8 check</li>
+<li>file broswer inside vim</li>
+<li>ctag view</li>
+<li>autocompletion</li>
+<li>anything else you can imagine ...</li>
+</ul>
+<h3>Plugin manager</h3>
+<p>Plugin manager is preferable to easily install and remove them, <a href="pathogen">https://github.com/tpope/vim-pathogen</a> is maybe the simplest one, it just needs 1 line in the <code>.vimrc</code>, and 1 file in <code>~/.vimautoload</code></p>
+<p>To install a plugin just copy its folder to <code>~/.vim/bundle</code></p>
+<h3>Plugin installation</h3>
+<p>You can give a try at installing the plugin presented today:</p>
+<ul>
+<li>First you can have a look at its structure/code: </li>
+</ul>
+<div class="highlight"><pre> cd headerplugin
+ ls -R 
+ vim -p plugin/*
+</pre></div>
+
+
+<ul>
+<li>One liner installation:</li>
+</ul>
+<div class="highlight"><pre>cp -r headerplugin ~/.vim/bundle/headerplugin
+</pre></div>
+
+
+<p>Now open a file in vim and run the command <code>:WriteHeader</code> for example.</p>
+<h3>Plugin selection</h3>
+<p>Some websites have quite extensive list of plugins like <a href="this one">https://vimawesome.com/</a>, here is just a small list of the one we use</p>
+<ul>
+<li><a href="NerdTree">github.com/scrooloose/nerdtree</a></li>
+<li><a href="Tagbar">github.com/majutsushi/tagbar</a></li>
+<li><a href="Traces">github.com/xtal8/traces.vim</a></li>
+<li><a href="Supertab">github.com/ervandew/supertab</a></li>
+<li><a href="Syntastic">github.com/vim-syntastic/syntastic</a></li>
+</ul>
+<h4>To try these plugin you can run the level 6</h4>
+<ul>
+<li>nerdtree: <code>[ctrl]+n</code></li>
+<li>tagbar: <code>[ctrl]+t</code></li>
+<li>supertab: <code>[tab]</code></li>
+<li>headerplugin: <code>:WriteHeader</code>, <code>:ToggleComment</code></li>
+</ul>
+<h1>Further learning</h1>
+<p>The best way to learn <strong>VIM</strong> it is to actually use it, don't try to learn all the commands in one go by heart etc. just learn progressively, and expand your command vocabulary as you get use to the commands you already know.</p>
+<p>same for you configuration file, don't start with a very huge configuration file copy/pasted from the internet, start with a couple of lines and add more as you want to expand the possibilities of <strong>VIM</strong>.</p>
+<h4>Games/interactive tutorials</h4>
+<p>To learn and play at the same time you can try the following sites</p>
+<ul>
+<li><a href="Vim Adventures">www.vim-adventures.com</a></li>
+<li><a href="Vim Golf">www.vimgolf.com</a></li>
+<li><a href="Vim Genius">www.vimgenius.com</a></li>
+</ul>
+<h4>Documentation</h4>
+<p>More text based documentation:</p>
+<ul>
+<li><a href="Vim Tips wiki">www.vim.wikia.com</a></li>
+<li><a href="Vim cheat sheet">www.vim.rtorr.com</a></li>
+<li><a href="A more complete tutorial">www.danielmiessler.com/study/vim</a></li>
+</ul>
+<h4>Things we didn't talk about</h4>
+<p>There is way more things to discover with vim, here is a keyword list of things you can google to know more: vimdiff, buffer, vimscript, split window, modeline, spellcheck, macro, folding, markers...</p>
+<h1>Bonus:</h1>
+<h2>Vim keybinding everywhere else</h2>
+<p>It is not because you can't use vim directly that you can't benefit from its keybinding, most text editor have a <strong>VIM</strong> plugin that mimic <strong>VIM</strong> behaviour. Same web browser with vim plugin can be quite useful for a mouse less surfing. </p>
+<p>Here is a small list of plugin:</p>
+<ul>
+<li>Firefox/chrome: ==vimium==</li>
+<li>Eclipse: ==vimwarp==</li>
+<li>Sublime: ==actualvim==</li>
+<li>atom: ==vim-mode-plus==</li>
+<li>Visual studio: ==vsvim==</li>
+<li>Evince: <code>hjkl</code> works by default</li>
+</ul>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

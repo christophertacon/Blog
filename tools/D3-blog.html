@@ -47,7 +47,7 @@
 <p>D3 allows you to bind arbitrary data to a DOM, and then apply data-driven transformations to the document. For example, you can use D3 to generate an HTML table from an array of numbers. Or, use the same data to create an interactive SVG bar chart with smooth transitions and interaction. </p>
 <p>D3 is not a monolithic framework that seeks to provide every conceivable feature. Instead, it solves the crux of the problem: efficient manipulation of documents based on data. This avoids proprietary representation and affords extraordinary flexibility, exposing the full capabilities of web standards such as HTML, SVG, and CSS. With minimal overhead, D3 is extremely fast, supporting large datasets and dynamic behaviours for interaction and animation.</p>
 <p>For example, if we were to set the heights of some hypothetical bars in an HTML document with vanilla JavaScript, it'd look something like this: </p>
-<div class="highlight"><pre><span></span>var nums = [80, 53, 125, 200, 28, 97];
+<div class="highlight"><pre>var nums = [80, 53, 125, 200, 28, 97];
 
 var bars = document.getElementsByTagName(&quot;rect&quot;); 
     for (var i = 0; i &lt; bars.length; i++) { 
@@ -58,19 +58,19 @@ var bars = document.getElementsByTagName(&quot;rect&quot;);
 
 
 <p>With D3, it's </p>
-<div class="highlight"><pre><span></span>d3.selectAll(&#39;rect&#39;) 
+<div class="highlight"><pre>d3.selectAll(&#39;rect&#39;) 
  .attr(&#39;height&#39;, function(d, i) {return nums[i];});
 </pre></div>
 
 
 <p>D3 embraces declarative programming, and we can see that here: we're able to set the height of all elements in the collection using .attr, rather than having to set them individually using a for loop. Declarative code abstracts away implementation details, making complicated transformations easier to reason about. The library can be downloaded from <a href="https://github.com/mbostock/d3/releases/download/v3.5.16/d3.zip"> here</a> or can be linked directly to the latest version. HTML projects can be linked to the library by writing the following command</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;http://d3.v3.min.js&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="highlight"><pre><span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;http://d3.v3.min.js&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 
 
 <p>The D3 library does not work only with webpage development, it can be used, for example, with Python. In this context, several D3 packages are available, such as, <a href="http://mpld3.github.io/"> MPLD3</a>, <a href="http://bokeh.pydata.org/en/latest/"> Bokeh</a>  and <a href="https://plot.ly/"> Plotly</a>. 
 The <b>MPLD3</b> package is extremely easy to use: you can simply take any script generating a Matplotlib plot, run it through one of MPLD3's convenience routines, and embed the result in a web page. For those who are already using the Matplolib the additional code necessary to save a simple and interactive html plot is the following:</p>
-<div class="highlight"><pre><span></span>mpld3.save_html(fig_name,&quot;filename&quot;)
+<div class="highlight"><pre>mpld3.save_html(fig_name,&quot;filename&quot;)
 </pre></div>
 
 
@@ -79,13 +79,13 @@ The <b>MPLD3</b> package is extremely easy to use: you can simply take any scrip
 
 <p>In this tutorial, we will generate a exemplary scatter-plot for introducing the d3.js-package Bokeh in Python. You can download the tutorial instructions <a href="https://bitbucket.org/Bruno_Soriano/computationalmodelling.bitbucket.org/raw/401bc9b95d32558f0841edb649e82d69ad811a0e/tools-pelican/content/D3/handout.pdf"> here</a>.</p>
 <p>For doing the tutorial, you need to download and import the appliance for a virtual machine (ubuntu). After starting, you can login with:</p>
-<div class="highlight"><pre><span></span><span class="n">username</span><span class="o">:</span> <span class="n">acm2</span>
+<div class="highlight"><pre><span class="n">username</span><span class="o">:</span> <span class="n">acm2</span>
 <span class="n">password</span><span class="o">:</span> <span class="n">acm2</span>
 </pre></div>
 
 
 <p>To launch the Jupyter Notebook (Python) containing the trainings-material (available <a href="https://bitbucket.org/Bruno_Soriano/computationalmodelling.bitbucket.org/raw/fa4aa9dcd95276afa704732e23e96b43f8db93f1/tools-pelican/content/D3/Tutorial.ipynb"> here</a>), you just have to open a terminal and type in following command:</p>
-<div class="highlight"><pre><span></span>jupyter notebook
+<div class="highlight"><pre>jupyter notebook
 </pre></div>
 
 

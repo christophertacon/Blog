@@ -150,38 +150,38 @@
 <h3>Some Basic Shapes</h3>
 <p>The first primative shape we will look at is the cube.</p>
 <p>To define a simple cube with sides of length 10mm in OpenSCAD you simply write the following:</p>
-<div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 <img alt="Shows a cube" src="./OpenSCAD/images/cube10.png" style="width: 50%;" />
 <p>You could also write the following to get the same result:</p>
-<div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]);</span>
 </pre></div>
 <p>To create a cuboid with sides of different lengths you could type the following (Dimensions are defined in x, y and z format):</p>
-<div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]);</span>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]);</span>
 </pre></div>
 <img alt="Shows a cuboid" src="./OpenSCAD/images/cube102030.png" style="width: 50%;" />
 <p>These cubes are rendered with thier corner on the origin if you wish to have them centred on the origin simply use set argument center to true like so:</p>
-<div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">cube</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 <img alt="Shows a cented cuboid" src="./OpenSCAD/images/cube102030C.png" style="width: 50%;" />
 <p>The next primative shape we will look at is the sphere. A sphere is automatically centered on the origin by default.</p>
 <p>To create a sphere with radius 10mm you can do the following:</p>
-<div class="highlight"><pre><span></span><span class="n">sphere</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 <img alt="Shows a sphere" src="./OpenSCAD/images/sphere10.png" style="width: 50%;" />
 <p>You can also use arugments to specify the sizes of shapes, for example you can create a sphere by setting the radius using the argument r or a diameter by specifying the arugment d. The following codes creates the same sphere as above.</p>
-<div class="highlight"><pre><span></span><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
 
 <span class="n">sphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 </pre></div>
 <p>It is often a good idea to use the arguments to specify the measurements of shapes since it is more obvious what measurement you are specifying, e.g. diameter or radius.</p>
 <p>The last primative shape we will look at is the cylinder. By default A cylinder has it's axis centered about the z axis but has it's base at z=0.</p>
 <p>You can define a cylinder with height 20mm and radius 10mm like so:</p>
-<div class="highlight"><pre><span></span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 </pre></div>
 <img alt="Shows a cylinder" src="./OpenSCAD/images/cylinder1020.png" style="width: 50%;" />
 <p>You can also create cones using this cylinder shape by specifying the arguments r1 and r2, see below:</p>
-<div class="highlight"><pre><span></span><span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r1</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">r2</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
 <img alt="Shows a cone" src="./OpenSCAD/images/cone.png" style="width: 50%;" />
 </div>
@@ -189,7 +189,7 @@
 <h3>Making Smooth Objects</h3>
 <p>You can specify the number of facets on a shape to smooth out shapes or to make different shapes.</p>
 <p>For example a cylinder with 3 faces produces a triangular prism, see below. The number of facets on a shape is specified with the argument $fn.</p>
-<div class="highlight"><pre><span></span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fn</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fn</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
 </pre></div>
 <img alt="Shows a traingular prism" src="./OpenSCAD/images/triprism.png" style="width: 50%;" />
 <p>By using 4 faces you get a cuboid, 5 and you get a pentagonal prism and so on.</p>
@@ -201,7 +201,7 @@ $fs = 0.5;
 $fa = 0.5;
 cylinder(r=5, h=20);</blockquote>
 <p>Or you can set them as a argument like this:</p>
-<div class="highlight"><pre><span></span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="err">$</span><span class="n">fa</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="err">$</span><span class="n">fs</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="err">$</span><span class="n">fa</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
 </pre></div>
 <p>These will produce the following shape</p>
 <img alt="Shows a cylinder" src="./OpenSCAD/images/Cylinder.png" style="width: 50%;" />
@@ -211,28 +211,28 @@ cylinder(r=5, h=20);</blockquote>
 <h3>Geometric Transformations</h3>
 <p>The first geometric transformation we will cover is translation.</p>
 <p>Translations of objects are done by preceding the object definition with the command translation followed by a vector, see the example of a cube translated 10mm in the x axis below:</p>
-<div class="highlight"><pre><span></span><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cube</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 <img alt="Shows a cube translated spaitally in the x axis" src="./OpenSCAD/images/transcube.png" style="width: 50%;" />
 <p>By setting the object to be centred and translating the object by a vector [x, y, z] the object can easily be centred around a generic vector postion [x, y ,z], see the example below of a cylinder centred on [x, y, z]:</p>
-<div class="highlight"><pre><span></span><span class="n">translate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">translate</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 <p>You can also define the vector seperately and translate by that vector like so:</p>
-<div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">];</span>
+<div class="highlight"><pre><span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">];</span>
 <span class="n">translate</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 <p>The next geometric transformation we will cover is rotation. Rotations are performed about the x, y and z axis.</p>
 <p>For example to rotate a cylinder thetaX about the x axis you perform the following operation:</p>
-<div class="highlight"><pre><span></span><span class="n">rotate</span><span class="p">([</span><span class="n">thetaX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="n">thetaX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 <p>It is recommended to perform rotation about 1 axis at a time so that the operation is easy to understand. This is because after 1 rotation the next rotation performed depends upon the first. See the example below:</p>
 <p>This first code performs 2 rotations at once, one about the x axis, one about the y axis.</p>
-<div class="highlight"><pre><span></span><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 <p>This produces the following rendered object:</p>
 <img alt="Shows a cylinder rotated such that it's axis is parallel to the y axis." src="./OpenSCAD/images/doublerotation.png" style="width: 50%;" />
 <p>By performing the 2 rotations seperately a completely different rotation is observed. This is typically easier to visualise.</p>
-<div class="highlight"><pre><span></span><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 <p>This produces the following rendered object:</p>
 <img alt="Shows a cylinder rotated such that it's axis is parallel to the x axis." src="./OpenSCAD/images/2rotations.png" style="width: 50%;" />
@@ -241,15 +241,15 @@ cylinder(r=5, h=20);</blockquote>
 <h3>Operations</h3>
 <p>There are 3 primary operations in OpenSCAD, union, difference and intersection.</p>
 <p>Union is what OpenSCAD does by default if you construct multiple objects, it 'adds' the objects such that they build up a more complex object. 3 example of unions of 2 objects are shown below:</p>
-<div class="highlight"><pre><span></span><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight"><pre><span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 <span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span class="p">{</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 <span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="k">union</span><span class="p">()</span>
+<div class="highlight"><pre><span class="k">union</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 <span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
@@ -258,7 +258,7 @@ cylinder(r=5, h=20);</blockquote>
 <p>All 3 of these render the following object:</p>
 <img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/union.png" style="width: 50%;" />
 <p>Difference is the next operation that you can use in OpenSCAD, this takes the subsequent objects away from the first object. See the example below with the same component parts.</p>
-<div class="highlight"><pre><span></span><span class="n">difference</span><span class="p">()</span>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 <span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
@@ -267,7 +267,7 @@ cylinder(r=5, h=20);</blockquote>
 <p>This will render the following object:</p>
 <img alt="Shows a union of a cylinder and a sphere." src="./OpenSCAD/images/difference.png" style="width: 50%;" />
 <p>Finally there is intersection which renders the volume in which all the objects stated inside the intersection block intersect with each other. See the intersection example below with the same component parts as the previous 2 operations.</p>
-<div class="highlight"><pre><span></span><span class="n">intersection</span><span class="p">()</span>
+<div class="highlight"><pre><span class="n">intersection</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
 <span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">7</span><span class="p">);</span>
@@ -279,14 +279,14 @@ cylinder(r=5, h=20);</blockquote>
 <div class="section" id="a-common-gotcha-with-openscad-zero-thickness-surfaces">
 <h3>A common gotcha with OpenSCAD - Zero Thickness Surfaces</h3>
 <p>A common problem experienced when using OpenSCAD to design an object for simulation or fabrication is zero thickness surfaces, literally surfaces defined in the design which have a thinkness of zero and so are completely unphysical. This typically happens when using the difference operation to make a hole in an object. If you define a cylinder to make a hole in an object and the edge of that cylinder lies in the edge of the object you are differencing it from you will render a surface with 0 thickness, this can be seen in the example below when attemping to make a tube:</p>
-<div class="highlight"><pre><span></span><span class="n">difference</span><span class="p">(){</span>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 <img alt="Shows a tube with a thin surface over the top hole." src="./OpenSCAD/images/0thickness.png" style="width: 50%;" />
 <p>You can see there appears to be a thin surface over the top of the tube. To solve this you may try to make the inner cylinder longer, which is partially the correct solution, see below:</p>
-<div class="highlight"><pre><span></span><span class="n">difference</span><span class="p">(){</span>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
 <span class="p">}</span>
@@ -294,7 +294,7 @@ cylinder(r=5, h=20);</blockquote>
 <p>The top of the tube now looks fine:</p>
 <img alt="Shows a tube with no thin surface over the top hole but a thin surface over the bottom hole." src="./OpenSCAD/images/0thicknesstop.png" style="width: 50%;" />
 <p>However the bottom still has this thin surface over it, since the bottoms of the tubes line up, by translating the tube slightly we can fix this and get a tube. See below:</p>
-<div class="highlight"><pre><span></span><span class="n">difference</span><span class="p">(){</span>
+<div class="highlight"><pre><span class="n">difference</span><span class="p">(){</span>
 <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
 <span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">22</span><span class="p">);</span>
 <span class="p">}</span>

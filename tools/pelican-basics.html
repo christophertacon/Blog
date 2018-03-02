@@ -65,14 +65,14 @@
 </ul>
 <p>The tools blog is hosted on <a href="http://www.bitbucket.org">bitbucket.org</a>  </p>
 <p>For now, we will simply clone the repository to create a local copy to host your changes. This command will clone the repository into a "blogs" folder in the current directory.</p>
-<div class="highlight"><pre><span></span>git clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs
+<div class="highlight"><pre>git clone http://bitbucket.org/computationalmodelling/computationalmodelling.bitbucket.org blogs
 </pre></div>
 
 
 <p><em>Hint</em>: You should forge the repository to work on your own blogs. You will need a bitbucket account to forge the repository and send a pull request to have your changes merged back into the hosting repository. That might make it easier for you as a group to work on your material as you can use the benefits of distributed version control and provides a simple way for us to merge your additions back into the main repository.</p>
 <h1>Structure of the repository</h1>
 <p>The blogs folder now contains the repository of the tools webpage. Have a look at the subdirectories</p>
-<div class="highlight"><pre><span></span>ls blogs
+<div class="highlight"><pre>ls blogs
 </pre></div>
 
 
@@ -83,12 +83,12 @@
 <li>tools-pelican - is the folder that holds all the source data</li>
 </ul>
 <p>Change into the source folder</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> blogs/tools-pelican
+<div class="highlight"><pre><span class="nb">cd</span> blogs/tools-pelican
 </pre></div>
 
 
 <p>and have a look at the existing files</p>
-<div class="highlight"><pre><span></span>ls
+<div class="highlight"><pre>ls
 </pre></div>
 
 
@@ -112,7 +112,7 @@
 <h1>Starting your own blog</h1>
 <p>Pelican understands the following 'dialects': <a href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> (.rst) and <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> (.md). While reStructuredText originates from the coding community for source code comments, it is also useful for simple webpages. Markdown was invented by John Gruber (the Apple blogger) to help him with writing and maintaining his blog <a href="http://daringfireball.net">Daring Fireball</a>. The Markdown syntax is still evolving via a number of implementations that each has their own oddities. </p>
 <p>Change into the content folder and look at its content</p>
-<div class="highlight"><pre><span></span>cd content
+<div class="highlight"><pre>cd content
 ls
 </pre></div>
 
@@ -122,19 +122,19 @@ ls
 <p>The pelican-basics blog is written using Markdown, while the virtualbox-basics blog uses reStructuredText. Have a look at both to get a feeling for the syntax of each.</p>
 <p><strong>Its an emotional moment: time to start your own blog!</strong></p>
 <p>Create a folder within "content" to hold your files. Give it a meaningful name.</p>
-<div class="highlight"><pre><span></span>mkdir &lt;my_name&gt;
+<div class="highlight"><pre>mkdir &lt;my_name&gt;
 <span class="nb">cd</span> &lt;my_name&gt;
 </pre></div>
 
 
 <p>It is time to start your first blog post. You can, of course, use your most-trusted text editor for writing your blogs, but for now we should go with <strong>nano</strong>. The lubuntu distribution provides only very limited choices out of the box, basically <strong>vim</strong> and <strong>nano</strong>. It is, nonetheless, relatively easy to install an alternative using the usual package manager approach.</p>
 <p>Start writing a new file in Markdown with</p>
-<div class="highlight"><pre><span></span>nano &lt;my_blog_post_name&gt;.md
+<div class="highlight"><pre>nano &lt;my_blog_post_name&gt;.md
 </pre></div>
 
 
 <p>or </p>
-<div class="highlight"><pre><span></span>nano &lt;my_blog_post_name&gt;.rst
+<div class="highlight"><pre>nano &lt;my_blog_post_name&gt;.rst
 </pre></div>
 
 
@@ -148,7 +148,7 @@ ls
 <li>a number of tags to sort the post into categories.</li>
 </ul>
 <p>A metadata block could look like</p>
-<div class="highlight"><pre><span></span><span class="n">title</span><span class="o">:</span> <span class="n">My</span> <span class="n">amazing</span> <span class="n">first</span> <span class="n">blog</span>
+<div class="highlight"><pre><span class="n">title</span><span class="o">:</span> <span class="n">My</span> <span class="n">amazing</span> <span class="n">first</span> <span class="n">blog</span>
 <span class="n">authors</span><span class="o">:</span> <span class="n">You</span> <span class="n">know</span> <span class="n">who</span>
 <span class="n">date</span><span class="o">:</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">12</span>
 <span class="n">tags</span><span class="o">:</span> <span class="n">demo</span><span class="o">,</span> <span class="n">training</span>
@@ -157,7 +157,7 @@ ls
 
 
 <p>in Markdown, or </p>
-<div class="highlight"><pre><span></span><span class="nc">:title:</span> <span class="nf">My amazing first blog</span>
+<div class="highlight"><pre><span class="nc">:title:</span> <span class="nf">My amazing first blog</span>
 <span class="nc">:authors:</span> <span class="nf">You know who</span>
 <span class="nc">:date:</span> <span class="nf">2015-02-12</span>
 <span class="nc">:tags:</span> <span class="nf">Demo, Testing</span>
@@ -168,33 +168,33 @@ ls
 <p>if you use reStructuredText. Note the <strong>slug</strong> attribute, which will be used by Pelican to build the URL. </p>
 <h2>Linking to internal files</h2>
 <p>You most likely want to link to other files in the repository. Pelican provides the <strong>{filename}</strong> variable for this purpose, which points to the content folder. You should always refer to the source file, not the generated file in the output folder. Pelican is smart enough to translate this for you. So if you want to reference this blog post for instance, you would write</p>
-<div class="highlight"><pre><span></span>I learned how to use Pelican for blogging [here]({filename/pelican-basics/pelican-basics.md})
+<div class="highlight"><pre>I learned how to use Pelican for blogging [here]({filename/pelican-basics/pelican-basics.md})
 </pre></div>
 
 
 <p>or </p>
-<div class="highlight"><pre><span></span>I learned how to use Pelican for blogging <span class="s">`here &lt;{filename}/pelican-basics/pelican-basics.md`_</span>
+<div class="highlight"><pre>I learned how to use Pelican for blogging <span class="s">`here &lt;{filename}/pelican-basics/pelican-basics.md`_</span>
 </pre></div>
 
 
 <h1>Building and viewing your page</h1>
 <p>Once you have started writing your blog post, you most-likely want to check how it looks from time to time. Save your changes (Ctrl+O in nano), leave the text editor (Ctrl+X in nano), and change back to the "tools-pelican" directory</p>
-<div class="highlight"><pre><span></span><span class="nb">cd</span> ../..
+<div class="highlight"><pre><span class="nb">cd</span> ../..
 </pre></div>
 
 
 <p>You can run Pelican and generate the static HTML page by calling</p>
-<div class="highlight"><pre><span></span>make html
+<div class="highlight"><pre>make html
 </pre></div>
 
 
 <p>That uses the make utility to call Pelican and make sure that the output goes into the <strong>tools</strong> folder. Once Pelican is done, you can test the page by starting a local web server </p>
-<div class="highlight"><pre><span></span>make serve
+<div class="highlight"><pre>make serve
 </pre></div>
 
 
 <p>and pointing the web browser at </p>
-<div class="highlight"><pre><span></span>http://localhost:8000
+<div class="highlight"><pre>http://localhost:8000
 </pre></div>
 
 
