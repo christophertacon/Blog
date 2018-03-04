@@ -78,7 +78,7 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <div class="section" id="how-pint-works">
 <h2>How <strong>Pint</strong> works?</h2>
 <p>Python uses Container model approach (employed by <strong>Pint</strong> and other libraries):</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Quantity</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Quantity</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">__</span> <span class="n">init</span> <span class="n">__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">magnitdue</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
 </pre></div>
 <p>Packages such as numerical units uses different approaches, however we are not going to discuss these packages further.</p>
@@ -88,10 +88,10 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <div class="section" id="how-to-install-and-import-pint">
 <h2>How to install and import <strong>Pint</strong>?</h2>
 <p>to install:</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pint</span>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pint</span>
 </pre></div>
 <p>or you can use:</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">easy_install</span> <span class="n">pint</span>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">easy_install</span> <span class="n">pint</span>
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -99,35 +99,35 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <h2>Basic <strong>Pint</strong> Commands</h2>
 <div class="section" id="import-pint">
 <h3>1. Import <strong>Pint</strong></h3>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
 </pre></div>
 </div>
 <div class="section" id="initialise-pint-by-creating-instance-of-unitregistry">
 <h3>2. initialise <strong>Pint</strong> by creating instance of UnitRegistry</h3>
-<div class="highlight"><pre><span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
 </pre></div>
 <p>now you are ready to start using <strong>Pint</strong>.</p>
 </div>
 <div class="section" id="example-cube-material-density">
 <h3>3. Example: Cube material density</h3>
 <p>We will calculate the density of a cube, first define the side of the cube in meters, this is done by multiplying the magnitude by the ureg.meter.</p>
-<div class="highlight"><pre><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">meter</span>
+<div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">meter</span>
 </pre></div>
 <p>Now <strong>Pint</strong> defined a 'Quantity' object with the name 'L' and assigned a magnitude and unit of 1.0 and meter respectively.</p>
 <p>We can easily check that this is the case by printing the variable:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 <span class="mf">1.0</span> <span class="n">meter</span>
 </pre></div>
 <p>Define the cube volume, lets assume that the cube material is steel.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="n">V_st</span> <span class="o">=</span> <span class="n">L</span><span class="o">**</span><span class="mi">3</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span><span class="n">V_st</span> <span class="o">=</span> <span class="n">L</span><span class="o">**</span><span class="mi">3</span>
 </pre></div>
 <p>Cubing the Length 'L' also affects it's unit, we expect the V_st to have a unit of cubic meter.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">V_St</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="k">print</span><span class="p">(</span><span class="n">V_St</span><span class="p">)</span>
 <span class="mf">1.0</span> <span class="n">meter</span><span class="o">**</span><span class="mi">3</span>
 </pre></div>
 <p>As expected the units reflected the operation done on the variable 'L'.</p>
 <p>Now we take this further and define a new variable M_st for the mass of the steel cube then we calculate the density 'ro_st' of the steel cube by dividing the mass 'M_st' by the volume 'V_st':</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="n">M_st</span> <span class="o">=</span> <span class="mi">7785</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">kilogram</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span><span class="n">M_st</span> <span class="o">=</span> <span class="mi">7785</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">kilogram</span>
 <span class="n">ro_st</span> <span class="o">=</span> <span class="n">M_st</span><span class="o">/</span><span class="n">V_st</span>
 <span class="k">print</span><span class="p">(</span><span class="n">ro_st</span><span class="p">)</span>
 
@@ -137,7 +137,7 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <p><strong>Pint</strong> allows operations on different unit systems in the same equation. internal conversion takes place and set the default system to the first variable in the equation. we will investiage this further and evolve the previous example to demonstrate this concept.</p>
 <p>Stack of Cubes:</p>
 <p>Two cubes stacked on top of each other the first is made of steel with density of 7785 kg/m3 and the second is made of aluminium with density of 22.53 lb/gal. both cubes size are 1.0 m3, calculate the force under the cubes due to gravity.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="o">*</span> <span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="o">/</span><span class="n">ureg</span><span class="o">.</span><span class="n">second</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span> <span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="o">*</span> <span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="o">/</span><span class="n">ureg</span><span class="o">.</span><span class="n">second</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ro_al</span> <span class="o">=</span> <span class="mf">22.53</span> <span class="o">*</span> <span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">lb</span><span class="o">/</span><span class="n">ureg</span><span class="o">.</span><span class="n">gallon</span><span class="p">)</span>
 <span class="n">V_st</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="o">**</span><span class="mi">3</span>
 <span class="n">V_al</span> <span class="o">=</span> <span class="n">V_st</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -145,12 +145,12 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <span class="n">M_al</span> <span class="o">=</span> <span class="n">ro_al</span> <span class="o">*</span> <span class="n">V_al</span>
 </pre></div>
 <p>We mixed units in our calculations and we are going to demonstrate that <strong>Pint</strong> handle mixed units very well.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">M_al</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">M_al</span>
 <span class="mf">22.53</span> <span class="n">meter3</span> <span class="n">pound</span><span class="o">/</span><span class="n">gallon</span>
 </pre></div>
 <p>We multiplied a volume of 1 m3 with a density pound/gallon. it's clear that <strong>Pint</strong> keeps track of this fact.</p>
 <p>Calculate the total force due to the two stacked cubes as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">Ftotal</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_St</span><span class="o">+</span><span class="n">M_al</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">Ftotal</span> <span class="o">=</span> <span class="p">(</span><span class="n">M_St</span><span class="o">+</span><span class="n">M_al</span><span class="p">)</span> <span class="o">*</span> <span class="n">g</span>
 <span class="n">Ftotal</span>
 <span class="mf">102854.80308708138</span> <span class="n">kilogram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second2</span>
 </pre></div>
@@ -159,7 +159,7 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <div class="section" id="concept-of-physical-quantity">
 <h3>3.1 Concept of Physical Quantity</h3>
 <p>We have discussed earlier the concept of physical quantity, <strong>Pint</strong> can store three methods for each Quantity object, magnitude, units and dimensionality and we can call them simply as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">magnitude</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">magnitude</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">dimensionality</span><span class="p">)</span>
 
@@ -171,34 +171,34 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <div class="section" id="conversion">
 <h3>3.2 Conversion</h3>
 <p>If we don't want to convert the unit permenantely we can use method '.to' however for permenant conversion we use '.ito' instead.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
 <span class="mf">102854.80308708138</span> <span class="n">newton</span>
 </pre></div>
 <p><strong>Pint</strong> has 'newton' units which is exactly the same as kilogram meter/second2, but we will use it here to show the concept of conversion in general. it's clear that the conversion done successfuly but this is not permenant and we can prove this by printing the 'Ftotal' variable.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
 <span class="mf">102854.80308708138</span> <span class="n">kilogram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second2</span>
 </pre></div>
 <p>It's unchanged as expected, however if we want to permenantely convert the unit we use:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">newton</span><span class="p">)</span>
 <span class="mf">102854.80308708138</span> <span class="n">newton</span>
 </pre></div>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
 <span class="mf">102854.80308708138</span> <span class="n">newton</span>
 </pre></div>
 <p>The variable 'Ftotal' is permenantely converted.</p>
 <p><strong>Pint</strong> also identifies invalid conversions and produce dimensionality error message, so if we try to convert the 'Ftotal' to meter we should expect and error to handle this invalid conversion:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito</span><span class="p">(</span><span class="n">ureg</span><span class="o">.</span><span class="n">meter</span><span class="p">)</span>
 </pre></div>
 <p><strong>Pint</strong> produces the following error.</p>
 <div class="figure align-center">
 <img alt="Dimensionality error" src="./computing-with-units/fig/error.png" style="width: 90%;" />
 </div>
 <p><strong>Pint</strong> base units is metric system and can be called as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="o">.</span><span class="n">to_base_units</span><span class="p">())</span>
 
 <span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="o">*</span> <span class="n">meter</span> <span class="o">/</span> <span class="n">second</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito_base_units</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span> <span class="n">Ftotal</span><span class="o">.</span><span class="n">ito_base_units</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
 
 <span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="o">*</span> <span class="n">meter</span> <span class="o">/</span> <span class="n">second</span> <span class="o">**</span> <span class="mi">2</span>
@@ -208,35 +208,35 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <h3>4. String parsing</h3>
 <p>So far we assigned units to quantities by using object constructor but What if we have a .txt or .csv file with data and want to import these data with it's units?</p>
 <p>Assume we have a text file with magnitudes and units of some physical qunatities, and somehowe we managed to import these to python. we can assign these units to the magnitudes and use them in the program.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">=</span> <span class="mf">3.0</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">=</span> <span class="mf">3.0</span>
 <span class="n">Unit</span> <span class="o">=</span> <span class="s1">&#39;inch&#39;</span>
 </pre></div>
 <p>Three ways of defining the units using the data imported:</p>
 <ol class="loweralpha simple">
 <li>Using Parse expression:</li>
 </ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">parse_expression</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="o">.</span><span class="n">parse_expression</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
 <span class="mf">3.0</span> <span class="n">inch</span>
 </pre></div>
 <ol class="loweralpha simple" start="2">
 <li>Calling Registry (shortform):</li>
 </ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">]:</span> <span class="n">Mag</span> <span class="o">*</span> <span class="n">ureg</span><span class="p">(</span><span class="n">Unit</span><span class="p">)</span>
 <span class="mf">3.0</span> <span class="n">inch</span>
 </pre></div>
 <ol class="loweralpha simple" start="3">
 <li>Using Quantity constructor:</li>
 </ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span><span class="n">Q</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">]:</span><span class="n">Q</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
 <span class="n">Q</span><span class="p">(</span><span class="n">Mag</span><span class="p">,</span><span class="n">Unit</span><span class="p">)</span>
 <span class="mf">3.0</span> <span class="n">inch</span>
 </pre></div>
 <p>Remember that this is how <strong>Pint</strong> stores the physical qunatities, as can we see below <strong>Pint</strong> build the units using Quantity constructor. If we call the representation of the 'Ftotal' variable it will show us that it's stored as Quantity:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="nb">repr</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">]:</span> <span class="nb">repr</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">)</span>
 <span class="s2">&quot;&lt;Quantity(102854803.08708139, &#39;gram * meter / second ** 2&#39;)&gt;&quot;</span>
 </pre></div>
 <p>Websites such as google is using similar method to convert units if typed in the search bar. assume that we built a searchh engine and imported the text typed in the search bar we can return the converted units using a very simple 2 lines code which is fast to execute.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span><span class="n">Typedtext</span> <span class="o">=</span> <span class="s1">&#39;3.0 * meter to inch&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span><span class="n">Typedtext</span> <span class="o">=</span> <span class="s1">&#39;3.0 * meter to inch&#39;</span>
 <span class="n">conv</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="n">Typedtext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;to&#39;</span><span class="p">)</span>
 <span class="n">Q</span><span class="p">(</span><span class="n">conv</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">)</span>
 
@@ -246,7 +246,7 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <div class="section" id="formatting">
 <h3>5. Formatting</h3>
 <p><strong>Pint</strong> allows to present the units in many useful formats such as LateX, short abbreviated and HTML.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the latex formatting is {:L}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">]:</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the latex formatting is {:L}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;appreviated formating is {:~}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the HTML formatting is {:H}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
 
@@ -255,9 +255,9 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <span class="n">the</span> <span class="n">HTML</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span> <span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="o">&lt;</span><span class="n">sup</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">sup</span><span class="o">&gt;</span>
 </pre></div>
 <p>Set a specific format as the default formating:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">ureg</span><span class="o">.</span><span class="n">default_format</span><span class="o">=</span><span class="s1">&#39;P&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">]:</span> <span class="n">ureg</span><span class="o">.</span><span class="n">default_format</span><span class="o">=</span><span class="s1">&#39;P&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;the defualt formatting is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Ftotal</span><span class="p">))</span>
-<span class="n">the</span> <span class="n">defualt</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span><span class="err">·</span><span class="n">meter</span><span class="o">/</span><span class="n">second</span><span class="err">²</span>
+<span class="n">the</span> <span class="n">defualt</span> <span class="n">formatting</span> <span class="ow">is</span> <span class="mf">102854803.08708139</span> <span class="n">gram</span><span class="err">·</span><span class="n">meter</span><span class="o">/</span><span class="n">second²</span>
 </pre></div>
 </div>
 <div class="section" id="advanced-skills">
@@ -268,35 +268,35 @@ This notebook contains four exercises which cover <strong>Pint</strong> basic co
 <p>Create a file .txt
 add your units interm of other units:
 example:</p>
-<div class="highlight"><pre><span class="n">hour</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">minute</span> <span class="o">=</span> <span class="n">h</span> <span class="o">=</span> <span class="n">hr</span>
+<div class="highlight"><pre><span></span><span class="n">hour</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">minute</span> <span class="o">=</span> <span class="n">h</span> <span class="o">=</span> <span class="n">hr</span>
 </pre></div>
 <p>the form of the definition is:</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Definition</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Definition</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
 </pre></div>
 <ol class="arabic simple" start="2">
 <li>Define  a Reference Unit</li>
 </ol>
 <p>If the unit is a reference unit, we like to define it's parameters:</p>
-<div class="highlight"><pre><span class="n">second</span> <span class="o">=</span> <span class="p">[</span><span class="n">time</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sec</span>
+<div class="highlight"><pre><span></span><span class="n">second</span> <span class="o">=</span> <span class="p">[</span><span class="n">time</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span> <span class="o">=</span> <span class="n">sec</span>
 </pre></div>
 <p>the form of this definition is :</p>
-<div class="highlight"><pre><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dimensionality</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Canonical</span> <span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dimensionality</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">Aliases</span><span class="p">]</span>
 </pre></div>
 <p>The Reference Units or defining units interms of other units can be done in two ways:</p>
 <ol class="loweralpha simple">
 <li>txt file:</li>
 </ol>
 <p>Create a file lets say has a name 'mydef.txt' in the same folder of your code and add the previous definitions in the file.it can be imported and used in <strong>Pint</strong> as follows:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">ureg2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">(</span><span class="s1">&#39;mydef.txt&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">]:</span> <span class="n">ureg2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">(</span><span class="s1">&#39;mydef.txt&#39;</span><span class="p">)</span>
 </pre></div>
 <p>And we can check the dimensionality of the defined unit 'second' which we assigned [time] to it as it's dimension.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">ureg2</span><span class="o">.</span><span class="n">second</span><span class="o">.</span><span class="n">dimensionality</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span> <span class="n">ureg2</span><span class="o">.</span><span class="n">second</span><span class="o">.</span><span class="n">dimensionality</span>
 <span class="sb">`&lt;UnitsContainer({&#39;[time]&#39;: 1.0})&gt;`</span>
 </pre></div>
 <ol class="loweralpha simple" start="2">
 <li>Programmatically</li>
 </ol>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">]:</span> <span class="kn">from</span> <span class="o">**</span><span class="n">Pint</span><span class="o">**</span> <span class="kn">import</span> <span class="nn">UnitRegistry</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">]:</span> <span class="kn">from</span> <span class="o">**</span><span class="n">Pint</span><span class="o">**</span> <span class="kn">import</span> <span class="nn">UnitRegistry</span>
 <span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
 <span class="n">Q2</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
 <span class="n">ureg</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="s1">&#39;ACM_time = 90 * minute = ACMtime&#39;</span><span class="p">)</span>
@@ -310,7 +310,7 @@ example:</p>
 <div class="section" id="unit-registry">
 <h3>7. Unit Registry</h3>
 <p>One needs to be careful when using <strong>Pint</strong> with multiple modules. a unique registry needs to be created and it's not allowed to operate between multiple registries at the same time. this concept is demonstrated here:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="n">q1</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">meter</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">]:</span> <span class="n">q1</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">meter</span>
 <span class="n">q2</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span><span class="o">.</span><span class="n">meter</span>
 <span class="nb">id</span><span class="p">(</span><span class="n">q1</span><span class="o">.</span><span class="n">_REGISTRY</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">id</span><span class="p">(</span><span class="n">q2</span><span class="o">.</span><span class="n">_REGISTRY</span><span class="p">)</span>
 
@@ -320,19 +320,19 @@ example:</p>
 <ol class="arabic simple">
 <li>add the following to <em>__ init __.py</em></li>
 </ol>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pint</span> <span class="kn">import</span> <span class="n">UnitRegistry</span>
 <span class="n">ureg</span> <span class="o">=</span> <span class="n">UnitRegistry</span><span class="p">()</span>
 <span class="n">Q_</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
 </pre></div>
 <ol class="arabic simple" start="2">
 <li>then in your module add the <strong>Pint</strong> UnitRegistry as following:</li>
 </ol>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">ureg</span><span class="p">,</span> <span class="n">Q_</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">ureg</span><span class="p">,</span> <span class="n">Q_</span>
 </pre></div>
 <ol class="arabic simple" start="3">
 <li>and then construct the qunatities as following:</li>
 </ol>
-<div class="highlight"><pre><span class="n">side</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;meter&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">side</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;meter&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -354,14 +354,14 @@ example:</p>
 </ul>
 <p>So, as <span class="formula"><i>p</i> = 6 − 3 = 3</span> we can express our equation with one dimensionless number <span class="formula">Π.</span></p>
 <p><span class="formula"><i>p</i></span> dimensionless numbers.</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">Pi</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">pi_theorem</span><span class="p">({</span>  <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">]:</span> <span class="n">Pi</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">pi_theorem</span><span class="p">({</span>  <span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
                                 <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="s1">&#39;[length]&#39;</span><span class="p">,</span>
                                 <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="s1">&#39;[mass]/[volume]&#39;</span><span class="p">,</span>
                                 <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="s1">&#39;[viscosity]&#39;</span><span class="p">,</span>
                                 <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;[speed]&#39;</span><span class="p">})</span>
 </pre></div>
 <p>If you look at the second number generated by the <cite>ureg.pi_theorem</cite> command:</p>
-<div class="highlight"><pre><span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="n">Pi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">29</span><span class="p">]:</span> <span class="n">Pi</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="p">{</span><span class="s1">&#39;L&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;mi&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
 </pre></div>
 <p>This quantity is:</p>

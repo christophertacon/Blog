@@ -43,7 +43,7 @@
 <p>This blog is a tutorial on some of the tools and features of HDF5 files. More specifically, we will cover the built-in terminal commands and some use of h5py, a HDF5 python package. You can download a VirtualBox image with required materials for the exercises from the following <a class="reference external" href="http://www.southampton.ac.uk/~ngcmbits/virtualmachines/">link</a> (the username and password are both feeg6003).</p>
 <p>Also, you can find the presentation slides <a class="reference external" href="./HDF5/slides/HDF5_presentation.pdf">here</a>.</p>
 <p>If you do not currently have access to HDF5 you can download it for free using macports or from their website. Acquiring the h5py module is very straightforward if you have an anaconda distribution installed, and we would recommend installing it using this method.</p>
-<div class="highlight"><pre>$ conda install h5py
+<div class="highlight"><pre><span></span>$ conda install h5py
 </pre></div>
 <p>Note that this installs the h5py module and the HDF5 tools at the same time.</p>
 <div class="section" id="what-is-hdf5">
@@ -58,7 +58,7 @@
 <img alt="First view of Sublime Text 2" src="./HDF5/HDF5-images/h5ls.png" style="width: 50%;" />
 </div>
 <p>In addition to a filename, you may also provide h5ls with a path inside the file i.e.</p>
-<div class="highlight"><pre>$ h5ls file.h5/path
+<div class="highlight"><pre><span></span>$ h5ls file.h5/path
 </pre></div>
 <p>The second tool we will explain a bit about is the h5dump command. This is also a viewing tool but without using any flags is quite different to the aforementioned h5ls. It is a lot more verbose in its standard output, providing details of all data and even attributes and it is therefore recommended to initially surpress some of these details using flags if observing large HDF5 files.</p>
 <div class="figure align-center">
@@ -84,7 +84,7 @@
 <div class="section" id="exercise-2-create-your-own-file">
 <h3>Exercise 2: Create your own file!</h3>
 <p>In the second part, you will have learned about using h5py and some of its features. This exercise will be about creating your own HDF5 file. In /Documents/ inside the VirtualBox image, you will find an IPython Notebook. Open this notebook through terminal using the command</p>
-<div class="highlight"><pre>$ <span class="nb">cd</span> ~/Documents/
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/Documents/
 $ ipython notebook exercise2.ipynb
 </pre></div>
 <p>Run through the exercises found in this file.</p>

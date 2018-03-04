@@ -43,12 +43,12 @@
 <p><strong>VIM</strong> is installed by default on almost all machines. The training material used in this workshop can be found <a href="here">https://gitlab.com/Nanoseb/feeg6003-vim</a>.</p>
 <p>If using the virtual machine:</p>
 <p>Navitage to home directory</p>
-<div class="highlight"><pre><span class="k">cd</span> <span class="p">~</span>
+<div class="highlight"><pre><span></span><span class="k">cd</span> <span class="p">~</span>
 </pre></div>
 
 
 <p>Setup the environment</p>
-<div class="highlight"><pre><span class="n">goto_level</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><span class="n">goto_level</span> <span class="mi">1</span>
 </pre></div>
 
 
@@ -57,19 +57,19 @@
 <h1>VIM Basics: Opening files, navigation, insert mode</h1>
 <h2>Opening and closing files</h2>
 <p>Create/open a file called <strong>filename</strong></p>
-<div class="highlight"><pre><span class="k">vim</span> filename
+<div class="highlight"><pre><span></span><span class="k">vim</span> filename
 </pre></div>
 
 
 <p>Insert some text</p>
-<div class="highlight"><pre><span class="n">i</span>
+<div class="highlight"><pre><span></span><span class="n">i</span>
 <span class="p">[</span><span class="n">INSERT</span> <span class="n">TEXT</span><span class="p">]</span>
 <span class="o">&lt;</span><span class="n">ESC</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>Close the file</p>
-<div class="highlight"><pre><span class="p">:</span><span class="n">wq</span> <span class="c1"># Save and exit (alternatively ZZ)</span>
+<div class="highlight"><pre><span></span><span class="p">:</span><span class="n">wq</span> <span class="c1"># Save and exit (alternatively ZZ)</span>
 <span class="p">:</span><span class="n">q</span><span class="err">!</span> <span class="c1"># Discard changes</span>
 </pre></div>
 
@@ -77,13 +77,13 @@
 <h2>Normal and Insert modes</h2>
 <p><strong>VIM</strong> starts in normal mode. In this mode, you can navigate around the text, use commands, and edit text. Most of your time will be spent in this mode.</p>
 <p>Insert mode allows inserting text, but nothing else. This mode can be entered in a number of ways:</p>
-<div class="highlight"><pre><span class="n">i</span> <span class="c1"># Insert before the cursor</span>
+<div class="highlight"><pre><span></span><span class="n">i</span> <span class="c1"># Insert before the cursor</span>
 <span class="n">a</span> <span class="c1"># Append after cursor</span>
 <span class="n">o</span> <span class="c1"># Insert on a new line below the cursor</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="n">I</span> <span class="c1"># Insert at the end beginning of the line</span>
+<div class="highlight"><pre><span></span><span class="n">I</span> <span class="c1"># Insert at the end beginning of the line</span>
 <span class="n">A</span> <span class="c1"># Append to the end of the line</span>
 <span class="n">O</span> <span class="c1"># Insert on a new line above the cursor</span>
 </pre></div>
@@ -95,53 +95,53 @@
 <table>
 <thead>
 <tr>
-<th>Command</th>
-<th>Movement</th>
+<th align="left">Command</th>
+<th align="left">Movement</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>h</code>, <code>j</code>, <code>k</code>, <code>l</code></td>
-<td>Left, down, up, right</td>
+<td align="left"><code>h</code>, <code>j</code>, <code>k</code>, <code>l</code></td>
+<td align="left">Left, down, up, right</td>
 </tr>
 <tr>
-<td><code>w</code></td>
-<td>To the start of the next word</td>
+<td align="left"><code>w</code></td>
+<td align="left">To the start of the next word</td>
 </tr>
 <tr>
-<td><code>W</code></td>
-<td>To the start of the next WORD</td>
+<td align="left"><code>W</code></td>
+<td align="left">To the start of the next WORD</td>
 </tr>
 <tr>
-<td><code>e</code>, <code>E</code></td>
-<td>To the end of the next word / WORD</td>
+<td align="left"><code>e</code>, <code>E</code></td>
+<td align="left">To the end of the next word / WORD</td>
 </tr>
 <tr>
-<td><code>b</code>, <code>B</code></td>
-<td>To the start of the previous word / WORD</td>
+<td align="left"><code>b</code>, <code>B</code></td>
+<td align="left">To the start of the previous word / WORD</td>
 </tr>
 <tr>
-<td><code>0</code>, <code>$</code></td>
-<td>To the start / end of the line</td>
+<td align="left"><code>0</code>, <code>$</code></td>
+<td align="left">To the start / end of the line</td>
 </tr>
 <tr>
-<td><code>(</code>, <code>)</code></td>
-<td>Forward / backward one sentence</td>
+<td align="left"><code>(</code>, <code>)</code></td>
+<td align="left">Forward / backward one sentence</td>
 </tr>
 <tr>
-<td><code>{</code>, <code>}</code></td>
-<td>Forward / backward one paragraph</td>
+<td align="left"><code>{</code>, <code>}</code></td>
+<td align="left">Forward / backward one paragraph</td>
 </tr>
 <tr>
-<td><code>gg</code>, <code>G</code></td>
-<td>To the start / end of the file</td>
+<td align="left"><code>gg</code>, <code>G</code></td>
+<td align="left">To the start / end of the file</td>
 </tr>
 </tbody>
 </table>
 <p>The difference between a word and a WORD is that the former only contains alphanumeric characters and underscores, while the latter includes everything up to the next whitespace.</p>
 <h1>Commands and config files.</h1>
 <p>Setup the environment</p>
-<div class="highlight"><pre>goto_level <span class="m">2</span>
+<div class="highlight"><pre><span></span>goto_level <span class="m">2</span>
 </pre></div>
 
 
@@ -180,20 +180,20 @@
 </tbody>
 </table>
 <p>To perform commands on a whole line:</p>
-<p><code>dd</code>: <em>delete line</em><br />
-<code>yy</code>: <em>copy line</em><br />
-<code>C</code>: <em>change the line from the cursor position</em><br />
-<code>S</code>: <em>change the entire line</em><br />
+<p><code>dd</code>: <em>delete line</em><br>
+<code>yy</code>: <em>copy line</em><br>
+<code>C</code>: <em>change the line from the cursor position</em><br>
+<code>S</code>: <em>change the entire line</em><br>
 <code>5dd</code>: <em>delete 5 lines</em>  </p>
 <p>Other useful commands:</p>
-<p><code>x</code>: <em>delete the character under the cursor</em><br />
-<code>r</code>: <em>replace the character under the cursor</em><br />
-<code>u</code>, <code>Ctrl-r</code>: <em>undo / redo</em><br />
-<code>p</code>: <em>paste after/below the cursor</em><br />
-<code>P</code>: <em>paste before/above the cursor</em><br />
+<p><code>x</code>: <em>delete the character under the cursor</em><br>
+<code>r</code>: <em>replace the character under the cursor</em><br>
+<code>u</code>, <code>Ctrl-r</code>: <em>undo / redo</em><br>
+<code>p</code>: <em>paste after/below the cursor</em><br>
+<code>P</code>: <em>paste before/above the cursor</em><br>
 <code>.</code>: <em>repeat the last command</em>  </p>
 <p>Some examples of combined commands:</p>
-<div class="highlight"><pre><span class="n">d2w</span> <span class="c1"># Delete 2 words</span>
+<div class="highlight"><pre><span></span><span class="n">d2w</span> <span class="c1"># Delete 2 words</span>
 <span class="n">yis</span> <span class="c1"># Yank (copy) inside sentence</span>
 <span class="n">ct</span><span class="p">{</span><span class="n">character</span><span class="p">}</span> <span class="c1"># Change up to the next {character}</span>
 <span class="n">dW</span> <span class="c1"># delete (1) WORD</span>
@@ -201,7 +201,7 @@
 
 
 <p>Many commands can also be preceded by a number - this will tell <strong>VIM</strong> to repeat the command N times. E.g.:</p>
-<div class="highlight"><pre><span class="mi">30</span><span class="n">i</span><span class="o">*</span> <span class="o">&lt;</span><span class="n">ESC</span><span class="o">&gt;</span> <span class="c1"># Insert 30 asterisks (*)</span>
+<div class="highlight"><pre><span></span><span class="mi">30</span><span class="n">i</span><span class="o">*</span> <span class="o">&lt;</span><span class="n">ESC</span><span class="o">&gt;</span> <span class="c1"># Insert 30 asterisks (*)</span>
 <span class="mi">3</span><span class="n">p</span> <span class="c1"># Paste 3 times</span>
 </pre></div>
 
@@ -210,33 +210,33 @@
 <h2>Config file</h2>
 <p>The .vimrc file contains optional runtime configuration settings, such as key maps, customisation and plugin management.</p>
 <p>For example, the following line allows you to use <code>jk</code> instead of <code>&lt;ESC&gt;</code> to return to normal mode. This tends to be more efficient since your hands don't need to leave the home keys.</p>
-<div class="highlight"><pre><span class="nb">inoremap</span> jk <span class="p">&lt;</span>esc<span class="p">&gt;</span>
+<div class="highlight"><pre><span></span><span class="nb">inoremap</span> jk <span class="p">&lt;</span>esc<span class="p">&gt;</span>
 </pre></div>
 
 
 <p>Feel free to look at the .vimrc files used in the different levels for an example of what they are used for.</p>
 <p>For your own use, a recommended vim configuration can be found <a href="here">https://gitlab.com/Nanoseb/feeg6003-vim/blob/master/level_5/.vimrc</a>.</p>
 <h1>More advanced navigation</h1>
-<div class="highlight"><pre>goto_level <span class="m">3</span>
+<div class="highlight"><pre><span></span>goto_level <span class="m">3</span>
 </pre></div>
 
 
 <p>Trying to navigate a large file using the hjkl keys can feel slow and clunky, even using the navigation commands described earlier. Here we will introduce two ways to speed up navigation.</p>
 <p>Firstly, modifiers can be placed before navigation commands, e.g.:</p>
-<p><code>2w</code>: <em>Move forward two words</em><br />
+<p><code>2w</code>: <em>Move forward two words</em><br>
 <code>5l</code>: <em>Move right 5 characters</em>  </p>
 <p>You can go to a specific line number by typing, e.g., <code>:10</code> or <code>10G</code> to go to line 10.</p>
 <p>Finally, in <strong>VIM</strong> you can search for both characters and strings. When combined with <strong>VIM</strong> commands, this can enable rapid editing of an large file...</p>
 <h3>Searching for characters</h3>
 <p>Search for closing bracket )</p>
-<div class="highlight"><pre><span class="n">t</span><span class="p">)</span> <span class="c1"># Jump up to )</span>
+<div class="highlight"><pre><span></span><span class="n">t</span><span class="p">)</span> <span class="c1"># Jump up to )</span>
 <span class="n">f</span><span class="p">)</span> <span class="c1"># Jump onto )</span>
 <span class="p">;</span> <span class="c1"># (After searching) jump to the next occurance</span>
 </pre></div>
 
 
 <p>The above commands can also be used as a noun in combined commands:</p>
-<div class="highlight"><pre><span class="n">ct</span><span class="p">)</span> <span class="c1"># Change all text up to the next )</span>
+<div class="highlight"><pre><span></span><span class="n">ct</span><span class="p">)</span> <span class="c1"># Change all text up to the next )</span>
 </pre></div>
 
 
@@ -244,14 +244,14 @@
 <h3>Searching for strings</h3>
 <p>This is more useful than character searching, and you will use it very regularly.</p>
 <p>Search for all occurances of a certain string:</p>
-<div class="highlight"><pre><span class="o">/</span><span class="n">string</span> <span class="c1"># Find all occurances of string</span>
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">string</span> <span class="c1"># Find all occurances of string</span>
 <span class="o">*</span> <span class="c1"># Find all occurances of the word under the cursor</span>
 <span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span> <span class="c1"># Replace all occurances of old with new</span>
 </pre></div>
 
 
 <p>Jump between occurances of the string:</p>
-<div class="highlight"><pre><span class="n">n</span> <span class="c1"># Jump to next</span>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="c1"># Jump to next</span>
 <span class="n">N</span> <span class="c1"># Jump to previous</span>
 </pre></div>
 
@@ -297,17 +297,17 @@
 - In a new tab <code>:tabe path/to/file</code></p>
 <h3>Text <code>s</code>ubstitution</h3>
 <p>Text substitution is also quite useful, the syntax is simular to the command line tool <code>sed</code>.</p>
-<div class="highlight"><pre><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span>    <span class="c1"># act on the current line/selection</span>
+<div class="highlight"><pre><span></span><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span>    <span class="c1"># act on the current line/selection</span>
 </pre></div>
 
 
 <p>If one want to substitute every iteration on the line, <code>g</code> is needed like so:</p>
-<div class="highlight"><pre><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>    <span class="c1"># modify every &#39;old&#39; of the line</span>
+<div class="highlight"><pre><span></span><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>    <span class="c1"># modify every &#39;old&#39; of the line</span>
 </pre></div>
 
 
 <p>To apply the substitution on the entire file, just add a <code>%</code> at the begining:</p>
-<div class="highlight"><pre><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>    <span class="c1"># act on the entire file</span>
+<div class="highlight"><pre><span></span><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>    <span class="c1"># act on the entire file</span>
 </pre></div>
 
 
@@ -333,7 +333,7 @@
 </tbody>
 </table>
 <p>Here are a couple of examples:</p>
-<div class="highlight"><pre>:r ! ls 
+<div class="highlight"><pre><span></span>:r ! ls 
 :! sort          # alphabetical sort of lines (-R for random)
 :! bc            # computes simple calculus using bc
 </pre></div>
@@ -358,7 +358,7 @@
 <ul>
 <li>First you can have a look at its structure/code: </li>
 </ul>
-<div class="highlight"><pre> cd headerplugin
+<div class="highlight"><pre><span></span> cd headerplugin
  ls -R 
  vim -p plugin/*
 </pre></div>
@@ -367,7 +367,7 @@
 <ul>
 <li>One liner installation:</li>
 </ul>
-<div class="highlight"><pre>cp -r headerplugin ~/.vim/bundle/headerplugin
+<div class="highlight"><pre><span></span>cp -r headerplugin ~/.vim/bundle/headerplugin
 </pre></div>
 
 

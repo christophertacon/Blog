@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Computational Modelling Tools Workshops - IDE</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+
+        <!-- Addition to include keys -->
+        <link rel="stylesheet" href="./theme/css/keys.css" type="text/css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">Computational Modelling Tools Workshops </a></h1>
+                <nav><ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="archives.html">Archive</a></li>
+                    <li><a href="tags.html">Tags</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="./Processing-Blog.html">Processing Language Basics</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-03-06T00:00:00+01:00">
+                Published: Tue 06 March 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author-james-brooks.html">James Brooks</a>
+                        <a class="url fn" href="./author-chris-tacon.html">Chris Tacon</a>
+        </address>
+<p>In <a href="./category-processing.html">Processing</a>. </p>
+<p>tags: <a href="./tag-processing.html">processing</a> <a href="./tag-visualisation.html">visualisation</a> <a href="./tag-visualization.html">visualization</a> <a href="./tag-art.html">art</a> <a href="./tag-coding.html">coding</a> <a href="./tag-language.html">language</a> <a href="./tag-ide.html">IDE</a> </p>
+</footer><!-- /.post-info --><h1>Introduction to Processing</h1>
+<p><strong>Processing</strong> is a spinoff of Java designed to simplify the task of creating complex visualisations, computational artworks, GUIs and games! Since its origins lie in Java, it is object orientated and shares a common syntax. Processing is also open source and can be run and coded on Windows, Mac or Linux.</p>
+<p>Processing was developed back in 2001 by Casey Reas and Ben Fry at the MIT Media Lab and was further developed by the Processing Foundation along with Daniel Shiffman.</p>
+<h1>How to Open Processing</h1>
+<p>If you are using the Virtual Machine supplied for the workshop:<br>
+<strong><em>Step 1</em></strong>: Boot up the virtual machine<br>
+<strong><em>Step 2</em></strong>: Open a terminal (e.g. LXTerminal)<br>
+<strong><em>Step 3</em></strong>: Type the following into the terminal:</p>
+<div class="highlight"><pre><span></span><span class="k">cd</span> processing<span class="m">-3</span>.<span class="m">3</span>.<span class="m">6</span>
+./processing
+</pre></div>
+
+
+<p>Processing files are contained within folders (or directories) of the same name. They have the extension: <strong><em>.pde</em></strong><br>
+Easiest to open Processing files from within the Processing IDE.</p>
+<h1>Handy Links</h1>
+<p><a href="https://www.processing.org/download">Downloads</a>
+<a href="https://www.processing.org/tutorials/">Online Tutorials</a>
+<a href="https://www.processing.org/examples/">Example Code</a></p>
+<h1>How to Code in Processing</h1>
+<p>As Processing is built on the Java language the syntax is similar and the coding is object orientated. There are two key functions when writing a Processing program: the <strong>setup()</strong> and <strong>draw()</strong> functions.</p>
+<p>The setup() function is run once while the draw() function is run on a loop at each frame. The setup() function should therefore contain the code needed at the beginning of the program such as declaring the size of the canvas and initializing any objects and variables.</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">size</span><span class="o">(</span><span class="mi">100</span><span class="o">,</span> <span class="mi">200</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>This code would setup the canvas with dimensions 100x200. This simultaneously sets the values of the variables <strong>width</strong> and <strong>height</strong> to be 100 and 200 respectively. The coordinates of a point on the canvas are given by (x, y) where x,y travel along the width and height respectively. The origin (0,0) of the canvas is at the top left corner and so y increases as you both down the canvas.</p>
+<h2>Hello World</h2>
+<p>In Processing it is possible to print output to the command line visible in the IDE using the command <strong>println()</strong>. Printing to the command line can be useful to determine information about your program but is not what Processing is made for. For example to write the phrase "Hello World" on the canvas we could use the code:</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">setup</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">size</span><span class="o">(</span><span class="mi">400</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
+    <span class="n">background</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">draw</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">stroke</span><span class="o">(</span><span class="mi">255</span><span class="o">);</span>
+    <span class="n">textAlign</span><span class="o">(</span><span class="n">CENTER</span><span class="o">);</span>
+    <span class="n">textSize</span><span class="o">(</span><span class="mi">40</span><span class="o">);</span>
+    <span class="n">text</span><span class="o">(</span><span class="s">&quot;Hello World&quot;</span><span class="o">,</span> <span class="mi">200</span><span class="o">,</span> <span class="mi">200</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Lets break down exactly what this code is doing: The setup function is called when the program is run and sets up a canvas of size 400x400 with a Black background (We will cover colours in more detail later). The draw function is then run repeatedly, in this case the program is actually writing the phrase to the screen repeatedly at each frame and visually we would see the same result by placing all the code within the setup() function. Inside the draw() function we set the stroke to 255 which means the text will be white and the text size to be at 40pts. We then display the text "Hello World" at coordinates (200,200) which which is at the center of the text due to the align setting. </p>
+<h2>Shapes</h2>
+<p>below is a list of the code to draw several common types of shapes:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>point(x, y);</code></td>
+<td align="left"><code>Point</code></td>
+</tr>
+<tr>
+<td align="left"><code>line(x1,y1,x2,y2);</code></td>
+<td align="left"><code>Line</code></td>
+</tr>
+<tr>
+<td align="left"><code>rect(x,y,width,height);</code></td>
+<td align="left"><code>Rectangle</code></td>
+</tr>
+<tr>
+<td align="left"><code>triangle(x1,y1,x2,y2,x3,y3);</code></td>
+<td align="left"><code>Triangle</code></td>
+</tr>
+<tr>
+<td align="left"><code>ellipse(x,y,width,height);</code></td>
+<td align="left"><code>Ellipse</code></td>
+</tr>
+<tr>
+<td align="left"><code>arc(x,y,width,height,start,stop)</code></td>
+<td align="left"><code>Arc</code></td>
+</tr>
+<tr>
+<td align="left"><code>box(width,height,depth);</code></td>
+<td align="left"><code>Box</code></td>
+</tr>
+<tr>
+<td align="left"><code>sphere(radius);</code></td>
+<td align="left"><code>Sphere</code></td>
+</tr>
+</tbody>
+</table>
+<p>Some important alligning functions when placing these shapes on the canvas are:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Shape</th>
+<th align="left">Function</th>
+<th align="left">Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Rectangle</code></td>
+<td align="left"><code>rectMode(mode)</code></td>
+<td align="left"><code>CORNER or CENTER</code></td>
+</tr>
+<tr>
+<td align="left"><code>Ellipse</code></td>
+<td align="left"><code>ellipseMode(mode)</code></td>
+<td align="left"><code>RADIUS or CENTER</code></td>
+</tr>
+<tr>
+<td align="left"><code>Text</code></td>
+<td align="left"><code>textAlign(horizontal, vertical)</code></td>
+<td align="left"><code>horizontal: LEFT,RIGHT,CENTER vertical: TOP,BOTTOM,CENTER</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Colours</h2>
+<p>In this section we will talk about how to add colour to your program. Colours in Processing are described by numbers ranging from 0-255, where 0 represents a 'weak' amount colour and '255' a strong amount colour. For example if we consider the familiar function:</p>
+<div class="highlight"><pre><span></span><span class="n">background</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+</pre></div>
+
+
+<p>When we have a single input the number represents the amount of white, therefore for here where we have 0 the background will be black. Similary if we put 255 the background would be white and for numbers in between varying shades of grey.</p>
+<p>Colours can also be defined by a tuple <strong>(R,G,B)</strong> representing Red, Green and Blue respectively. The strength of each colour is given by a number ranging between 0-255 as before.</p>
+<p>The following functions can be used to insert a colour:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Function</th>
+<th align="left">Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">background(R, G, B);</td>
+<td align="left">Background Colour</td>
+</tr>
+<tr>
+<td align="left">fill(R,G,B);</td>
+<td align="left">Fill Colour</td>
+</tr>
+<tr>
+<td align="left">noFill();</td>
+<td align="left">Remove Fill (Fully Transparent)</td>
+</tr>
+<tr>
+<td align="left">stroke(R,G,B);</td>
+<td align="left">Border/Line Colour</td>
+</tr>
+<tr>
+<td align="left">noStroke();</td>
+<td align="left">Remove Borders</td>
+</tr>
+</tbody>
+</table>
+<p>We should say here that the order of which these statements appear matters, everything after a fill() statement will be filled with that colour and so care must be taken when applying colour.</p>
+<p>There is also another variable <strong>alpha</strong> which can be added as an argument i.e <strong>(R, G, B, alpha)</strong>, this sets the transparancy and also ranges from 0-255 with 0 being completely transparent and 255 opaque.</p>
+<h2>IO</h2>
+<p>Below we will list the code for various methods to load input data and write output:</p>
+<p><strong>Loading in Text File</strong></p>
+<div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">lines</span><span class="o">[]</span> <span class="o">=</span> <span class="n">loadStrings</span><span class="o">(</span><span class="s">&quot;data.text&quot;</span><span class="o">);</span>      <span class="c1">//Load lines of text</span>
+<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">lines</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>         <span class="c1">//Cycle through each line</span>
+    <span class="n">String</span> <span class="n">pieces</span><span class="o">[]</span> <span class="o">=</span> <span class="n">split</span><span class="o">(</span><span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="sc">&#39;\t&#39;</span><span class="o">);</span>    <span class="c1">//Split each line into words</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><strong>Loading in Image File</strong></p>
+<div class="highlight"><pre><span></span><span class="n">Pimage</span> <span class="n">img</span><span class="o">;</span>             <span class="c1">//Declare variable of Pimage type</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">loadimage</span><span class="o">(</span><span class="s">&quot;myImage.jpg&quot;</span><span class="o">);</span>     <span class="c1">//Load the image into the program</span>
+<span class="n">image</span><span class="o">(</span><span class="n">img</span><span class="o">,</span><span class="n">x</span><span class="o">,</span><span class="n">y</span><span class="o">,</span><span class="n">width</span><span class="o">,</span><span class="n">height</span><span class="o">);</span>        <span class="c1">//Place image</span>
+</pre></div>
+
+
+<p><strong>Writing to Text File</strong></p>
+<div class="highlight"><pre><span></span><span class="n">PrintWriter</span> <span class="n">output</span> <span class="o">=</span> <span class="n">createWriter</span><span class="o">(</span><span class="s">&quot;DataOut.txt&quot;</span><span class="o">);</span>       <span class="c1">//Create output file</span>
+<span class="n">output</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">DataToWrite</span><span class="o">);</span>                    <span class="c1">//Write to file</span>
+<span class="n">output</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>                         <span class="c1">//Close write file</span>
+</pre></div>
+
+
+<p><strong>Print to Console</strong></p>
+<div class="highlight"><pre><span></span><span class="n">println</span><span class="o">(</span><span class="s">&quot;String&quot;</span><span class="o">);</span>  <span class="c1">//test</span>
+</pre></div>
+
+
+<h2>Interactivity</h2>
+<p>In Processing you are able to interact with the canvas using the mouse and keyboard this opens up opportunities to be create by adding in buttons, maneuverability and other possiblities.</p>
+<h3>Keyboard</h3>
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="o">(</span><span class="n">keyPressed</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">key</span> <span class="o">==</span> <span class="err">&#39;</span><span class="n">alphanumeric</span><span class="err">&#39;</span><span class="o">)</span> <span class="o">{</span>
+        <span class="cm">/*functionality*/</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
+</pre></div>
+
+
+<p>This code begins by checking if the key pressed is alphanumeric, that is a letter a-z or number 0-9. Having checked that you can add some functionality to respond to the key being pressed. The <strong>keyPressed</strong> variable is a bollean and takes the value true if a key is pressed and false if not.</p>
+<p><strong>Special keys</strong></p>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">keyPressed</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">key</span> <span class="o">==</span> <span class="n">CODED</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">keyCode</span> <span class="o">==</span> <span class="n">see</span> <span class="n">below</span><span class="o">)</span> <span class="o">{</span>
+            <span class="cm">/*functionality*/</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>This code checks to see if a key is pressed, it then checks to see if the key is 'coded'. The keyCodes for these special coded keys include: ALT, CONTROL, SHIFT, UP, DOWN, LEFT, RIGHT.</p>
+<h3>Mouse</h3>
+<div class="highlight"><pre><span></span><span class="n">mouseX</span><span class="o">;</span>         <span class="c1">//Takes the value of the x coordinate in pixels of the cursor on the canvas</span>
+<span class="n">mouseY</span><span class="o">;</span>         <span class="c1">//Takes the value of the y coordinate in pixels of the cursor on the canvas</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">pmouseX</span><span class="o">;</span>        <span class="c1">//x position of cursor at previous frame</span>
+<span class="n">pmouseY</span><span class="o">;</span>        <span class="c1">//y position of cursor at previous frame</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">mousePressed</span> <span class="o">==</span> <span class="n">True</span><span class="o">)</span> <span class="o">{</span>
+    <span class="cm">/*functionality*/</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>As with the keyboard the mousePressed variable is a boolean returning true if a mouse button is pressed and false otherwise.</p>
+<h2>Object Orientated Programming</h2>
+<p>In this section we we will give a brief introduction into object orientated programming and classes. Object orientated programming works by defining a class of objects which share the same attributes: For example you might have a class Ball with attributes of colour and radius.</p>
+<p>An object is then defined as an instance of this class with given values for these attributes: For example the object red ball is an instance of the class Ball.</p>
+<p>You declare an object as you would a variable:</p>
+<div class="highlight"><pre><span></span><span class="n">Classname</span> <span class="n">object</span><span class="o">;</span>           <span class="c1">//E.g Ball red_ball</span>
+</pre></div>
+
+
+<p>You can then initialise this object:</p>
+<div class="highlight"><pre><span></span><span class="n">object1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Classname</span><span class="o">(</span><span class="n">Temp</span> <span class="n">Values</span><span class="o">);</span>
+</pre></div>
+
+
+<p>This creates a new object of the type Classname with specific attributes given by Temp Values. For example <strong>red_ball = new Ball([255, 0, 0]);</strong>.</p>
+<p><strong>Class Structure</strong></p>
+<div class="highlight"><pre><span></span><span class="n">Class</span> <span class="n">Classname</span> <span class="o">{</span>
+    <span class="c1">//Class Variables</span>
+    <span class="n">Var_type</span> <span class="n">Var_name</span><span class="o">;</span>
+    <span class="c1">//Constructor</span>
+    <span class="n">Classname</span><span class="o">(</span><span class="n">Temp</span> <span class="n">Values</span><span class="o">)</span> <span class="o">{</span>
+        <span class="cm">/*Assign value to variable</span>
+<span class="cm">        From temporary variable*/</span>
+        <span class="n">Var_name</span> <span class="o">=</span> <span class="n">Temp_Var</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//Class Functions</span>
+    <span class="n">Return_type</span> <span class="nf">function</span><span class="o">(</span><span class="cm">/*External Inputs*/</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>The values entered when initializing the object are passed to the constructor within the class which generates the new instance of the class, the object. You can also define functions within the class, these functions are then called on the object using the syntax:</p>
+<div class="highlight"><pre><span></span><span class="n">object</span><span class="o">.</span><span class="na">function</span><span class="o">(</span><span class="n">values</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Where the values correspond to the external inputs defined in the class. For example you may have a display() function for the ball which draws the red ball.</p>
+<h1>Resources</h1>
+<p>PDF Slides: <a href="./Processing/Slides.pdf">Presentation Slides</a></p>
+<p>Powerpoint Slides: <a href="./Processing/Slides.pdf">Powerpoint Slides</a></p>
+<p>Crib Sheet Docx: <a href="./Processing/Crib.docx">Crib Sheet Docx</a></p>
+<p>Crib Sheet PDF: <a href="./Processing/Crib.pdf">Crib Sheet PDF</a></p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.ngcm.soton.ac.uk/blog/">NGCM Blog</a></li>
+                            <li><a href="http://cmg.soton.ac.uk/">CMG</a></li>
+                            <li><a href="http://www.southampton.ac.uk">Uni Southampton</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/NGCM_Soton">NGCM Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+        
+        <!--         
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+        -->
+
+                </address><!-- /#about -->
+                <!--
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+            -->
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

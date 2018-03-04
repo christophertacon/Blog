@@ -49,7 +49,7 @@
 <p>The virtual machine contains the text editor Sublime Text 3. For all of these exercises and examples, code should be written and run in this editor. When you are ready to run the code you have written, simply press Ctrl-B and the program will compile using the in-built C++ build system.</p>
 <p>Pre-written source files providing examples of some of the concepts discussed can be found in the 'C++' folder located on the desktop. A small number of these examples run using the newer C++11 system; in order to build these examples, you will need to select Tools&gt;Build&gt;C++11 from the Sublime Text 3 toolbar.</p>
 <p>In order to make your code run correctly, include these lines at the top of each new program:</p>
-<div class="highlight"><pre><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -57,7 +57,7 @@
 <h2>Tutorial 1: object-oriented programming</h2>
 <p>The slides provide an introduction to creating new classes and objects in C++. Let's apply these ideas to a more interesting problem. Suppose we wish to create a database of footballers (a standard task for a fantasy football league, for instance). Attributes such as name, club, games played, goals scored and goal assists will be common to all players. Goals conceded and number of clean sheets are relevant only to defenders and goalkeepers; the number of saves made applies to goalkeepers and no other players. Object orientation in general, and inheritance in particular, provides us with the tools needed to do this.</p>
 <p>We need a general &quot;Footballer&quot; class:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Footballer</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Footballer</span>
 <span class="p">{</span>
         <span class="k">protected</span><span class="o">:</span>
                 <span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">club</span><span class="p">;</span>
@@ -75,7 +75,7 @@
 </pre></div>
 <p>(Optional exercise: rewrite this to use a constructor methods instead of the setValues routine.)</p>
 <p>&quot;Defender&quot; should be a subclass of &quot;Footballer&quot;, inheriting all of its parent class's attributes and adding its own:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">Defender</span><span class="o">:</span> <span class="k">public</span> <span class="n">Footballer</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Defender</span><span class="o">:</span> <span class="k">public</span> <span class="n">Footballer</span>
 <span class="p">{</span>
         <span class="k">protected</span><span class="o">:</span>
                 <span class="kt">int</span> <span class="n">clean_sheets</span><span class="p">,</span> <span class="n">goals_conceded</span><span class="p">;</span>
@@ -92,7 +92,7 @@
 <li>Exercise: create a &quot;Goalkeeper&quot; subclass, inheriting the &quot;Footballer&quot; class with additional integer variables for clean sheets, goals conceded and saves.</li>
 </ul>
 <p>Now we can easily create players, input and view their statistics:</p>
-<div class="highlight"><pre>    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+<div class="highlight"><pre><span></span>    <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
     <span class="n">Footballer</span> <span class="n">PeterCrouch</span> <span class="p">;</span> <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Peter Crouch&quot;</span><span class="p">,</span> <span class="s">&quot;Stoke City&quot;</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">;</span>
     <span class="n">Defender</span> <span class="n">GarethMcAuley</span> <span class="p">;</span> <span class="n">GarethMcAuley</span><span class="p">.</span><span class="n">setValues</span><span class="p">(</span><span class="s">&quot;Gareth McAuley&quot;</span><span class="p">,</span> <span class="s">&quot;West Bromwich Albion&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">;</span>
     <span class="n">Crouch_Goals</span> <span class="o">=</span> <span class="n">PeterCrouch</span><span class="p">.</span><span class="n">getGoalsScored</span><span class="p">()</span>
@@ -106,7 +106,7 @@
 <div class="section" id="tutorial-2-virtual-functions-and-operator-overloading">
 <h2>Tutorial 2: Virtual functions and operator overloading</h2>
 <p>In the previous section, we use the same function name &quot;setValues&quot; for both the &quot;Footballer&quot; and &quot;Defender&quot; classes. This is OK provided we only call these methods directly from our &quot;main&quot; function. If we instead try to call the &quot;setValues&quot; function from inside another function, problems can arise. Consider a function which takes an already-existing player's games, goals and assists and updates them:</p>
-<div class="highlight"><pre><span class="kt">int</span> <span class="nf">update</span><span class="p">(</span><span class="n">Footballer</span> <span class="n">Player</span><span class="p">,</span> <span class="kt">int</span> <span class="n">games_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">goals_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">assists_new</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">def</span><span class="p">){</span>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">update</span><span class="p">(</span><span class="n">Footballer</span> <span class="n">Player</span><span class="p">,</span> <span class="kt">int</span> <span class="n">games_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">goals_new</span><span class="p">,</span> <span class="kt">int</span> <span class="n">assists_new</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">def</span><span class="p">){</span>
     <span class="n">Name</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="p">;</span>
     <span class="n">Club</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getClub</span><span class="p">()</span> <span class="p">;</span>
     <span class="n">Games</span> <span class="o">=</span> <span class="n">Player</span><span class="p">.</span><span class="n">getGames</span><span class="p">()</span> <span class="p">;</span>
@@ -136,7 +136,7 @@
 </pre></div>
 <p>This code will run correctly for Peter Crouch, but returns an error when applied to Gareth McAuley. The reason is that when the &quot;update&quot; function calls the  If we rewrite the &quot;setValues&quot; function in the &quot;Footballer&quot; class to use the &quot;virtual&quot; keyword, the code will work correctly for both players.</p>
 <p>In the example in the slides, we overloaded the * operator to extend its functionality to include matrix multiplication. Let's see how this works in practice. First, we need to create a matrix class:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="nc">matrix</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">matrix</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
         <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
@@ -170,7 +170,7 @@
         <span class="p">}</span>
 </pre></div>
 <p>Don't worry too much about how this code works - the principles are more important the specifics. Now we need to include our new matrix multiplication operator (still inside the public methods of the class):</p>
-<div class="highlight"><pre>        <span class="n">matrix</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">matrix</span> <span class="n">x</span><span class="p">)</span><span class="c1">// overloading * for multiplication</span>
+<div class="highlight"><pre><span></span>        <span class="n">matrix</span> <span class="k">operator</span><span class="o">*</span><span class="p">(</span><span class="n">matrix</span> <span class="n">x</span><span class="p">)</span><span class="c1">// overloading * for multiplication</span>
         <span class="p">{</span>
         <span class="n">matrix</span> <span class="n">c</span><span class="p">;</span><span class="c1">// this will hold our result</span>
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
@@ -190,7 +190,7 @@
 <span class="p">};</span>
 </pre></div>
 <p>Now we can see how the operator works. Try generating two matrices (note that you will have to enter each entry of the matrix separately), and multiply them together:</p>
-<div class="highlight"><pre>    <span class="n">matrix</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
+<div class="highlight"><pre><span></span>    <span class="n">matrix</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">;</span>
 <span class="n">a</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
 <span class="n">b</span><span class="p">.</span><span class="n">set</span><span class="p">();</span>
 
@@ -236,7 +236,7 @@
 </div>
 <div class="section" id="introduction">
 <h2>Introduction</h2>
-<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low ...</p></div>
+<p>Julia is a newish programming language designed to provide high-level and high performance technical computing. It has a syntax that should be familiar to users of Matlab and Python. The languge is rapidly evolving and has a signigicantly increasing popultion of contributors. Julia is based around a LLVM (low …</p></div>
                 <a class="readmore" href="./Julia.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -262,7 +262,7 @@
 </footer><!-- /.post-info -->                <div class="figure align-center">
 <img alt="Sublime Text 2" src="./text-editors-sublime/sublime-images/st2_icon.png" style="width: 15%;" />
 </div>
-<p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs ...</p>
+<p>This entry is to accompany the module 'Advance Computational Methods Part II'. The aim is to firstly walk through how to install Sublime Text 2 (ST2) on your Linux operating system and then demonstrate the mighty power of this text editor and how to tweak it to your personal needs …</p>
                 <a class="readmore" href="./sublime.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>

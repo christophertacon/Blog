@@ -98,26 +98,26 @@
 <h1>Tutorial</h1>
 <p>1) Installing Vagrant</p>
 <p>Linux:</p>
-<div class="highlight"><pre>sudo apt-get install vagrant
+<div class="highlight"><pre><span></span>sudo apt-get install vagrant
 </pre></div>
 
 
 <p>Windows/OSX:</p>
 <p>Go to <a href="http://www.vagrantup.com">vagrant website</a> and download the appropriate install file for Windows or OSX. You can then proceed to install it like a standard program.</p>
 <p>2) Setting up our folder</p>
-<div class="highlight"><pre>mkdir vagrant
+<div class="highlight"><pre><span></span>mkdir vagrant
 </pre></div>
 
 
 <p>Vagrant works on the basis of project folders. Each folder that you set-up vagrant in, starts a new project that is seperate from any other vagrant setups on the host machine.</p>
 <p>3) Adding a box </p>
-<div class="highlight"><pre>vagrant box add &lt;BOX_NAME&gt;
+<div class="highlight"><pre><span></span>vagrant box add &lt;BOX_NAME&gt;
 </pre></div>
 
 
 <p>We have two boxes that we want to set-up today as part of this exercise. To begin with, we are setting up a 32bit Ubuntu box called 'hashicorp/precise32'. This is pulled from the default box provider in vagrant. </p>
 <p>4) Initialising Vagrant</p>
-<div class="highlight"><pre>vagrant init hashicorp/precise32
+<div class="highlight"><pre><span></span>vagrant init hashicorp/precise32
 </pre></div>
 
 
@@ -130,24 +130,24 @@ at the provisioning stage (when the machine is initially setup). This allows for
 <p>ie.
     /home/feeg6003/puppet/manifests/default.pp</p>
 <p>An example puppet file can be seen here for the system-update module:</p>
-<div class="highlight"><pre><span class="k">class</span> <span class="n">system-update</span>{
-<span class="n">exec</span>{<span class="s">&#39;apt-get update&#39;</span>:
-<span class="n">command</span> =&gt; <span class="s">&#39;apt-get update&#39;</span>,
-}
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">system</span><span class="o">-</span><span class="nx">update</span><span class="p">{</span>
+<span class="nx">exec</span><span class="p">{</span><span class="s1">&#39;apt-get update&#39;</span><span class="o">:</span>
+<span class="nx">command</span> <span class="o">=&gt;</span> <span class="s1">&#39;apt-get update&#39;</span><span class="p">,</span>
+<span class="p">}</span>
 
-<span class="nv">$sysPackages</span> = [<span class="s">&quot;build-essential&quot;</span>]
-<span class="k">package</span>{<span class="nv">$sysPackages:</span>
-<span class="n">ensure</span>=&gt; <span class="s">&quot;installed&quot;</span>,
-<span class="k">require</span>=&gt;<span class="n">Exec</span>[<span class="s">&#39;qpt-get update&#39;</span>],
-}
-}
+<span class="nx">$sysPackages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;build-essential&quot;</span><span class="p">]</span>
+<span class="kr">package</span><span class="p">{</span><span class="nx">$sysPackages</span>:
+<span class="kt">ensure</span><span class="o">=&gt;</span> <span class="s2">&quot;installed&quot;</span><span class="p">,</span>
+<span class="nx">require</span><span class="o">=&gt;</span><span class="nx">Exec</span><span class="p">[</span><span class="s1">&#39;qpt-get update&#39;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <p>To setup modules for puppet we need to create a folder in the puppet root folder named 'modules'. The structure for our modules are that the name of a folder created in 'modules' is the name of the module.</p>
 <p>Inside the module's folder we have a similar structure to our root puppet folder, with a manifests folder but this time the file in this folder is named 'init.pp'</p>
 <p>To run the module, the default puppet file needs to be written. For example here we have a complete puppet file that will run the modules 'gcc' and 'system-update'</p>
-<div class="highlight"><pre>Exec { path =&gt; [ &quot;/bin/&quot;, &quot;/sbin/&quot; , &quot;/usr/bin/&quot;, &quot;/usr/sbin/&quot; ] }
+<div class="highlight"><pre><span></span>Exec { path =&gt; [ &quot;/bin/&quot;, &quot;/sbin/&quot; , &quot;/usr/bin/&quot;, &quot;/usr/sbin/&quot; ] }
 
 include gcc
 include system-update
@@ -157,18 +157,18 @@ include system-update
 <p>6) Integrating puppet with vagrant and editing the Vagrantfile</p>
 <p>There are many variables that can be changed in the Vagrantfile, however most of these settings are present by default and can be commented out to exclude.  </p>
 <p>The most important ones needed to start a virtual machine are:</p>
-<div class="highlight"><pre>  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
+<div class="highlight"><pre><span></span>  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
 </pre></div>
 
 
 <p>This makes it possible to ssh into the virtual machine in vagrant and for it to support your connection to the terminal.</p>
-<div class="highlight"><pre>  config.vm.synced_folder &quot;./&quot;, &quot;/vagrant_check&quot;
+<div class="highlight"><pre><span></span>  config.vm.synced_folder &quot;./&quot;, &quot;/vagrant_check&quot;
 </pre></div>
 
 
 <p>This gives us the vagrant project folder and a folder in it named 'vagrant_check' that are synced.</p>
 <p>Finally we need to activate our puppet scripts to run correctly. We do this by enabling provisioning with a shell script at the end of the file using the following code:</p>
-<div class="highlight"><pre>config.vm.provision :puppet do |puppet|
+<div class="highlight"><pre><span></span>config.vm.provision :puppet do |puppet|
 puppet.manifests_path = &quot;puppet/manifests&quot;
 puppet.options = [&#39;--verbose&#39;]
 puppet.module_path = &quot;puppet/modules&quot;
@@ -180,13 +180,13 @@ end
 <p><img src="./virtualisation-vagrant/images/vagrantfile.png"  style="width: 600px"/></p>
 <p>7) Running the virtual machine</p>
 <p>To run a virtual machine we need to tell vagrant to start the box, we do this with the command </p>
-<div class="highlight"><pre>vagrant up
+<div class="highlight"><pre><span></span>vagrant up
 </pre></div>
 
 
 <p>8) Terminal control</p>
 <p>To connect to the virtual machine and control it from the terminal we can <code>ssh</code> in using:</p>
-<div class="highlight"><pre>vagrant ssh
+<div class="highlight"><pre><span></span>vagrant ssh
 </pre></div>
 
 
@@ -195,7 +195,7 @@ end
 <h1>Tutorial 2 - Configuring multiple machines</h1>
 <p>To setup multiple virtual machines in vagrant we need to add an additional box. This is done in the same way as the tutorial 1, except this time add the box 'chef/centos-6.5-i386'.</p>
 <p>Now we need to edit our Vagrantfile so that it will run both virtual machines and not just our original one.</p>
-<div class="highlight"><pre>Vagrant.configure(&quot;2&quot;) do |config|
+<div class="highlight"><pre><span></span>Vagrant.configure(&quot;2&quot;) do |config|
 config.vm.provision &quot;shell&quot;, inline: &quot;echo Hello&quot;
 
 config.vm.define &quot;ubuntu&quot; do |web|
@@ -210,7 +210,7 @@ end
 
 
 <p>This replaces our current machine selection shown in the default Vagrantfile below</p>
-<div class="highlight"><pre>Every Vagrant development environment requires a box. You can search for
+<div class="highlight"><pre><span></span>Every Vagrant development environment requires a box. You can search for
 boxes at https://atlas.hashicorp.com/search.
 config.vm.box = &quot;hashicorp/precise32&quot;
 </pre></div>
@@ -218,18 +218,18 @@ config.vm.box = &quot;hashicorp/precise32&quot;
 
 <p>The first two lines of this will be commented out.</p>
 <p>Now that we have multiple machines we can choose which ones we want to launch, if we use</p>
-<div class="highlight"><pre>vagrant up
+<div class="highlight"><pre><span></span>vagrant up
 </pre></div>
 
 
 <p>as before all of the virtual machines will run at once, however we can also use</p>
-<div class="highlight"><pre>vagrant up &lt;vm name&gt;
+<div class="highlight"><pre><span></span>vagrant up &lt;vm name&gt;
 </pre></div>
 
 
 <p>to just run one of the virtual machines.</p>
 <p>This also effects the way we have to ssh into our machines, now we have to use</p>
-<div class="highlight"><pre>vagrant ssh &lt;vm name&gt;
+<div class="highlight"><pre><span></span>vagrant ssh &lt;vm name&gt;
 </pre></div>
 
 
@@ -240,26 +240,26 @@ config.vm.box = &quot;hashicorp/precise32&quot;
 <p>(Note: You could use puppet, but it is a lot harder as we are compiling our code from source since there is no up to date package for OpenMPI.)</p>
 <h2>Setting up the vagrant machine</h2>
 <p>Before we deploy our code we need to set up a virtual machine with the required OpenMPI packages to run it. As before, we initialise a new vagrant machine using <em>vagrant init</em> </p>
-<div class="highlight"><pre>vagrant init
+<div class="highlight"><pre><span></span>vagrant init
 </pre></div>
 
 
 <p>This creates a Vagrantfile where we can specify the provisioning instructions. Before we do this, we create the provisioning shell script. </p>
 <h3>Creating the shell script</h3>
 <p>Update the system and install <code>build essentials</code> and <code>make</code>, as the box we are using does not come pre-installed with these</p>
-<div class="highlight"><pre>sudo apt-get update -y
+<div class="highlight"><pre><span></span>sudo apt-get update -y
 sudo apt-get install build-essential make -y
 </pre></div>
 
 
 <p>Next download the source code for builing OpenMPI using <code>wget</code> with the <code>--no-check-certificate</code> to stop it prompting you to confirm the connection.</p>
-<div class="highlight"><pre>wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.3.tar.gz --no-check-certificate
+<div class="highlight"><pre><span></span>wget https://www.open-mpi.org/software/ompi/v1.8/downloads/openmpi-1.8.3.tar.gz --no-check-certificate
 tar -xvf openmpi-1.8.3.tar.gz
 </pre></div>
 
 
 <p>Configure and install OpenMPI in a new directory </p>
-<div class="highlight"><pre>mkdir /home/vagrant/openmpi
+<div class="highlight"><pre><span></span>mkdir /home/vagrant/openmpi
 cd openmpi-1.8.3
 ./configure --prefix=&quot;/home/vagrant/openmpi&quot;
 
@@ -271,20 +271,20 @@ sudo make install
 
 
 <p>Export the OpenMPI package path to the bash settings file</p>
-<div class="highlight"><pre><span class="x">echo export PATH=&quot;</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.bashrc</span>
-<span class="x">echo export LD_LIBRARY_PATH=&quot;</span><span class="p">$</span><span class="nv">LD_LIBRARY_PATH</span><span class="x">:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.bashrc</span>
+<div class="highlight"><pre><span></span>echo export PATH=&quot;$PATH:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.bashrc
+echo export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.bashrc
 </pre></div>
 
 
 <p>This makes Open MPI available when running through an interactive shell. To use it through <code>ssh</code>, add </p>
-<div class="highlight"><pre><span class="x">echo export PATH=&quot;</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.profile</span>
-<span class="x">echo export LD_LIBRARY_PATH=&quot;</span><span class="p">$</span><span class="nv">LD_LIBRARY_PATH</span><span class="x">:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.profile</span>
+<div class="highlight"><pre><span></span>echo export PATH=&quot;$PATH:/home/vagrant/openmpi/bin&quot; &gt;&gt; /home/vagrant/.profile
+echo export LD_LIBRARY_PATH=&quot;$LD_LIBRARY_PATH:/home/vagrant/openmpi/lib/&quot; &gt;&gt; /home/vagrant/.profile
 </pre></div>
 
 
 <h3>Vagrantfile file settings</h3>
 <p>We can now modify the Vagrantfile to run our script when provisioning the vagrant machine. To do this, add the following lines to your vagrant file</p>
-<div class="highlight"><pre>config.vm.provision :shell, :path =&gt; &quot;provision.sh&quot;
+<div class="highlight"><pre><span></span>config.vm.provision :shell, :path =&gt; &quot;provision.sh&quot;
 </pre></div>
 
 
@@ -296,7 +296,7 @@ sudo make install
 <p>Here we use a simple shell script shown below to deploy the <code>hello.c</code> program</p>
 <p><img src="./virtualisation-vagrant/images/run_script.png"  style="width: 400px"/></p>
 <p>Executing the following command runs the script to compile and run hello.c</p>
-<div class="highlight"><pre>vagrant ssh -c &quot;bash /vagrant/run_mpi.sh&quot;
+<div class="highlight"><pre><span></span>vagrant ssh -c &quot;bash /vagrant/run_mpi.sh&quot;
 </pre></div>
 
 
